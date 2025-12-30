@@ -1,6 +1,6 @@
 [submodule "Packages/UIPresentationFlow"]
-	path = Assets/UIPresentationFlow/UIPresentationFlow
+	path = Assets/CPS.UI/UIPresentationFlow
 	url = https://github.com/123456789qwaszx/UIPresentationFlow
 [submodule "Packages/CinematicDialogueFramework"]
-	path = Assets/CinematicDialogueFramework/CinematicDialogueFramework
+	path = Assets/CPS.Dialogue/CinematicDialogueFramework
 	url = https://github.com/123456789qwaszx/CinematicDialogueFramework
