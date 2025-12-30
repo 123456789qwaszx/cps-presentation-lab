@@ -1,0 +1,6 @@
+[submodule "Packages/UIPresentationFlow"]
+	path = Packages/UIPresentationFlow
+	url = https://github.com/123456789qwaszx/UIPresentationFlow
+[submodule "Packages/CinematicDialogueFramework"]
+	path = Packages/CinematicDialogueFramework
+	url = https://github.com/123456789qwaszx/CinematicDialogueFramework
