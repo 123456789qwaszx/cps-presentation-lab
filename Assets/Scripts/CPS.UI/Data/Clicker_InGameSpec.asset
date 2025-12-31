@@ -136,7 +136,7 @@ MonoBehaviour:
         anchorMin: {x: 1, y: 0}
         anchorMax: {x: 1, y: 0}
         pivot: {x: 1, y: 0}
-        anchoredPosition: {x: -55, y: 360}
+        anchoredPosition: {x: -55, y: 450}
         sizeDelta: {x: 300, y: 80}
         imageSprite: {fileID: 0}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
@@ -157,7 +157,7 @@ MonoBehaviour:
         anchorMin: {x: 0, y: 0}
         anchorMax: {x: 0, y: 0}
         pivot: {x: 0, y: 0}
-        anchoredPosition: {x: 220, y: 150}
+        anchoredPosition: {x: 220, y: 350}
         sizeDelta: {x: 300, y: 80}
         imageSprite: {fileID: 0}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
