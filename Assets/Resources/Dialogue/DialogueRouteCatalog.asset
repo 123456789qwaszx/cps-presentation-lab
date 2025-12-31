@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DialogueRouteCatalog
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRouteCatalogSO
   entries:
-  - routeKey: 
-    sequenceData: {fileID: 0}
-    situationKey: 
+  - routeKey: dialogue/hotspring
+    sequenceData: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
+    situationKey: sit/hotspring
