@@ -15,6 +15,6 @@ public class TestHelper : MonoBehaviour
     
     public void OnOpenTitle()
     {
-        _uiOpener.Open(UIActionKeys.OpenClickerTitle);
+        _uiOpener.Open(LabUIActionKeys.OpenClickerTitle);
     }
 }
