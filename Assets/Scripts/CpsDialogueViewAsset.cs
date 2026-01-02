@@ -4,7 +4,6 @@ using System.Collections;
 [CreateAssetMenu(fileName = "CpsDialogueView", menuName = "Dialogue/DialogueView/CPS")]
 public class CpsDialogueViewAsset : DialogueViewAsset
 {
-    ScreenKey screenKey;
     public override IEnumerator ShowLine(DialogueLine line, string screenId, string widgetId)
     {
         UIRouter router = UIRuntimeRouter.Router;
@@ -20,7 +19,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
         WidgetHandle handle = screen.GetWidgetHandle(widgetId);
         if (handle?.Text != null)
         {
-            handle.Text.text = line.text;
+            handle.Text.DOTypeText(line.text, 0.03f);
         }
 
         // 나중에 여기서 Lab 호출, 타이핑, 카메라 연출 등 마음껏 추가 가능
