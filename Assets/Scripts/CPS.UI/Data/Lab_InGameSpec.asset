@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 445d4a8a31ecd6b4a99d518aa05ab8fe, type: 3}
-  m_Name: Clicker_InGameSpec
+  m_Name: Lab_InGameSpec
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenSpecAsset
   spec:
     screenKey:

@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc093153e031e6409e82802bfc55fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIBootStrap
-  textPrefab: {fileID: 7905627780959611625, guid: da9de2c437dd5e844a848b5d1259cd2d, type: 3}
+  textPrefab: {fileID: 758013295315146435, guid: c5ec44ff1cec00c4d9cdd5e1e6722a9e, type: 3}
   buttonPrefab: {fileID: 3914556987768285576, guid: b53cb856ca0216044b9666a0203833ac, type: 3}
   imagePrefab: {fileID: 8751013442128767903, guid: 708ea55a0b7392d4d9b377e572a94634, type: 3}
   togglePrefab: {fileID: 7905627780959611625, guid: da9de2c437dd5e844a848b5d1259cd2d, type: 3}
@@ -15937,7 +15937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4607, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6185671450235783176

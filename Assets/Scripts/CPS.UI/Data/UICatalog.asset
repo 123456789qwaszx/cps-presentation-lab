@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a2d5ea8eb896f47be4535298ae1233, type: 3}
-  m_Name: Lab_UICatalog
+  m_Name: UICatalog
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenCatalog
   entries:
   - key:
@@ -26,15 +26,18 @@ MonoBehaviour:
       value: dialogue
     specAsset: {fileID: 11400000, guid: 40bcd68dacafada4693d27edcc1472bf, type: 2}
   routes:
-  - route: nav/clickerTitle
+  - route: default/nav/home
     key:
       value: title
-  - route: nav/home
+  - route: default/nav/shop
     key:
       value: home
-  - route: nav/inGame
+  - route: lab/title
+    key:
+      value: title
+  - route: lab/ingame
     key:
       value: inGame
-  - route: nav/inGame
+  - route: lab/dialogue
     key:
       value: dialogue

@@ -11,21 +11,24 @@ public class CpsDialogueViewAsset : DialogueViewAsset
     {
         UIRouter router = UIRuntimeRouter.Router;
         if (router == null)
+        {
+            Debug.Log("router empty");
             yield break;
+        }
 
         ScreenKey screenKey = new(screenId);
         if (!router.TryGetScreen(screenKey, out UIScreen screen))
             yield break;
 
         // 1) 본문 텍스트 (타이핑)
-        WidgetHandle bodyhandle = screen?.GetWidgetHandle(widgetId + "_Name");
+        WidgetHandle bodyhandle = screen?.GetWidgetHandle(widgetId+"_Body");
         if (bodyhandle?.Text != null)
         {
             bodyhandle.Text.DOTypeText(line.text, 0.03f);
         }
 
         // 2) 스피커 이름
-        WidgetHandle nameHandle = screen?.GetWidgetHandle(widgetId + "_Name");
+        WidgetHandle nameHandle = screen?.GetWidgetHandle(widgetId+"_Name");
         if (nameHandle?.Text != null)
         {
             DialogueRepository.Instance.TryGetSpeaker(line.speakerId, out DialogueSpeakerData speakerData);
@@ -36,7 +39,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
         
         // 3) 초상화
         Sprite portrait = DialogueRepository.Instance.GetSpeakerPortrait(line.speakerId, line.expression);
-        WidgetHandle portraitHandle = screen?.GetWidgetHandle(widgetId + "_Portrait");
+        WidgetHandle portraitHandle = screen?.GetWidgetHandle(widgetId+"_Portrait");
         if (portraitHandle?.Image != null)
         {
             portraitHandle.Image.sprite = portrait;
@@ -56,7 +59,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
             return;
 
         // 1) 본문 텍스트: 트윈 강제 종료 + 최종 텍스트
-        WidgetHandle bodyHandle = screen.GetWidgetHandle(widgetId);
+        WidgetHandle bodyHandle = screen.GetWidgetHandle(widgetId+"_Body");
         if (bodyHandle?.Text != null)
         {
             DOTween.Kill(bodyHandle.Text);
@@ -66,7 +69,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
         // 2) 이름 설정은 ShowLine과 동일하게 한 번 더 보장
         if (!string.IsNullOrEmpty(line.speakerId))
         {
-            WidgetHandle nameHandle = screen.GetWidgetHandle(widgetId + "_Name");
+            WidgetHandle nameHandle = screen.GetWidgetHandle(widgetId+"_Name");
             if (nameHandle?.Text != null)
             {
                 string displayName = line.speakerId;
@@ -88,7 +91,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
             Sprite portrait =
                 DialogueRepository.Instance.GetSpeakerPortrait(line.speakerId, line.expression);
 
-            WidgetHandle portraitHandle = screen.GetWidgetHandle(widgetId + "_Portrait");
+            WidgetHandle portraitHandle = screen.GetWidgetHandle(widgetId+"_Portrait");
             if (portraitHandle?.Image != null)
             {
                 portraitHandle.Image.sprite = portrait;
