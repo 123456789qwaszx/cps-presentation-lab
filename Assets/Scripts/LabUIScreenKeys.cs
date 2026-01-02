@@ -8,4 +8,7 @@ public static class LabUIScreenKeys
     [UIScreenKey]
     public static ScreenKey InGame = new("inGame");
     
+    [UIScreenKey]
+    public static ScreenKey Dialogue = new("dialogue");
+    
 }

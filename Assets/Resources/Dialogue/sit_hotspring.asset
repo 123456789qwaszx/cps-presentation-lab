@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
-  m_Name: SituationSpec
+  m_Name: sit_hotspring
   m_EditorClassIdentifier: Assembly-CSharp::SituationSpecSO
   situationKey: sit/hotspring
   nodes:
   - steps:
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: 
         line:
           speakerId: System
           expression: 0
           text: (write dialogue...)
           position: 0
+        screenId: inGame
+        widgetId: 
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -32,14 +32,14 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: FishAmount
         line:
           speakerId: megu
           expression: 1
           text: "\uBD80\uC7A5~~ \uC624\uB298\uC740 \uC5B4\uCA50 \uC77C\uC774\uB798??
             \uBA3C\uC800 \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00\uC788\uACE0."
           position: 0
+        screenId: inGame
+        widgetId: FishAmount
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -48,14 +48,14 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: FishAmount
         line:
           speakerId: kasmi
           expression: 1
           text: "\uC544.. \uBA54\uAD6C. \uADF8\uB0E5 \uC624\uB298\uB530\uB77C \uC61B\uB0A0
             \uC0DD\uAC01\uB3C4 \uB098\uACE0... \uADF8\uB798\uC11C."
           position: 0
+        screenId: inGame
+        widgetId: FishAmount
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -64,14 +64,14 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: FishAmount
         line:
           speakerId: megu
           expression: 0
           text: "\uC61B\uB0A0?? \uC544 \uADF8\uB7EC\uACE0\uBCF4\uB2C8 \uBD80\uC7A5
             \uB208 \uC624\uB294 \uC628\uCC9C \uC644\uC804 \uC88B\uC544\uD558\uC9C0??"
           position: 0
+        screenId: inGame
+        widgetId: FishAmount
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -80,13 +80,13 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 4
           text: "\uC544... \uC74C?... \uB0B4\uAC00 \uADF8\uB7F0 \uB9D0\uC744 \uD588\uB358\uAC00?"
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -95,8 +95,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -104,6 +102,8 @@ MonoBehaviour:
             \uBD80\uC7A5 \uCC98\uC74C \uB9CC\uB0AC\uC744 \uB54C \uB208 \uC18D\uC5D0\uC11C
             \uC790\uACE0 \uC788\uC5C8\uC796\uC544."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -112,13 +112,13 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 2
           text: "\uC544... \uADF8\uB798.. \uADF8\uB7AC\uC5C8\uC9C0."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -127,14 +127,14 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 2
           text: "\uC790\uACE0\uC788\uC5C8\uB2E4\uB77C... \uC815\uB9D0 \uBA54\uAD6C\uB2E4\uC6B4
             \uD45C\uD604\uC774\uAD6C\uB098."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -143,8 +143,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -153,6 +151,8 @@ MonoBehaviour:
             \uB208 \uC624\uB294 \uC628\uCC9C\uC744 \uC644\uC804 \uC88B\uC544\uD55C\uB2E4\uACE0
             \uC0DD\uAC01\uD588\uC5B4!!\n\uC544\uB2C8\uC57C??"
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -161,8 +161,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 1
@@ -172,6 +170,8 @@ MonoBehaviour:
             \uC0AC\uB78C\uB3C4 \uAE08\uC0C8 \uD65C\uB825\uC744 \uCC3E\uC744 \uB9CC\uD07C
             \uC88B\uC9C0~ \uC88B\uACE0\uB9D0\uACE0!"
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -180,8 +180,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -189,6 +187,8 @@ MonoBehaviour:
             \uB208\uC624\uB294 \uC628\uCC9C\uC774 \uC5BC\uB9C8\uB098 \uC88B\uC740\uC9C0
             \uC54C\uBA74 \uC88B\uC744\uD150\uB370."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -197,8 +197,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 1
@@ -206,6 +204,8 @@ MonoBehaviour:
             \uB420\uAC70\uB2C8\uAE4C \uAC71\uC815\uB9D0\uC544 \uBA54\uAD6C.\n\uADF8\uB098\uC800\uB098
             \uC544\uAE4C \uBB34\uC2A8 \uC77C \uD558\uB7EC \uC654\uC5B4?"
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -214,8 +214,6 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 4
@@ -224,6 +222,8 @@ MonoBehaviour:
             \uAE4C\uBA39\uC5C8\uC5B4!! \uADF8\uB7FC \uC774\uB530\uBD10!! \uB9C9 \uD55C\uCC3D
             \uC791\uC5C5\uD558\uB358 \uC911\uC5D0 \uC654\uAC70\uB4E0."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -232,14 +232,14 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 0
           text: "\uADF8\uB798\uADF8\uB798. \uB098\uB294 \uC870\uAE08 \uC788\uB2E4
             \uAC08\uD14C\uB2C8 \uBA3C\uC800\uAC00\uBD10."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -248,13 +248,13 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 0
           text: "\uD6C4\uD6C4..."
           position: 0
+        screenId: inGame
+        widgetId: GoldGain
         shakeStrength: 0
         shakeDuration: 0
       gate:
@@ -263,13 +263,13 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
-        screenId: inGame
-        widgetId: AutoGainPerSec
         line:
           speakerId: kasmi
           expression: 0
           text: "\uC88B\uC544\uD560 \uC218 \uBC16\uC5D0 \uC5C6\uC9C0..."
           position: 0
+        screenId: inGame
+        widgetId: AutoGainPerSec
         shakeStrength: 0
         shakeDuration: 0
       gate:

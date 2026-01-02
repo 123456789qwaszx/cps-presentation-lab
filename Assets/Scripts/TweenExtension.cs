@@ -6,6 +6,8 @@ public static class TweenExtension
 {
     #region  TextWritter
     
+    private const string DialogueTweenId = "DialogueText";
+    
     public static Tween DOTypeText(
         this TMP_Text tmp,
         string text,
@@ -23,6 +25,7 @@ public static class TweenExtension
                 charInterval * text.Length)
             .SetEase(Ease.Linear)
             .SetTarget(tmp)
+            .SetId(DialogueTweenId)
             .SetUpdate(true);
 
         if (onComplete != null)

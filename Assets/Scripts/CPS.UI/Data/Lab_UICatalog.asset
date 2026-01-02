@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a2d5ea8eb896f47be4535298ae1233, type: 3}
-  m_Name: Clicker_TitleCatalog
+  m_Name: Lab_UICatalog
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenCatalog
   entries:
   - key:
@@ -22,6 +22,9 @@ MonoBehaviour:
   - key:
       value: inGame
     specAsset: {fileID: 11400000, guid: d519c721495a0c34faf29f6ec3df8299, type: 2}
+  - key:
+      value: dialogue
+    specAsset: {fileID: 11400000, guid: 40bcd68dacafada4693d27edcc1472bf, type: 2}
   routes:
   - route: nav/clickerTitle
     key:
@@ -32,3 +35,6 @@ MonoBehaviour:
   - route: nav/inGame
     key:
       value: inGame
+  - route: nav/inGame
+    key:
+      value: dialogue
