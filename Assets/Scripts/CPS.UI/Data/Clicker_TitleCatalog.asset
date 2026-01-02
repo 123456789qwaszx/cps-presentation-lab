@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Clicker_TitleCatalog
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenCatalog
   entries:
-  - key: 0
+  - key:
+      value: home
     specAsset: {fileID: 11400000, guid: df55a48437c21924895d4083042f5cde, type: 2}
-  - key: 2
+  - key:
+      value: title
     specAsset: {fileID: 11400000, guid: 32cdbfb1651746b458fc0b757969543d, type: 2}
-  - key: 3
+  - key:
+      value: inGame
     specAsset: {fileID: 11400000, guid: d519c721495a0c34faf29f6ec3df8299, type: 2}
   routes:
   - route: nav/clickerTitle
-    key: 2
+    key:
+      value: title
   - route: nav/home
-    key: 0
+    key:
+      value: home
   - route: nav/inGame
-    key: 3
+    key:
+      value: inGame

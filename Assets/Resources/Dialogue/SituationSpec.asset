@@ -17,6 +17,8 @@ MonoBehaviour:
   - steps:
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: 
         line:
           speakerId: System
           expression: 0
@@ -30,6 +32,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: FishAmount
         line:
           speakerId: megu
           expression: 1
@@ -44,6 +48,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: FishAmount
         line:
           speakerId: kasmi
           expression: 1
@@ -58,6 +64,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: FishAmount
         line:
           speakerId: megu
           expression: 0
@@ -72,6 +80,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 4
@@ -85,6 +95,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -100,6 +112,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 2
@@ -113,6 +127,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 2
@@ -127,6 +143,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -143,6 +161,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 1
@@ -160,6 +180,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 1
@@ -175,6 +197,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 1
@@ -190,6 +214,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: megu
           expression: 4
@@ -206,6 +232,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 0
@@ -220,6 +248,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: GoldGain
         line:
           speakerId: kasmi
           expression: 0
@@ -233,6 +263,8 @@ MonoBehaviour:
         signalKey: 
     - commands:
       - kind: 0
+        screenId: inGame
+        widgetId: AutoGainPerSec
         line:
           speakerId: kasmi
           expression: 0

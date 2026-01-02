@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CommandServiceConfig
   m_EditorClassIdentifier: Assembly-CSharp::CommandServiceConfig
   cameraShakeAsset: {fileID: 11400000, guid: d2927b19e34ab4c4f87ee42af7ffb0fd, type: 2}
-  dialogueViewAsset: {fileID: 11400000, guid: 1aa2ed16ad7a3254182c43d1bca09f70, type: 2}
+  dialogueViewAsset: {fileID: 11400000, guid: 2524aef864a5afb47943916c3412e50d, type: 2}
