@@ -25,3 +25,16 @@ UserSettings/
 # OS
 .DS_Store
 Thumbs.db
+
+# Unity-created meta files inside submodule roots (noise)
+Assets/CPS.UI/UIPresentationFlow/Assets.meta
+Assets/CPS.UI/UIPresentationFlow/Packages.meta
+Assets/CPS.UI/UIPresentationFlow/ProjectSettings.meta
+Assets/CPS.UI/UIPresentationFlow/Packages/**/*.meta
+Assets/CPS.UI/UIPresentationFlow/ProjectSettings/**/*.meta
+
+Assets/CPS.Dialogue/CinematicDialogueFramework/Assets.meta
+Assets/CPS.Dialogue/CinematicDialogueFramework/Packages.meta
+Assets/CPS.Dialogue/CinematicDialogueFramework/ProjectSettings.meta
+Assets/CPS.Dialogue/CinematicDialogueFramework/Packages/**/*.meta
+Assets/CPS.Dialogue/CinematicDialogueFramework/ProjectSettings/**/*.meta
