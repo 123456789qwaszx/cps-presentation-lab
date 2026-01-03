@@ -2,26 +2,22 @@ using UnityEngine;
 
 public sealed class CpsNodeCommandFactory : INodeCommandFactory
 {
+    private readonly CpsCommandServiceConfig _config;
     private readonly IDialogueWidgetAccess _widgets;
     private readonly IDialogueSpeakerService _speakers;
-
-    private readonly float _typeInterval;
-    private readonly bool _slidePortrait;
-    private readonly float _slideDur;
-    private readonly float _slideOffsetX;
-    private readonly float _fadeDur;
-
+    
     public CpsNodeCommandFactory(CpsCommandServiceConfig config)
     {
-        _widgets = config != null ? config.WidgetAccess : null;
-        _speakers = config != null ? config.SpeakerService : null;
-
-        _typeInterval = config != null ? config.TypeCharInterval : 0.03f;
-        _slidePortrait = config != null && config.EnablePortraitSlideIn;
-        _slideDur = config != null ? config.PortraitSlideDuration : 0.5f;
-        _slideOffsetX = config != null ? config.PortraitSlideOffsetX : 800f;
-        _fadeDur = config != null ? config.PortraitFadeDuration : 0.25f;
+        _config   = config;
+        _widgets  = config.WidgetAccess;
+        _speakers = config.SpeakerService;
     }
+
+    private float TypeInterval => _config != null ? _config.TypeCharInterval : 0.03f;
+    private bool SlidePortrait => _config != null && _config.EnablePortraitSlideIn;
+    private float SlideDur => _config != null ? _config.PortraitSlideDuration : 0.5f;
+    private float SlideOffsetX => _config != null ? _config.PortraitSlideOffsetX : 800f;
+    private float FadeDur => _config != null ? _config.PortraitFadeDuration : 0.25f;
 
     public bool TryCreate(NodeCommandSpec spec, out ISequenceCommand command)
     {
@@ -39,11 +35,11 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     line: spec.line,
                     screenId: spec.screenId,
                     widgetId: spec.widgetId,
-                    typeCharInterval: _typeInterval,
-                    slidePortrait: _slidePortrait,
-                    portraitSlideDuration: _slideDur,
-                    portraitSlideOffsetX: _slideOffsetX,
-                    portraitFadeDuration: _fadeDur
+                    typeCharInterval: TypeInterval,
+                    slidePortrait: SlidePortrait,
+                    portraitSlideDuration: SlideDur,
+                    portraitSlideOffsetX: SlideOffsetX,
+                    portraitFadeDuration: FadeDur
                 );
                 return command != null;
 
