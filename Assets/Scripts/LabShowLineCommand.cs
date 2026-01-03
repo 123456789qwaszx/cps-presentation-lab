@@ -18,7 +18,7 @@ public sealed class LabShowLineCommand : CommandBase
 
     public override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
-    protected override IEnumerator ExecuteInner()
+    protected override IEnumerator ExecuteInner(NodePlayScope scope)
     {
         IEnumerator routine = _presentation.ShowLine(_line,_screenId, _widgetId);
         
