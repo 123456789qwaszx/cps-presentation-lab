@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,17 +26,5 @@ public static class CanvasGroupExtension
     {
         canvasGroup.interactable = interactable;
         canvasGroup.blocksRaycasts = interactable;
-    }
-    
-    
-    public static T SetAlpha<T>(this T graphic, float alpha) where T : Graphic
-    {
-        if (graphic == null) return null;
-
-        Color c = graphic.color;
-        c.a = alpha;
-        graphic.color = c;
-        
-        return graphic;
     }
 }

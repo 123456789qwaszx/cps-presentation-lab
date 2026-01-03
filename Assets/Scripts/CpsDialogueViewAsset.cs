@@ -21,18 +21,21 @@ public class CpsDialogueViewAsset : DialogueViewAsset
             yield break;
 
         // 1) 본문 텍스트 (타이핑)
-        WidgetHandle bodyhandle = screen?.GetWidgetHandle(widgetId+"_Body");
-        if (bodyhandle?.Text != null)
+        WidgetHandle bodyHandle = screen?.GetWidgetHandle(widgetId+"_Body");
+        Tween typing = null;
+        if (bodyHandle?.Text != null)
         {
-            bodyhandle.Text.DOTypeText(line.text, 0.03f);
+            typing = bodyHandle.Text.DOTypeText(line.text, 0.03f);
         }
 
         // 2) 스피커 이름
         WidgetHandle nameHandle = screen?.GetWidgetHandle(widgetId+"_Name");
         if (nameHandle?.Text != null)
         {
+            string displayName = line.speakerId;
+            
             DialogueRepository.Instance.TryGetSpeaker(line.speakerId, out DialogueSpeakerData speakerData);
-            string displayName = speakerData.displayName;
+            displayName = speakerData.displayName;
             
             nameHandle.Text.text = displayName;
         }
@@ -43,6 +46,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
         if (portraitHandle?.Image != null)
         {
             portraitHandle.Image.sprite = portrait;
+            portraitHandle.RectTransform.SlideInFromLeftWithFade();
         }
         
         yield break;
@@ -95,7 +99,7 @@ public class CpsDialogueViewAsset : DialogueViewAsset
             if (portraitHandle?.Image != null)
             {
                 portraitHandle.Image.sprite = portrait;
-                portraitHandle.Image.enabled = (portrait != null);
+                portraitHandle.RectTransform.ApplySlideInFinal();
             }
         }
     }
