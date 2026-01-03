@@ -362,6 +362,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &56571992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56571994}
+  - component: {fileID: 56571993}
+  m_Layer: 0
+  m_Name: DialogueBootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &56571993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56571992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e434cdcba802e3242a14f580fbd94b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueBootstrap
+  routeCatalog: {fileID: 11400000, guid: 7b77a5b1a8126cd4998058ee6c089525, type: 2}
+  commandServiceConfig: {fileID: 11400000, guid: 496bb22740af7cd45978ab5201e8aaa1, type: 2}
+  presenterBehaviour: {fileID: 2081970847}
+  commandExecuter: {fileID: 1117495969}
+  signals: {fileID: 713045950}
+  enableDebugHotkeys: 1
+--- !u!4 &56571994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56571992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 457.22256, y: 774.8849, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214120846
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f29ad605c0bc974ea30b0acf3970f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTestDriver
-  bootstrap: {fileID: 1223298932}
+  bootstrap: {fileID: 1602582868}
   testRouteKey: dialogue/hotspring
   delaySecond: 0.6
   timeScale: 1
@@ -1291,56 +1341,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1223298931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1223298933}
-  - component: {fileID: 1223298932}
-  m_Layer: 0
-  m_Name: DialogueBootstrap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1223298932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223298931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e434cdcba802e3242a14f580fbd94b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueBootstrap
-  routeCatalog: {fileID: 11400000, guid: 7b77a5b1a8126cd4998058ee6c089525, type: 2}
-  commandServiceConfig: {fileID: 11400000, guid: 496bb22740af7cd45978ab5201e8aaa1, type: 2}
-  presenterBehaviour: {fileID: 2081970847}
-  commandExecuter: {fileID: 1117495969}
-  signals: {fileID: 713045950}
-  enableDebugHotkeys: 0
---- !u!4 &1223298933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223298931}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 457.22256, y: 774.8849, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257369562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1505,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324758124}
   m_CullTransparentMesh: 1
+--- !u!1 &1602582867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602582869}
+  - component: {fileID: 1602582868}
+  m_Layer: 0
+  m_Name: CPSDialogueBootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1602582868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602582867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba8ebcefe6aafa479ffc28ef912568b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CPSDialogueBootstrap
+  routeCatalog: {fileID: 11400000, guid: 7b77a5b1a8126cd4998058ee6c089525, type: 2}
+  cpsCommandServiceConfig: {fileID: 11400000, guid: 37cb374191f79394794a6a39de08e3aa, type: 2}
+  presenterBehaviour: {fileID: 2081970847}
+  commandExecuter: {fileID: 1117495969}
+  signals: {fileID: 713045950}
+  enableDebugHotkeys: 1
+--- !u!4 &1602582869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602582867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 457.22256, y: 774.8849, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667258216
 GameObject:
   m_ObjectHideFlags: 0
@@ -24338,6 +24388,7 @@ SceneRoots:
   - {fileID: 2081970846}
   - {fileID: 1117495968}
   - {fileID: 713045951}
-  - {fileID: 1223298933}
   - {fileID: 615146669}
   - {fileID: 214120848}
+  - {fileID: 1602582869}
+  - {fileID: 56571994}
