@@ -32,8 +32,8 @@ MonoBehaviour:
         anchorMin: {x: 0.5, y: 0.5}
         anchorMax: {x: 0.5, y: 0.5}
         pivot: {x: 0.5, y: 0.5}
-        anchoredPosition: {x: 0, y: 600}
-        sizeDelta: {x: 750, y: 1200}
+        anchoredPosition: {x: 0, y: 500}
+        sizeDelta: {x: 900, y: 1500}
         imageSprite: {fileID: 0}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
         imageSetNativeSize: 0

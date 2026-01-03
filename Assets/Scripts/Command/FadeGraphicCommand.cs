@@ -3,38 +3,37 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public sealed class FadeGraphicCommand : ISequenceCommand
+public sealed class FadeGraphicCommand : CommandBase
 {
     private readonly Graphic _g;
     private readonly float _to;
-    private readonly float _duration;
+    private readonly float _dur;
     private readonly bool _wait;
 
-    public FadeGraphicCommand(Graphic g, float to, float duration, bool wait = true)
+    public FadeGraphicCommand(Graphic g, float to, float dur, bool wait = true)
     {
         _g = g;
         _to = to;
-        _duration = Mathf.Max(0f, duration);
+        _dur = Mathf.Max(0f, dur);
         _wait = wait;
     }
 
-    public bool WaitForCompletion => _wait;
+    public override bool WaitForCompletion => _wait;
 
-    public IEnumerator Execute(NodePlayScope scope)
+    protected override void OnSkip(NodePlayScope api)
+    {
+        if (_g == null) return;
+        var c = _g.color;
+        c.a = _to;
+        _g.color = c;
+    }
+
+    protected override IEnumerator ExecuteInner(NodePlayScope api)
     {
         if (_g == null) yield break;
 
-        // Skip이면 즉시 완료 상태
-        if (scope != null && scope.IsSkipping)
-        {
-            var c = _g.color;
-            c.a = _to;
-            _g.color = c;
-            yield break;
-        }
-
-        Tween t = _g.DOFade(_to, _duration).SetUpdate(true);
-        scope.TrackTween(t);
+        Tween t = _g.DOFade(_to, _dur).SetUpdate(true);
+        api.TrackTween(t);
 
         if (_wait)
             yield return t.WaitForCompletion();
