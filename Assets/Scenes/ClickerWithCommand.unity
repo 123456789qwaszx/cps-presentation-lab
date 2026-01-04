@@ -422,30 +422,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 214120848}
-  - component: {fileID: 214120847}
+  - component: {fileID: 214120849}
   m_Layer: 0
-  m_Name: DialogueTestDriver
+  m_Name: CpsDialogueTestDriver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &214120847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214120846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f29ad605c0bc974ea30b0acf3970f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueTestDriver
-  bootstrap: {fileID: 1602582868}
-  testRouteKey: dialogue/hotspring
-  delaySecond: 0.6
-  timeScale: 1
 --- !u!4 &214120848
 Transform:
   m_ObjectHideFlags: 0
@@ -461,6 +445,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214120849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214120846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004882ee5ac61214298a7a80077da5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CpsDialogueTestDriver
+  bootstrap: {fileID: 0}
+  testRouteKey: dialogue/hotspring
+  delaySecond: 0.6
+  timeScale: 1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,8 +1594,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 214120847}
-        m_TargetAssemblyTypeName: DialogueTestDriver, Assembly-CSharp
+      - m_Target: {fileID: 214120849}
+        m_TargetAssemblyTypeName: CpsDialogueTestDriver, Assembly-CSharp
         m_MethodName: StartDialogue
         m_Mode: 1
         m_Arguments:
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 1602582869}
   - component: {fileID: 1602582868}
   m_Layer: 0
-  m_Name: CPSDialogueBootstrap
+  m_Name: CpsDialogueBootstrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,9 +1822,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 214120847}
-        m_TargetAssemblyTypeName: DialogueTestDriver, Assembly-CSharp
-        m_MethodName: DumpState
+      - m_Target: {fileID: 214120849}
+        m_TargetAssemblyTypeName: CpsDialogueTestDriver, Assembly-CSharp
+        m_MethodName: ToggleSkip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

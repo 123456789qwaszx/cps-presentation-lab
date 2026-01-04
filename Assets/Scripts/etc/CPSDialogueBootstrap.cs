@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class CPSDialogueBootstrap : MonoBehaviour
+public sealed class CpsDialogueBootstrap : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private DialogueRouteCatalogSO routeCatalog;

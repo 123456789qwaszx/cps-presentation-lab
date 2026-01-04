@@ -117,19 +117,19 @@ public sealed class CpsShowLineCommand : CommandBase
                 seq.Join(_refs.PortraitGraphic.DOFade(1f, _fadeDur));
             }
 
-            api.TrackTween(seq, finalize: () =>
-            {
-                // 이 트윈이 스킵/정리되든 정상 완료되든 “초상화 최종 상태”를 보장
-                if (_refs?.PortraitRect != null) _refs.PortraitRect.anchoredPosition = _portraitDestPos;
-
-                if (_refs?.PortraitGraphic != null)
-                {
-                    var c = _refs.PortraitGraphic.color;
-                    c.a = 1f;
-                    _refs.PortraitGraphic.color = c;
-                }
-                // 여기서는 타이핑과 병행하고 싶으니 기다리지 않음
-            });
+            // api.TrackTween(seq, finalize: () =>
+            // {
+            //     // 이 트윈이 스킵/정리되든 정상 완료되든 “초상화 최종 상태”를 보장
+            //     if (_refs?.PortraitRect != null) _refs.PortraitRect.anchoredPosition = _portraitDestPos;
+            //
+            //     if (_refs?.PortraitGraphic != null)
+            //     {
+            //         var c = _refs.PortraitGraphic.color;
+            //         c.a = 1f;
+            //         _refs.PortraitGraphic.color = c;
+            //     }
+            //     // 여기서는 타이핑과 병행하고 싶으니 기다리지 않음
+            // });
         }
 
         // ---- 본문 타이핑 ----
