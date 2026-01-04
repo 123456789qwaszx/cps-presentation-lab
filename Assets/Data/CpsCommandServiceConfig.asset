@@ -15,7 +15,13 @@ MonoBehaviour:
   widgetAccessAsset: {fileID: 11400000, guid: 8b00a9c218349c34da7e880d05fe31cd, type: 2}
   speakerServiceAsset: {fileID: 11400000, guid: 9108200f4f29a7249ba246648e27c57c, type: 2}
   typeCharInterval: 0.04
-  enablePortraitSlideIn: 1
-  portraitSlideDuration: 0.2
-  portraitSlideOffsetX: 222
-  portraitFadeDuration: 0.5
+  portraitSlide:
+    enable: 1
+    duration: 0.5
+    offsetX: 800
+    fadeDur: 0.25
+  movePortrait:
+    defaultOffset: {x: 150, y: 80}
+    duration: 0.25
+    ease: 9
+    wait: 1

@@ -2,7 +2,7 @@ namespace Lab.UI.Naming
 {
     public static class DialogueWidgetSets
     {
-        public static readonly DialogueWidgetSet Dialogue = new("Widget");
+        public static readonly DialogueWidgetSet Dialogue = new("Dialogue");
     }
     
     public readonly struct DialogueWidgetSet
