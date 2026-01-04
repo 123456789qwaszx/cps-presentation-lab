@@ -25,15 +25,15 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             return false;
         }
         
-        DialogueWidgetSet set = DialogueWidgetSets.Dialogue;
-        WidgetHandle body     = screen.GetWidgetHandle(set.BodyName);
-        WidgetHandle name     = screen.GetWidgetHandle(set.NameName);
-        WidgetHandle portrait = screen.GetWidgetHandle(set.PortraitName);
+        DialogueWidgetSet set     = DialogueWidgetSets.Dialogue;
+        WidgetHandle dialogueBody = screen.GetWidgetHandle(set.BodyName);
+        WidgetHandle speakerName  = screen.GetWidgetHandle(set.NameName);
+        WidgetHandle portrait     = screen.GetWidgetHandle(set.PortraitName);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
-            BodyText = body?.Text,
-            NameText = name?.Text,
+            BodyText = dialogueBody?.Text,
+            NameText = speakerName?.Text,
             PortraitImage = portrait?.Image,
             PortraitRect = portrait?.RectTransform,
             PortraitGraphic = portrait?.Image // Image는 Graphic 상속
