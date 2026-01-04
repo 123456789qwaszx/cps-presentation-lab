@@ -32,7 +32,7 @@ public sealed class MoveAnchoredPosCommand : CommandBase
         if (_rt == null) yield break;
 
         Tween t = _rt.DOAnchorPos(_to, _dur).SetEase(_ease).SetUpdate(true);
-        api.TrackTween(t);
+        t.BindTo(api);
 
         if (_wait)
             yield return t.WaitForCompletion();
