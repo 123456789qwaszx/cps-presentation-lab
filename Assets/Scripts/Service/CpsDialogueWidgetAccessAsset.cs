@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Lab.UI.Naming;
 
 [CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
 public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
@@ -10,14 +11,24 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         refs = null;
 
         UIRouter router = UIRuntimeRouter.Router;
-        if (router == null) return false;
+        if (router == null)
+        {
+            Debug.LogWarning("[CpsDialogueWidgetAccess] UIRuntimeRouter. Router is null. ");
+            return false;
+        }
 
         ScreenKey key = new ScreenKey(screenId);
-        if (!router.TryGetScreen(key, out UIScreen screen) || screen == null) return false;
-
-        var body = screen.GetWidgetHandle(widgetId + "_Body");
-        var name = screen.GetWidgetHandle(widgetId + "_Name");
-        var portrait = screen.GetWidgetHandle(widgetId + "_Portrait");
+        if (!router.TryGetScreen(key, out UIScreen screen))
+        {
+            Debug.LogWarning(
+                $"[CpsDialogueWidgetAccess] Failed to resolve UIScreen. screenId='{screenId}', ScreenKey='{key}'");
+            return false;
+        }
+        
+        DialogueWidgetSet set = DialogueWidgetSets.Dialogue;
+        WidgetHandle body     = screen.GetWidgetHandle(set.BodyName);
+        WidgetHandle name     = screen.GetWidgetHandle(set.NameName);
+        WidgetHandle portrait = screen.GetWidgetHandle(set.PortraitName);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
@@ -42,6 +53,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         rt = null;
         return false;
     }
+
     public bool TryGetTMPText(string widgetId, out TMP_Text text)
     {
         text = null;

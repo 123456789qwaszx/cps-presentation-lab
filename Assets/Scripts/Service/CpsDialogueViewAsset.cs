@@ -5,7 +5,7 @@ using DG.Tweening;
 [CreateAssetMenu(fileName = "CpsDialogueView", menuName = "Dialogue/DialogueView/CPS")]
 public class CpsDialogueViewAsset : DialogueViewAsset
 {
-    [SerializeField] private float typeCharInterval = 0.03f;
+    //[SerializeField] private float typeCharInterval = 0.03f;
 
     public override IEnumerator ShowLine(DialogueLine line, string screenId, string widgetId)
     {
