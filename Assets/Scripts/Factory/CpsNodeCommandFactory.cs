@@ -18,20 +18,20 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     private PortraitSlideSettings Slide => _config?.PortraitSlide;
     private MovePortraitSettings MoveCfg => _config?.MovePortrait;
 
-    public bool TryCreate(NodeCommandSpec spec, out ISequenceCommand command)
+    public bool TryCreate(CommandSpecBase spec, out ISequenceCommand command)
     {
         command = null;
         if (spec == null) return false;
 
-        switch (spec.kind)
+        switch (spec)
         {
-            case NodeCommandKind.ShowLine:
-                if (spec.line == null)return false;
+            case DefaultShowLineCommandSpec show:
+                if (show.line == null)return false;
 
                 command = new CpsShowLineCommand(
                     widgets: _widgets,
                     speakers: _speakers,
-                    line: spec.line,
+                    line: show.line,
                     screenId: spec.screenId,
                     widgetId: spec.widgetId,
                     typeCharInterval: TypeInterval,
@@ -42,18 +42,23 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 );
                 return command != null;
 
-            case NodeCommandKind.ShakeCamera:
+            case MovePortraitCommandSpec move:
             {
-                // "기본 오프셋을 현재 위치 기준 상대값"인 상태.
-                Vector2 dest = MoveCfg != null ? MoveCfg.defaultOffset : Vector2.zero;
-                float   dur  = MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f;
-                Ease    ease = MoveCfg != null ? MoveCfg.ease : Ease.OutCubic;
-                bool    wait = MoveCfg != null && MoveCfg.wait;
+                Vector2 dest = move.offset != Vector2.zero
+                    ? move.offset
+                    : (MoveCfg != null ? MoveCfg.defaultOffset : Vector2.zero);
+
+                float dur = move.duration > 0f
+                    ? move.duration
+                    : (MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f);
+
+                Ease ease = MoveCfg != null ? MoveCfg.ease : move.ease;
+                bool wait = MoveCfg != null ? MoveCfg.wait : move.wait;
 
                 command = new CpsMovePortraitCommand(
                     widgets: _widgets,
-                    screenId: spec.screenId,
-                    widgetId: spec.widgetId,
+                    screenId: move.screenId,
+                    widgetId: move.widgetId,
                     destPos: dest,
                     duration: dur,
                     ease: ease,
