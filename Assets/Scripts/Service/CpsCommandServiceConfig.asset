@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CpsCommandServiceConfig
   widgetAccessAsset: {fileID: 11400000, guid: 8b00a9c218349c34da7e880d05fe31cd, type: 2}
   speakerServiceAsset: {fileID: 11400000, guid: 9108200f4f29a7249ba246648e27c57c, type: 2}
-  typeCharInterval: 0.03
+  typeCharInterval: 0.04
   enablePortraitSlideIn: 1
-  portraitSlideDuration: 0.5
-  portraitSlideOffsetX: 800
-  portraitFadeDuration: 0.25
+  portraitSlideDuration: 0.2
+  portraitSlideOffsetX: 222
+  portraitFadeDuration: 0.5

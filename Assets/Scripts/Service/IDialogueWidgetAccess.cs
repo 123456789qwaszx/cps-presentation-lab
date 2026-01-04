@@ -14,4 +14,8 @@ public interface IDialogueWidgetAccess
         public RectTransform PortraitRect;
         public Graphic PortraitGraphic; // fade용
     }
+    
+    bool TryGetGraphic(string widgetId, out Graphic g);
+    bool TryGetRectTransform(string widgetId, out RectTransform rt);
+    bool TryGetTMPText(string widgetId, out TMP_Text text);
 }

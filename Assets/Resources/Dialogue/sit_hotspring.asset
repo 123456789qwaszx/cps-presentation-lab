@@ -20,15 +20,23 @@ MonoBehaviour:
         line:
           speakerId: System
           expression: 0
-          text: (write dialogue...)
+          text: '(start dialogue...)
+
+            delay 0.5sec'
           position: 0
-        screenId: inGame
-        widgetId: 
+        screenId: dialogue
+        widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
-        type: 0
-        seconds: 0
+        type: 2
+        seconds: 0.5
         signalKey: 
     - commands:
       - kind: 0
@@ -42,6 +50,29 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
+      - kind: 2
+        line:
+          speakerId: megu
+          expression: 1
+          text: "\uBD80\uC7A5~~ \uC624\uB298\uC740 \uC5B4\uCA50 \uC77C\uC774\uB798??
+            \uBA3C\uC800 \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00\uC788\uACE0."
+          position: 0
+        screenId: dialogue
+        widgetId: Dialogue
+        shakeStrength: 0
+        shakeDuration: 0
+        f0: 1
+        f1: 0.25
+        b0: 1
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -58,6 +89,29 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
+      - kind: 3
+        line:
+          speakerId: kasmi
+          expression: 1
+          text: "\uC544.. \uBA54\uAD6C. \uADF8\uB0E5 \uC624\uB298\uB530\uB77C \uC61B\uB0A0
+            \uC0DD\uAC01\uB3C4 \uB098\uACE0... \uADF8\uB798\uC11C."
+          position: 0
+        screenId: dialogue
+        widgetId: Dialogue
+        shakeStrength: 0
+        shakeDuration: 0
+        f0: 0.5
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 27
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -74,6 +128,29 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0.03
+        f1: 0
+        b0: 1
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
+      - kind: 2
+        line:
+          speakerId: megu
+          expression: 0
+          text: "\uC61B\uB0A0?? \uC544 \uADF8\uB7EC\uACE0\uBCF4\uB2C8 \uBD80\uC7A5
+            \uB208 \uC624\uB294 \uC628\uCC9C \uC644\uC804 \uC88B\uC544\uD558\uC9C0??"
+          position: 0
+        screenId: dialogue
+        widgetId: Dialogue
+        shakeStrength: 0
+        shakeDuration: 0
+        f0: 1
+        f1: 0.6
+        b0: 1
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -89,6 +166,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -106,6 +189,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -121,6 +210,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -137,6 +232,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -155,6 +256,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -174,6 +281,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -191,6 +304,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -208,6 +327,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -226,6 +351,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -242,6 +373,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -257,6 +394,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0
@@ -272,6 +415,12 @@ MonoBehaviour:
         widgetId: Dialogue
         shakeStrength: 0
         shakeDuration: 0
+        f0: 0
+        f1: 0
+        b0: 0
+        v0: {x: 0, y: 0}
+        ease: 9
+        s0: 
       gate:
         type: 1
         seconds: 0

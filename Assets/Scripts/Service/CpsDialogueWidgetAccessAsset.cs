@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
 public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
@@ -27,5 +29,22 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         };
 
         return true;
+    }
+
+    public bool TryGetGraphic(string widgetId, out Graphic g)
+    {
+        g = null;
+        return false;
+    }
+
+    public bool TryGetRectTransform(string widgetId, out RectTransform rt)
+    {
+        rt = null;
+        return false;
+    }
+    public bool TryGetTMPText(string widgetId, out TMP_Text text)
+    {
+        text = null;
+        return false;
     }
 }

@@ -1,4 +1,7 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public sealed class CpsNodeCommandFactory : INodeCommandFactory
 {
@@ -42,6 +45,53 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     portraitFadeDuration: FadeDur
                 );
                 return command != null;
+            
+            case NodeCommandKind.FadeGraphic:
+            {
+                if (_widgets == null) return false;
+                if (!_widgets.TryGetGraphic(spec.widgetId, out Graphic g) || g == null) return false;
+
+                float to = spec.f0;                 // alpha
+                float dur = spec.f1;                // duration
+                bool wait = spec.b0;                // wait
+                command = new FadeGraphicCommand(g, to, dur, wait);
+                return true;
+            }
+
+            case NodeCommandKind.MoveAnchoredPos:
+            {
+                if (_widgets == null) return false;
+                if (!_widgets.TryGetRectTransform(spec.widgetId, out RectTransform rt) || rt == null) return false;
+
+                Vector2 to = spec.v0;
+                float dur = spec.f0;
+                bool wait = spec.b0;
+                Ease ease = spec.ease;
+                command = new MoveAnchoredPosCommand(rt, to, dur, ease, wait);
+                return true;
+            }
+
+            case NodeCommandKind.SetTMPTextImmediate:
+            {
+                if (_widgets == null) return false;
+                if (!_widgets.TryGetTMPText(spec.widgetId, out TMP_Text t) || t == null) return false;
+
+                string text = spec.s0; // 또는 spec.line.text 등으로 대체 가능
+                command = new SetTMPTextImmediateCommand(t, text);
+                return true;
+            }
+
+            case NodeCommandKind.TypeText:
+            {
+                if (_widgets == null) return false;
+                if (!_widgets.TryGetTMPText(spec.widgetId, out TMP_Text t) || t == null) return false;
+
+                string text = spec.s0; // 또는 spec.line.text
+                float interval = spec.f0 > 0f ? spec.f0 : (_config != null ? _config.TypeCharInterval : 0.03f);
+                bool wait = spec.b0;
+                command = new TypeTextCommand(t, text, interval, wait);
+                return true;
+            }
 
             default:
                 return false;
