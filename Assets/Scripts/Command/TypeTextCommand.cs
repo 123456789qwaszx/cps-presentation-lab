@@ -21,7 +21,7 @@ public sealed class TypeTextCommand : CommandBase
     
     //protected override string DebugName => $"TypeText({(_target != null ? _target.name : "null")})";
 
-    protected override void OnSkip(NodePlayScope api)
+    protected override void OnSkip(CommandRunScope scope)
     {
         if (_target == null) return;
 
@@ -30,10 +30,10 @@ public sealed class TypeTextCommand : CommandBase
         _target.maxVisibleCharacters = int.MaxValue;
     }
 
-    protected override IEnumerator ExecuteInner(NodePlayScope api)
+    protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         if (_target == null) yield break;
-        if (api == null) yield break;
+        if (scope == null) yield break;
 
         // 텍스트 세팅 후, TMP가 characterCount를 계산하도록 갱신
         _target.text = _fullText;
@@ -51,12 +51,12 @@ public sealed class TypeTextCommand : CommandBase
 
         for (int visible = 1; visible <= totalChars; visible++)
         {
-            if (api.Token.IsCancellationRequested) yield break;
+            if (scope.Token.IsCancellationRequested) yield break;
 
             // 스킵은 "즉시 완료 상태"로
-            if (api.IsSkipping)
+            if (scope.IsSkipping)
             {
-                OnSkip(api);
+                OnSkip(scope);
                 yield break;
             }
 
@@ -66,15 +66,15 @@ public sealed class TypeTextCommand : CommandBase
             float t = 0f;
             while (t < _charInterval)
             {
-                if (api.Token.IsCancellationRequested) yield break;
+                if (scope.Token.IsCancellationRequested) yield break;
 
-                if (api.IsSkipping)
+                if (scope.IsSkipping)
                 {
-                    OnSkip(api);
+                    OnSkip(scope);
                     yield break;
                 }
 
-                t += Time.unscaledDeltaTime * api.TimeScale;
+                t += Time.unscaledDeltaTime * scope.TimeScale;
                 yield return null;
             }
         }

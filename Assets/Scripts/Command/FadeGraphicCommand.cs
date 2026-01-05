@@ -20,7 +20,7 @@ public sealed class FadeGraphicCommand : CommandBase
 
     public override bool WaitForCompletion => _wait;
 
-    protected override void OnSkip(NodePlayScope api)
+    protected override void OnSkip(CommandRunScope scope)
     {
         if (_g == null) return;
         var c = _g.color;
@@ -28,12 +28,12 @@ public sealed class FadeGraphicCommand : CommandBase
         _g.color = c;
     }
 
-    protected override IEnumerator ExecuteInner(NodePlayScope api)
+    protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         if (_g == null) yield break;
 
         Tween t = _g.DOFade(_to, _dur).SetUpdate(true);
-        t.BindTo(api);
+        t.BindTo(scope);
 
         if (_wait)
             yield return t.WaitForCompletion();

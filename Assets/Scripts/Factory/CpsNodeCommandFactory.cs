@@ -25,7 +25,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 
         switch (spec)
         {
-            case DefaultShowLineCommandSpec show:
+            case ShowLineCommandSpec show:
                 if (show.line == null)return false;
 
                 command = new CpsShowLineCommand(

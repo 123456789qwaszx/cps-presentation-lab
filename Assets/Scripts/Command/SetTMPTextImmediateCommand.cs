@@ -16,7 +16,7 @@ public sealed class SetTMPTextImmediateCommand : CommandBase
     protected override SkipPolicy SkipPolicy => SkipPolicy.ExecuteEvenIfSkipping;
     public override bool WaitForCompletion => true;
 
-    protected override IEnumerator ExecuteInner(NodePlayScope api)
+    protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         if (_target == null) yield break;
         _target.text = _text;

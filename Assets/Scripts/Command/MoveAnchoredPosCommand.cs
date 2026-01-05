@@ -37,7 +37,7 @@ public sealed class CpsMovePortraitCommand : CommandBase
 
     public override bool WaitForCompletion => _wait;
     
-    protected override IEnumerator ExecuteInner(NodePlayScope api)
+    protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         ResolveIfNeeded();
         if (_duration <= 0f)
@@ -51,13 +51,13 @@ public sealed class CpsMovePortraitCommand : CommandBase
             .SetEase(_ease)
             .SetUpdate(true);
 
-        tween.BindTo(api);
+        tween.BindTo(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();
     }
 
-    protected override void OnSkip(NodePlayScope api)
+    protected override void OnSkip(CommandRunScope scope)
     {
         ResolveIfNeeded();
 

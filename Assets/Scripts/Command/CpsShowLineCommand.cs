@@ -52,7 +52,7 @@ public sealed class CpsShowLineCommand : CommandBase
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
     public override bool WaitForCompletion => true;
 
-    protected override void OnSkip(NodePlayScope api)
+    protected override void OnSkip(CommandRunScope scope)
     {
         ResolveIfNeeded();
 
@@ -84,7 +84,7 @@ public sealed class CpsShowLineCommand : CommandBase
         }
     }
 
-    protected override IEnumerator ExecuteInner(NodePlayScope api)
+    protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         ResolveIfNeeded();
         
@@ -137,7 +137,7 @@ public sealed class CpsShowLineCommand : CommandBase
         {
             // 너가 만든 TypeTextCommand 재사용(표준치안/Skip/TimeScale 반영됨)
             var typeCmd = new TypeTextCommand(_refs.BodyText, _line.text ?? "", _typeInterval, waitForCompletion: true);
-            yield return typeCmd.Execute(api);
+            yield return typeCmd.Execute(scope);
         }
     }
 
