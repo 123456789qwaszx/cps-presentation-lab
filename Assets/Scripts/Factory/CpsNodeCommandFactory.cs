@@ -79,7 +79,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     screenId: nameSpec.screenId,
                     widgetId: nameSpec.widgetId
                 );
-                
                 return command != null;
             }
             
@@ -162,6 +161,36 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     duration: dur,
                     ease: ease,
                     waitForCompletion: wait
+                );
+                return command != null;
+            }
+            
+            case PunchScaleEmotionCommandSpec punchSpec:
+            {
+                command = new CpsPunchScaleCommand(
+                    widgets: _widgets,
+                    screenId: punchSpec.screenId,
+                    widgetId: punchSpec.widgetId,
+                    punch: punchSpec.punch,
+                    duration: punchSpec.duration,
+                    vibrato: punchSpec.vibrato,
+                    elasticity: punchSpec.elasticity,
+                    waitForCompletion: punchSpec.wait
+                );
+                return command != null;
+            }
+            
+            case ShakeHorizontalEmotionCommandSpec shakeSpec:
+            {
+                command = new CpsShakeHorizontalCommand(
+                    widgets: _widgets,
+                    screenId: shakeSpec.screenId,
+                    widgetId: shakeSpec.widgetId,
+                    strengthX: shakeSpec.strengthX,
+                    duration: shakeSpec.duration,
+                    vibrato: shakeSpec.vibrato,
+                    randomness: shakeSpec.randomness,
+                    waitForCompletion: shakeSpec.wait
                 );
                 return command != null;
             }
