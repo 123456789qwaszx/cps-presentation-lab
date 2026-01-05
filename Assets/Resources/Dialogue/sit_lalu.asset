@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
+  m_Name: sit_lalu
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
+  sequenceKey: sit_lalu
+  nodes:
+  - editorName: Lalu~~Start
+    steps:
+    - editorName: "\uB2E4\uB978\uACF3\uBD80\uD130 \uC870\uC0AC\uD558\uC790"
+      commands:
+      - rid: 2406591374389936197
+      - rid: 2406591374389936198
+      - rid: 2406591374389936199
+      - rid: 2406591374389936200
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: "\uB9C8\uC220\uACF5\uC5F0\uC740?"
+      commands:
+      - rid: 2406591374389936201
+      - rid: 2406591374389936202
+      - rid: 2406591374389936203
+      - rid: 2406591374389936204
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: "\uC9C0\uAE08\uC740\uADFC\uBB34\uC911\uC774\uC796\uC544!"
+      commands:
+      - rid: 2406591374389936208
+      - rid: 2406591374389936206
+      - rid: 2406591374389936205
+      - rid: 2406591374389936207
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+  - editorName: Lalu~~Keep
+    steps: []
+  - editorName: Lalu~~End
+    steps: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2406591374389936197
+      type: {class: SetPortraitSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: megu
+          expression: 0
+          text: 
+          position: 0
+    - rid: 2406591374389936198
+      type: {class: SetSpeakerNameCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: ichika
+          expression: 1
+          text: 
+          position: 0
+    - rid: 2406591374389936199
+      type: {class: FadePortraitGraphicCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        fromAlpha: 0
+        toAlpha: 0.241
+        duration: 0.3
+        wait: 0
+    - rid: 2406591374389936200
+      type: {class: TypeBodyTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        text: "\uB9C8\uC655\uCC21, \uC800\uCABD\uC740 \uBC29\uD574\uD558\uBA74 \uC548\uB418\uB2C8\uAE4C,
+          \uB2E4\uB978 \uACF3 \uBA3C\uC800 \uC870\uC0AC\uD558\uB294 \uAC8C \uC5B4\uB54C?"
+        line:
+          speakerId: 
+          expression: 0
+          text: 
+          position: 0
+        charInterval: -1
+        wait: 1
+    - rid: 2406591374389936201
+      type: {class: SetPortraitSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: 
+          expression: 0
+          text: 
+          position: 0
+    - rid: 2406591374389936202
+      type: {class: SetSpeakerNameCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: 
+          expression: 0
+          text: 
+          position: 0
+    - rid: 2406591374389936203
+      type: {class: FadePortraitGraphicCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        fromAlpha: 0
+        toAlpha: 1
+        duration: -1
+        wait: 0
+    - rid: 2406591374389936204
+      type: {class: TypeBodyTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        text: "\uC74C? \uB9C8\uC220 \uACF5\uC5F0 \uC88B\uC544\uD560 \uC904 \uC54C\uC558\uB294\uB370?"
+        line:
+          speakerId: 
+          expression: 0
+          text: 
+          position: 0
+        charInterval: -1
+        wait: 1
+    - rid: 2406591374389936205
+      type: {class: SetPortraitSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: 
+          expression: 1
+          text: 
+          position: 0
+    - rid: 2406591374389936206
+      type: {class: SetSpeakerNameCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: megu
+          expression: 0
+          text: 
+          position: 0
+    - rid: 2406591374389936207
+      type: {class: FadePortraitGraphicCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        fromAlpha: 0.125
+        toAlpha: 1
+        duration: 0.7
+        wait: 0
+    - rid: 2406591374389936208
+      type: {class: TypeBodyTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        text: "\uC9C0\uAE08 \uADFC\uBB34 \uC911\uC774\uC796\uC544! \uBC30\uB2EC \uC784\uBB34\uBD80\uD130
+          \uB05D\uB0B4\uC57C\uC9C0!"
+        line:
+          speakerId: 
+          expression: 0
+          text: 
+          position: 0
+        charInterval: -1
+        wait: 1

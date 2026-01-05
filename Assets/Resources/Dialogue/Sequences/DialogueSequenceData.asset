@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39f4c116589f104eb0d8510d5217462, type: 3}
   m_Name: DialogueSequenceData
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequenceData
-  sequenceId: seq/hotspring
+  sequenceId: 
   situations:
   - {fileID: 11400000, guid: 803cef3110468d34286acbc32590d8bc, type: 2}
+  - {fileID: 11400000, guid: bae13edc36d921443a658bdf5d49e288, type: 2}

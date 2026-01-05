@@ -12,8 +12,132 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
   m_Name: sit_hotspring
   m_EditorClassIdentifier: Assembly-CSharp::SituationSpecSO
-  sequenceKey: sit/hotspring
-  nodes: []
+  sequenceKey: sit_hotspring
+  nodes:
+  - editorName: 
+    steps:
+    - editorName: 
+      commands:
+      - rid: 2406591374389936190
+      - rid: 2406591374389936191
+      - rid: 2406591374389936193
+      - rid: 2406591374389936194
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591374389936195
+      - rid: 2406591374389936196
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+  - editorName: 
+    steps:
+    - editorName: 
+      commands:
+      - rid: 2406591374389936190
+      - rid: 2406591374389936191
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591374389936190
+      - rid: 2406591374389936191
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591374389936190
+      - rid: 2406591374389936191
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591374389936190
+      - rid: 2406591374389936191
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591374389936190
+      type: {class: ShowLineCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: ichika
+          expression: 1
+          text: "\uBD80\uC7A5~~~~\uC624\uB298\uC740 \uC660\uC77C\uB85C \uBA3C\uC800
+            \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00 \uC788\uB294\uB370??"
+          position: 0
+    - rid: 2406591374389936191
+      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        offset: {x: 150, y: 333}
+        duration: -1
+        ease: 30
+        wait: 0
+    - rid: 2406591374389936193
+      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        offset: {x: 150, y: 444}
+        duration: -1
+        ease: 9
+        wait: 0
+    - rid: 2406591374389936194
+      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        offset: {x: 222, y: -55}
+        duration: -1
+        ease: 9
+        wait: 0
+    - rid: 2406591374389936195
+      type: {class: ShowLineCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        line:
+          speakerId: ichika
+          expression: 1
+          text: "\uBD80\uC7A5~~~~\uC624\uB298\uC740 \uC660\uC77C\uB85C \uBA3C\uC800
+            \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00 \uC788\uB294\uB370??"
+          position: 0
+    - rid: 2406591374389936196
+      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        offset: {x: 150, y: 333}
+        duration: -1
+        ease: 30
+        wait: 0

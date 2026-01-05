@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueBootstrap
   routeCatalog: {fileID: 11400000, guid: 7b77a5b1a8126cd4998058ee6c089525, type: 2}
-  commandServiceConfig: {fileID: 11400000, guid: 496bb22740af7cd45978ab5201e8aaa1, type: 2}
+  commandServiceConfig: {fileID: 0}
   presenterBehaviour: {fileID: 2081970847}
   commandExecuter: {fileID: 1117495969}
   signals: {fileID: 713045950}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CpsDialogueTestDriver
   bootstrap: {fileID: 0}
-  testRouteKey: dialogue/hotspring
+  testRouteKey: dialogue/lalu
   delaySecond: 0.6
   timeScale: 1
 --- !u!1 &330585543

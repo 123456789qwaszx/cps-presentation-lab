@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRouteCatalogSO
   entries:
   - routeKey: dialogue/hotspring
-    sequenceData: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
-    situationKey: sit/hotspring
+    sequenceDatabase: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
+    sequenceKey: sit_hotspring
+  - routeKey: dialogue/lalu
+    sequenceDatabase: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
+    sequenceKey: sit_lalu
