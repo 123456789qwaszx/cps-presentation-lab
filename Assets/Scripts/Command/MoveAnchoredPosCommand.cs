@@ -57,7 +57,7 @@ public sealed class CpsMovePortraitCommand : CommandBase
             yield return tween.WaitForCompletion();
     }
 
-    protected override void OnSkip(CommandRunScope scope)
+    protected override void OnSkip(CommandRunScope api)
     {
         ResolveIfNeeded();
 
