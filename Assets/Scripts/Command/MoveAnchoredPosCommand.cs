@@ -51,7 +51,7 @@ public sealed class CpsMovePortraitCommand : CommandBase
             .SetEase(_ease)
             .SetUpdate(true);
 
-        tween.BindTo(scope);
+        tween.BindToStep(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

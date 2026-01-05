@@ -61,7 +61,7 @@ public sealed class CpsFadePortraitGraphicCommand : CommandBase
             .DOFade(_toAlpha, _duration)
             .SetUpdate(true);
 
-        tween.BindTo(scope);
+        tween.BindToStep(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

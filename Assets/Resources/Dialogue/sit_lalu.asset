@@ -452,7 +452,7 @@ MonoBehaviour:
         screenId: dialogue
         widgetId: dialogue
         strengthX: 10
-        duration: 0.2
+        duration: 3
         vibrato: 10
         randomness: 90
         wait: 0
@@ -481,4 +481,4 @@ MonoBehaviour:
         duration: 0.8
         vibrato: 6
         elasticity: 0.4
-        wait: 1
+        wait: 0

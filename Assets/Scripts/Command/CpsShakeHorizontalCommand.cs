@@ -62,8 +62,10 @@ public sealed class CpsShakeHorizontalCommand : CommandBase
                 fadeOut: true
             )
             .SetUpdate(true);
+        tween.OnKill(() => Debug.Log("[Tween] Killed"));
+        tween.OnComplete(() => Debug.Log("[Tween] Completed"));
 
-        tween.BindTo(scope);
+        tween.BindToStep(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

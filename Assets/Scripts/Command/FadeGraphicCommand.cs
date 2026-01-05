@@ -33,7 +33,7 @@ public sealed class FadeGraphicCommand : CommandBase
         if (_g == null) yield break;
 
         Tween t = _g.DOFade(_to, _dur).SetUpdate(true);
-        t.BindTo(scope);
+        t.BindToStep(scope);
 
         if (_wait)
             yield return t.WaitForCompletion();

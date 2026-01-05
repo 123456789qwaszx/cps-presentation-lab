@@ -4,17 +4,40 @@ using DG.Tweening;
 // NodePlayScope Stop/Finish 시 이 Tween을 Kill/Complete 하도록 등록한다.
 public static class CommandRunScopeDotweenExtensions
 {
-    public static Tween BindTo(this Tween t, CommandRunScope scope)
+    public static Tween BindToStep(this Tween t, CommandRunScope scope)
     {
-        scope.RegisterTween(t);
+        scope.RegisterTweenToTrackStep(t);
         return t;
     }
     
-    private static void RegisterTween(this CommandRunScope scope, Tween t)
+    public static Tween BindToRun(this Tween t, CommandRunScope scope)
+    {
+        scope.RegisterTweenToTrackRun(t);
+        return t;
+    }
+    
+    public static Tween BindToRunr(this Tween t, CommandRunScope scope)
+    {
+        if (t == null || scope == null) return t;
+        scope.TrackRun(cancel: () => t.Kill(false), finish: () => t.Complete(true));
+        return t;
+    }
+    
+    private static void RegisterTweenToTrackStep(this CommandRunScope scope, Tween t)
     {
         if (scope == null || t == null) return;
 
-        scope.Track(
+        scope.TrackStep(
+            cancel: () => { if (t.IsActive()) t.Kill(); },
+            finish: () => { if (t.IsActive()) t.Complete(); }
+        );
+    }
+    
+    private static void RegisterTweenToTrackRun(this CommandRunScope scope, Tween t)
+    {
+        if (scope == null || t == null) return;
+
+        scope.TrackStep(
             cancel: () => { if (t.IsActive()) t.Kill(); },
             finish: () => { if (t.IsActive()) t.Complete(); }
         );
