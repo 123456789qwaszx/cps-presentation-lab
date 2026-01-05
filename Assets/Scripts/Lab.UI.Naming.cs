@@ -17,6 +17,8 @@ namespace Lab.UI.Naming
         public string BodyName     => DialogueWidgetNames.Body(BaseId);
         public string NameName     => DialogueWidgetNames.Name(BaseId);
         public string PortraitName => DialogueWidgetNames.Portrait(BaseId);
+        
+        public string EmoteName    => DialogueWidgetNames.Emote(BaseId); 
     }
     
     public static class DialogueWidgetNames
@@ -24,9 +26,11 @@ namespace Lab.UI.Naming
         public const string BodySuffix     = "_Body";
         public const string NameSuffix     = "_Name";
         public const string PortraitSuffix = "_Portrait";
+        public const string EmoteSuffix    = "_Emote";
 
         public static string Body(string baseId)     => baseId + BodySuffix;
         public static string Name(string baseId)     => baseId + NameSuffix;
         public static string Portrait(string baseId) => baseId + PortraitSuffix;
+        public static string Emote(string baseId)    => baseId + EmoteSuffix;
     }
 }

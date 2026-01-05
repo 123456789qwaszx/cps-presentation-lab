@@ -14,8 +14,105 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: sit_lalu
   nodes:
+  - editorName: Lalu~~Keep
+    steps:
+    - editorName: Mutsuki_Emote_PleasedButPretend
+      commands:
+      - rid: 2406591380969226310
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Punch
+      commands:
+      - rid: 2406591380969226324
+      - rid: 2406591380969226327
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: ShakeHorizontal
+      commands:
+      - rid: 2406591380969226321
+      - rid: 2406591380969226323
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_SmirkDoubt
+      commands:
+      - rid: 2406591380969226308
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: empty
+      commands:
+      - rid: 2406591380969226317
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_PoutCheek
+      commands:
+      - rid: 2406591380969226309
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_PlayDumb
+      commands:
+      - rid: 2406591380969226315
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_MouthOnFire
+      commands:
+      - rid: 2406591380969226311
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_Flustered
+      commands:
+      - rid: 2406591380969226312
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_Excited
+      commands:
+      - rid: 2406591380969226313
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Mutsuki_Emote_Baffled
+      commands:
+      - rid: 2406591380969226314
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591380969226325
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
   - editorName: Lalu~~Start
     steps:
+    - editorName: "\uAC10\uC815\uD754\uB4E4\uB9BC"
+      commands:
+      - rid: 2406591380969226303
+      - rid: 2406591374389936222
+      - rid: 2406591374389936223
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
     - editorName: "\uB2E4\uB978\uACF3\uBD80\uD130 \uC870\uC0AC\uD558\uC790"
       commands:
       - rid: 2406591374389936213
@@ -52,17 +149,6 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: "\uAC10\uC815\uD754\uB4E4\uB9BC"
-      commands:
-      - rid: 2406591374389936222
-      - rid: 2406591374389936223
-      - rid: 2406591374389936224
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-  - editorName: Lalu~~Keep
-    steps: []
   - editorName: Lalu~~End
     steps: []
   references:
@@ -255,30 +341,144 @@ MonoBehaviour:
     - rid: 2406591374389936222
       type: {class: ShakeHorizontalEmotionCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetId: 
+        screenId: dialogue
+        widgetId: dialogue
         strengthX: 10
-        duration: 0.2
-        vibrato: 10
+        duration: 0.5
+        vibrato: 100
         randomness: 90
         wait: 0
     - rid: 2406591374389936223
       type: {class: PunchScaleEmotionCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetId: 
+        screenId: dialogue
+        widgetId: dialogue
         punch: 0.2
         duration: 0.3
         vibrato: 10
         elasticity: 1
         wait: 0
-    - rid: 2406591374389936224
-      type: {class: SetPortraitSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591380969226303
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetId: 
-        line:
-          speakerId: 
-          expression: 0
-          text: 
-          position: 0
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_Baffled
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226308
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_SmirkDoubt
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226309
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PoutCheek
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226310
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PleasedButPretend
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226311
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_MouthOnFire
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226312
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_Flustered
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226313
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_Excited
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226314
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_Baffled
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226315
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PlayDumb
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226317
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: 
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226321
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PleasedButPretend
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226323
+      type: {class: ShakeHorizontalEmotionCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        strengthX: 10
+        duration: 0.2
+        vibrato: 10
+        randomness: 90
+        wait: 0
+    - rid: 2406591380969226324
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PleasedButPretend
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226325
+      type: {class: SetEmojiCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        spriteName: Mutsuki_Emote_PleasedButPretend
+        clearWhenEmpty: 1
+        wait: 0
+    - rid: 2406591380969226327
+      type: {class: PunchScaleEmotionCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        punch: 0.2
+        duration: 0.8
+        vibrato: 6
+        elasticity: 0.4
+        wait: 1

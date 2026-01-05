@@ -12,10 +12,8 @@ public interface IDialogueWidgetAccess
         public TMP_Text NameText;
         public Image PortraitImage;
         public RectTransform PortraitRect;
-        public Graphic PortraitGraphic; // fade용
+        public Graphic PortraitGraphic;
+        public Image EmoteImage;
+        public RectTransform EmoteRect;
     }
-    
-    bool TryGetGraphic(string widgetId, out Graphic g);
-    bool TryGetRectTransform(string widgetId, out RectTransform rt);
-    bool TryGetTMPText(string widgetId, out TMP_Text text);
 }

@@ -75,7 +75,7 @@ public sealed class CpsShakeHorizontalCommand : CommandBase
             return;
 
         _rect.DOKill(false);
-        _rect.anchoredPosition = _originPos; // 원래 위치로 복귀
+        _rect.anchoredPosition = _originPos;
     }
 
     private bool ResolveIfNeeded()
@@ -89,7 +89,9 @@ public sealed class CpsShakeHorizontalCommand : CommandBase
         if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
             return false;
 
-        _rect = refs.PortraitRect; // 감정 아이콘 Rect로 매핑
+        // ⭐ EmoteRect 우선, 없으면 PortraitRect
+        _rect = refs.EmoteRect != null ? refs.EmoteRect : refs.PortraitRect;
+
         if (_rect != null)
             _originPos = _rect.anchoredPosition;
 

@@ -47,13 +47,11 @@ public sealed class CpsPunchScaleCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        // 기존 트윈 정리
         _rect.DOKill(false);
 
         if (_duration <= 0f || Mathf.Approximately(_punch, 0f))
             yield break;
 
-        // 현재 스케일 기준으로 살짝 튀게
         Vector3 punchVec = new Vector3(_punch, _punch, 0f);
 
         Tween tween = _rect
@@ -72,7 +70,7 @@ public sealed class CpsPunchScaleCommand : CommandBase
             return;
 
         _rect.DOKill(false);
-        _rect.localScale = _originScale; // 원래 크기로 복귀
+        _rect.localScale = _originScale;
     }
 
     private bool ResolveIfNeeded()
@@ -86,7 +84,9 @@ public sealed class CpsPunchScaleCommand : CommandBase
         if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
             return false;
 
-        _rect = refs.PortraitRect; // 감정 아이콘 Rect를 여기로 매핑해두면 됨
+        // ⭐ EmoteRect 우선, 없으면 PortraitRect
+        _rect = refs.EmoteRect != null ? refs.EmoteRect : refs.PortraitRect;
+
         if (_rect != null)
             _originScale = _rect.localScale;
 

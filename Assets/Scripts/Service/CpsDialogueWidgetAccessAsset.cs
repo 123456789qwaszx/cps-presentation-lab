@@ -29,34 +29,19 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         WidgetHandle dialogueBody = screen.GetWidgetHandle(set.BodyName);
         WidgetHandle speakerName  = screen.GetWidgetHandle(set.NameName);
         WidgetHandle portrait     = screen.GetWidgetHandle(set.PortraitName);
+        WidgetHandle emote        = screen.GetWidgetHandle(set.EmoteName);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
-            BodyText = dialogueBody?.Text,
-            NameText = speakerName?.Text,
-            PortraitImage = portrait?.Image,
-            PortraitRect = portrait?.RectTransform,
-            PortraitGraphic = portrait?.Image // Image는 Graphic 상속
+            BodyText        = dialogueBody?.Text,
+            NameText        = speakerName?.Text,
+            PortraitImage   = portrait?.Image,
+            PortraitRect    = portrait?.RectTransform,
+            PortraitGraphic = portrait?.Image,
+            EmoteImage      = emote?.Image,
+            EmoteRect       = emote?.RectTransform
         };
 
         return true;
-    }
-
-    public bool TryGetGraphic(string widgetId, out Graphic g)
-    {
-        g = null;
-        return false;
-    }
-
-    public bool TryGetRectTransform(string widgetId, out RectTransform rt)
-    {
-        rt = null;
-        return false;
-    }
-
-    public bool TryGetTMPText(string widgetId, out TMP_Text text)
-    {
-        text = null;
-        return false;
     }
 }

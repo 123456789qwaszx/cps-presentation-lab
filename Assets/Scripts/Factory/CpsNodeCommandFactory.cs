@@ -195,6 +195,19 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case SetEmojiCommandSpec emojiSpec:
+            {
+                command = new CpsSetEmojiCommand(
+                    widgets: _widgets,
+                    screenId: emojiSpec.screenId,
+                    widgetId: emojiSpec.widgetId,
+                    spriteName: emojiSpec.spriteName,
+                    clearWhenEmpty: emojiSpec.clearWhenEmpty,
+                    waitForCompletion: emojiSpec.wait
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }

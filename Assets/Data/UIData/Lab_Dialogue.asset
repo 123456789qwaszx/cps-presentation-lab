@@ -17,28 +17,7 @@ MonoBehaviour:
       value: home
     slots:
     - slotName: TopArea
-      widgets:
-      - widgetType: 2
-        nameTag: emotion_Portrait
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 0
-        disabled: 0
-        anchorMin: {x: 0.5, y: 0.5}
-        anchorMax: {x: 0.5, y: 0.5}
-        pivot: {x: 0.5, y: 0.5}
-        anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 300, y: 80}
-        imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
+      widgets: []
     - slotName: MiddleArea
       widgets: []
     - slotName: BottomArea
@@ -119,6 +98,27 @@ MonoBehaviour:
         anchoredPosition: {x: 0, y: 0}
         sizeDelta: {x: 900, y: 380}
         imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+      - widgetType: 2
+        nameTag: Dialogue_Emote
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: -100, y: 30}
+        sizeDelta: {x: 600, y: 600}
+        imageSprite: {fileID: 21300000, guid: 13c330d2ec09fb648b835f34f452896b, type: 3}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
         imageSetNativeSize: 0
         toggleInitialValue: 0

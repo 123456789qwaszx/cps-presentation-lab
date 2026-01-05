@@ -13,7 +13,7 @@ public sealed class ShakeHorizontalEmotionCommandSpec : CommandSpecBase
     /// <summary>
     /// 연출 총 시간. <= 0이면 아무 것도 안 함.
     /// </summary>
-    public float duration = 0.2f;
+    public float duration = 0.8f;
 
     /// <summary>
     /// 진동 횟수.
