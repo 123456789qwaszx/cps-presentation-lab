@@ -53,9 +53,12 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: "\uAC10\uC815\uD754\uB4E4\uB9BC"
-      commands: []
+      commands:
+      - rid: 2406591374389936222
+      - rid: 2406591374389936223
+      - rid: 2406591374389936224
       gate:
-        type: 0
+        type: 1
         seconds: 0
         signalKey: 
   - editorName: Lalu~~Keep
@@ -247,5 +250,35 @@ MonoBehaviour:
         line:
           speakerId: kasmi
           expression: 4
+          text: 
+          position: 0
+    - rid: 2406591374389936222
+      type: {class: ShakeHorizontalEmotionCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetId: 
+        strengthX: 10
+        duration: 0.2
+        vibrato: 10
+        randomness: 90
+        wait: 0
+    - rid: 2406591374389936223
+      type: {class: PunchScaleEmotionCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetId: 
+        punch: 0.2
+        duration: 0.3
+        vibrato: 10
+        elasticity: 1
+        wait: 0
+    - rid: 2406591374389936224
+      type: {class: SetPortraitSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetId: 
+        line:
+          speakerId: 
+          expression: 0
           text: 
           position: 0
