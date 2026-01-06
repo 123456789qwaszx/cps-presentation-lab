@@ -180,6 +180,32 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case SetActiveCommandSpec a:
+            {
+                command = new CpsSetActiveCommand(
+                    widgets: _widgets,
+                    screenId: a.screenId,
+                    widgetId: a.widgetId,
+                    target: a.target,
+                    active: a.active
+                );
+                return command != null;
+            }
+
+            case SetInteractableCommandSpec i:
+            {
+                command = new CpsSetInteractableCommand(
+                    widgets: _widgets,
+                    screenId: i.screenId,
+                    widgetId: i.widgetId,
+                    target: i.target,
+                    interactable: i.interactable,
+                    searchParents: i.searchParents,
+                    blocksRaycasts: i.blocksRaycasts
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }
