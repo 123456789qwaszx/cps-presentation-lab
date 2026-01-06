@@ -1,6 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[Serializable]
+public sealed class SetSpeakerNameCommandSpec : CommandSpecBase
+{
+    [Header("Speaker Source")]
+    public DialogueLine line;
+    
+    // 필요해지면 확장 옵션 추가 가능:
+    // public string overrideSpeakerId;
+    // public bool  useOverrideSpeakerId;
+}
 public sealed class CpsSetSpeakerNameCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;

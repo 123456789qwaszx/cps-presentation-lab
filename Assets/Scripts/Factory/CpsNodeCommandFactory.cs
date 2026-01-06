@@ -25,22 +25,22 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 
         switch (spec)
         {
-            case ShowLineCommandSpec show:
-                if (show.line == null)return false;
-
-                command = new CpsShowLineCommand(
-                    widgets: _widgets,
-                    speakers: _speakers,
-                    line: show.line,
-                    screenId: spec.screenId,
-                    widgetId: spec.widgetId,
-                    typeCharInterval: TypeInterval,
-                    slidePortrait: Slide != null && Slide.enable,
-                    portraitSlideDuration: Slide?.duration ?? 0.5f,
-                    portraitSlideOffsetX: Slide?.offsetX ?? 800f,
-                    portraitFadeDuration: Slide?.fadeDur ?? 0.25f
-                );
-                return command != null;
+            // case ShowLineCommandSpec show:
+            //     if (show.line == null)return false;
+            //
+            //     command = new CpsShowLineCommand(
+            //         widgets: _widgets,
+            //         speakers: _speakers,
+            //         line: show.line,
+            //         screenId: spec.screenId,
+            //         widgetId: spec.widgetId,
+            //         typeCharInterval: TypeInterval,
+            //         slidePortrait: Slide != null && Slide.enable,
+            //         portraitSlideDuration: Slide?.duration ?? 0.5f,
+            //         portraitSlideOffsetX: Slide?.offsetX ?? 800f,
+            //         portraitFadeDuration: Slide?.fadeDur ?? 0.25f
+            //     );
+            //     return command != null;
 
             case MovePortraitCommandSpec move:
             {
@@ -115,28 +115,28 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
-            case TypeBodyTextCommandSpec typeSpec:
-            {
-                // 1) 텍스트 결정: 우선 text, 없으면 line.text
-                string text = !string.IsNullOrEmpty(typeSpec.text)
-                    ? typeSpec.text
-                    : (typeSpec.line != null ? typeSpec.line.text : string.Empty);
-
-                // 2) 타이핑 간격: Spec 우선, 없으면 Config 기본값
-                float interval = typeSpec.charInterval > 0f
-                    ? typeSpec.charInterval
-                    : TypeInterval; // _config.TypeCharInterval
-
-                command = new CpsTypeTextCommand(
-                    widgets: _widgets,
-                    screenId: typeSpec.screenId,
-                    widgetId: typeSpec.widgetId,
-                    text: text,
-                    interval: interval,
-                    waitForCompletion: typeSpec.wait
-                );
-                return command != null;
-            }
+            // case TypeBodyTextCommandSpec typeSpec:
+            // {
+            //     // 1) 텍스트 결정: 우선 text, 없으면 line.text
+            //     string text = !string.IsNullOrEmpty(typeSpec.text)
+            //         ? typeSpec.text
+            //         : (typeSpec.line != null ? typeSpec.line.text : string.Empty);
+            //
+            //     // 2) 타이핑 간격: Spec 우선, 없으면 Config 기본값
+            //     float interval = typeSpec.charInterval > 0f
+            //         ? typeSpec.charInterval
+            //         : TypeInterval; // _config.TypeCharInterval
+            //
+            //     command = new CpsTypeTextCommand(
+            //         widgets: _widgets,
+            //         screenId: typeSpec.screenId,
+            //         widgetId: typeSpec.widgetId,
+            //         text: text,
+            //         interval: interval,
+            //         waitForCompletion: typeSpec.wait
+            //     );
+            //     return command != null;
+            // }
             
             case SlidePortraitInCommandSpec slideSpec:
             {

@@ -1,6 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[Serializable]
+public sealed class SetPortraitSpriteCommandSpec : CommandSpecBase
+{
+    [Header("Speaker / Expression Source")]
+    public DialogueLine line;
+    
+    // 역시 필요하면 나중에 override 옵션을 추가해도 됨:
+    // public string overrideSpeakerId;
+    // public DialogueExpression overrideExpression;
+    // public bool   useOverride;
+}
 public sealed class CpsSetPortraitSpriteCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;

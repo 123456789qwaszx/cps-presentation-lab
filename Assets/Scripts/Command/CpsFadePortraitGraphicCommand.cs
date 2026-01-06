@@ -1,8 +1,26 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Serializable]
+public sealed class FadePortraitGraphicCommandSpec : CommandSpecBase
+{
+    [Header("Fade Settings")]
+    [Range(0f, 1f)]
+    public float fromAlpha = 0f;
+
+    [Range(0f, 1f)]
+    public float toAlpha = 1f;
+
+    /// <summary>
+    /// <= 0 이면 Config 기본값 사용 (예: PortraitSlideSettings의 fadeDur 같은 것)
+    /// </summary>
+    public float duration = -1f;
+
+    public bool wait = false;
+}
 public sealed class CpsFadePortraitGraphicCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
