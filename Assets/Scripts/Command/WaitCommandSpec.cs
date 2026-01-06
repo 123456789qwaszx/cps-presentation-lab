@@ -30,34 +30,22 @@ public sealed class CpsWaitCommand : CommandBase
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
-        if (_seconds <= 0f || _time == null)
+        if (_time == null || _seconds <= 0f)
             yield break;
 
         float remaining = _seconds;
 
         while (remaining > 0f)
         {
-            // StepGateAdvancer와 같은 감각: unscaled dt * timeScale(최소 0.01)
-            float scale = GetTimeScale(scope);
-            float dt = _time.UnscaledDeltaTime * scale;
+            float dt = _time.UnscaledDeltaTime;
+            if (_respectTimeScale)
+                dt *= (scope != null ? scope.TimeScale : 1f);
 
             remaining -= dt;
             yield return null;
         }
     }
 
-    protected override void OnSkip(CommandRunScope scope)
-    {
-        // 즉시 완료
-    }
-
-    private float GetTimeScale(CommandRunScope scope)
-    {
-        if (!_respectTimeScale) return 1f;
-
-        // 네 프로젝트 규칙과 동일하게: <=0이면 0.01로 바닥값
-        DialogueContext ctx = scope?.Playback;
-        float ts = (ctx != null ? ctx.TimeScale : 1f);
-        return ts > 0f ? ts : 0.01f;
-    }
+    protected override void OnSkip(CommandRunScope scope) { }
 }
+

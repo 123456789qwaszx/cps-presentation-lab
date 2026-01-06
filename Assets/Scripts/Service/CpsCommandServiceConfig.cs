@@ -10,10 +10,6 @@ public sealed class CpsCommandServiceConfig : ScriptableObject
     [SerializeField] private CpsDialogueWidgetAccessAsset widgetAccessAsset;
     [SerializeField] private DialogueSpeakerServiceAsset speakerServiceAsset;
     
-    public ITimeSource TimeSource;
-    public ISignalBus SignalBus;
-
-
     [Header("Defaults")]
     [SerializeField] private float typeCharInterval = 0.03f;
 

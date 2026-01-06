@@ -1,46 +1,41 @@
 using System;
 using UnityEngine;
-using System.Collections;
+using IEnumerator = System.Collections.IEnumerator;
+
 
 [Serializable]
 public sealed class HoldSignalCommandSpec : CommandSpecBase
 {
-    [Header("Signal")]
     public string signalKey;
-
-    [Header("Timeout")]
-    /// <summary>
-    /// <= 0이면 무제한 대기
-    /// </summary>
-    public float timeoutSeconds = -1f;
-
-    [Header("Clock")]
+    public bool consume = true;
+    public float timeoutSeconds = -1f;  // <= 0이면 무제한 대기
     public bool respectTimeScale = true;
 }
 
-
 public sealed class CpsHoldSignalCommand : CommandBase
 {
-    private readonly ISignalBus _signals;
+    private readonly ISignalLatch _latch;
     private readonly ITimeSource _time;
 
-    private readonly string _signalKey;
-    private readonly float _timeout;
+    private readonly string _key;
+    private readonly bool _consumeSignal;
+    private readonly float _timeoutSeconds;
     private readonly bool _respectTimeScale;
 
-    private bool _hit;
-
     public CpsHoldSignalCommand(
-        ISignalBus signals,
+        ISignalLatch latch,
         ITimeSource time,
-        string signalKey,
+        string key,
+        bool consume = true,
         float timeoutSeconds = -1f,
         bool respectTimeScale = true)
     {
-        _signals = signals;
+        _latch = latch;
         _time = time;
-        _signalKey = signalKey;
-        _timeout = timeoutSeconds;
+
+        _key = key;
+        _consumeSignal = consume;
+        _timeoutSeconds = timeoutSeconds;
         _respectTimeScale = respectTimeScale;
     }
 
@@ -49,57 +44,48 @@ public sealed class CpsHoldSignalCommand : CommandBase
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
-        if (_signals == null || string.IsNullOrEmpty(_signalKey))
+        if (string.IsNullOrEmpty(_key) || _latch == null)
             yield break;
 
-        _hit = false;
+        // ✅ 이미 래치된 신호면 즉시 만족
+        if (IsSatisfied())
+            yield break;
+
+        // timeout이 있는데 time이 없다면: 즉시 종료해버리면 더 혼란스러움 → 무제한 대기로 처리 + 경고
+        bool hasTimeout = _timeoutSeconds > 0f;
+        if (hasTimeout && _time == null)
+        {
+            Debug.LogWarning($"[CpsHoldSignalCommand] timeoutSeconds>0 but TimeSource is null. Hold becomes infinite. key='{_key}'");
+            hasTimeout = false;
+        }
+
         float elapsed = 0f;
 
-        void OnSignal(string key)
+        while (true)
         {
-            if (string.Equals(key, _signalKey, StringComparison.Ordinal))
-                _hit = true;
-        }
+            if (IsSatisfied())
+                yield break;
 
-        _signals.OnSignal += OnSignal;
-
-        try
-        {
-            while (!_hit)
+            if (hasTimeout)
             {
-                // 타임아웃 처리
-                if (_timeout > 0f)
-                {
-                    if (_time == null)
-                        break;
+                float dt = _time.UnscaledDeltaTime;
+                if (_respectTimeScale)
+                    dt *= (scope != null ? scope.TimeScale : 1f);
 
-                    float dt = _time.UnscaledDeltaTime * GetTimeScale(scope);
-                    elapsed += dt;
-
-                    if (elapsed >= _timeout)
-                        break;
-                }
-
-                yield return null;
+                elapsed += dt;
+                if (elapsed >= _timeoutSeconds)
+                    yield break;
             }
-        }
-        finally
-        {
-            _signals.OnSignal -= OnSignal;
+
+            yield return null;
         }
     }
 
     protected override void OnSkip(CommandRunScope scope)
     {
-        // 즉시 완료. (ExecuteInner에서 구독 중이었으면 finally로 해제됨)
+        // 즉시 완료(스킵은 CompleteImmediately 정책)
     }
-
-    private float GetTimeScale(CommandRunScope scope)
-    {
-        if (!_respectTimeScale) return 1f;
-
-        DialogueContext ctx = scope?.Playback;
-        float ts = (ctx != null ? ctx.TimeScale : 1f);
-        return ts > 0f ? ts : 0.01f;
-    }
+    
+    private bool IsSatisfied() => _consumeSignal ? _latch.Consume(_key) : _latch.IsLatched(_key);
 }
+

@@ -6,15 +6,17 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     private readonly CpsCommandServiceConfig _config;
     private readonly IDialogueWidgetAccess _widgets;
     private readonly IDialogueSpeakerService _speakers;
+    private readonly ITimeSource _time;
+    private readonly ISignalLatch _latch;
     
-    public CpsNodeCommandFactory(CpsCommandServiceConfig config)
+    public CpsNodeCommandFactory(CpsCommandServiceConfig config, ITimeSource time, ISignalLatch latch)
     {
         _config   = config;
         _widgets  = config.WidgetAccess;
         _speakers = config.SpeakerService;
+        _time   = time;
+        _latch = latch;
     }
-    private ITimeSource Time => _config != null ? _config.TimeSource : null;
-    private ISignalBus Signals => _config != null ? _config.SignalBus : null;
 
     private float TypeInterval => _config != null ? _config.TypeCharInterval : 0.03f;
     private PortraitSlideSettings Slide => _config?.PortraitSlide;
@@ -158,7 +160,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             case WaitCommandSpec w:
             {
                 command = new CpsWaitCommand(
-                    time: Time,
+                    time: _time,
                     seconds: w.seconds,
                     respectTimeScale: w.respectTimeScale
                 );
@@ -168,9 +170,10 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             case HoldSignalCommandSpec h:
             {
                 command = new CpsHoldSignalCommand(
-                    signals: Signals,
-                    time: Time,
-                    signalKey: h.signalKey,
+                    latch: _latch,
+                    time: _time,
+                    key: h.signalKey,
+                    consume: h.consume,
                     timeoutSeconds: h.timeoutSeconds,
                     respectTimeScale: h.respectTimeScale
                 );

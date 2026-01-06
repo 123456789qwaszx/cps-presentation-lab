@@ -27,9 +27,11 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         NodeViewModelBuilder vmBuilder  = new ();
 
         // Compose runner (subscribes to signals)
-        UnityInputSource input        = new();
-        UnityTimeSource time          = new();
-        StepGateAdvancer gateRunner = new StepGateAdvancer(input, time, signals);
+        UnityInputSource input      = new();
+        UnityTimeSource time        = new();
+        SignalLatch latch           = new();
+        signals.OnSignal += latch.Latch;
+        StepGateAdvancer gateRunner = new StepGateAdvancer(input, time, signals, latch);
 
         // Optional extension ports
         CommandExecutor executor = commandExecuter as CommandExecutor;
@@ -41,7 +43,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
             return;
         }
         
-        CpsNodeCommandFactory nodeFactory = new (cpsCommandServiceConfig);
+        CpsNodeCommandFactory nodeFactory = new (cpsCommandServiceConfig, time, latch);
         executor.Initialize(sequencePlayer, nodeFactory);
         
         DialoguePlaybackModes playbackModes = new ();
