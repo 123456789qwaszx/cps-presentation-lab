@@ -19,9 +19,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936190
-      - rid: 2406591374389936191
-      - rid: 2406591374389936193
-      - rid: 2406591374389936194
       gate:
         type: 1
         seconds: 0
@@ -35,7 +32,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936195
-      - rid: 2406591374389936196
       gate:
         type: 1
         seconds: 0
@@ -45,7 +41,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936190
-      - rid: 2406591374389936191
       gate:
         type: 1
         seconds: 0
@@ -59,7 +54,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936190
-      - rid: 2406591374389936191
       gate:
         type: 1
         seconds: 0
@@ -67,7 +61,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936190
-      - rid: 2406591374389936191
       gate:
         type: 1
         seconds: 0
@@ -75,7 +68,6 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591374389936190
-      - rid: 2406591374389936191
       gate:
         type: 1
         seconds: 0
@@ -94,33 +86,6 @@ MonoBehaviour:
           text: "\uBD80\uC7A5~~~~\uC624\uB298\uC740 \uC660\uC77C\uB85C \uBA3C\uC800
             \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00 \uC788\uB294\uB370??"
           position: 0
-    - rid: 2406591374389936191
-      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        offset: {x: 150, y: 333}
-        duration: -1
-        ease: 30
-        wait: 0
-    - rid: 2406591374389936193
-      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        offset: {x: 150, y: 444}
-        duration: -1
-        ease: 9
-        wait: 0
-    - rid: 2406591374389936194
-      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        offset: {x: 222, y: -55}
-        duration: -1
-        ease: 9
-        wait: 0
     - rid: 2406591374389936195
       type: {class: ShowLineCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -132,12 +97,3 @@ MonoBehaviour:
           text: "\uBD80\uC7A5~~~~\uC624\uB298\uC740 \uC660\uC77C\uB85C \uBA3C\uC800
             \uC628\uCC9C\uC5D0 \uB4E4\uC5B4\uAC00 \uC788\uB294\uB370??"
           position: 0
-    - rid: 2406591374389936196
-      type: {class: MovePortraitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        offset: {x: 150, y: 333}
-        duration: -1
-        ease: 30
-        wait: 0

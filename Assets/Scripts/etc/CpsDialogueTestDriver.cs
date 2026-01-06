@@ -27,10 +27,9 @@ public class CpsDialogueTestDriver : MonoBehaviour
         _dialogueStarter.Stop();
     }
     
-    public void Restart()
+    public void EndDialogue()
     {
-        _dialogueStarter.Stop();
-        _dialogueStarter.StartDialogue(testRouteKey);
+        _dialogueStarter.EndDialogue();
     }
     
     public void ToggleSkip()
