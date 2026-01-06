@@ -98,6 +98,61 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case SetSpriteCommandSpec s:
+            {
+                command = new CpsSetSpriteCommand(
+                    widgets: _widgets,
+                    screenId: s.screenId,
+                    widgetId: s.widgetId,
+                    target: s.target,
+                    sprite: s.sprite,
+                    clearWhenNull: s.clearWhenNull,
+                    setNativeSize: s.setNativeSize
+                );
+                return command != null;
+            }
+            
+            case PunchScaleCommandSpec p:
+            {
+                float dur = p.duration > 0f ? p.duration : 0.22f;
+                int vib   = p.vibrato  > 0  ? p.vibrato  : 8;
+                float ela = p.elasticity >= 0f ? Mathf.Clamp01(p.elasticity) : 0.75f;
+
+                command = new CpsPunchScaleCommand(
+                    widgets: _widgets,
+                    screenId: p.screenId,
+                    widgetId: p.widgetId,
+                    target: p.target,
+                    strength: p.strength,
+                    duration: dur,
+                    vibrato: vib,
+                    elasticity: ela,
+                    waitForCompletion: p.wait
+                );
+                return command != null;
+            }
+            
+            case ShakeCommandSpec s:
+            {
+                float dur = s.duration > 0f ? s.duration : 0.28f;
+                int vib   = s.vibrato  > 0  ? s.vibrato  : 12;
+                float rnd = s.randomness >= 0f ? Mathf.Clamp(s.randomness, 0f, 180f) : 90f;
+
+                command = new CpsShakeCommand(
+                    widgets: _widgets,
+                    screenId: s.screenId,
+                    widgetId: s.widgetId,
+                    target: s.target,
+                    axis: s.axis,
+                    intensity: s.intensity,
+                    duration: dur,
+                    vibrato: vib,
+                    randomness: rnd,
+                    waitForCompletion: s.wait
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }
