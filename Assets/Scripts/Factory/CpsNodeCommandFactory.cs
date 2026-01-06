@@ -7,14 +7,16 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     private readonly IDialogueWidgetAccess _widgets;
     private readonly IDialogueSpeakerService _speakers;
     private readonly ITimeSource _time;
+    private readonly ISignalBus _signal;
     private readonly ISignalLatch _latch;
     
-    public CpsNodeCommandFactory(CpsCommandServiceConfig config, ITimeSource time, ISignalLatch latch)
+    public CpsNodeCommandFactory(CpsCommandServiceConfig config, ITimeSource time, ISignalBus signal, ISignalLatch latch)
     {
         _config   = config;
         _widgets  = config.WidgetAccess;
         _speakers = config.SpeakerService;
         _time   = time;
+        _signal = signal;
         _latch = latch;
     }
 
@@ -116,6 +118,19 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case SetColorCommandSpec c:
+            {
+                command = new CpsSetColorCommand(
+                    widgets: _widgets,
+                    screenId: c.screenId,
+                    widgetId: c.widgetId,
+                    target: c.target,
+                    color: c.color,
+                    preserveAlpha: c.preserveAlpha
+                );
+                return command != null;
+            }
+            
             case PunchScaleCommandSpec p:
             {
                 float dur = p.duration > 0f ? p.duration : 0.22f;
@@ -180,6 +195,16 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case RaiseSignalCommandSpec r:
+            {
+                command = new CpsRaiseSignalCommand(
+                    signals: _signal,
+                    key: r.signalKey,
+                    raiseOnSkip: r.raiseOnSkip
+                );
+                return command != null;
+            }
+            
             case SetActiveCommandSpec a:
             {
                 command = new CpsSetActiveCommand(
@@ -202,6 +227,63 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     interactable: i.interactable,
                     searchParents: i.searchParents,
                     blocksRaycasts: i.blocksRaycasts
+                );
+                return command != null;
+            }
+            
+            case SetAnchoredPosCommandSpec p:
+            {
+                command = new CpsSetAnchoredPosCommand(
+                    widgets: _widgets,
+                    screenId: p.screenId,
+                    widgetId: p.widgetId,
+                    target: p.target,
+                    value: p.value,
+                    relative: p.relative,
+                    killTween: p.killTween
+                );
+                return command != null;
+            }
+
+            case MoveToCommandSpec m:
+            {
+                float defaultDur = (MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f);
+                float dur = m.duration > 0f ? m.duration : defaultDur;
+
+                Ease ease = (MoveCfg != null ? MoveCfg.ease : m.ease);
+                bool wait = (MoveCfg != null ? MoveCfg.wait : m.wait);
+
+                command = new CpsMoveToCommand(
+                    widgets: _widgets,
+                    screenId: m.screenId,
+                    widgetId: m.widgetId,
+                    target: m.target,
+                    position: m.position,
+                    duration: dur,
+                    ease: ease,
+                    waitForCompletion: wait,
+                    killTween: m.killTween
+                );
+                return command != null;
+            }
+            
+            case MoveByCommandSpec m:
+            {
+                float defaultDur = (MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f);
+                float dur = m.duration > 0f ? m.duration : defaultDur;
+
+                Ease ease = (MoveCfg != null ? MoveCfg.ease : m.ease);
+                bool wait = (MoveCfg != null ? MoveCfg.wait : m.wait);
+
+                command = new CpsMoveByCommand(
+                    widgets: _widgets,
+                    screenId: m.screenId,
+                    widgetId: m.widgetId,
+                    target: m.target,
+                    delta: m.delta,
+                    duration: dur,
+                    ease: ease,
+                    waitForCompletion: wait
                 );
                 return command != null;
             }

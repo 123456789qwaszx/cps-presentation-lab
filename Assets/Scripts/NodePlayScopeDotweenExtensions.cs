@@ -16,13 +16,6 @@ public static class CommandRunScopeDotweenExtensions
         return t;
     }
     
-    public static Tween BindToRunr(this Tween t, CommandRunScope scope)
-    {
-        if (t == null || scope == null) return t;
-        scope.TrackRun(cancel: () => t.Kill(false), finish: () => t.Complete(true));
-        return t;
-    }
-    
     private static void RegisterTweenToTrackStep(this CommandRunScope scope, Tween t)
     {
         if (scope == null || t == null) return;
@@ -37,7 +30,7 @@ public static class CommandRunScopeDotweenExtensions
     {
         if (scope == null || t == null) return;
 
-        scope.TrackStep(
+        scope.TrackRun(
             cancel: () => { if (t.IsActive()) t.Kill(); },
             finish: () => { if (t.IsActive()) t.Complete(); }
         );

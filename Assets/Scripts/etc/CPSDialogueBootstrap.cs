@@ -43,7 +43,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
             return;
         }
         
-        CpsNodeCommandFactory nodeFactory = new (cpsCommandServiceConfig, time, latch);
+        CpsNodeCommandFactory nodeFactory = new (cpsCommandServiceConfig, time,signals, latch);
         executor.Initialize(sequencePlayer, nodeFactory);
         
         DialoguePlaybackModes playbackModes = new ();

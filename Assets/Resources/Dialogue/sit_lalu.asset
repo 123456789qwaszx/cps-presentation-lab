@@ -29,20 +29,29 @@ MonoBehaviour:
         signalKey: 
     - editorName: 
       commands:
-      - rid: 2406591397957206090
-      - rid: 2406591397957206083
-      - rid: 2406591397957206092
-      - rid: 2406591397957206093
-      - rid: 2406591397957206094
+      - rid: 2406591397957206084
+      - rid: 2406591397957206091
+      - rid: 2406591397957206085
+      - rid: 2406591397957206105
+      - rid: 2406591397957206107
+      - rid: 2406591397957206106
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: 
       commands:
-      - rid: 2406591397957206084
-      - rid: 2406591397957206091
-      - rid: 2406591397957206085
+      - rid: 2406591397957206090
+      - rid: 2406591397957206083
+      - rid: 2406591397957206092
+      - rid: 2406591397957206095
+      - rid: 2406591397957206093
+      - rid: 2406591397957206094
+      - rid: 2406591397957206096
+      - rid: 2406591397957206097
+      - rid: 2406591397957206098
+      - rid: 2406591397957206103
+      - rid: 2406591397957206104
       gate:
         type: 1
         seconds: 0
@@ -96,7 +105,7 @@ MonoBehaviour:
         widgetId: dialogue
         target: 1
         text: "\uC751? \uB108\uB77C\uBA74 \uB9C8\uC220\uACF5\uC5F0\uC740 \uAF2D \uBCF4\uB7EC\uAC00\uC790\uACE0
-          \uD560 \uC904 \uC54C\uC558\uB294\uB370..."
+          \uD560 \uC904 \uC54C\uC558\uB294\uB370...\n(waiting 's')"
         interval: -1
         wait: 0
         clearWhenEmpty: 1
@@ -159,15 +168,15 @@ MonoBehaviour:
       data:
         screenId: dialogue
         widgetId: dialogue
-        seconds: 0.4
-        respectTimeScale: 1
+        seconds: 2
+        respectTimeScale: 0
     - rid: 2406591397957206093
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: dialogue
         widgetId: dialogue
         target: 1
-        text: "\uC751\uC751?? \uC88B\uC73C\uBA74 S\uB97C \uB20C"
+        text: "\uC751\uC751?? \uC88B\uC73C\uBA74 S\uB97C \uB20C\uB7EC"
         interval: -1
         wait: 1
         clearWhenEmpty: 1
@@ -176,6 +185,93 @@ MonoBehaviour:
       data:
         screenId: dialogue
         widgetId: dialogue
-        signalKey: BattleEnd
+        signalKey: s
+        consume: 1
+        timeoutSeconds: 3
+        respectTimeScale: 0
+    - rid: 2406591397957206095
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        sprite: {fileID: 21300000, guid: 562c6a2ca9e444a4998337e4b8e74cea, type: 3}
+        clearWhenNull: 1
+        setNativeSize: 0
+    - rid: 2406591397957206096
+      type: {class: ShakeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        axis: 0
+        intensity: 14
+        duration: -1
+        vibrato: 0
+        randomness: -1
+        wait: 0
+    - rid: 2406591397957206097
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        sprite: {fileID: 21300000, guid: f9a109c797134a84d9c18ca90fc29b72, type: 3}
+        clearWhenNull: 1
+        setNativeSize: 0
+    - rid: 2406591397957206098
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        text: "\uC544\uC2F8~~ \uC88B\uC558\uC5B4!"
+        interval: -1
+        wait: 1
+        clearWhenEmpty: 1
+    - rid: 2406591397957206103
+      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        active: 1
+    - rid: 2406591397957206104
+      type: {class: SetInteractableCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        interactable: 1
+        searchParents: 1
+        blocksRaycasts: 1
+    - rid: 2406591397957206105
+      type: {class: MoveToCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 3
+        value: {x: 0, y: 400}
+        relative: 0
+        duration: 2.2
+        ease: 9
+        wait: 0
+        killTween: 1
+    - rid: 2406591397957206106
+      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 3
+        value: {x: 0, y: 300}
+        relative: 1
+        killTween: 1
+    - rid: 2406591397957206107
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        signalKey: s
+        consume: 1
         timeoutSeconds: -1
         respectTimeScale: 1

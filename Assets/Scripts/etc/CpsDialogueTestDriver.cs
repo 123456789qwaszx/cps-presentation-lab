@@ -30,7 +30,7 @@ public class CpsDialogueTestDriver : MonoBehaviour
     public void EndDialogue()
     {
         //_dialogueStarter.EndDialogue();
-        Debug.Log("End dialogue");
+        Debug.Log("End dialogue_Only Log");
     }
     
     public void ToggleSkip()
