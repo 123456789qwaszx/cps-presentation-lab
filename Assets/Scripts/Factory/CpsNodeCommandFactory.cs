@@ -13,6 +13,8 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         _widgets  = config.WidgetAccess;
         _speakers = config.SpeakerService;
     }
+    private ITimeSource Time => _config != null ? _config.TimeSource : null;
+    private ISignalBus Signals => _config != null ? _config.SignalBus : null;
 
     private float TypeInterval => _config != null ? _config.TypeCharInterval : 0.03f;
     private PortraitSlideSettings Slide => _config?.PortraitSlide;
@@ -149,6 +151,28 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     vibrato: vib,
                     randomness: rnd,
                     waitForCompletion: s.wait
+                );
+                return command != null;
+            }
+            
+            case WaitCommandSpec w:
+            {
+                command = new CpsWaitCommand(
+                    time: Time,
+                    seconds: w.seconds,
+                    respectTimeScale: w.respectTimeScale
+                );
+                return command != null;
+            }
+
+            case HoldSignalCommandSpec h:
+            {
+                command = new CpsHoldSignalCommand(
+                    signals: Signals,
+                    time: Time,
+                    signalKey: h.signalKey,
+                    timeoutSeconds: h.timeoutSeconds,
+                    respectTimeScale: h.respectTimeScale
                 );
                 return command != null;
             }
