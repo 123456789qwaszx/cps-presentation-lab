@@ -38,8 +38,8 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             PortraitImage   = portrait?.Image,
             PortraitRect    = portrait?.RectTransform,
             PortraitGraphic = portrait?.Image,
-            EmoteImage      = emote?.Image,
-            EmoteRect       = emote?.RectTransform
+            EmojiImage      = emote?.Image,
+            EmojiRect       = emote?.RectTransform
         };
 
         return true;

@@ -13,7 +13,7 @@ public interface IDialogueWidgetAccess
         public Image PortraitImage;
         public RectTransform PortraitRect;
         public Graphic PortraitGraphic;
-        public Image EmoteImage;
-        public RectTransform EmoteRect;
+        public Image EmojiImage;
+        public RectTransform EmojiRect;
     }
 }

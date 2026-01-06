@@ -15,11 +15,104 @@ MonoBehaviour:
   sequenceKey: sit_lalu
   nodes:
   - editorName: Lalu~~Keep
-    steps: []
+    steps:
+    - editorName: SetTextTest
+      commands:
+      - rid: 2406591397957206079
+      - rid: 2406591397957206082
+      - rid: 2406591397957206087
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591397957206083
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591397957206084
+      - rid: 2406591397957206085
+      - rid: 2406591397957206086
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
   - editorName: Lalu~~Start
     steps: []
   - editorName: Lalu~~End
     steps: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591397957206079
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        text: ...
+        clearWhenEmpty: 1
+    - rid: 2406591397957206082
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 2
+        text: "\uB77C\uB8E8"
+        clearWhenEmpty: 1
+    - rid: 2406591397957206083
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        text: "\uB9C8\uC655\uCC21~~ \uC5EC\uAE30\uB294 \uB450\uACE0 \uC6B0\uC120
+          \uC120\uBB3C\uBD80\uD130 \uB098\uB220\uC8FC\uB294 \uAC74 \uC5B4\uB54C?"
+        interval: -1
+        wait: 1
+        clearWhenEmpty: 1
+    - rid: 2406591397957206084
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 2
+        text: "\uB9C8\uC655"
+        clearWhenEmpty: 1
+    - rid: 2406591397957206085
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        text: "\uC751? \uB108\uB77C\uBA74 \uB9C8\uC220\uACF5\uC5F0\uC740 \uAF2D \uBCF4\uB7EC\uAC00\uC790\uACE0
+          \uD560 \uC904 \uC54C\uC558\uB294\uB370..."
+        interval: -1
+        wait: 1
+        clearWhenEmpty: 1
+    - rid: 2406591397957206086
+      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 2
+        toAlpha: 1
+        fromAlpha: -1
+        duration: -1
+        ease: 9
+        wait: 0
+    - rid: 2406591397957206087
+      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 2
+        toAlpha: 1
+        fromAlpha: -1
+        duration: -1
+        ease: 9
+        wait: 0
