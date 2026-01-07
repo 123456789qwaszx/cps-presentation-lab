@@ -1,0 +1,114 @@
+Spec/Convention Name: CPS Key Convention
+Version: 1.0.0
+Last Updated: 2026-01-07
+
+0. 목적
+routeKey, sequenceKey, ScriptableObject 에셋 이름을 일관된 규칙으로 관리한다.
+로그/트레이스에서 한 줄만 봐도 어느 스토리/이벤트/튜토리얼인지 바로 알 수 있게 한다.
+기획/연출/개발이 같은 키를 같이 쓸 수 있도록 한다.
+
+
+1. 런타임 키 포맷
+
+1-1. 기본 패턴
+런타임에서 사용하는 모든 키(routeKey, startKey, sequenceKey)는 다음 형식을 따른다.
+
+[scope][NN].[track].[MM]
+
+(1) scope[NN] : 스토리/이벤트/튜토리얼 등 그룹/에피소드 단위
+-예: story00, story01, event01, tutorial00, system00
+(2) track : 트랙/용도
+예: dialogue, cutscene, battle, tutorial
+(3) MM : 해당 트랙 안에서의 시퀀스 번호 (01부터 시작)
+
+규칙
+(1) 전부 소문자 + 숫자 + 점('.') 만 사용
+(2) 번호(NN, MM)는 항상 2자리로 표기 (00, 01, 02 …)
+(3) 키는 순수 라벨/주소로 쓰고, 숫자를 파싱해서 인덱스로 쓰지 않는다.
+
+1-2. 예시
+story00.dialogue.01  // 스토리 0, 첫 번째 대사 시퀀스
+story00.dialogue.02  // 스토리 0, 두 번째 대사 시퀀스
+story01.dialogue.01  // 스토리 1, 첫 번째 대사 시퀀스
+
+event01.dialogue.01  // 이벤트 1, 첫 번째 대사 시퀀스
+event02.dialogue.01  // 이벤트 2, 첫 번째 대사 시퀀스
+
+tutorial00.dialogue.01  // 튜토리얼 0, 첫 번째 대사 시퀀스
+
+system00.dialogue.01    // 시스템 공용 연출 (예: 설정 화면 안내)
+
+
+2. Route / Sequence 키 매핑 규칙
+
+2-1. 기본 원칙
+가능한 한 다음을 동일한 문자열로 맞춘다:
+
+[1]RouteMapping.routeKey
+[2]RouteMapping.startKey
+[3]SequenceSpecSO.sequenceKey
+
+routeKey     = "story00.dialogue.01"
+startKey     = "story00.dialogue.01"
+sequenceKey  = "story00.dialogue.01"
+
+2-2. RouteCatalog 구성 예시
+[Serializable]
+public sealed class RouteMapping
+{
+    public string routeKey;                  // 예: "story00.dialogue.01"
+    public SequenceCatalogSO sequenceCatalog; 
+    public string startKey;                  // 예: "story00.dialogue.01"
+}
+
+예시 테이블:
+routeKey                 sequenceCatalog         startKey
+--------------------------------------------------------------
+story00.dialogue.01      SequenceCatalog_Story   story00.dialogue.01
+story01.dialogue.01      SequenceCatalog_Story   story01.dialogue.01
+event01.dialogue.01      SequenceCatalog_Event   event01.dialogue.01
+tutorial00.dialogue.01   SequenceCatalog_Tutorial tutorial00.dialogue.01
+
+
+3. ScriptableObject 에셋 이름 규칙
+
+3-1. SequenceSpecSO
+Seq_[Scope][NN]_[Track]_[MM]
+
+예:
+Seq_Story00_Dialogue_01    // sequenceKey = "story00.dialogue.01"
+Seq_Story00_Dialogue_02    // sequenceKey = "story00.dialogue.02"
+Seq_Event01_Dialogue_01    // sequenceKey = "event01.dialogue.01"
+Seq_Tutorial00_Dialogue_01 // sequenceKey = "tutorial00.dialogue.01"
+
+3-2. SequenceCatalogSO
+도메인/범위 별로 나눈다:
+
+SequenceCatalog_Story
+SequenceCatalog_Event
+SequenceCatalog_Tutorial
+SequenceCatalog_System
+
+
+3-3. RouteCatalogSO
+게임 전체 / 컨텍스트별로:
+
+RouteCatalog_Main
+RouteCatalog_Debug
+
+
+4. 예외
+
+4-1. 팔레트/샘플 Sequence
+팔레트/샘플 Sequence는 보통 Route에서 직접 시작하지 않고,
+에디터/Importer에서만 쓰는 용도이므로 SequenceKey만 있으면 된다.
+
+sequenceKey = "palette.default.01"
+assetName   = "Seq_Palette_Default"
+
+Palette 전용 SequenceSpecSO 안에
+“좋았던 Step들을 물감 튜브처럼” 모아두고,
+별도 Importer를 통해 타겟 Sequence로 복사하여 사용.
+
+## Changelog
+1.0.0 (2026-01-07): Initial release
