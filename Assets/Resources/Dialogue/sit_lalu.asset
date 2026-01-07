@@ -16,25 +16,13 @@ MonoBehaviour:
   nodes:
   - editorName: Lalu~~Keep
     steps:
-    - editorName: SetTextTest
+    - editorName: SetTextTestee
       commands:
       - rid: 2406591397957206079
       - rid: 2406591397957206082
       - rid: 2406591397957206087
       - rid: 2406591397957206088
       - rid: 2406591397957206089
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: 
-      commands:
-      - rid: 2406591397957206084
-      - rid: 2406591397957206091
-      - rid: 2406591397957206085
-      - rid: 2406591397957206105
-      - rid: 2406591397957206107
-      - rid: 2406591397957206106
       gate:
         type: 1
         seconds: 0
@@ -52,6 +40,20 @@ MonoBehaviour:
       - rid: 2406591397957206098
       - rid: 2406591397957206103
       - rid: 2406591397957206104
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591397957206084
+      - rid: 2406591397957206091
+      - rid: 2406591397957206085
+      - rid: 2406591397957206105
+      - rid: 2406591397957206107
+      - rid: 2406591397957206108
+      - rid: 2406591397957206109
+      - rid: 2406591397957206110
       gate:
         type: 1
         seconds: 0
@@ -251,20 +253,10 @@ MonoBehaviour:
         screenId: dialogue
         widgetId: dialogue
         target: 3
-        value: {x: 0, y: 400}
-        relative: 0
+        position: {x: 0, y: 0}
         duration: 2.2
         ease: 9
         wait: 0
-        killTween: 1
-    - rid: 2406591397957206106
-      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 3
-        value: {x: 0, y: 300}
-        relative: 1
         killTween: 1
     - rid: 2406591397957206107
       type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
@@ -275,3 +267,32 @@ MonoBehaviour:
         consume: 1
         timeoutSeconds: -1
         respectTimeScale: 1
+    - rid: 2406591397957206108
+      type: {class: MoveByCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        delta: {x: 0, y: 150}
+        duration: -1
+        ease: 9
+        wait: 0
+    - rid: 2406591397957206109
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        signalKey: s
+        consume: 1
+        timeoutSeconds: -1
+        respectTimeScale: 1
+    - rid: 2406591397957206110
+      type: {class: MoveByCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        delta: {x: 0, y: 130}
+        duration: -1
+        ease: 9
+        wait: 0

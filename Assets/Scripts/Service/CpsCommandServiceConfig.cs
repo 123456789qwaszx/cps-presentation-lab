@@ -8,7 +8,6 @@ public sealed class CpsCommandServiceConfig : ScriptableObject
 {
     [Header("SO 어댑터 Drag & Drop")]
     [SerializeField] private CpsDialogueWidgetAccessAsset widgetAccessAsset;
-    [SerializeField] private DialogueSpeakerServiceAsset speakerServiceAsset;
     
     [Header("Defaults")]
     [SerializeField] private float typeCharInterval = 0.03f;
@@ -20,7 +19,6 @@ public sealed class CpsCommandServiceConfig : ScriptableObject
     [SerializeField] private MovePortraitSettings movePortrait = new();
 
     public IDialogueWidgetAccess WidgetAccess => widgetAccessAsset;
-    public IDialogueSpeakerService SpeakerService => speakerServiceAsset;
 
     public float TypeCharInterval => typeCharInterval;
 

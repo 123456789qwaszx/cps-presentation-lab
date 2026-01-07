@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a118fa2d7c7da48b450ac8c9efc91d, type: 3}
   m_Name: DialogueRouteCatalog
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRouteCatalogSO
-  entries:
-  - routeKey: dialogue/hotspring
-    sequenceDatabase: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
-    sequenceKey: sit_hotspring
+  routes:
   - routeKey: dialogue/lalu
-    sequenceDatabase: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
-    sequenceKey: sit_lalu
+    sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
+    startKey: sit_lalu
+  - routeKey: dialogue/hotSpring
+    sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
+    startKey: 
+  fallbackRouteKey: Default
+  fallbackStartKey: Default

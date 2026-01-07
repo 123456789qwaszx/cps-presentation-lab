@@ -3,16 +3,15 @@ using UnityEngine;
 public sealed class CpsDialogueBootstrap : MonoBehaviour
 {
     [Header("Data")]
-    [SerializeField] private DialogueRouteCatalogSO routeCatalog;
+    [SerializeField] private RouteCatalogSO routeCatalog;
     [SerializeField] private CpsCommandServiceConfig cpsCommandServiceConfig;
 
     [Header("Ports / Adapters")]
-    [SerializeField] private MonoBehaviour presenterBehaviour; // IDialoguePresenter
-    [SerializeField] private MonoBehaviour commandExecuter; // INodeExecutor
+    [SerializeField] private CommandExecutor commandExecuter;
     [SerializeField] private UnitySignalBus signals;
     
     [Header("Session / Runner")]
-    private DialogueSession _session;
+    private PresentationSession _session;
     private StepGateAdvancer _gateRunner;
     
     [Header("Starter")]
@@ -22,9 +21,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
     private void Awake()
     {
-        DialogueResolver resolver       = new (routeCatalog);
         StepGatePlanBuilder gatePlanner = new ();
-        NodeViewModelBuilder vmBuilder  = new ();
 
         // Compose runner (subscribes to signals)
         UnityInputSource input      = new();
@@ -34,7 +31,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         StepGateAdvancer gateRunner = new StepGateAdvancer(input, time, signals, latch);
 
         // Optional extension ports
-        CommandExecutor executor = commandExecuter as CommandExecutor;
+        CommandExecutor executor = commandExecuter;
         SequencePlayer sequencePlayer = new(executor);
         
         if (cpsCommandServiceConfig == null)
@@ -46,13 +43,11 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         CpsNodeCommandFactory nodeFactory = new (cpsCommandServiceConfig, time,signals, latch);
         executor.Initialize(sequencePlayer, nodeFactory);
         
-        DialoguePlaybackModes playbackModes = new ();
+        PresentationModes playbackModes = new ();
         
-        // Compose output ports
-        DialogueNodeOutputComposite output = new ((IDialoguePresenter)presenterBehaviour, (INodeExecutor)commandExecuter);
 
         
-        DialogueSession session  = new (resolver, gatePlanner, gateRunner, vmBuilder, output, routeCatalog, playbackModes);
+        PresentationSession session  = new (gatePlanner, gateRunner, commandExecuter, routeCatalog, playbackModes);
 
         _session = session;
         _gateRunner = gateRunner;

@@ -5,7 +5,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 {
     private readonly CpsCommandServiceConfig _config;
     private readonly IDialogueWidgetAccess _widgets;
-    private readonly IDialogueSpeakerService _speakers;
     private readonly ITimeSource _time;
     private readonly ISignalBus _signal;
     private readonly ISignalLatch _latch;
@@ -14,7 +13,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     {
         _config   = config;
         _widgets  = config.WidgetAccess;
-        _speakers = config.SpeakerService;
         _time   = time;
         _signal = signal;
         _latch = latch;
