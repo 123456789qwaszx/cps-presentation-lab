@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CpsDialogueTestDriver
   bootstrap: {fileID: 0}
-  testRouteKey: dialogue/lalu
+  testRouteKey: dialogue/blue
   delaySecond: 0.6
   timeScale: 3
 --- !u!1 &330585543
