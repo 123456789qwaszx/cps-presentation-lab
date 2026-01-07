@@ -84,10 +84,10 @@ Seq_Tutorial00_Dialogue_01 // sequenceKey = "tutorial00.dialogue.01"
 3-2. SequenceCatalogSO
 도메인/범위 별로 나눈다:
 
-SequenceCatalog_Story
-SequenceCatalog_Event
-SequenceCatalog_Tutorial
-SequenceCatalog_System
+SequenceCatalog_Story00
+SequenceCatalog_Event00
+SequenceCatalog_Tutorial00
+SequenceCatalog_System00
 
 
 3-3. RouteCatalogSO

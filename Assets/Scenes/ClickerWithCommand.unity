@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CpsDialogueTestDriver
   bootstrap: {fileID: 1602582868}
-  testRouteKey: blue
+  testRouteKey: story00.dialogue.01
   delaySecond: 0.6
   timeScale: 3
 --- !u!1 &330585543
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba8ebcefe6aafa479ffc28ef912568b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPSDialogueBootstrap
-  routeCatalog: {fileID: 11400000, guid: 7b77a5b1a8126cd4998058ee6c089525, type: 2}
+  routeCatalog: {fileID: 11400000, guid: 4f53ef6320610b64388e9aa18d2e4399, type: 2}
   cpsCommandServiceConfig: {fileID: 11400000, guid: 37cb374191f79394794a6a39de08e3aa, type: 2}
   commandExecuter: {fileID: 1117495969}
   signals: {fileID: 713045950}

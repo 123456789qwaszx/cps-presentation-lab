@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RouteCatalogSO
   routes:
   - routeKey: event00.dialogue.01
-    sequenceCatalog: {fileID: 0}
+    sequenceCatalog: {fileID: 11400000, guid: fe0ca743f3a54e0439c6915c833986a5, type: 2}
     startKey: event00.dialogue.01
   - routeKey: tutorial00.dialogue.01
-    sequenceCatalog: {fileID: 0}
+    sequenceCatalog: {fileID: 11400000, guid: eb75834c4a1a79c44a45e5996ac9d0cf, type: 2}
     startKey: tutorial00.dialogue.01
   - routeKey: story00.dialogue.01
-    sequenceCatalog: {fileID: 0}
+    sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
     startKey: story00.dialogue.01
   fallbackRouteKey: Default
   fallbackStartKey: Default
