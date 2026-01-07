@@ -23,38 +23,17 @@ MonoBehaviour:
     - slotName: BottomArea
       widgets:
       - widgetType: 2
-        nameTag: Dialogue_Portrait
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 1
-        disabled: 0
-        anchorMin: {x: 0.5, y: 0.5}
-        anchorMax: {x: 0.5, y: 0.5}
-        pivot: {x: 0.5, y: 0.5}
-        anchoredPosition: {x: 0, y: 500}
-        sizeDelta: {x: 900, y: 1500}
-        imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
-      - widgetType: 2
         nameTag: Dialogue_BodyImage
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
         rectMode: 1
-        disabled: 0
+        disabled: 1
         anchorMin: {x: 0.5, y: 0}
         anchorMax: {x: 0.5, y: 0}
         pivot: {x: 0.5, y: 0}
-        anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 1080, y: 400}
+        anchoredPosition: {x: 0, y: 40}
+        sizeDelta: {x: 1200, y: 260}
         imageSprite: {fileID: 0}
         imageColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0.21176471}
         imageSetNativeSize: 0
@@ -70,7 +49,7 @@ MonoBehaviour:
         onClickRoute: 
         prefabOverride: {fileID: 0}
         rectMode: 1
-        disabled: 0
+        disabled: 1
         anchorMin: {x: 0.5, y: 0.5}
         anchorMax: {x: 0.5, y: 0.5}
         pivot: {x: 0.5, y: 0.5}
@@ -85,18 +64,66 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-      - widgetType: 0
-        nameTag: Dialogue_Body
-        text: WriteSomeThing...
+    - slotName: Aspect Ratio
+      widgets:
+      - widgetType: 2
+        nameTag: Dialogue_Portrait
+        text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
         rectMode: 1
         disabled: 0
-        anchorMin: {x: 0.5, y: 0}
-        anchorMax: {x: 0.5, y: 0}
-        pivot: {x: 0.5, y: 0}
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
         anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 900, y: 380}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 21300000, guid: 892091a80da32134f830988e424dde8b, type: 3}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+    - slotName: Portrait
+      widgets:
+      - widgetType: 2
+        nameTag: Dialogue_Emote
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 30}
+        sizeDelta: {x: 0, y: 60}
+        imageSprite: {fileID: 21300000, guid: 5c698e92a761a634185f2d54ffe6790a, type: 3}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+    - slotName: DialogueBody
+      widgets:
+      - widgetType: 0
+        nameTag: Dialogue_Body
+        text: WriteSomethings..
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: -60}
+        sizeDelta: {x: 0, y: 0}
         imageSprite: {fileID: 0}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
         imageSetNativeSize: 0
@@ -106,19 +133,21 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
+    - slotName: DialogueBG
+      widgets:
       - widgetType: 2
-        nameTag: Dialogue_Emote
+        nameTag: DialogueBG
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
         rectMode: 1
         disabled: 0
-        anchorMin: {x: 0.5, y: 0.5}
-        anchorMax: {x: 0.5, y: 0.5}
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
         pivot: {x: 0.5, y: 0.5}
-        anchoredPosition: {x: -420, y: -80}
-        sizeDelta: {x: 300, y: 300}
-        imageSprite: {fileID: 21300000, guid: 5c698e92a761a634185f2d54ffe6790a, type: 3}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
         imageColor: {r: 1, g: 1, b: 1, a: 1}
         imageSetNativeSize: 0
         toggleInitialValue: 0

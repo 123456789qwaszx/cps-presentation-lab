@@ -3,13 +3,13 @@ using Lab.UI.Keys;
 
 public class TestHelper : MonoBehaviour
 {
-    private UIBootStrap _bootstrap;
+    private CpsUIBootStrap _bootstrap;
     private UIOpener _uiOpener;
     
     void Start()
     {
         if (_bootstrap == null)
-            _bootstrap = FindFirstObjectByType<UIBootStrap>();
+            _bootstrap = FindFirstObjectByType<CpsUIBootStrap>();
         
         _uiOpener = _bootstrap.Opener;
     }
@@ -17,5 +17,13 @@ public class TestHelper : MonoBehaviour
     public void OnOpenTitle()
     {
         _uiOpener.Open(LabUIActionKeys.OpenClickerTitle);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _uiOpener.Open(LabUIActionKeys.OpenDialogue);
+        }
     }
 }

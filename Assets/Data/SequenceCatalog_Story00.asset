@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39f4c116589f104eb0d8510d5217462, type: 3}
   m_Name: SequenceCatalog_Story00
   m_EditorClassIdentifier: Assembly-CSharp::SequenceCatalogSO
-  catalogId: 26-01-07-ked
+  catalogId: "\uBA54\uC778\uC2A4\uD1A0\uB9AC_1\uC7A5"
   sequences:
   - {fileID: 11400000, guid: 8edb172b4a0be2b45908d3d43b4ab1ab, type: 2}

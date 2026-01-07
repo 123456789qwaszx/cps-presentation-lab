@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e39f4c116589f104eb0d8510d5217462, type: 3}
-  m_Name: SequenceCatalog_Tutorial00
+  m_Name: SequenceCatalog_Event00
   m_EditorClassIdentifier: Assembly-CSharp::SequenceCatalogSO
-  catalogId: 26-01-07-ked
+  catalogId: "26_1\uC6D4\uACA8\uC6B8\uC774\uBCA4\uD2B8"
   sequences:
-  - {fileID: 11400000, guid: f5c1c8e1d80815c4ab67965d06e714f8, type: 2}
+  - {fileID: 11400000, guid: fcb609995475aea44a4f5683f63e3c00, type: 2}

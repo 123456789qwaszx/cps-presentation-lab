@@ -54,6 +54,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
 
     [SerializeField] private bool enableDebugHotkeys = true;
+    [SerializeField] private string testRouteKey;
 
     private void Update()
     {
@@ -71,6 +72,12 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
             {
                 _session.Context.Modes.IsSkipping = !_session.Context.IsSkipping;
                 Debug.Log($"[Dialogue] IsSkipping = {_session.Context.IsSkipping}");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _session.End();
+                _session.Start(testRouteKey);
             }
         }
 
