@@ -1,5 +1,5 @@
 Spec/Convention Name: CPS Key Convention
-Version: 1.0.0
+Version: 1.0.1
 Last Updated: 2026-01-07
 
 0. 목적
@@ -99,16 +99,23 @@ RouteCatalog_Debug
 
 4. 예외
 
-4-1. 팔레트/샘플 Sequence
-팔레트/샘플 Sequence는 보통 Route에서 직접 시작하지 않고,
-에디터/Importer에서만 쓰는 용도이므로 SequenceKey만 있으면 된다.
+4-1. 팔레트/샘플 시퀀스
+팔레트/샘플 시퀀스는 Editor/Importer에서만 사용하기 위해 제작된 SequenceSpecSO를 의미한다.
 
-sequenceKey = "palette.default.01"
-assetName   = "Seq_Palette_Default"
-
-Palette 전용 SequenceSpecSO 안에
+팔레트/샘플 시퀀스는 Route에서 직접 시작되지 않으며,
 “좋았던 Step들을 물감 튜브처럼” 모아두고,
-별도 Importer를 통해 타겟 Sequence로 복사하여 사용.
+별도 Importer를 통해 타겟 Sequence로 복사하여 사용하는 용도이다.
+
+따라서 팔레트/샘플 시퀀스는 다음 예외 규칙을 따른다.
+(1) sequenceKey는 필수로 작성하지 않아도 된다.
+(2) assetName에는 가능하면 `_Palette`를 포함할 것을 권장한다.
+    예:
+    sequenceKey = ""
+    assetName   = "Seq_Palette_Default"
+(3) 팔레트/샘플 시퀀스는 Palette 전용 SequenceCatalogSO에 모아둔다.
+(3-1) Palette 전용 SequenceCatalogSO의 assetName에도 가능하면 `_Palette`를 포함할 것을 권장한다.
+(3-2) Palette 전용 SequenceCatalogSO의 CatalogId에도 가능하면 팔레트임을 표시할 것을 권장한다.
 
 ## Changelog
-1.0.0 (2026-01-07): Initial release
+- 1.0.1 (2026-01-07): Clarify palette/sample sequence exceptions
+- 1.0.0 (2026-01-07): Initial release
