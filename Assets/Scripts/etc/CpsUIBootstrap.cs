@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using Lab.UI.Keys;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CpsUIBootStrap : MonoBehaviour
 {
@@ -49,5 +52,15 @@ public class CpsUIBootStrap : MonoBehaviour
         UIRuntimeRouter.Router = router;
         hudView   = new HudPresenter(() => router.CurrentScreen);
         _uiOpener = new UIOpener(router, hudView);
+    }
+
+    public void Update()
+    {
+        if(UIRuntimeRouter.Router == null) return;
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenClickerTitle);
+        }
     }
 }
