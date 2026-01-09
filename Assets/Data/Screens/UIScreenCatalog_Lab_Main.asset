@@ -10,34 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a2d5ea8eb896f47be4535298ae1233, type: 3}
-  m_Name: UICatalog
+  m_Name: UIScreenCatalog_Lab_Main
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenCatalog
   entries:
-  - key:
-      value: home
-    specAsset: {fileID: 11400000, guid: df55a48437c21924895d4083042f5cde, type: 2}
-  - key:
-      value: title
+  - screenKey:
+      value: lab/ui/title
     specAsset: {fileID: 11400000, guid: 32cdbfb1651746b458fc0b757969543d, type: 2}
-  - key:
-      value: inGame
-    specAsset: {fileID: 11400000, guid: d519c721495a0c34faf29f6ec3df8299, type: 2}
-  - key:
-      value: dialogue
+  - screenKey:
+      value: lab/ui/dialogue
     specAsset: {fileID: 11400000, guid: 40bcd68dacafada4693d27edcc1472bf, type: 2}
   routes:
-  - route: default/nav/home
-    key:
-      value: title
-  - route: default/nav/shop
-    key:
-      value: home
-  - route: lab/title
-    key:
-      value: title
-  - route: lab/ingame
-    key:
-      value: inGame
-  - route: lab/dialogue
-    key:
-      value: dialogue
+  - route: lab/ui/title
+    screenKey:
+      value: lab/ui/title
+  - route: lab/ui/dialogue
+    screenKey:
+      value: lab/ui/dialogue

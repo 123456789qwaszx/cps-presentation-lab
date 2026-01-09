@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98ec321422567e42a8204e6206d3810, type: 3}
+  m_Name: anchor
+  m_EditorClassIdentifier: Assembly-CSharp::WidgetPresetCatalog
+  presets:
+  - id: anchor/bottom
+    rectMode: 1
+    anchorMin: {x: 0, y: 0}
+    anchorMax: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 0, y: 0}
+  - id: DisplayRegion
+    rectMode: 1
+    anchorMin: {x: 0.5, y: 0.9}
+    anchorMax: {x: 0.5, y: 0.9}
+    pivot: {x: 0.5, y: 1}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 800, y: 800}
+  - id: AspectRatio
+    rectMode: 1
+    anchorMin: {x: 0.16, y: 0}
+    anchorMax: {x: 0.8, y: 1}
+    pivot: {x: 0.5, y: 1}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 0, y: 0}
+  - id: anchor/Stretch
+    rectMode: 1
+    anchorMin: {x: 0, y: 0}
+    anchorMax: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 0, y: 0}
+  - id: anchor/Stretch
+    rectMode: 1
+    anchorMin: {x: 0, y: 0}
+    anchorMax: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 0, y: 0}
+  - id: anchor/Top
+    rectMode: 1
+    anchorMin: {x: 0.5, y: 1}
+    anchorMax: {x: 0.5, y: 1}
+    pivot: {x: 0.5, y: 1}
+    anchoredPosition: {x: 0, y: 0}
+    sizeDelta: {x: 0, y: 0}

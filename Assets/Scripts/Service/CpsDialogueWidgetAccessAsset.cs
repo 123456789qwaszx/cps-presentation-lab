@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Lab.UI.Naming;
+using Lab.UI.Keys;
 
 [CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
 public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
@@ -25,7 +26,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             return false;
         }
         
-        DialogueWidgetSet set     = DialogueWidgetSets.Dialogue;
+        DialogueWidgetSet set     = UIWidgetSets.Dialogue;
         WidgetHandle dialogueBody = screen.GetWidgetHandle(set.BodyName);
         WidgetHandle speakerName  = screen.GetWidgetHandle(set.NameName);
         WidgetHandle portrait     = screen.GetWidgetHandle(set.PortraitName);

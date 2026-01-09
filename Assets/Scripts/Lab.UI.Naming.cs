@@ -1,6 +1,6 @@
 namespace Lab.UI.Naming
 {
-    public static class DialogueWidgetSets
+    public static class UIWidgetSets
     {
         public static readonly DialogueWidgetSet Dialogue = new("Dialogue");
     }

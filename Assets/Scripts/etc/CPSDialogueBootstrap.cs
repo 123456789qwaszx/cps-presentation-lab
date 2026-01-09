@@ -78,6 +78,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
             {
                 _session.End();
                 _session.Start(testRouteKey);
+                Debug.Log($"Strat Session = {testRouteKey}");
             }
         }
 

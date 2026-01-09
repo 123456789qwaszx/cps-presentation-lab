@@ -16,6 +16,18 @@ MonoBehaviour:
   nodes:
   - editorName: Lalu! Start~~
     steps:
+    - editorName: 
+      commands:
+      - rid: 2406591429997232193
+      - rid: 2406591429997232200
+      - rid: 2406591429997232194
+      - rid: 2406591429997232196
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+  - editorName: Lalu! Start~~
+    steps:
     - editorName: "\uC6B0\uC640?"
       commands:
       - rid: 2406591420219523199
@@ -32,6 +44,9 @@ MonoBehaviour:
       commands:
       - rid: 2406591420219523186
       - rid: 2406591420219523187
+      - rid: 2406591429294161984
+      - rid: 2406591429294161983
+      - rid: 2406591429294161985
       - rid: 2406591420219523188
       gate:
         type: 1
@@ -40,11 +55,15 @@ MonoBehaviour:
     - editorName: "\uB4F1\uC7A5~~"
       commands:
       - rid: 2406591420219523191
-      - rid: 2406591420219523192
-      - rid: 2406591420219523193
       - rid: 2406591420219523194
       gate:
         type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands: []
+      gate:
+        type: 0
         seconds: 0
         signalKey: 
   references:
@@ -78,24 +97,6 @@ MonoBehaviour:
         widgetId: dialogue
         target: 5
         active: 1
-    - rid: 2406591420219523192
-      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 2
-        toAlpha: 1
-        fromAlpha: 0.1
-        duration: 1.5
-        ease: 9
-        wait: 0
-    - rid: 2406591420219523193
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetId: 
-        seconds: 1.2
-        respectTimeScale: 1
     - rid: 2406591420219523194
       type: {class: ShakeCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -160,3 +161,64 @@ MonoBehaviour:
         ease: 9
         wait: 0
         killTween: 1
+    - rid: 2406591429294161983
+      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        active: 0
+    - rid: 2406591429294161984
+      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        active: 0
+    - rid: 2406591429294161985
+      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 1
+        active: 0
+    - rid: 2406591429997232193
+      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        strength: 0.25
+        duration: -1
+        vibrato: 0
+        elasticity: -1
+        wait: 0
+    - rid: 2406591429997232194
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        signalKey: 
+        consume: 0
+        timeoutSeconds: 3
+        respectTimeScale: 0
+    - rid: 2406591429997232196
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        signalKey: 
+        consume: 0
+        timeoutSeconds: 3
+        respectTimeScale: 0
+    - rid: 2406591429997232200
+      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: dialogue
+        widgetId: dialogue
+        target: 0
+        strength: 0.25
+        duration: -1
+        vibrato: 0
+        elasticity: -1
+        wait: 0
