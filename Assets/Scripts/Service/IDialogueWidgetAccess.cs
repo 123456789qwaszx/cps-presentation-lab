@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public enum DialogueWidgetSlot
+public enum DialogueWidgetTarget
 {
     LineText,
     SpeakerNameText,
@@ -29,43 +29,57 @@ public interface IDialogueWidgetAccess
 
 public static class WidgetRefsExtensions
 {
-    public static Component GetComponent(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetSlot slot)
+    public static Component GetComponent(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
     {
         if (refs == null) return null;
 
         switch (slot)
         {
-            case DialogueWidgetSlot.LineText:
+            case DialogueWidgetTarget.LineText:
                 return refs.BodyText;
-            case DialogueWidgetSlot.SpeakerNameText:
+            case DialogueWidgetTarget.SpeakerNameText:
                 return refs.NameText;
-            case DialogueWidgetSlot.StandingPortraitImage:
+            case DialogueWidgetTarget.StandingPortraitImage:
                 return refs.PortraitImage;
-            case DialogueWidgetSlot.StandingPortraitRect:
+            case DialogueWidgetTarget.StandingPortraitRect:
                 return refs.PortraitRect;
-            case DialogueWidgetSlot.ProtagonistCutinImage:
+            case DialogueWidgetTarget.ProtagonistCutinImage:
                 return refs.EmojiImage;
-            case DialogueWidgetSlot.ProtagonistCutinRect:
+            case DialogueWidgetTarget.ProtagonistCutinRect:
                 return refs.EmojiRect;
             default:
                 return null;
         }
     }
 
-    public static Graphic GetGraphic(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetSlot slot)
+    public static Graphic GetGraphic(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
     {
         var c = refs.GetComponent(slot);
         return c as Graphic;
     }
 
-    public static GameObject GetGameObject(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetSlot slot)
+    public static GameObject GetGameObject(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
     {
         var c = refs.GetComponent(slot);
         return c != null ? c.gameObject : null;
     }
 
-    public static TMP_Text GetText(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetSlot slot)
+    public static TMP_Text GetText(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
     {
         return refs.GetComponent(slot) as TMP_Text;
+    }
+    
+    public static RectTransform GetRect(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
+    {
+        var c = refs.GetComponent(target);
+        if (c == null) return null;
+
+        if (c is RectTransform rt)
+            return rt;
+
+        if (c is Graphic g)
+            return g.rectTransform;
+
+        return c.transform as RectTransform;
     }
 }

@@ -1,12 +1,14 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using IEnumerator = System.Collections.IEnumerator;
 
 [Serializable]
 public sealed class MoveByCommandSpec : CommandSpecBase
 {
-    public CpsWidgetRefTarget target = CpsWidgetRefTarget.Auto;
+    [Header("Target")]
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitRect;
 
     [Header("Delta (relative offset)")]
     public Vector2 delta;
@@ -19,6 +21,9 @@ public sealed class MoveByCommandSpec : CommandSpecBase
 
     [Tooltip("true면 스텝이 이 이동이 끝날 때까지 대기.")]
     public bool wait = false;
+
+    // 필요하면 나중에 추가해도 됨
+    // public bool killTween = true;
 }
 
 public sealed class CpsMoveByCommand : CommandBase
@@ -27,7 +32,7 @@ public sealed class CpsMoveByCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsWidgetRefTarget _target;
+    private readonly DialogueWidgetTarget  _target;
     private readonly Vector2 _delta;
 
     private readonly float _duration;
@@ -35,6 +40,8 @@ public sealed class CpsMoveByCommand : CommandBase
     private readonly bool  _wait;
     private readonly bool  _killTween;
 
+    
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private bool _resolved;
 
@@ -47,7 +54,7 @@ public sealed class CpsMoveByCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsWidgetRefTarget target,
+        DialogueWidgetTarget target,
         Vector2 delta,
         float duration,
         Ease ease,
@@ -61,9 +68,9 @@ public sealed class CpsMoveByCommand : CommandBase
         _target = target;
         _delta  = delta;
 
-        _duration = Mathf.Max(0f, duration);
-        _ease     = ease;
-        _wait     = waitForCompletion;
+        _duration  = Mathf.Max(0f, duration);
+        _ease      = ease;
+        _wait      = waitForCompletion;
         _killTween = killTween;
     }
 
@@ -123,23 +130,23 @@ public sealed class CpsMoveByCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _rect = ResolveRect(refs, _target);
+        // 🔹 커맨드는 "refs에서 target을 꺼낸다"만 생각
+        Component c = _refs.GetComponent(_target);
+        if (c == null)
+            return false;
+
+        // RectTransform 가져오기
+        _rect = c as RectTransform;
+
+        if (_rect == null && c is Graphic g)
+            _rect = g.rectTransform;
+
+        if (_rect == null)
+            _rect = c.transform as RectTransform;
+
         return _rect != null;
-    }
-
-    private static RectTransform ResolveRect(IDialogueWidgetAccess.WidgetRefs refs, CpsWidgetRefTarget target)
-    {
-        if (refs == null) return null;
-        if (target == CpsWidgetRefTarget.Auto) target = CpsWidgetRefTarget.PortraitRect;
-
-        switch (target)
-        {
-            case CpsWidgetRefTarget.PortraitRect:     return refs.PortraitRect;
-            case CpsWidgetRefTarget.PortraitImage:    return refs.PortraitImage != null ? refs.PortraitImage.rectTransform : null;
-            default:                                   return refs.PortraitRect;
-        }
     }
 }

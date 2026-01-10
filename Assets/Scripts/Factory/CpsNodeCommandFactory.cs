@@ -282,6 +282,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                     duration: dur,
                     ease: ease,
                     waitForCompletion: wait
+                    // killTween: m.killTween (필요하면 추가)
                 );
                 return command != null;
             }
