@@ -142,7 +142,7 @@ MonoBehaviour:
     - slotName: AspectRatio
       widgets:
       - widgetType: 2
-        nameTag: Dialogue_Portrait
+        nameTag: dialogue_StandingPortrait
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -215,7 +215,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 0
-        nameTag: Dialogue_Body
+        nameTag: dialogue_LineText
         text: test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...test...
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -238,7 +238,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 0
-        nameTag: Dialogue_Name
+        nameTag: dialogue_SpeakerName
         text: Name
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 2
-        nameTag: Dialogue_Emoji
+        nameTag: dialogue_ProtagonistCutin
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}

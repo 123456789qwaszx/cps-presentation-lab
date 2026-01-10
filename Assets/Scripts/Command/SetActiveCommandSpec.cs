@@ -94,8 +94,7 @@ public sealed class CpsSetActiveCommand : CommandBase
             case CpsWidgetRefTarget.NameText:        return refs.NameText;
             case CpsWidgetRefTarget.PortraitRect:    return refs.PortraitRect;
             case CpsWidgetRefTarget.PortraitImage:   return refs.PortraitImage;
-            case CpsWidgetRefTarget.PortraitGraphic: return refs.PortraitGraphic;
-            default:                                 return refs.PortraitGraphic;
+            default:                                 return refs.PortraitImage;
         }
     }
 }

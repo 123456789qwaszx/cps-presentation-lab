@@ -128,7 +128,6 @@ public sealed class CpsMoveToCommand : CommandBase
         {
             case CpsWidgetRefTarget.PortraitRect:     return refs.PortraitRect;
             case CpsWidgetRefTarget.PortraitImage:    return refs.PortraitImage != null ? refs.PortraitImage.rectTransform : null;
-            case CpsWidgetRefTarget.PortraitGraphic:  return refs.PortraitGraphic != null ? refs.PortraitGraphic.rectTransform : null;
             default:                                   return refs.PortraitRect;
         }
     }

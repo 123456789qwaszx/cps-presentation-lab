@@ -100,9 +100,8 @@ public sealed class CpsSetColorCommand : CommandBase
 
         switch (target)
         {
-            case CpsWidgetRefTarget.PortraitGraphic: return refs.PortraitGraphic;
             case CpsWidgetRefTarget.PortraitImage:   return refs.PortraitImage; // Image : Graphic
-            default:                                 return refs.PortraitGraphic;
+            default:                                 return refs.PortraitImage;
         }
     }
 }

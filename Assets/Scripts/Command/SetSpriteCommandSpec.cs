@@ -103,11 +103,6 @@ public sealed class CpsSetSpriteCommand : CommandBase
             case CpsGraphicTarget.PortraitImage:
                 return refs.PortraitImage;
 
-            case CpsGraphicTarget.PortraitGraphic:
-            {
-                // PortraitGraphic이 Image일 수도 있음
-                return refs.PortraitGraphic as Image;
-            }
 
             case CpsGraphicTarget.EmojiImage:
                 return refs.EmojiImage;
@@ -115,7 +110,6 @@ public sealed class CpsSetSpriteCommand : CommandBase
             case CpsGraphicTarget.Auto:
             default:
                 if (refs.PortraitImage != null) return refs.PortraitImage;
-                if (refs.PortraitGraphic is Image img) return img;
                 if (refs.EmojiImage != null) return refs.EmojiImage;
                 return null;
         }

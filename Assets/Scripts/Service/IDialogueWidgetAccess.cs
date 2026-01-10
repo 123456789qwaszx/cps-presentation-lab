@@ -12,7 +12,6 @@ public interface IDialogueWidgetAccess
         public TMP_Text NameText;
         public Image PortraitImage;
         public RectTransform PortraitRect;
-        public Graphic PortraitGraphic;
         public Image EmojiImage;
         public RectTransform EmojiRect;
     }

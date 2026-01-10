@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae5105b2ce5e22468d8e8c0ae1a42ce, type: 3}
   m_Name: CpsDialogueWidgetAccess
   m_EditorClassIdentifier: Assembly-CSharp::CpsDialogueWidgetAccessAsset
+  defaultRefKey: dialogue

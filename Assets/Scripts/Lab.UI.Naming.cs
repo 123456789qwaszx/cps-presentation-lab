@@ -1,36 +1,22 @@
 namespace Lab.UI.Naming
 {
-    public static class UIWidgetSets
+    public readonly struct DialogueRoleWidgetTags
     {
-        public static readonly DialogueWidgetSet Dialogue = new("Dialogue");
-    }
-    
-    public readonly struct DialogueWidgetSet
-    {
-        public readonly string BaseId;
+        private readonly string _roleKey;
 
-        public DialogueWidgetSet(string baseId)
+        private const string LineTextSuffix         = "_LineText";          // 대사 본문 텍스트
+        private const string SpeakerNameSuffix      = "_SpeakerName";       // 화자 이름
+        private const string StandingPortraitSuffix = "_StandingPortrait";  // 중앙 스탠딩 일러스트
+        private const string ProtagonistCutinSuffix = "_ProtagonistCutin"; // 주인공 전용 오버레이/컷인
+
+        public DialogueRoleWidgetTags(string roleKey)
         {
-            BaseId = baseId ?? "";
+            _roleKey = roleKey ?? string.Empty;
         }
 
-        public string BodyName     => DialogueWidgetNames.Body(BaseId);
-        public string NameName     => DialogueWidgetNames.Name(BaseId);
-        public string PortraitName => DialogueWidgetNames.Portrait(BaseId);
-        
-        public string EmoteName    => DialogueWidgetNames.Emote(BaseId); 
-    }
-    
-    public static class DialogueWidgetNames
-    {
-        public const string BodySuffix     = "_Body";
-        public const string NameSuffix     = "_Name";
-        public const string PortraitSuffix = "_Portrait";
-        public const string EmoteSuffix    = "_Emote";
-
-        public static string Body(string baseId)     => baseId + BodySuffix;
-        public static string Name(string baseId)     => baseId + NameSuffix;
-        public static string Portrait(string baseId) => baseId + PortraitSuffix;
-        public static string Emote(string baseId)    => baseId + EmoteSuffix;
+        public string LineTextTag         => $"{_roleKey}{LineTextSuffix}";
+        public string SpeakerNameTag      => $"{_roleKey}{SpeakerNameSuffix}";
+        public string StandingPortraitTag => $"{_roleKey}{StandingPortraitSuffix}";
+        public string ProtagonistCutinTag => $"{_roleKey}{ProtagonistCutinSuffix}";
     }
 }

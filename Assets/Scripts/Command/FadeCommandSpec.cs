@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public enum CpsGraphicTarget
 {
     Auto = 0,          // PortraitGraphic 있으면 그거, 없으면 PortraitImage, 없으면 EmojiImage
-    PortraitGraphic,
     PortraitImage,
     EmojiImage,
 }
@@ -142,9 +141,6 @@ public sealed class CpsFadeCommand : CommandBase
 
         switch (target)
         {
-            case CpsGraphicTarget.PortraitGraphic:
-                return refs.PortraitGraphic;
-
             case CpsGraphicTarget.PortraitImage:
                 return refs.PortraitImage; // Image는 Graphic 상속
 
@@ -154,7 +150,6 @@ public sealed class CpsFadeCommand : CommandBase
 
             case CpsGraphicTarget.Auto:
             default:
-                if (refs.PortraitGraphic != null) return refs.PortraitGraphic;
                 if (refs.PortraitImage != null) return refs.PortraitImage;
                 if (refs.EmojiImage != null) return refs.EmojiImage;
                 return null;

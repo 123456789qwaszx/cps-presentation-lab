@@ -7,7 +7,8 @@ using Lab.UI.Keys;
 [CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
 public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
 {
-    public bool TryResolve(string screenId, string widgetId, out IDialogueWidgetAccess.WidgetRefs refs)
+    [SerializeField]public string defaultRefKey;
+    public bool TryResolve(string screenId, string widgetRefKey, out IDialogueWidgetAccess.WidgetRefs refs)
     {
         refs = null;
 
@@ -26,23 +27,26 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             return false;
         }
         
-        DialogueWidgetSet set     = UIWidgetSets.Dialogue;
-        WidgetHandle dialogueBody = screen.GetWidgetHandle(set.BodyName);
-        WidgetHandle speakerName  = screen.GetWidgetHandle(set.NameName);
-        WidgetHandle portrait     = screen.GetWidgetHandle(set.PortraitName);
-        WidgetHandle emote        = screen.GetWidgetHandle(set.EmoteName);
-
+        if (string.IsNullOrEmpty(widgetRefKey))
+            widgetRefKey = defaultRefKey; // 혹은 screenId별 기본값
+        
+        DialogueRoleWidgetTags set = new (widgetRefKey);
+        
+        WidgetHandle lineText         = screen.GetWidgetHandle(set.LineTextTag);
+        WidgetHandle speakerName      = screen.GetWidgetHandle(set.SpeakerNameTag);
+        WidgetHandle standingPortrait = screen.GetWidgetHandle(set.StandingPortraitTag);
+        WidgetHandle protagonistCutin = screen.GetWidgetHandle(set.ProtagonistCutinTag);
+        
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
-            BodyText        = dialogueBody?.Text,
+            BodyText        = lineText?.Text,
             NameText        = speakerName?.Text,
-            PortraitImage   = portrait?.Image,
-            PortraitRect    = portrait?.RectTransform,
-            PortraitGraphic = portrait?.Image,
-            EmojiImage      = emote?.Image,
-            EmojiRect       = emote?.RectTransform
+            PortraitImage   = standingPortrait?.Image,
+            PortraitRect    = standingPortrait?.RectTransform,
+            EmojiImage      = protagonistCutin?.Image,
+            EmojiRect       = protagonistCutin?.RectTransform
         };
-
+        
         return true;
     }
 }

@@ -34,7 +34,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetTextCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
-                    widgetId: s.widgetId,
+                    widgetId: s.widgetRefKey,
                     target: s.target,
                     text: s.text,
                     clearWhenEmpty: s.clearWhenEmpty
@@ -49,7 +49,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsTypeTextCommand(
                     widgets: _widgets,
                     screenId: t.screenId,
-                    widgetId: t.widgetId,
+                    widgetId: t.widgetRefKey,
                     target: t.target,
                     text: t.text,
                     interval: interval,
@@ -68,7 +68,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsFadeCommand(
                     widgets: _widgets,
                     screenId: f.screenId,
-                    widgetId: f.widgetId,
+                    widgetId: f.widgetRefKey,
                     target: f.target,
                     toAlpha: f.toAlpha,
                     duration: dur,
@@ -91,7 +91,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSlideInCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
-                    widgetId: s.widgetId,
+                    widgetId: s.widgetRefKey,
                     target: s.target,
                     from: s.from,
                     distance: dist,
@@ -107,7 +107,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetSpriteCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
-                    widgetId: s.widgetId,
+                    widgetId: s.widgetRefKey,
                     target: s.target,
                     sprite: s.sprite,
                     clearWhenNull: s.clearWhenNull,
@@ -121,7 +121,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetColorCommand(
                     widgets: _widgets,
                     screenId: c.screenId,
-                    widgetId: c.widgetId,
+                    widgetId: c.widgetRefKey,
                     target: c.target,
                     color: c.color,
                     preserveAlpha: c.preserveAlpha
@@ -138,7 +138,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsPunchScaleCommand(
                     widgets: _widgets,
                     screenId: p.screenId,
-                    widgetId: p.widgetId,
+                    widgetId: p.widgetRefKey,
                     target: p.target,
                     strength: p.strength,
                     duration: dur,
@@ -158,7 +158,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsShakeCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
-                    widgetId: s.widgetId,
+                    widgetId: s.widgetRefKey,
                     target: s.target,
                     axis: s.axis,
                     intensity: s.intensity,
@@ -208,7 +208,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetActiveCommand(
                     widgets: _widgets,
                     screenId: a.screenId,
-                    widgetId: a.widgetId,
+                    widgetId: a.widgetRefKey,
                     target: a.target,
                     active: a.active
                 );
@@ -220,7 +220,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetInteractableCommand(
                     widgets: _widgets,
                     screenId: i.screenId,
-                    widgetId: i.widgetId,
+                    widgetId: i.widgetRefKey,
                     target: i.target,
                     interactable: i.interactable,
                     searchParents: i.searchParents,
@@ -234,7 +234,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsSetAnchoredPosCommand(
                     widgets: _widgets,
                     screenId: p.screenId,
-                    widgetId: p.widgetId,
+                    widgetId: p.widgetRefKey,
                     target: p.target,
                     value: p.value,
                     relative: p.relative,
@@ -254,7 +254,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsMoveToCommand(
                     widgets: _widgets,
                     screenId: m.screenId,
-                    widgetId: m.widgetId,
+                    widgetId: m.widgetRefKey,
                     target: m.target,
                     position: m.position,
                     duration: dur,
@@ -276,7 +276,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 command = new CpsMoveByCommand(
                     widgets: _widgets,
                     screenId: m.screenId,
-                    widgetId: m.widgetId,
+                    widgetId: m.widgetRefKey,
                     target: m.target,
                     delta: m.delta,
                     duration: dur,
