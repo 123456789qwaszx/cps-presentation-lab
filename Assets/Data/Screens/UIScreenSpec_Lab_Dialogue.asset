@@ -267,7 +267,7 @@ MonoBehaviour:
         prefabOverride: {fileID: 0}
         rectMode: 1
         textRole: 1
-        disabled: 1
+        disabled: 0
         anchorMin: {x: 0, y: 0}
         anchorMax: {x: 0.15, y: 1}
         pivot: {x: 0, y: 0.5}
@@ -285,5 +285,5 @@ MonoBehaviour:
         slotId: 
     templatePrefab: {fileID: 3073989578952147869, guid: f2d73fd00107879428815c33f5dd382c, type: 3}
     baseTheme: {fileID: 11400000, guid: fe084596b8d77dc4ab3c539166c5ed00, type: 2}
-    baseLayout: {fileID: 0}
+    baseLayout: {fileID: 11400000, guid: 3b922df7367f6e5489b4561595a3fe69, type: 2}
     variants: []

@@ -1,83 +1,96 @@
 using System;
-using System.Collections;
-using DG.Tweening;
 using UnityEngine;
-using RectTransform = UnityEngine.RectTransform;
-
-public enum CpsSlideFrom
-{
-    Left = 0,
-    Right,
-    Up,
-    Down,
-}
+using DG.Tweening;
+using System.Collections;
 
 [Serializable]
-public sealed class SlideInCommandSpec : CommandSpecBase
+public sealed class SetScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
-    [Header("Slide")]
-    public CpsSlideFrom from = CpsSlideFrom.Left;
+    [Header("Scale")]
+    /// <summary>
+    /// 최종 스케일 (localScale).
+    /// </summary>
+    public Vector3 toScale = Vector3.one;
 
     /// <summary>
-    /// <= 0이면 Config 기본값 사용
+    /// 시작 스케일을 강제로 고정할지.
+    /// true면 startScale에서부터 트윈이 시작된다.
     /// </summary>
-    public float distance = -1f;
+    public bool overrideStartScale = false;
 
     /// <summary>
-    /// <= 0이면 Config 기본값 사용
+    /// overrideStartScale 이 true일 때만 사용.
     /// </summary>
-    public float duration = -1f;
+    public Vector3 startScale = Vector3.one;
+
+    [Header("Tween")]
+    /// <summary>
+    /// <= 0이면 즉시 적용 (트윈 없이 스냅).
+    /// </summary>
+    public float duration = 0f;
 
     public Ease ease = Ease.OutCubic;
 
     /// <summary>
-    /// true면 슬라이드가 끝날 때까지 Step 진행을 멈춤 (기본 false 추천)
+    /// true면 트윈이 끝날 때까지 Step 진행 멈춤.
     /// </summary>
     public bool wait = false;
+
+    /// <summary>
+    /// true면 기존 scale 관련 트윈을 끊고 시작.
+    /// </summary>
+    public bool killTween = true;
 }
 
-public sealed class CpsSlideInCommand : CommandBase
+public sealed class CpsSetScaleCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
     private readonly string _widgetId;
 
     private readonly DialogueWidgetTarget _target;
-    private readonly CpsSlideFrom _from;
-    private readonly float _distance;
+    private readonly Vector3 _toScale;
+    private readonly bool _overrideStartScale;
+    private readonly Vector3 _startScale;
+
     private readonly float _duration;
     private readonly Ease  _ease;
     private readonly bool  _wait;
+    private readonly bool  _killTween;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
-    private Vector2 _destPos;
     private bool _resolved;
 
-    public CpsSlideInCommand(
+    public CpsSetScaleCommand(
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
         DialogueWidgetTarget target,
-        CpsSlideFrom from,
-        float distance,
+        Vector3 toScale,
+        bool overrideStartScale,
+        Vector3 startScale,
         float duration,
-        Ease ease = Ease.OutCubic,
-        bool waitForCompletion = false)
+        Ease ease,
+        bool waitForCompletion,
+        bool killTween)
     {
         _widgets  = widgets;
         _screenId = screenId;
         _widgetId = widgetId;
 
-        _target   = target;
-        _from     = from;
-        _distance = Mathf.Max(0f, distance);
+        _target            = target;
+        _toScale           = toScale;
+        _overrideStartScale = overrideStartScale;
+        _startScale        = startScale;
+
         _duration = Mathf.Max(0f, duration);
         _ease     = ease;
         _wait     = waitForCompletion;
+        _killTween = killTween;
     }
 
     public override bool WaitForCompletion => _wait;
@@ -88,19 +101,22 @@ public sealed class CpsSlideInCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        _rect.DOKill(false);
+        if (_killTween)
+            _rect.DOKill(false);
 
-        Vector2 start = _destPos + GetOffset(_from, _distance);
-        _rect.anchoredPosition = start;
+        // 시작 스케일을 아예 박아두고 싶을 때
+        if (_overrideStartScale)
+            _rect.localScale = _startScale;
 
         if (_duration <= 0f)
         {
-            _rect.anchoredPosition = _destPos;
+            // 스냅
+            _rect.localScale = _toScale;
             yield break;
         }
 
         Tween tween = _rect
-            .DOAnchorPos(_destPos, _duration)
+            .DOScale(_toScale, _duration)
             .SetEase(_ease)
             .SetUpdate(true);
 
@@ -115,8 +131,11 @@ public sealed class CpsSlideInCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        _rect.DOKill(false);
-        _rect.anchoredPosition = _destPos;
+        if (_killTween)
+            _rect.DOKill(false);
+
+        // 스킵 시 최종 포즈로 바로 고정
+        _rect.localScale = _toScale;
     }
 
     private bool ResolveIfNeeded()
@@ -131,23 +150,6 @@ public sealed class CpsSlideInCommand : CommandBase
             return false;
 
         _rect = _refs.GetRect(_target);
-        if (_rect == null)
-            return false;
-
-        // “dest = 현재 레이아웃 위치” (아날로그 규칙)
-        _destPos = _rect.anchoredPosition;
-        return true;
-    }
-
-    private static Vector2 GetOffset(CpsSlideFrom from, float distance)
-    {
-        switch (from)
-        {
-            case CpsSlideFrom.Right: return new Vector2(+distance, 0f);
-            case CpsSlideFrom.Up:    return new Vector2(0f, +distance);
-            case CpsSlideFrom.Down:  return new Vector2(0f, -distance);
-            case CpsSlideFrom.Left:
-            default:                 return new Vector2(-distance, 0f);
-        }
+        return _rect != null;
     }
 }

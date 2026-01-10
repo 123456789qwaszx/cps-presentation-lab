@@ -287,6 +287,91 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case BouncySlideInCommandSpec s:
+            {
+                float defaultDist = (Slide != null ? Mathf.Max(0f, Slide.offsetX) : 800f);
+                float defaultDur  = (Slide != null ? Mathf.Max(0f, Slide.duration) : 0.5f);
+
+                float dist = s.slideDistance > 0f ? s.slideDistance : defaultDist;
+                float dur  = s.slideDuration  > 0f ? s.slideDuration  : defaultDur;
+
+                command = new CpsBouncySlideInCommand(
+                    widgets: _widgets,
+                    screenId: s.screenId,
+                    widgetId: s.widgetRefKey,
+                    target:  s.target,
+                    from:    s.from,
+                    slideDistance: dist,
+                    slideDuration: dur,
+                    slideEase: s.slideEase,
+                    waveAmplitude: s.waveAmplitude,
+                    waveLoops: s.waveLoops,
+                    waveAxis: s.waveAxis,
+                    waitForCompletion: s.wait,
+                    startFromLayout: s.startFromLayout
+                );
+                return command != null;
+            }
+            
+            case SwayThenDropCommandSpec s:
+            {
+                command = new CpsSwayThenDropCommand(
+                    widgets: _widgets,
+                    screenId: s.screenId,
+                    widgetId: s.widgetRefKey,
+                    target: s.target,
+                    swayAngle: s.swayAngle,
+                    swayLoops: s.swayLoops,
+                    swayDuration: s.swayDuration,
+                    dropDistance: s.dropDistance,
+                    dropDuration: s.dropDuration,
+                    dropAngle: s.dropAngle,
+                    dropEase: s.dropEase,
+                    swayForwardEase: s.swayForwardEase,
+                    swayBackwardEase: s.swayBackwardEase,
+                    swayDecay: s.swayDecay,
+                    dropStartRatio: s.dropStartRatio,
+                    waitForCompletion: s.wait
+                );
+                return command != null;
+            }
+            
+            case SetScaleCommandSpec s:
+            {
+                command = new CpsSetScaleCommand(
+                    widgets: _widgets,
+                    screenId: s.screenId,
+                    widgetId: s.widgetRefKey,
+                    target: s.target,
+                    toScale: s.toScale,
+                    overrideStartScale: s.overrideStartScale,
+                    startScale: s.startScale,
+                    duration: s.duration,
+                    ease: s.ease,
+                    waitForCompletion: s.wait,
+                    killTween: s.killTween
+                );
+                return command != null;
+            }
+
+            case SetRotationCommandSpec r:
+            {
+                command = new CpsSetRotationCommand(
+                    widgets: _widgets,
+                    screenId: r.screenId,
+                    widgetId: r.widgetRefKey,
+                    target: r.target,
+                    toAngle: r.toAngle,
+                    overrideStartAngle: r.overrideStartAngle,
+                    startAngle: r.startAngle,
+                    duration: r.duration,
+                    ease: r.ease,
+                    waitForCompletion: r.wait,
+                    killTween: r.killTween
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }
