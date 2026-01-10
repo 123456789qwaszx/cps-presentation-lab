@@ -10,36 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
-  m_Name: Seq_Story00_Dialogue_01
+  m_Name: ScreenSpec_Palette_BlueArchive
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
-  sequenceKey: story00.dialogue.01
+  sequenceKey: 
   nodes:
-  - editorName: ichika~~ Start!
+  - editorName: BlueArchive
     steps:
-    - editorName: SetName
+    - editorName: Entrance_Cute01
       commands:
-      - rid: 2406591490152988749
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: BouncySlideIn
-      commands:
-      - rid: 2406591490152988739
-      - rid: 2406591490152988740
-      - rid: 2406591490152988748
-      - rid: 2406591490152988751
+      - rid: 2406591490152988754
+      - rid: 2406591490152988755
+      - rid: 2406591490152988756
+      - rid: 2406591490152988757
       gate:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: SwayThenDrop
+    - editorName: Reaction_Drop01
       commands:
-      - rid: 2406591490152988745
-      - rid: 2406591490152988744
-      - rid: 2406591490152988747
-      - rid: 2406591490152988741
-      - rid: 2406591490152988753
+      - rid: 2406591490152988758
+      - rid: 2406591490152988759
+      - rid: 2406591490152988760
+      - rid: 2406591490152988761
+      - rid: 2406591490152988762
       gate:
         type: 1
         seconds: 0
@@ -47,7 +40,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2406591490152988739
+    - rid: 2406591490152988754
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
@@ -56,7 +49,7 @@ MonoBehaviour:
         sprite: {fileID: 21300000, guid: 26ca9613f8ee8ae4ba150f2c14a7aaee, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
-    - rid: 2406591490152988740
+    - rid: 2406591490152988755
       type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
@@ -71,7 +64,63 @@ MonoBehaviour:
         waveAxis: 1
         startFromLayout: 1
         wait: 0
-    - rid: 2406591490152988741
+    - rid: 2406591490152988756
+      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        toAlpha: 1
+        fromAlpha: 0
+        duration: 1.1
+        ease: 9
+        wait: 0
+    - rid: 2406591490152988757
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 0
+        text: "\uC5B4\uB77C? \uC5B4\uCA4C\uB2E4\uAC00 \uC774\uB807\uAC8C \uB41C\uAC70\uC9C0?"
+        interval: -1
+        wait: 1
+        clearWhenEmpty: 1
+    - rid: 2406591490152988758
+      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        value: {x: 0, y: 0}
+        relative: 0
+        killTween: 1
+    - rid: 2406591490152988759
+      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        toAngle: 0
+        overrideStartAngle: 0
+        startAngle: 0
+        duration: 0
+        ease: 9
+        wait: 0
+        killTween: 1
+    - rid: 2406591490152988760
+      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        toScale: {x: 1, y: 1, z: 1}
+        overrideStartScale: 0
+        startScale: {x: 1, y: 1, z: 1}
+        duration: 0
+        ease: 9
+        wait: 0
+        killTween: 1
+    - rid: 2406591490152988761
       type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
@@ -89,71 +138,7 @@ MonoBehaviour:
         swayBackwardEase: 4
         swayDecay: 0
         dropStartRatio: 0.553
-    - rid: 2406591490152988744
-      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 2
-        toAngle: 0
-        overrideStartAngle: 0
-        startAngle: 0
-        duration: 0
-        ease: 9
-        wait: 0
-        killTween: 1
-    - rid: 2406591490152988745
-      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 2
-        value: {x: 0, y: 0}
-        relative: 0
-        killTween: 1
-    - rid: 2406591490152988747
-      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 2
-        toScale: {x: 1, y: 1, z: 1}
-        overrideStartScale: 0
-        startScale: {x: 1, y: 1, z: 1}
-        duration: 0
-        ease: 9
-        wait: 0
-        killTween: 1
-    - rid: 2406591490152988748
-      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 2
-        toAlpha: 1
-        fromAlpha: 0
-        duration: 1.1
-        ease: 9
-        wait: 0
-    - rid: 2406591490152988749
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 1
-        text: ichika
-        clearWhenEmpty: 1
-    - rid: 2406591490152988751
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue
-        widgetRefKey: dialogue
-        target: 0
-        text: "\uC5B4\uB77C? \uC5B4\uCA4C\uB2E4\uAC00 \uC774\uB807\uAC8C \uB41C\uAC70\uC9C0?"
-        interval: -1
-        wait: 1
-        clearWhenEmpty: 1
-    - rid: 2406591490152988753
+    - rid: 2406591490152988762
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
