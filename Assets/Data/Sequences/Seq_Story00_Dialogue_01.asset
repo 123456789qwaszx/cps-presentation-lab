@@ -14,245 +14,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: story00.dialogue.01
   nodes:
-  - editorName: Lalu! Start~~
+  - editorName: ichika~~ Start!
     steps:
-    - editorName: MainSpeaker
+    - editorName: BouncySlideIn
       commands:
-      - rid: 2406591490152988736
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: SubSpeaker
-      commands:
-      - rid: 2406591490152988737
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-  - editorName: Lalu! Start~~
-    steps:
-    - editorName: 
-      commands:
-      - rid: 2406591429997232193
-      - rid: 2406591429997232200
-      - rid: 2406591429997232194
-      - rid: 2406591429997232196
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-  - editorName: Lalu! Start~~
-    steps:
-    - editorName: MainSpeaker
-      commands:
-      - rid: 2406591420219523199
-      - rid: 2406591420219523200
-      - rid: 2406591420219523202
-      - rid: 2406591420219523203
-      - rid: 2406591420219523201
-      - rid: 2406591420219523206
+      - rid: 2406591490152988739
+      - rid: 2406591490152988740
+      - rid: 2406591490152988748
       gate:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: CloseAll
+    - editorName: SwayThenDrop
       commands:
-      - rid: 2406591420219523186
-      - rid: 2406591420219523187
-      - rid: 2406591429294161984
-      - rid: 2406591429294161983
-      - rid: 2406591429294161985
-      - rid: 2406591420219523188
+      - rid: 2406591490152988745
+      - rid: 2406591490152988744
+      - rid: 2406591490152988747
+      - rid: 2406591490152988741
       gate:
         type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: "\uB4F1\uC7A5~~"
-      commands:
-      - rid: 2406591420219523191
-      - rid: 2406591420219523194
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: 
-      commands: []
-      gate:
-        type: 0
         seconds: 0
         signalKey: 
   references:
     version: 2
     RefIds:
-    - rid: 2406591420219523186
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        active: 0
-    - rid: 2406591420219523187
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 2
-        active: 0
-    - rid: 2406591420219523188
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 5
-        active: 0
-    - rid: 2406591420219523191
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 5
-        active: 1
-    - rid: 2406591420219523194
-      type: {class: ShakeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        axis: 0
-        intensity: 14
-        duration: 0.6
-        vibrato: 8
-        randomness: 0.2
-        wait: 0
-    - rid: 2406591420219523199
+    - rid: 2406591490152988739
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
-        widgetId: dialogue55
-        target: 0
-        sprite: {fileID: 21300000, guid: 61e3cc06be10add4098bac139b0f43b9, type: 3}
+        widgetRefKey: dialogue
+        target: 2
+        sprite: {fileID: 21300000, guid: 26ca9613f8ee8ae4ba150f2c14a7aaee, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
-    - rid: 2406591420219523200
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591490152988740
+      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: dialogue
-        widgetId: dialogue
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
         target: 2
-        text: "\uB77C\uB8E8"
-        clearWhenEmpty: 1
-    - rid: 2406591420219523201
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+        from: 0
+        slideDistance: 88
+        slideDuration: 1.2
+        slideEase: 9
+        waveAmplitude: 22
+        waveLoops: 2
+        waveAxis: 1
+        startFromLayout: 1
+        wait: 0
+    - rid: 2406591490152988741
+      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        text: "\uC6B0\uC640, \uC9C4\uC9DC \uC2E0\uAE30\uD558\uB2E4"
-        interval: -1
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        swayAngle: 5
+        swayLoops: 2
+        swayDuration: 2.9
+        dropDistance: 999
+        dropDuration: 0.6
+        dropAngle: 2
+        dropEase: 17
         wait: 1
-        clearWhenEmpty: 1
-    - rid: 2406591420219523202
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+        swayForwardEase: 6
+        swayBackwardEase: 4
+        swayDecay: 0
+        dropStartRatio: 0.553
+    - rid: 2406591490152988744
+      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        active: 1
-    - rid: 2406591420219523203
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
         target: 2
-        active: 1
-    - rid: 2406591420219523206
-      type: {class: MoveToCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 2
-        position: {x: 200, y: 0}
-        duration: -1
+        toAngle: 0
+        overrideStartAngle: 0
+        startAngle: 0
+        duration: 0
         ease: 9
         wait: 0
         killTween: 1
-    - rid: 2406591429294161983
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        active: 0
-    - rid: 2406591429294161984
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        active: 0
-    - rid: 2406591429294161985
-      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 1
-        active: 0
-    - rid: 2406591429997232193
-      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 0
-        strength: 0.25
-        duration: -1
-        vibrato: 0
-        elasticity: -1
-        wait: 0
-    - rid: 2406591429997232194
-      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        signalKey: 
-        consume: 0
-        timeoutSeconds: 3
-        respectTimeScale: 0
-    - rid: 2406591429997232196
-      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        signalKey: 
-        consume: 0
-        timeoutSeconds: 3
-        respectTimeScale: 0
-    - rid: 2406591429997232200
-      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: dialogue
-        widgetId: dialogue
-        target: 0
-        strength: 0.25
-        duration: -1
-        vibrato: 0
-        elasticity: -1
-        wait: 0
-    - rid: 2406591490152988736
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591490152988745
+      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
-        widgetId: MainSpeaker
-        target: 0
-        sprite: {fileID: 0}
-        clearWhenNull: 1
-        setNativeSize: 0
-    - rid: 2406591490152988737
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+        widgetRefKey: dialogue
+        target: 2
+        value: {x: 0, y: 0}
+        relative: 0
+        killTween: 1
+    - rid: 2406591490152988747
+      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue
-        widgetId: SubSpeaker
-        target: 0
-        sprite: {fileID: 0}
-        clearWhenNull: 1
-        setNativeSize: 0
+        widgetRefKey: dialogue
+        target: 2
+        toScale: {x: 1, y: 1, z: 1}
+        overrideStartScale: 0
+        startScale: {x: 1, y: 1, z: 1}
+        duration: 0
+        ease: 9
+        wait: 0
+        killTween: 1
+    - rid: 2406591490152988748
+      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 2
+        toAlpha: 1
+        fromAlpha: 0
+        duration: 1.1
+        ease: 9
+        wait: 0
