@@ -16,6 +16,13 @@ MonoBehaviour:
   nodes:
   - editorName: ichika~~ Start!
     steps:
+    - editorName: 
+      commands:
+      - rid: 2406591501861912640
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: SetName
       commands:
       - rid: 2406591490152988749
@@ -163,3 +170,16 @@ MonoBehaviour:
         interval: -1
         wait: 0
         clearWhenEmpty: 1
+    - rid: 2406591501861912640
+      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: dialogue
+        target: 6
+        toScale: {x: 1, y: 1, z: 1}
+        overrideStartScale: 0
+        startScale: {x: 1, y: 1, z: 1}
+        duration: 0
+        ease: 9
+        wait: 0
+        killTween: 1

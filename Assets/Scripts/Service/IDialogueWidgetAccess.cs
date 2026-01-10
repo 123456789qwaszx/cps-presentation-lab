@@ -9,7 +9,9 @@ public enum DialogueWidgetTarget
     StandingPortraitImage,
     StandingPortraitRect,
     ProtagonistCutinImage,
-    ProtagonistCutinRect
+    ProtagonistCutinRect,
+    BackgroundImage,
+    BackgroundRect
 }
 
 public interface IDialogueWidgetAccess
@@ -24,6 +26,9 @@ public interface IDialogueWidgetAccess
         public RectTransform PortraitRect;
         public Image EmojiImage;
         public RectTransform EmojiRect;
+        public Image BackgroundImage;
+        public RectTransform BackgroundRect;
+        
     }
 }
 
@@ -47,6 +52,10 @@ public static class WidgetRefsExtensions
                 return refs.EmojiImage;
             case DialogueWidgetTarget.ProtagonistCutinRect:
                 return refs.EmojiRect;
+            case DialogueWidgetTarget.BackgroundImage:
+                return refs.BackgroundImage;
+            case DialogueWidgetTarget.BackgroundRect:
+                return refs.BackgroundRect;
             default:
                 return null;
         }

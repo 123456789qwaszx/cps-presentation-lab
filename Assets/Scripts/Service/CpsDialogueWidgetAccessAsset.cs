@@ -36,6 +36,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         WidgetHandle speakerName      = screen.GetWidgetHandle(set.SpeakerNameTag);
         WidgetHandle standingPortrait = screen.GetWidgetHandle(set.StandingPortraitTag);
         WidgetHandle protagonistCutin = screen.GetWidgetHandle(set.ProtagonistCutinTag);
+        WidgetHandle background       = screen.GetWidgetHandle(set.BackgroundImageTag);
         
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
@@ -44,7 +45,9 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             PortraitImage   = standingPortrait?.Image,
             PortraitRect    = standingPortrait?.RectTransform,
             EmojiImage      = protagonistCutin?.Image,
-            EmojiRect       = protagonistCutin?.RectTransform
+            EmojiRect       = protagonistCutin?.RectTransform,
+            BackgroundImage = background?.Image,
+            BackgroundRect  = background?.RectTransform,
         };
         
         return true;
