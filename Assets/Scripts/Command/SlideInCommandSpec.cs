@@ -4,13 +4,6 @@ using DG.Tweening;
 using UnityEngine;
 using RectTransform = UnityEngine.RectTransform;
 
-public enum CpsRectTarget
-{
-    Auto = 0,        // PortraitRect 있으면 그거, 없으면 (없음)
-    PortraitRect,
-    // 필요해지면: EmojiRect, PanelRect, etc...
-}
-
 public enum CpsSlideFrom
 {
     Left = 0,
@@ -23,7 +16,7 @@ public enum CpsSlideFrom
 public sealed class SlideInCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public CpsRectTarget target = CpsRectTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Slide")]
     public CpsSlideFrom from = CpsSlideFrom.Left;
@@ -52,13 +45,14 @@ public sealed class CpsSlideInCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsRectTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly CpsSlideFrom _from;
     private readonly float _distance;
     private readonly float _duration;
     private readonly Ease  _ease;
     private readonly bool  _wait;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private Vector2 _destPos;
     private bool _resolved;
@@ -67,7 +61,7 @@ public sealed class CpsSlideInCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsRectTarget target,
+        DialogueWidgetTarget target,
         CpsSlideFrom from,
         float distance,
         float duration,
@@ -133,31 +127,16 @@ public sealed class CpsSlideInCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _rect = ResolveTargetRect(refs, _target);
+        _rect = _refs.GetRect(_target);
         if (_rect == null)
             return false;
 
         // ✅ “dest = 현재 레이아웃 위치” (아날로그 규칙)
         _destPos = _rect.anchoredPosition;
         return true;
-    }
-
-    private static RectTransform ResolveTargetRect(IDialogueWidgetAccess.WidgetRefs refs, CpsRectTarget target)
-    {
-        if (refs == null) return null;
-
-        switch (target)
-        {
-            case CpsRectTarget.PortraitRect:
-                return refs.PortraitRect;
-
-            case CpsRectTarget.Auto:
-            default:
-                return refs.PortraitRect;
-        }
     }
 
     private static Vector2 GetOffset(CpsSlideFrom from, float distance)

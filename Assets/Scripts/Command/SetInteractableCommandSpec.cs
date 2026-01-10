@@ -6,7 +6,7 @@ using System.Collections;
 [Serializable]
 public sealed class SetInteractableCommandSpec : CommandSpecBase
 {
-    public CpsWidgetRefTarget target = CpsWidgetRefTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     public bool interactable = true;
 
@@ -28,11 +28,12 @@ public sealed class CpsSetInteractableCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsWidgetRefTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly bool _interactable;
     private readonly bool _searchParents;
     private readonly bool _blocksRaycasts;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private GameObject _go;
     private bool _resolved;
 
@@ -40,7 +41,7 @@ public sealed class CpsSetInteractableCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsWidgetRefTarget target,
+        DialogueWidgetTarget target,
         bool interactable,
         bool searchParents = true,
         bool blocksRaycasts = true)
@@ -83,13 +84,10 @@ public sealed class CpsSetInteractableCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
-
-        // Auto 기본값은 "가장 흔히 입력을 막고 싶은 덩어리" = PortraitGraphic 쪽
-        Component c = ResolveComponent(refs, _target, defaultAuto: CpsWidgetRefTarget.PortraitGraphic);
-        _go = c != null ? c.gameObject : null;
-
+        
+        _go = _refs.GetComponent(_target)?.gameObject;
         return _go != null;
     }
 
@@ -125,20 +123,5 @@ public sealed class CpsSetInteractableCommand : CommandBase
         if (go == null) return null;
         if (!searchParents) return go.GetComponent<T>();
         return go.GetComponentInParent<T>(includeInactive: true);
-    }
-
-    private static Component ResolveComponent(IDialogueWidgetAccess.WidgetRefs refs, CpsWidgetRefTarget t, CpsWidgetRefTarget defaultAuto)
-    {
-        if (refs == null) return null;
-        if (t == CpsWidgetRefTarget.Auto) t = defaultAuto;
-
-        switch (t)
-        {
-            case CpsWidgetRefTarget.BodyText:        return refs.BodyText;
-            case CpsWidgetRefTarget.NameText:        return refs.NameText;
-            case CpsWidgetRefTarget.PortraitRect:    return refs.PortraitRect;
-            case CpsWidgetRefTarget.PortraitImage:   return refs.PortraitImage;
-            default:                                 return refs.PortraitImage;
-        }
     }
 }

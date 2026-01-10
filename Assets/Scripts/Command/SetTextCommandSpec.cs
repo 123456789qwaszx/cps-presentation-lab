@@ -3,19 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public enum CpsTextTarget
-{
-    Auto = 0,   // BodyText 있으면 Body, 없으면 NameText
-    BodyText,
-    NameText,
-}
-
-
 [Serializable]
 public sealed class SetTextCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public CpsTextTarget target = CpsTextTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.LineText;
 
     [Header("Content")]
     [TextArea]
@@ -32,7 +24,7 @@ public sealed class CpsSetTextCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsTextTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly string _text;
     private readonly bool _clearWhenEmpty;
 
@@ -43,7 +35,7 @@ public sealed class CpsSetTextCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsTextTarget target,
+        DialogueWidgetTarget target,
         string text,
         bool clearWhenEmpty = true)
     {
@@ -61,21 +53,24 @@ public sealed class CpsSetTextCommand : CommandBase
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
+        if (!ResolveIfNeeded())
+            yield break;
+        
         Apply();
         yield break;
     }
 
     protected override void OnSkip(CommandRunScope scope)
     {
+        if (!ResolveIfNeeded())
+            return;
+        
         Apply();
     }
 
     private void Apply()
     {
-        if (!ResolveIfNeeded())
-            return;
-
-        TMP_Text targetText = ResolveTargetText(_refs, _target);
+        TMP_Text targetText = _refs.GetText(_target);
         if (targetText == null)
             return;
 
@@ -86,7 +81,7 @@ public sealed class CpsSetTextCommand : CommandBase
 
         targetText.text = content;
 
-        // ✅ 타이핑 흔적 제거 (S급 디폴트)
+        // 타이핑 흔적 제거
         targetText.maxVisibleCharacters = int.MaxValue;
     }
 
@@ -98,30 +93,9 @@ public sealed class CpsSetTextCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (_widgets.TryResolve(_screenId, _widgetId, out var refs) && refs != null)
-        {
-            _refs = refs;
-            return true;
-        }
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
+            return false;
 
-        return false;
-    }
-
-    private static TMP_Text ResolveTargetText(IDialogueWidgetAccess.WidgetRefs refs, CpsTextTarget target)
-    {
-        if (refs == null) return null;
-
-        switch (target)
-        {
-            case CpsTextTarget.BodyText:
-                return refs.BodyText;
-
-            case CpsTextTarget.NameText:
-                return refs.NameText;
-
-            case CpsTextTarget.Auto:
-            default:
-                return refs.BodyText != null ? refs.BodyText : refs.NameText;
-        }
+        return true;
     }
 }

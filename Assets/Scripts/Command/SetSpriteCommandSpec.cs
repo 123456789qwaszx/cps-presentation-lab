@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public sealed class SetSpriteCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public CpsGraphicTarget target = CpsGraphicTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Sprite")]
     public Sprite sprite;
@@ -23,11 +23,12 @@ public sealed class CpsSetSpriteCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsGraphicTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly Sprite _sprite;
     private readonly bool _clearWhenNull;
     private readonly bool _setNativeSize;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private Image _image;
     private bool _resolved;
 
@@ -35,7 +36,7 @@ public sealed class CpsSetSpriteCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsGraphicTarget target,
+        DialogueWidgetTarget target,
         Sprite sprite,
         bool clearWhenNull = true,
         bool setNativeSize = false)
@@ -86,32 +87,11 @@ public sealed class CpsSetSpriteCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
-
-        _image = ResolveTargetImage(refs, _target);
+        
+        Graphic g = _refs.GetGraphic(_target);
+        _image = g as Image;
         return _image != null;
-    }
-
-    private static Image ResolveTargetImage(IDialogueWidgetAccess.WidgetRefs refs, CpsGraphicTarget target)
-    {
-        if (refs == null) return null;
-
-        // Image 슬롯이 있다면 가장 확실하게 그걸 사용
-        switch (target)
-        {
-            case CpsGraphicTarget.PortraitImage:
-                return refs.PortraitImage;
-
-
-            case CpsGraphicTarget.EmojiImage:
-                return refs.EmojiImage;
-
-            case CpsGraphicTarget.Auto:
-            default:
-                if (refs.PortraitImage != null) return refs.PortraitImage;
-                if (refs.EmojiImage != null) return refs.EmojiImage;
-                return null;
-        }
     }
 }

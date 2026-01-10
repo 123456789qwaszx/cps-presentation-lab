@@ -7,7 +7,7 @@ using DG.Tweening;
 public sealed class PunchScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public CpsRectTarget target = CpsRectTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Punch")]
     /// <summary>
@@ -39,14 +39,15 @@ public sealed class CpsPunchScaleCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsRectTarget _target;
+    private readonly DialogueWidgetTarget _target;
 
     private readonly float _strength;
     private readonly float _duration;
     private readonly int   _vibrato;
     private readonly float _elasticity;
     private readonly bool  _wait;
-
+    
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private Vector3 _originScale;
     private bool _resolved;
@@ -55,7 +56,7 @@ public sealed class CpsPunchScaleCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsRectTarget target,
+        DialogueWidgetTarget target,
         float strength,
         float duration,
         int vibrato,
@@ -124,29 +125,14 @@ public sealed class CpsPunchScaleCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _rect = ResolveTargetRect(refs, _target);
+        _rect = _refs.GetRect(_target);
         if (_rect == null)
             return false;
 
         _originScale = _rect.localScale;
         return true;
-    }
-
-    private static RectTransform ResolveTargetRect(IDialogueWidgetAccess.WidgetRefs refs, CpsRectTarget target)
-    {
-        if (refs == null) return null;
-
-        switch (target)
-        {
-            case CpsRectTarget.PortraitRect:
-                return refs.PortraitRect;
-
-            case CpsRectTarget.Auto:
-            default:
-                return refs.PortraitRect;
-        }
     }
 }

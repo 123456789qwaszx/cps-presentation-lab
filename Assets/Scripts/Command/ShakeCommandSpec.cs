@@ -14,13 +14,13 @@ public enum CpsShakeAxis
 public sealed class ShakeCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public CpsRectTarget target = CpsRectTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Shake")]
     public CpsShakeAxis axis = CpsShakeAxis.X;
 
     /// <summary>
-    /// 흔들림 강도(픽셀). 8~24 정도가 UI에서 맛있음.
+    /// 흔들림 강도(픽셀). 8~24 정도가 UI에서 효과적임.
     /// </summary>
     public float intensity = 14f;
 
@@ -49,7 +49,7 @@ public sealed class CpsShakeCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsRectTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly CpsShakeAxis _axis;
 
     private readonly float _intensity;
@@ -58,6 +58,7 @@ public sealed class CpsShakeCommand : CommandBase
     private readonly float _randomness;
     private readonly bool  _wait;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private Vector2 _originPos;
     private bool _resolved;
@@ -66,7 +67,7 @@ public sealed class CpsShakeCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsRectTarget target,
+        DialogueWidgetTarget target,
         CpsShakeAxis axis,
         float intensity,
         float duration,
@@ -138,30 +139,15 @@ public sealed class CpsShakeCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _rect = ResolveTargetRect(refs, _target);
+        _rect = _refs.GetRect(_target);
         if (_rect == null)
             return false;
 
         _originPos = _rect.anchoredPosition;
         return true;
-    }
-
-    private static RectTransform ResolveTargetRect(IDialogueWidgetAccess.WidgetRefs refs, CpsRectTarget target)
-    {
-        if (refs == null) return null;
-
-        switch (target)
-        {
-            case CpsRectTarget.PortraitRect:
-                return refs.PortraitRect;
-
-            case CpsRectTarget.Auto:
-            default:
-                return refs.PortraitRect;
-        }
     }
 
     private static Vector2 GetStrength(CpsShakeAxis axis, float intensity)

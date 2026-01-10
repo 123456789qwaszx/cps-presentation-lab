@@ -6,7 +6,7 @@ using IEnumerator = System.Collections.IEnumerator;
 [Serializable]
 public sealed class SetColorCommandSpec : CommandSpecBase
 {
-    public CpsWidgetRefTarget target = CpsWidgetRefTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Color")]
     public Color color = Color.white;
@@ -21,10 +21,11 @@ public sealed class CpsSetColorCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsWidgetRefTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly Color _color;
     private readonly bool _preserveAlpha;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private Graphic _graphic;
     private bool _resolved;
 
@@ -32,7 +33,7 @@ public sealed class CpsSetColorCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsWidgetRefTarget target,
+        DialogueWidgetTarget target,
         Color color,
         bool preserveAlpha = true)
     {
@@ -86,22 +87,10 @@ public sealed class CpsSetColorCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _graphic = ResolveGraphic(refs, _target);
+        _graphic = _refs.GetGraphic(_target);
         return _graphic != null;
-    }
-
-    private static Graphic ResolveGraphic(IDialogueWidgetAccess.WidgetRefs refs, CpsWidgetRefTarget target)
-    {
-        if (refs == null) return null;
-        if (target == CpsWidgetRefTarget.Auto) target = CpsWidgetRefTarget.PortraitGraphic;
-
-        switch (target)
-        {
-            case CpsWidgetRefTarget.PortraitImage:   return refs.PortraitImage; // Image : Graphic
-            default:                                 return refs.PortraitImage;
-        }
     }
 }

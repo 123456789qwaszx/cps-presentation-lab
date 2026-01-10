@@ -6,7 +6,7 @@ using IEnumerator = System.Collections.IEnumerator;
 [Serializable]
 public sealed class SetAnchoredPosCommandSpec : CommandSpecBase
 {
-    public CpsWidgetRefTarget target = CpsWidgetRefTarget.Auto;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
 
     [Header("Position")]
     public Vector2 value;
@@ -25,11 +25,12 @@ public sealed class CpsSetAnchoredPosCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly CpsWidgetRefTarget _target;
+    private readonly DialogueWidgetTarget _target;
     private readonly Vector2 _value;
     private readonly bool _relative;
     private readonly bool _killTween;
 
+    private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private bool _resolved;
 
@@ -37,7 +38,7 @@ public sealed class CpsSetAnchoredPosCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        CpsWidgetRefTarget target,
+        DialogueWidgetTarget target,
         Vector2 value,
         bool relative = true,
         bool killTween = true)
@@ -89,24 +90,10 @@ public sealed class CpsSetAnchoredPosCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out var refs) || refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        // Auto는 Rect 이동이니까 PortraitRect가 기본
-        _rect = ResolveRect(refs, _target);
+        _rect = _refs.GetRect(_target);
         return _rect != null;
-    }
-
-    private static RectTransform ResolveRect(IDialogueWidgetAccess.WidgetRefs refs, CpsWidgetRefTarget target)
-    {
-        if (refs == null) return null;
-        if (target == CpsWidgetRefTarget.Auto) target = CpsWidgetRefTarget.PortraitRect;
-
-        switch (target)
-        {
-            case CpsWidgetRefTarget.PortraitRect:  return refs.PortraitRect;
-            case CpsWidgetRefTarget.PortraitImage: return refs.PortraitImage != null ? refs.PortraitImage.rectTransform : null;
-            default: return refs.PortraitRect;
-        }
     }
 }
