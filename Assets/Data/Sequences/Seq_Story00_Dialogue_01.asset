@@ -16,6 +16,22 @@ MonoBehaviour:
   nodes:
   - editorName: Lalu! Start~~
     steps:
+    - editorName: MainSpeaker
+      commands:
+      - rid: 2406591490152988736
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: SubSpeaker
+      commands:
+      - rid: 2406591490152988737
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+  - editorName: Lalu! Start~~
+    steps:
     - editorName: 
       commands:
       - rid: 2406591429997232193
@@ -28,7 +44,7 @@ MonoBehaviour:
         signalKey: 
   - editorName: Lalu! Start~~
     steps:
-    - editorName: "\uC6B0\uC640?"
+    - editorName: MainSpeaker
       commands:
       - rid: 2406591420219523199
       - rid: 2406591420219523200
@@ -112,8 +128,8 @@ MonoBehaviour:
     - rid: 2406591420219523199
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: dialogue
-        widgetId: dialogue
+        screenId: lab/ui/dialogue
+        widgetId: dialogue55
         target: 0
         sprite: {fileID: 21300000, guid: 61e3cc06be10add4098bac139b0f43b9, type: 3}
         clearWhenNull: 1
@@ -222,3 +238,21 @@ MonoBehaviour:
         vibrato: 0
         elasticity: -1
         wait: 0
+    - rid: 2406591490152988736
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetId: MainSpeaker
+        target: 0
+        sprite: {fileID: 0}
+        clearWhenNull: 1
+        setNativeSize: 0
+    - rid: 2406591490152988737
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetId: SubSpeaker
+        target: 0
+        sprite: {fileID: 0}
+        clearWhenNull: 1
+        setNativeSize: 0

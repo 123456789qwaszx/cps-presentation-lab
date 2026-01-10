@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44d6a720befb38479b06611a8157ad4, type: 3}
   m_Name: Theme_LabMain_Dark
   m_EditorClassIdentifier: Assembly-CSharp::ThemeSpec
-  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
-  panelColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  primaryColor: {r: 0.2, g: 0.6, b: 1, a: 1}
-  textMainColor: {r: 1, g: 1, b: 1, a: 1}
-  textWeakColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  textMainColor: {r: 0.041384835, g: 0.07590397, b: 0.2830189, a: 1}
+  textWeakColor: {r: 0.18523574, g: 0.11089354, b: 0.26415092, a: 1}
   mainFont: {fileID: 11400000, guid: 6ad906d94e58d2240a8f1e9878aa4e60, type: 2}
-  titleSize: 28
-  bodySize: 16
-  captionSize: 13
+  titleSize: 48
+  bodySize: 44
+  captionSize: 32

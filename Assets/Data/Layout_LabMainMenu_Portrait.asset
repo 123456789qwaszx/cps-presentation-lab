@@ -13,29 +13,29 @@ MonoBehaviour:
   m_Name: Layout_LabMainMenu_Portrait
   m_EditorClassIdentifier: Assembly-CSharp::LayoutPatchSpec
   widgets:
-  - nameTag: DialogueBody
+  - nameTag: Dialogue_Body
     overrideActive: 1
-    active: 1
+    active: 0
     rect:
-      overrideAnchors: 1
+      overrideAnchors: 0
       anchorMin: {x: 0, y: 1}
       anchorMax: {x: 1, y: 1}
-      overridePivot: 1
+      overridePivot: 0
       pivot: {x: 0.5, y: 1}
       overrideAnchoredPosition: 0
       anchoredPosition: {x: 0, y: 0}
-      overrideSizeDelta: 1
+      overrideSizeDelta: 0
       sizeDelta: {x: 0, y: 140}
   - nameTag: Dialogue_BG
-    overrideActive: 0
-    active: 0
+    overrideActive: 1
+    active: 1
     rect:
-      overrideAnchors: 1
+      overrideAnchors: 0
       anchorMin: {x: 0, y: 0}
       anchorMax: {x: 1, y: 1}
       overridePivot: 0
       pivot: {x: 0, y: 0}
-      overrideAnchoredPosition: 1
+      overrideAnchoredPosition: 0
       anchoredPosition: {x: 0, y: -80}
       overrideSizeDelta: 0
       sizeDelta: {x: 0, y: 0}
