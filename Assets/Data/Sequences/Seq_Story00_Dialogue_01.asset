@@ -23,6 +23,13 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
+    - editorName: SetStandingImage
+      commands:
+      - rid: 2406591511975428166
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: BouncySlideIn
       commands:
       - rid: 2406591511975428165
@@ -68,7 +75,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue
         widgetRefKey: dialogue
-        target: 3
+        target: 10
         sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -92,7 +99,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue
         widgetRefKey: dialogue
-        target: 3
+        target: 6
         swayAngle: 5
         swayLoops: 2
         swayDuration: 2.9
@@ -184,7 +191,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue
         widgetRefKey: dialogue
-        target: 6
+        target: 14
         toScale: {x: 2, y: 2, z: 2}
         overrideStartScale: 0
         startScale: {x: 1, y: 1, z: 1}
@@ -278,9 +285,18 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue
         widgetRefKey: 
-        target: 1
+        target: 3
         toAlpha: 1
         fromAlpha: 0
         duration: 2.2
         ease: 9
         wait: 0
+    - rid: 2406591511975428166
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue
+        widgetRefKey: 
+        target: 10
+        sprite: {fileID: 21300000, guid: 319f2619808184f4db1a05903031721e, type: 3}
+        clearWhenNull: 1
+        setNativeSize: 0

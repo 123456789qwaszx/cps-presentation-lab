@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Layout_LabMainMenu_Portrait
   m_EditorClassIdentifier: Assembly-CSharp::LayoutPatchSpec
   widgets:
-  - nameTag: dialogue_ProtagonistCutin
+  - nameTag: dialogue_ProtagonistCutin_Image
     overrideActive: 1
     active: 0
     rect:
@@ -26,7 +26,7 @@ MonoBehaviour:
       anchoredPosition: {x: 0, y: -80}
       overrideSizeDelta: 0
       sizeDelta: {x: 0, y: 0}
-  - nameTag: dialogue_BackgroundImage
+  - nameTag: dialogue_Background_Image
     overrideActive: 1
     active: 1
     rect:

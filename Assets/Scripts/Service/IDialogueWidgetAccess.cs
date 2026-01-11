@@ -4,15 +4,30 @@ using UnityEngine.UI;
 
 public enum DialogueWidgetTarget
 {
+    // ---- Line / Text ----
     LineText,
     LineBodyImage,
     SpeakerNameText,
-    StandingPortraitImage,
-    StandingPortraitRect,
+
+    // ---- Standing Portrait Set (PortraitSet v1) ----
+    StandingPortraitRoot,
+    
+    StandingPortraitTrack,
+    StandingPortraitRig,
+    StandingPortraitSwayPivot,
+    StandingPortraitShake,
+    StandingPortraitScale,
+    StandingPortraitVisual,
+
+    StandingPortraitImage,        // actual Image (sprite swap / color)
+    StandingPortraitEmojiAnchor,  // RectTransform anchor
+    StandingPortraitEmojiImage,   // optional Image overlay (if you keep it as a widget)
+
+    // ---- Protagonist Cutin (현재는 Image만 사용) ----
     ProtagonistCutinImage,
-    ProtagonistCutinRect,
+
+    // ---- Background Set ----
     BackgroundImage,
-    BackgroundRect
 }
 
 public interface IDialogueWidgetAccess
@@ -21,16 +36,29 @@ public interface IDialogueWidgetAccess
 
     public sealed class WidgetRefs
     {
+        // ---- Line / Text ----
         public TMP_Text LineText;
-        public Image LineBodyImage;
+        public Image    LineBodyImage;
         public TMP_Text SpeakerNameText;
-        public Image StandingPortraitImage;
-        public RectTransform StandingPortraitRect;
-        public Image ProtagonistCutinImage;
-        public RectTransform ProtagonistCutinRect;
-        public Image BackgroundImage;
-        public RectTransform BackgroundRect;
-        
+
+        // ---- Standing Portrait Set ----
+        public RectTransform StandingPortraitRoot; 
+        public RectTransform StandingPortraitTrack;
+        public RectTransform StandingPortraitRig;
+        public RectTransform StandingPortraitSwayPivot;
+        public RectTransform StandingPortraitShake;
+        public RectTransform StandingPortraitScale;
+        public RectTransform StandingPortraitVisual;
+
+        public Image         StandingPortraitImage;
+        public RectTransform StandingPortraitEmojiAnchor;
+        public Image         StandingPortraitEmojiImage;
+
+        // ---- Protagonist Cutin (Image만) ----
+        public Image         ProtagonistCutinImage;
+
+        // ---- Background Set ----
+        public Image         BackgroundImage;
     }
 }
 
@@ -42,24 +70,30 @@ public static class WidgetRefsExtensions
 
         switch (slot)
         {
-            case DialogueWidgetTarget.LineText:
-                return refs.LineText;
-            case DialogueWidgetTarget.LineBodyImage:
-                return refs.LineBodyImage;
-            case DialogueWidgetTarget.SpeakerNameText:
-                return refs.SpeakerNameText;
-            case DialogueWidgetTarget.StandingPortraitImage:
-                return refs.StandingPortraitImage;
-            case DialogueWidgetTarget.StandingPortraitRect:
-                return refs.StandingPortraitRect;
-            case DialogueWidgetTarget.ProtagonistCutinImage:
-                return refs.ProtagonistCutinImage;
-            case DialogueWidgetTarget.ProtagonistCutinRect:
-                return refs.ProtagonistCutinRect;
-            case DialogueWidgetTarget.BackgroundImage:
-                return refs.BackgroundImage;
-            case DialogueWidgetTarget.BackgroundRect:
-                return refs.BackgroundRect;
+            // ---- Line / Text ----
+            case DialogueWidgetTarget.LineText:         return refs.LineText;
+            case DialogueWidgetTarget.LineBodyImage:    return refs.LineBodyImage;
+            case DialogueWidgetTarget.SpeakerNameText:  return refs.SpeakerNameText;
+
+            // ---- Standing Portrait Set ----
+            case DialogueWidgetTarget.StandingPortraitRoot:        return refs.StandingPortraitRoot;
+            case DialogueWidgetTarget.StandingPortraitTrack:       return refs.StandingPortraitTrack;
+            case DialogueWidgetTarget.StandingPortraitRig:         return refs.StandingPortraitRig;
+            case DialogueWidgetTarget.StandingPortraitSwayPivot:   return refs.StandingPortraitSwayPivot;
+            case DialogueWidgetTarget.StandingPortraitShake:       return refs.StandingPortraitShake;
+            case DialogueWidgetTarget.StandingPortraitScale:       return refs.StandingPortraitScale;
+            case DialogueWidgetTarget.StandingPortraitVisual:      return refs.StandingPortraitVisual;
+
+            case DialogueWidgetTarget.StandingPortraitImage:       return refs.StandingPortraitImage;
+            case DialogueWidgetTarget.StandingPortraitEmojiAnchor: return refs.StandingPortraitEmojiAnchor;
+            case DialogueWidgetTarget.StandingPortraitEmojiImage:  return refs.StandingPortraitEmojiImage;
+
+            // ---- Protagonist Cutin (Image만) ----
+            case DialogueWidgetTarget.ProtagonistCutinImage:       return refs.ProtagonistCutinImage;
+
+            // ---- Background Set ----
+            case DialogueWidgetTarget.BackgroundImage:             return refs.BackgroundImage;
+
             default:
                 return null;
         }
@@ -81,7 +115,7 @@ public static class WidgetRefsExtensions
     {
         return refs.GetComponent(slot) as TMP_Text;
     }
-    
+
     public static RectTransform GetRect(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
     {
         var c = refs.GetComponent(target);

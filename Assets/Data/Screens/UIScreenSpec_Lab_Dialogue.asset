@@ -159,7 +159,7 @@ MonoBehaviour:
     - slotName: BG1
       widgets:
       - widgetType: 2
-        nameTag: dialogue_BackgroundImage
+        nameTag: dialogue_Background_Image
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -189,10 +189,10 @@ MonoBehaviour:
         onClickRoute: 
         prefabOverride: {fileID: 0}
         rectMode: 1
-        textRole: 1
+        textRole: 0
         disabled: 0
-        anchorMin: {x: 0.12, y: 0}
-        anchorMax: {x: 0.88, y: 1}
+        anchorMin: {x: 0.16, y: 0}
+        anchorMax: {x: 0.8, y: 1}
         pivot: {x: 0.5, y: 1}
         anchoredPosition: {x: 0, y: 0}
         sizeDelta: {x: 0, y: 0}
@@ -208,21 +208,21 @@ MonoBehaviour:
         slotId: AspectRatio
     - slotName: AspectRatio
       widgets:
-      - widgetType: 2
-        nameTag: dialogue_StandingPortrait
+      - widgetType: 5
+        nameTag: dialogue_StandingPortraitRoot
         text: 
         onClickRoute: 
-        prefabOverride: {fileID: 0}
+        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
         rectMode: 1
-        textRole: 1
+        textRole: 0
         disabled: 0
         anchorMin: {x: 0.5, y: 0.5}
         anchorMax: {x: 0.5, y: 0.5}
         pivot: {x: 0.5, y: 0.5}
         anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 800, y: 970}
+        sizeDelta: {x: 700, y: 970}
         imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
         imageSetNativeSize: 0
         toggleInitialValue: 0
         toggleInteractable: 1
@@ -403,7 +403,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 2
-        nameTag: dialogue_ProtagonistCutin
+        nameTag: dialogue_ProtagonistCutin_Image
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
