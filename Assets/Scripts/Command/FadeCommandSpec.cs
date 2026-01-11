@@ -4,13 +4,6 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CpsGraphicTarget
-{
-    Auto = 0,          // PortraitGraphic 있으면 그거, 없으면 PortraitImage, 없으면 EmojiImage
-    PortraitImage,
-    EmojiImage,
-}
-
 [Serializable]
 public sealed class FadeCommandSpec : CommandSpecBase
 {

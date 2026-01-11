@@ -372,6 +372,26 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case CanvasFadeCommandSpec c:
+            {
+                float defaultDur = (Slide != null ? Mathf.Max(0f, Slide.fadeDur) : 0.25f);
+                float dur = c.duration > 0f ? c.duration : defaultDur;
+
+                command = new CpsCanvasFadeCommand(
+                    widgets: _widgets,
+                    screenId: c.screenId,
+                    widgetRoleKey: c.widgetRoleKey,
+                    target: c.target,
+                    toAlpha: c.toAlpha,
+                    duration: dur,
+                    ease: c.ease,
+                    waitForCompletion: c.wait,
+                    fromAlpha: c.fromAlpha,
+                    addIfMissing: c.addIfMissing
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }
