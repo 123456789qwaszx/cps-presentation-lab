@@ -5,7 +5,15 @@ using System.Collections;
 using RectTransform = UnityEngine.RectTransform;
 
 [Serializable]
-[CommandMenuHint("Motion", "Bouncy Slide In", Order = 15)]
+[CommandMenuHint(
+    "Visual/Portrait",
+    "Bouncy Slide In",
+    Sets = new[]
+    {
+        "Custom/Portrait/EnterMain"
+    },
+    SetOrder = 40,
+    Order = 40)]
 public sealed class BouncySlideInCommandSpec : CommandSpecBase
 {
     [Header("Target")]

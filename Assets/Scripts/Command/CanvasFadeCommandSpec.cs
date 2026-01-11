@@ -4,7 +4,17 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
-[CommandMenuHint("Visual", "Canvas Fade", Order = 20)]
+[CommandMenuHint(
+    "Visual/Canvas",
+    "Canvas Fade",
+    Sets = new[]
+    {
+        "Custom/Background/FadeToScene",
+        "Custom/UI/ShowChoicePanel",
+        "Custom/UI/HideChoicePanel"
+    },
+    SetOrder = 20,
+    Order = 10)]
 public sealed class CanvasFadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]

@@ -4,7 +4,16 @@ using UnityEngine.UI;
 using System.Collections;
 
 [Serializable]
-[CommandMenuHint("State", "Set Interactable", Order = 20)]
+[CommandMenuHint(
+    "UI",
+    "Set Interactable",
+    Sets = new[]
+    {
+        "Custom/UI/ShowChoicePanel",
+        "Custom/UI/HideChoicePanel"
+    },
+    SetOrder = 30,
+    Order = 10)]
 public sealed class SetInteractableCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

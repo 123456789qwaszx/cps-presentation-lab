@@ -11,7 +11,15 @@ public enum CpsShakeAxis
 }
 
 [Serializable]
-[CommandMenuHint("Motion", "ShakeWidget", Order = 50)]
+[CommandMenuHint(
+    "Motion/Emote",
+    "Shake",
+    Sets = new[]
+    {
+        "Custom/Emote/HitStrong"
+    },
+    SetOrder = 30,
+    Order = 20)]
 public sealed class ShakeWidgetCommandSpec : CommandSpecBase
 {
     [Header("Target")]

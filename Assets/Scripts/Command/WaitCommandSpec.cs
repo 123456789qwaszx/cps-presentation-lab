@@ -3,7 +3,15 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
-[CommandMenuHint("Flow", "Wait", Order = 10)]
+[CommandMenuHint(
+    "Flow",
+    "Wait",
+    Sets = new[]
+    {
+        "Custom/Flow/BeatPauseShort"
+    },
+    SetOrder = 10,
+    Order = 10)]
 public sealed class WaitCommandSpec : CommandSpecBase
 {
     [Header("Time")]

@@ -4,7 +4,15 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
-[CommandMenuHint("Motion", "Sway Then Drop", Order = 80)]
+[CommandMenuHint(
+    "Motion/Emote",
+    "Sway Then Drop",
+    Sets = new[]
+    {
+        "Custom/Emote/PopEmoji"
+    },
+    SetOrder = 30,
+    Order = 30)]
 public sealed class SwayThenDropCommandSpec : CommandSpecBase
 {
     [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

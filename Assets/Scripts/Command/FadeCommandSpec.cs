@@ -5,7 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-[CommandMenuHint("Visual", "Fade", Order = 10)]
+[CommandMenuHint(
+    "Visual/Portrait",
+    "Fade Graphic",
+    Sets = new[]
+    {
+        "Custom/Portrait/EnterMain",
+        "Custom/Portrait/ExitMain"
+    },
+    SetOrder = 30,
+    Order = 30)]
 public sealed class FadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]

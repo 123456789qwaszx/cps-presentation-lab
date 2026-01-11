@@ -4,7 +4,16 @@ using System.Collections;
 using DG.Tweening;
 
 [Serializable]
-[CommandMenuHint("Motion", "Punch Scale", Order = 40)]
+[CommandMenuHint(
+    "Motion/Emote",
+    "Punch Scale",
+    Sets = new[]
+    {
+        "Custom/Portrait/ChangeEmotion",
+        "Custom/Emote/HitStrong"
+    },
+    SetOrder = 20,
+    Order = 10)]
 public sealed class PunchScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]

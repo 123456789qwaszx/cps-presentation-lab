@@ -4,7 +4,18 @@ using System.Collections;
 using UnityEngine.UI;
 
 [Serializable]
-[CommandMenuHint("Visual", "Set Sprite", Order = 40)]
+[CommandMenuHint(
+    "Visual/Portrait",
+    "Set Portrait Sprite",
+    Sets = new[]
+    {
+        "Custom/Portrait/EnterMain",
+        "Custom/Portrait/ChangeEmotion",
+        "Custom/Emote/PopEmoji",         // 이모지용으로도 재사용
+        "Custom/Background/FadeToScene"  // 배경에도 재사용 (원하면 분리 가능)
+    },
+    SetOrder = 10,
+    Order = 10)]
 public sealed class SetSpriteCommandSpec : CommandSpecBase
 {
     [Header("Target")]

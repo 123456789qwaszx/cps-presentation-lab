@@ -3,9 +3,16 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-
+[CommandMenuHint(
+    "Text",
+    "Type Text",
+    Sets = new[]
+    {
+        "Custom/Text/LineType"
+    },
+    SetOrder = 20,
+    Order = 20)]
 [Serializable]
-[CommandMenuHint("Text", "Type Text", Order = 20)]
 public sealed class TypeTextCommandSpec : CommandSpecBase
 {
     [Header("Target")]

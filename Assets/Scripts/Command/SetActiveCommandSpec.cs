@@ -3,7 +3,19 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
-[CommandMenuHint("State", "Set Active", Order = 10)]
+[CommandMenuHint(
+    "Visual/Portrait",
+    "Show/Hide Object",
+    Sets = new[]
+    {
+        "Custom/Portrait/EnterMain",
+        "Custom/Portrait/ExitMain",
+        "Custom/Emote/PopEmoji",
+        "Custom/UI/ShowChoicePanel",
+        "Custom/UI/HideChoicePanel"
+    },
+    SetOrder = 20,
+    Order = 20)]
 public sealed class SetActiveCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

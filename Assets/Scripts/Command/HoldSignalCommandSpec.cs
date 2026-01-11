@@ -4,7 +4,15 @@ using IEnumerator = System.Collections.IEnumerator;
 
 
 [Serializable]
-[CommandMenuHint("Flow", "Hold Signal", Order = 20)]
+[CommandMenuHint(
+    "Flow",
+    "Hold Signal",
+    Sets = new[]
+    {
+        "Custom/Flow/WaitSignal"
+    },
+    SetOrder = 10,
+    Order = 20)]
 public sealed class HoldSignalCommandSpec : CommandSpecBase
 {
     public string signalKey;
