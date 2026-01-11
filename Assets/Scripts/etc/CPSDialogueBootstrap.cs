@@ -1,3 +1,4 @@
+using Lab.UI.Keys;
 using UnityEngine;
 
 public sealed class CpsDialogueBootstrap : MonoBehaviour
@@ -76,6 +77,8 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
+                
+                UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue);
                 _session.End();
                 _session.Start(testRouteKey);
                 Debug.Log($"Strat Session = {testRouteKey}");

@@ -26,3 +26,16 @@ MonoBehaviour:
       anchoredPosition: {x: 0, y: -80}
       overrideSizeDelta: 0
       sizeDelta: {x: 0, y: 0}
+  - nameTag: dialogue_BackgroundImage
+    overrideActive: 1
+    active: 1
+    rect:
+      overrideAnchors: 0
+      anchorMin: {x: 0, y: 0}
+      anchorMax: {x: 1, y: 1}
+      overridePivot: 0
+      pivot: {x: 0, y: 0}
+      overrideAnchoredPosition: 0
+      anchoredPosition: {x: 0, y: -80}
+      overrideSizeDelta: 0
+      sizeDelta: {x: 3333, y: 3333}

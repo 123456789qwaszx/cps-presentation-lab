@@ -57,6 +57,11 @@ public class CpsUIBootStrap : MonoBehaviour
     public void Update()
     {
         if(UIRuntimeRouter.Router == null) return;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue);
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {

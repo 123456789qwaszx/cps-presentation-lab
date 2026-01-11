@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public enum DialogueWidgetTarget
 {
     LineText,
+    LineBodyImage,
     SpeakerNameText,
     StandingPortraitImage,
     StandingPortraitRect,
@@ -20,12 +21,13 @@ public interface IDialogueWidgetAccess
 
     public sealed class WidgetRefs
     {
-        public TMP_Text BodyText;
-        public TMP_Text NameText;
-        public Image PortraitImage;
-        public RectTransform PortraitRect;
-        public Image EmojiImage;
-        public RectTransform EmojiRect;
+        public TMP_Text LineText;
+        public Image LineBodyImage;
+        public TMP_Text SpeakerNameText;
+        public Image StandingPortraitImage;
+        public RectTransform StandingPortraitRect;
+        public Image ProtagonistCutinImage;
+        public RectTransform ProtagonistCutinRect;
         public Image BackgroundImage;
         public RectTransform BackgroundRect;
         
@@ -41,17 +43,19 @@ public static class WidgetRefsExtensions
         switch (slot)
         {
             case DialogueWidgetTarget.LineText:
-                return refs.BodyText;
+                return refs.LineText;
+            case DialogueWidgetTarget.LineBodyImage:
+                return refs.LineBodyImage;
             case DialogueWidgetTarget.SpeakerNameText:
-                return refs.NameText;
+                return refs.SpeakerNameText;
             case DialogueWidgetTarget.StandingPortraitImage:
-                return refs.PortraitImage;
+                return refs.StandingPortraitImage;
             case DialogueWidgetTarget.StandingPortraitRect:
-                return refs.PortraitRect;
+                return refs.StandingPortraitRect;
             case DialogueWidgetTarget.ProtagonistCutinImage:
-                return refs.EmojiImage;
+                return refs.ProtagonistCutinImage;
             case DialogueWidgetTarget.ProtagonistCutinRect:
-                return refs.EmojiRect;
+                return refs.ProtagonistCutinRect;
             case DialogueWidgetTarget.BackgroundImage:
                 return refs.BackgroundImage;
             case DialogueWidgetTarget.BackgroundRect:

@@ -33,6 +33,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         DialogueRoleWidgetTags set = new (widgetRefKey);
         
         WidgetHandle lineText         = screen.GetWidgetHandle(set.LineTextTag);
+        WidgetHandle lineBodyImage    = screen.GetWidgetHandle(set.LineBodyTag);
         WidgetHandle speakerName      = screen.GetWidgetHandle(set.SpeakerNameTag);
         WidgetHandle standingPortrait = screen.GetWidgetHandle(set.StandingPortraitTag);
         WidgetHandle protagonistCutin = screen.GetWidgetHandle(set.ProtagonistCutinTag);
@@ -40,12 +41,13 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
-            BodyText        = lineText?.Text,
-            NameText        = speakerName?.Text,
-            PortraitImage   = standingPortrait?.Image,
-            PortraitRect    = standingPortrait?.RectTransform,
-            EmojiImage      = protagonistCutin?.Image,
-            EmojiRect       = protagonistCutin?.RectTransform,
+            LineText        = lineText?.Text,
+            LineBodyImage        = lineBodyImage.Image,
+            SpeakerNameText        = speakerName?.Text,
+            StandingPortraitImage   = standingPortrait?.Image,
+            StandingPortraitRect    = standingPortrait?.RectTransform,
+            ProtagonistCutinImage      = protagonistCutin?.Image,
+            ProtagonistCutinRect       = protagonistCutin?.RectTransform,
             BackgroundImage = background?.Image,
             BackgroundRect  = background?.RectTransform,
         };

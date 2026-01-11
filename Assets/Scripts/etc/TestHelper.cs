@@ -18,12 +18,4 @@ public class TestHelper : MonoBehaviour
     {
         _uiOpener.Open(LabUIActionKeys.OpenClickerTitle);
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _uiOpener.Open(LabUIActionKeys.OpenDialogue);
-        }
-    }
 }
