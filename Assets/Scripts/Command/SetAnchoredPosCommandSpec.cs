@@ -4,6 +4,7 @@ using UnityEngine;
 using IEnumerator = System.Collections.IEnumerator;
 
 [Serializable]
+[CommandMenuHint("Motion", "Set Anchored Pos", Order = 30)]
 public sealed class SetAnchoredPosCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

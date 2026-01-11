@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+[CommandMenuHint("Text", "Set Text", Order = 10)]
 [Serializable]
 public sealed class SetTextCommandSpec : CommandSpecBase
 {

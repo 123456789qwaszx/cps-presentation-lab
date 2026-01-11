@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("Motion", "Sway Then Drop", Order = 80)]
 public sealed class SwayThenDropCommandSpec : CommandSpecBase
 {
     [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
+[CommandMenuHint("Visual", "Fade", Order = 10)]
 public sealed class FadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]

@@ -6,7 +6,6 @@ public sealed class CommandMenuHintAttribute : Attribute
 {
     public string Category { get; }
     public string DisplayName { get; }
-    public bool Favorite { get; }
 
     // 추가: 이 커맨드가 포함될 “세트들”
     // 예: new[] { "Custom/PortraitStart", "Custom/PortraitExit" }
@@ -18,11 +17,10 @@ public sealed class CommandMenuHintAttribute : Attribute
     // (선택) 기존에 네가 좋아했던 Order도 같이 쓰고 싶다면 여기에 추가 가능
     public int Order { get; set; } = 0;
 
-    public CommandMenuHintAttribute(string category, string displayName = null, bool favorite = false)
+    public CommandMenuHintAttribute(string category, string displayName = null)
     {
         Category    = category;
         DisplayName = displayName;
-        Favorite    = favorite;
     }
 }
 #endif

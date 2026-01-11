@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("State", "Set Active", Order = 10)]
 public sealed class SetActiveCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

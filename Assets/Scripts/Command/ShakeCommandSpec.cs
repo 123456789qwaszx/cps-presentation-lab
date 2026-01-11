@@ -11,7 +11,8 @@ public enum CpsShakeAxis
 }
 
 [Serializable]
-public sealed class ShakeCommandSpec : CommandSpecBase
+[CommandMenuHint("Motion", "ShakeWidget", Order = 50)]
+public sealed class ShakeWidgetCommandSpec : CommandSpecBase
 {
     [Header("Target")]
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
@@ -43,7 +44,7 @@ public sealed class ShakeCommandSpec : CommandSpecBase
 }
 
 
-public sealed class CpsShakeCommand : CommandBase
+public sealed class CpsShakeWidgetCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
@@ -63,7 +64,7 @@ public sealed class CpsShakeCommand : CommandBase
     private Vector2 _originPos;
     private bool _resolved;
 
-    public CpsShakeCommand(
+    public CpsShakeWidgetCommand(
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,

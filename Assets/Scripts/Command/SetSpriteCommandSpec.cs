@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 [Serializable]
+[CommandMenuHint("Visual", "Set Sprite", Order = 40)]
 public sealed class SetSpriteCommandSpec : CommandSpecBase
 {
     [Header("Target")]

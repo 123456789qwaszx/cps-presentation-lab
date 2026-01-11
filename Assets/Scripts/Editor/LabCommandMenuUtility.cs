@@ -15,184 +15,130 @@ public static class LabCommandMenuUtility
         public string Category;
         public string Label;
         public int Order;
-        public bool Favorite;
 
         public string[] Sets;
         public int SetOrder;
     }
 
     public static void BuildCommandSelectionMenu(
-    GenericMenu menu,
-    IReadOnlyList<Type> allTypes,
-    Action<Type> onSelectedSingle,
-    Action<IReadOnlyList<Type>> onSelectedSet,
-    bool showFavoritesOnlyInFavorites = true)
-{
-    if (menu == null) throw new ArgumentNullException(nameof(menu));
-
-    if (allTypes == null || allTypes.Count == 0)
+        GenericMenu menu,
+        IReadOnlyList<Type> allTypes,
+        Action<Type> onSelectedSingle,
+        Action<IReadOnlyList<Type>> onSelectedSet)
     {
-        menu.AddDisabledItem(new GUIContent("No CommandSpecBase types found"));
-        return;
-    }
+        if (menu == null) throw new ArgumentNullException(nameof(menu));
 
-    var items = allTypes
-        .Where(t => t != null && !t.IsAbstract)
-        .Select(t =>
+        if (allTypes == null || allTypes.Count == 0)
         {
-            var hint = t.GetCustomAttribute<CommandMenuHintAttribute>();
+            menu.AddDisabledItem(new GUIContent("No CommandSpecBase types found"));
+            return;
+        }
 
-            return new MenuItemInfo
+        var items = allTypes
+            .Where(t => t != null && !t.IsAbstract)
+            .Select(t =>
             {
-                Type     = t,
-                Hint     = hint,
-                Category = (hint?.Category ?? "Other").Trim(),
-                Label    = (hint?.DisplayName ?? t.Name).Trim(),
-                Order    = hint?.Order ?? 0,
-                Favorite = hint?.Favorite ?? false,
-                Sets     = hint?.Sets,
-                SetOrder = hint?.SetOrder ?? 0
-            };
-        })
-        .ToList();
+                var hint = t.GetCustomAttribute<CommandMenuHintAttribute>();
 
-    // 타입 -> Item 맵 (Recent에서 Label 찾을 때 사용)
-    var itemByType = new Dictionary<Type, MenuItemInfo>();
-    foreach (var it in items)
-    {
-        if (it.Type != null && !itemByType.ContainsKey(it.Type))
-            itemByType.Add(it.Type, it);
-    }
+                return new MenuItemInfo
+                {
+                    Type     = t,
+                    Hint     = hint,
+                    Category = (hint?.Category ?? "Other").Trim(),
+                    Label    = (hint?.DisplayName ?? t.Name).Trim(),
+                    Order    = hint?.Order ?? 0,
+                    Sets     = hint?.Sets,
+                    SetOrder = hint?.SetOrder ?? 0
+                };
+            })
+            .ToList();
 
-    // ------------------------------------------------------------
-    // 0) 세트 메뉴: Custom/PortraitStart 같은 “매크로” 항목
-    // ------------------------------------------------------------
-    var setMap = new Dictionary<string, List<MenuItemInfo>>(StringComparer.OrdinalIgnoreCase);
+        // ------------------------------------------------------------
+        // 0) 세트 메뉴: Custom/PortraitStart 같은 “매크로 + 구성원” 메뉴
+        // ------------------------------------------------------------
+        var setMap = new Dictionary<string, List<MenuItemInfo>>(StringComparer.OrdinalIgnoreCase);
 
-    foreach (var it in items)
-    {
-        if (it.Sets == null) continue;
-
-        foreach (var setPathRaw in it.Sets)
+        foreach (var it in items)
         {
-            var setPath = (setPathRaw ?? "").Trim();
-            if (string.IsNullOrEmpty(setPath)) continue;
+            if (it.Sets == null) continue;
 
-            if (!setMap.TryGetValue(setPath, out var list))
+            foreach (var setPathRaw in it.Sets)
             {
-                list = new List<MenuItemInfo>();
-                setMap[setPath] = list;
+                var setPath = (setPathRaw ?? "").Trim();
+                if (string.IsNullOrEmpty(setPath)) continue;
+
+                if (!setMap.TryGetValue(setPath, out var list))
+                {
+                    list = new List<MenuItemInfo>();
+                    setMap[setPath] = list;
+                }
+                list.Add(it);
             }
-            list.Add(it);
         }
-    }
 
-    if (setMap.Count > 0)
-    {
-        foreach (var kv in setMap.OrderBy(k => k.Key, StringComparer.OrdinalIgnoreCase))
+        if (setMap.Count > 0)
         {
-            string setPath = kv.Key;
-            var list = kv.Value
-                .OrderBy(x => x.SetOrder)
-                .ThenBy(x => x.Label, StringComparer.OrdinalIgnoreCase)
-                .ToList();
-
-            // ex) Custom/PortraitStart (Add 5)
-            string leaf = $"{setPath} (Add {list.Count})";
-            menu.AddItem(new GUIContent(leaf), false, () =>
+            foreach (var kv in setMap.OrderBy(k => k.Key, StringComparer.OrdinalIgnoreCase))
             {
-                // 세트에 포함된 타입들도 전부 Recent에 기록
-                foreach (var it in list)
-                    LabCommandRecentRegistry.Record(it.Type);
+                string setPath = kv.Key;
 
-                onSelectedSet?.Invoke(list.Select(x => x.Type).ToList());
-            });
+                var list = kv.Value
+                    .OrderBy(x => x.SetOrder)
+                    .ThenBy(x => x.Label, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
 
-            // 옵션: 세트 안에 개별 항목도 넣으려면 여기에 추가
-            menu.AddSeparator(setPath + "/");
+                // 0-1) 전체 세트를 한 번에 추가하는 항목
+                // 예) Custom/PortraitStart/(Add All 5)
+                string addAllPath = $"{setPath}/(Add All {list.Count})";
+                menu.AddItem(new GUIContent(addAllPath), false, () =>
+                {
+                    var types = list.Select(x => x.Type).ToList();
+                    onSelectedSet?.Invoke(types);
+                });
+
+                // 0-2) 이 세트에 포함된 개별 커맨드들도 같이 노출
+                // 예) Custom/PortraitStart/Slide In
+                foreach (var item in list)
+                {
+                    var captured = item;
+                    string singlePath = $"{setPath}/{captured.Label}";
+                    menu.AddItem(new GUIContent(singlePath), false, () =>
+                    {
+                        onSelectedSingle?.Invoke(captured.Type);
+                    });
+                }
+
+                // 세트 내 구분선 (세트별 subtree 안에서)
+                menu.AddSeparator(setPath + "/");
+            }
+
+            // 세트 블록과 아래 카테고리 블록 사이 전역 구분선
+            menu.AddSeparator("");
         }
 
-        // 세트 섹션과 아래 섹션들 사이에 구분선
-        menu.AddSeparator("");
-    }
+        // ------------------------------------------------------------
+        // 1) Category 메뉴(기본)
+        // ------------------------------------------------------------
+        var groups = items
+            .GroupBy(i => string.IsNullOrEmpty(i.Category) ? "Other" : i.Category)
+            .OrderBy(g => string.Equals(g.Key, "Other", StringComparison.OrdinalIgnoreCase) ? 1 : 0)
+            .ThenBy(g => g.Key, StringComparer.OrdinalIgnoreCase)
+            .ToList();
 
-    // ------------------------------------------------------------
-    // 0.5) Recent 섹션
-    // ------------------------------------------------------------
-    var recentTypes = LabCommandRecentRegistry.GetRecentTypes(allTypes);
-
-    // Recent 에서 실제로 존재하는 타입만 필터
-    var recentItems = recentTypes
-        .Select(t => itemByType.TryGetValue(t, out var info) ? info : null)
-        .Where(info => info != null)
-        .ToList();
-
-    if (recentItems.Count > 0)
-    {
-        foreach (var i in recentItems)
+        foreach (var g in groups)
         {
-            string path = $"Recent/{i.Label}";
-            menu.AddItem(new GUIContent(path), false, () =>
+            foreach (var i in g
+                .OrderBy(x => x.Order)
+                .ThenBy(x => x.Label, StringComparer.OrdinalIgnoreCase))
             {
-                LabCommandRecentRegistry.Record(i.Type);
-                onSelectedSingle?.Invoke(i.Type);
-            });
-        }
-
-        // Recent 서브메뉴 안에서 구분선
-        menu.AddSeparator("Recent/");
-
-        // Recent 섹션과 그 아래(Favorites or Category) 사이 구분선
-        menu.AddSeparator("");
-    }
-
-    // ------------------------------------------------------------
-    // 1) Favorites 섹션 (원하면 나중에 제거 가능)
-    // ------------------------------------------------------------
-    var favorites = items
-        .Where(i => i.Favorite)
-        .OrderBy(i => i.Order)
-        .ThenBy(i => i.Label, StringComparer.OrdinalIgnoreCase)
-        .ToList();
-
-    foreach (var i in favorites)
-    {
-        string path = $"Favorites/{i.Label}";
-        menu.AddItem(new GUIContent(path), false, () =>
-        {
-            LabCommandRecentRegistry.Record(i.Type);
-            onSelectedSingle?.Invoke(i.Type);
-        });
-    }
-
-    if (favorites.Count > 0)
-        menu.AddSeparator("Favorites/");
-
-    // ------------------------------------------------------------
-    // 2) Category 메뉴
-    // ------------------------------------------------------------
-    var groups = items
-        .Where(i => !showFavoritesOnlyInFavorites || !i.Favorite)
-        .GroupBy(i => string.IsNullOrEmpty(i.Category) ? "Other" : i.Category)
-        .OrderBy(g => string.Equals(g.Key, "Other", StringComparison.OrdinalIgnoreCase) ? 1 : 0)
-        .ThenBy(g => g.Key, StringComparer.OrdinalIgnoreCase)
-        .ToList();
-
-    foreach (var g in groups)
-    {
-        foreach (var i in g
-            .OrderBy(x => x.Order)
-            .ThenBy(x => x.Label, StringComparer.OrdinalIgnoreCase))
-        {
-            string path = $"{g.Key}/{i.Label}";
-            menu.AddItem(new GUIContent(path), false, () =>
-            {
-                LabCommandRecentRegistry.Record(i.Type);
-                onSelectedSingle?.Invoke(i.Type);
-            });
+                string path = $"{g.Key}/{i.Label}";
+                var captured = i;
+                menu.AddItem(new GUIContent(path), false, () =>
+                {
+                    onSelectedSingle?.Invoke(captured.Type);
+                });
+            }
         }
     }
-}
-
 }
 #endif

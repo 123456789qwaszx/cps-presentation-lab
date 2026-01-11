@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using IEnumerator = System.Collections.IEnumerator;
 
 [Serializable]
+[CommandMenuHint("Motion", "Move To", Order = 20)]
 public sealed class MoveToCommandSpec : CommandSpecBase
 {
     [Header("Target")]

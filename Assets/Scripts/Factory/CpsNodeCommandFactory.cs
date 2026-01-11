@@ -149,13 +149,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
-            case ShakeCommandSpec s:
+            case ShakeWidgetCommandSpec s:
             {
                 float dur = s.duration > 0f ? s.duration : 0.28f;
                 int vib   = s.vibrato  > 0  ? s.vibrato  : 12;
                 float rnd = s.randomness >= 0f ? Mathf.Clamp(s.randomness, 0f, 180f) : 90f;
 
-                command = new CpsShakeCommand(
+                command = new CpsShakeWidgetCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
                     widgetId: s.widgetRoleKey,

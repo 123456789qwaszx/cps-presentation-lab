@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("Flow", "Wait", Order = 10)]
 public sealed class WaitCommandSpec : CommandSpecBase
 {
     [Header("Time")]

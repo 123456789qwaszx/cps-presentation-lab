@@ -3,10 +3,8 @@ using DG.Tweening;
 using UnityEngine;
 using System.Collections;
 
-#if UNITY_EDITOR
-[CommandMenuHint("Visual/Fade", "Canvas Fade", favorite: true, Sets = new[] { "Custom/PortraitStart" }, SetOrder = 10)]
-#endif
 [Serializable]
+[CommandMenuHint("Visual", "Canvas Fade", Order = 20)]
 public sealed class CanvasFadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]

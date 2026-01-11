@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using IEnumerator = System.Collections.IEnumerator;
 
 [Serializable]
+[CommandMenuHint("Visual", "Set Color", Order = 30)]
 public sealed class SetColorCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

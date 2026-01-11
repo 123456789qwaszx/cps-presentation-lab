@@ -3,10 +3,8 @@ using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 
-#if UNITY_EDITOR
-[CommandMenuHint("Visual/Punch", "Punch Scale", Sets = new[] { "Custom/PortraitStart" }, SetOrder = 30)]
-#endif
 [Serializable]
+[CommandMenuHint("Motion", "Punch Scale", Order = 40)]
 public sealed class PunchScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]

@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("Motion", "Set Scale", Order = 60)]
 public sealed class SetScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]

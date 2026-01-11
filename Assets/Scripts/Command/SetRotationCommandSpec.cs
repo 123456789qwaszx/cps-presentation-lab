@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("Motion", "Set Rotation", Order = 70)]
 public sealed class SetRotationCommandSpec : CommandSpecBase
 {
     [Header("Target")]

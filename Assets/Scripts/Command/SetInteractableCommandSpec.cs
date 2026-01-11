@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 [Serializable]
+[CommandMenuHint("State", "Set Interactable", Order = 20)]
 public sealed class SetInteractableCommandSpec : CommandSpecBase
 {
     public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;

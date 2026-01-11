@@ -12,10 +12,8 @@ public enum CpsSlideFrom
     Down,
 }
 
-#if UNITY_EDITOR
-[CommandMenuHint("Transform/Slide", "Slide In", Sets = new[] { "Custom/PortraitStart" }, SetOrder = 20)]
-#endif
 [Serializable]
+[CommandMenuHint("Motion", "Slide In", Order = 10)]
 public sealed class SlideInCommandSpec : CommandSpecBase
 {
     [Header("Target")]
