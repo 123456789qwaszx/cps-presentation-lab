@@ -9,7 +9,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
 {
     [SerializeField] public string defaultRefKey;
 
-    public bool TryResolve(string screenId, string widgetRefKey, out IDialogueWidgetAccess.WidgetRefs refs)
+    public bool TryResolve(string screenId, string widgetRoleKey, out IDialogueWidgetAccess.WidgetRefs refs)
     {
         refs = null;
 
@@ -27,10 +27,10 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             return false;
         }
 
-        if (string.IsNullOrEmpty(widgetRefKey))
-            widgetRefKey = defaultRefKey;
+        if (string.IsNullOrEmpty(widgetRoleKey))
+            widgetRoleKey = defaultRefKey;
 
-        DialogueRoleWidgetTags set = new DialogueRoleWidgetTags(widgetRefKey);
+        DialogueRoleWidgetTags set = new DialogueRoleWidgetTags(widgetRoleKey);
 
         // ---- Line (정식 위젯) ----
         WidgetHandle lineText      = screen.GetWidgetHandle(set.LineTextTag);
