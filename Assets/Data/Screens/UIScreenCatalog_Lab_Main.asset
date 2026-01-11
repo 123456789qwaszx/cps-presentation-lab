@@ -19,6 +19,9 @@ MonoBehaviour:
   - screenKey:
       value: lab/ui/dialogue
     specAsset: {fileID: 11400000, guid: 40bcd68dacafada4693d27edcc1472bf, type: 2}
+  - screenKey:
+      value: lab/ui/dialogue_02
+    specAsset: {fileID: 11400000, guid: 7567e62198a3bf240bf7378b2250360b, type: 2}
   routes:
   - route: lab/ui/title
     screenKey:
@@ -26,3 +29,6 @@ MonoBehaviour:
   - route: lab/ui/dialogue
     screenKey:
       value: lab/ui/dialogue
+  - route: lab/ui/dialogue_02
+    screenKey:
+      value: lab/ui/dialogue_02

@@ -1,0 +1,475 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445d4a8a31ecd6b4a99d518aa05ab8fe, type: 3}
+  m_Name: UIScreenSpec_Lab_Dialogue_02
+  m_EditorClassIdentifier: Assembly-CSharp::UIScreenSpecAsset
+  spec:
+    screenKey:
+      value: home
+    slots:
+    - slotName: Root
+      widgets:
+      - widgetType: 6
+        nameTag: BG_Layer_00
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: BG_Layer_00
+      - widgetType: 6
+        nameTag: Character_Layer
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: Character_Layer
+      - widgetType: 6
+        nameTag: BG_Layer_01
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: BG_Layer_01
+      - widgetType: 6
+        nameTag: DialogueBox_Layer
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0}
+        anchorMax: {x: 0.5, y: 0}
+        pivot: {x: 0.5, y: 0}
+        anchoredPosition: {x: 0, y: 50}
+        sizeDelta: {x: 1200, y: 280}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: DialogueBox_Layer
+      - widgetType: 6
+        nameTag: ChoicePanel_Layer
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 800, y: 400}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: ChoicePanel_Layer
+    - slotName: BG_Layer_00
+      widgets:
+      - widgetType: 2
+        nameTag: dialogue_Background_Image
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 21300000, guid: 422691646d0266a4aad34437e09572c8, type: 3}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+    - slotName: Character_Layer
+      widgets:
+      - widgetType: 5
+        nameTag: dialogue__StandingPortraitRoot
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 640, y: 760}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 5
+        nameTag: PortraitSubLeftRoot
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: -500, y: 0}
+        sizeDelta: {x: 640, y: 760}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 5
+        nameTag: PortraitSubRightRoot
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0.5, y: 0.5}
+        anchorMax: {x: 0.5, y: 0.5}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 500, y: 0}
+        sizeDelta: {x: 640, y: 760}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+    - slotName: BG_Layer_01
+      widgets:
+      - widgetType: 2
+        nameTag: BG_Image01
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 21300000, guid: e71b97e8099ca7044b0e19b8b2685a8c, type: 3}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+    - slotName: DialogueBox_Layer
+      widgets:
+      - widgetType: 6
+        nameTag: DialogueBox
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: DialogueBox
+    - slotName: DialogueBox
+      widgets:
+      - widgetType: 2
+        nameTag: dialogue_LineBody
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 2
+        nameTag: dialogue_ProtagonistCutin_Image
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 300, y: 0}
+        imageSprite: {fileID: 21300000, guid: 8906eb633a60ab44396904fcc6841f35, type: 3}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 0
+        nameTag: dialogue_SpeakerName
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 1}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0, y: 1}
+        anchoredPosition: {x: 70, y: -20}
+        sizeDelta: {x: 200, y: 50}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 0
+        nameTag: dialogue_LineText
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 1}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0, y: 1}
+        anchoredPosition: {x: 80, y: -80}
+        sizeDelta: {x: 800, y: 180}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+    - slotName: ChoicePanel_Layer
+      widgets:
+      - widgetType: 6
+        nameTag: ChoicePanelRoot
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 0}
+        anchorMax: {x: 1, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 0, y: 0}
+        sizeDelta: {x: 0, y: 0}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: ChoicePanelRoot
+    - slotName: ChoicePanelRoot
+      widgets:
+      - widgetType: 1
+        nameTag: Choice_Button_0
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 1}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 340, y: -60}
+        sizeDelta: {x: 680, y: 120}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 1
+        nameTag: Choice_Button_1
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 1}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 340, y: -200}
+        sizeDelta: {x: 680, y: 120}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+      - widgetType: 1
+        nameTag: Choice_Button_2
+        text: 
+        onClickRoute: 
+        prefabOverride: {fileID: 0}
+        rectMode: 1
+        textRole: 0
+        disabled: 0
+        anchorMin: {x: 0, y: 1}
+        anchorMax: {x: 0, y: 1}
+        pivot: {x: 0.5, y: 0.5}
+        anchoredPosition: {x: 340, y: -340}
+        sizeDelta: {x: 680, y: 120}
+        imageSprite: {fileID: 0}
+        imageColor: {r: 1, g: 1, b: 1, a: 1}
+        imageSetNativeSize: 0
+        toggleInitialValue: 0
+        toggleInteractable: 1
+        sliderMin: 0
+        sliderMax: 1
+        sliderInitialValue: 0.5
+        sliderWholeNumbers: 0
+        slotId: 
+    templatePrefab: {fileID: 4994278366068515335, guid: 1d549f43fe2a31d4ba732362e30b4093, type: 3}
+    baseTheme: {fileID: 0}
+    baseLayout: {fileID: 0}
+    variants: []

@@ -5,8 +5,8 @@ namespace Lab.UI.Naming
         private readonly string _roleKey;
 
         // ---- Line ----
-        private const string LineTextSuffix    = "_LineText";
         private const string LineBodySuffix    = "_LineBody";
+        private const string LineTextSuffix    = "_LineText";
         private const string SpeakerNameSuffix = "_SpeakerName";
 
         // ---- Standing Portrait Set ----
@@ -33,8 +33,8 @@ namespace Lab.UI.Naming
         }
 
         // ---- Line ----
-        public string LineTextTag        => $"{_roleKey}{LineTextSuffix}";
         public string LineBodyTag        => $"{_roleKey}{LineBodySuffix}";
+        public string LineTextTag        => $"{_roleKey}{LineTextSuffix}";
         public string SpeakerNameTag     => $"{_roleKey}{SpeakerNameSuffix}";
 
         // ---- Standing Portrait ----

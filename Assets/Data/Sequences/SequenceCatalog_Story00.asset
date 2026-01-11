@@ -15,3 +15,4 @@ MonoBehaviour:
   catalogId: "\uBA54\uC778\uC2A4\uD1A0\uB9AC_1\uC7A5"
   sequences:
   - {fileID: 11400000, guid: 8edb172b4a0be2b45908d3d43b4ab1ab, type: 2}
+  - {fileID: 11400000, guid: b8eccda91c0acec428754bf837f54829, type: 2}

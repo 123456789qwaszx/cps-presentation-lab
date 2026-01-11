@@ -77,8 +77,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                
-                UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue);
+                UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_02);
                 _session.End();
                 _session.Start(testRouteKey);
                 Debug.Log($"Strat Session = {testRouteKey}");

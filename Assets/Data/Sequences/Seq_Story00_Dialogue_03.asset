@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Seq_Story00_Dialogue_03
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: story00.dialogue.03
-  nodes: []
+  nodes:
+  - editorName: "\uD3B8\uC758\uC8103\uC778\uB300"
+    steps: []
   references:
     version: 2
     RefIds: []
