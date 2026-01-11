@@ -17,7 +17,7 @@ using DG.Tweening;
 public sealed class PunchScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitScale;
 
     [Header("Punch")]
     /// <summary>

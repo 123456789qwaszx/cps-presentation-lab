@@ -18,7 +18,7 @@ using System.Collections;
 public sealed class CanvasFadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitRoot;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitSwayPivot;
     // Rect 쪽 타겟을 기준으로 CanvasGroup을 찾는다는 느낌
 
     [Header("Fade")]

@@ -8,7 +8,7 @@ using System.Collections;
 public sealed class SetScaleCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitRig;
 
     [Header("Scale")]
     /// <summary>

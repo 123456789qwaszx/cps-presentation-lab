@@ -7,7 +7,7 @@ using IEnumerator = System.Collections.IEnumerator;
 [CommandMenuHint("Motion", "Set Anchored Pos", Order = 30)]
 public sealed class SetAnchoredPosCommandSpec : CommandSpecBase
 {
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitRig;
 
     [Header("Position")]
     public Vector2 value;

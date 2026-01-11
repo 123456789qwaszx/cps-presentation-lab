@@ -16,7 +16,7 @@ using System.Collections;
     Order = 10)]
 public sealed class SetInteractableCommandSpec : CommandSpecBase
 {
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.ChoicePanelRoot;
 
     public bool interactable = true;
 

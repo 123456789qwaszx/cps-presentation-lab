@@ -19,7 +19,7 @@ using UnityEngine.UI;
 public sealed class SetSpriteCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitImage;
 
     [Header("Sprite")]
     public Sprite sprite;

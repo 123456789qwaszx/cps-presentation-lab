@@ -17,7 +17,7 @@ using IEnumerator = System.Collections.IEnumerator;
 public sealed class MoveByCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
     [Header("Delta (relative offset)")]
     public Vector2 delta;

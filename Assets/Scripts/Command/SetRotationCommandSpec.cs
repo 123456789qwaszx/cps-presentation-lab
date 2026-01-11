@@ -8,7 +8,7 @@ using System.Collections;
 public sealed class SetRotationCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitRig;
 
     [Header("Rotation (Z axis)")]
     /// <summary>

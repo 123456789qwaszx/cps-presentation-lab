@@ -15,7 +15,59 @@ MonoBehaviour:
   sequenceKey: story00.dialogue.03
   nodes:
   - editorName: "\uD3B8\uC758\uC8103\uC778\uB300"
-    steps: []
+    steps:
+    - editorName: 
+      commands:
+      - rid: 2406591511975428204
+      - rid: 2406591511975428205
+      - rid: 2406591511975428206
+      - rid: 2406591511975428207
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591511975428204
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 11
+        sprite: {fileID: 21300000, guid: f3be40eeebff56d429c63aa1c5969cae, type: 3}
+        clearWhenNull: 1
+        setNativeSize: 0
+    - rid: 2406591511975428205
+      type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 6
+        active: 1
+    - rid: 2406591511975428206
+      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 11
+        toAlpha: 1
+        fromAlpha: -1
+        duration: -1
+        ease: 9
+        wait: 0
+    - rid: 2406591511975428207
+      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 7
+        from: 0
+        slideDistance: -1
+        slideDuration: -1
+        slideEase: 9
+        waveAmplitude: 12
+        waveLoops: 2
+        waveAxis: 1
+        startFromLayout: 1
+        wait: 0

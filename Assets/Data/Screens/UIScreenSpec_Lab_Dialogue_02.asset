@@ -19,7 +19,7 @@ MonoBehaviour:
     - slotName: Root
       widgets:
       - widgetType: 6
-        nameTag: BG_Layer_00
+        nameTag: BG_Layer_01
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG_Layer_00
+        slotId: BG_Layer_01
       - widgetType: 6
         nameTag: Character_Layer
         text: 
@@ -65,7 +65,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: Character_Layer
       - widgetType: 6
-        nameTag: BG_Layer_01
+        nameTag: BG_Layer_02
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG_Layer_01
+        slotId: BG_Layer_02
       - widgetType: 6
         nameTag: DialogueBox_Layer
         text: 
@@ -133,7 +133,7 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: ChoicePanel_Layer
-    - slotName: BG_Layer_00
+    - slotName: BG_Layer_01
       widgets:
       - widgetType: 2
         nameTag: dialogue_Background_Image
@@ -161,7 +161,7 @@ MonoBehaviour:
     - slotName: Character_Layer
       widgets:
       - widgetType: 5
-        nameTag: dialogue__StandingPortraitRoot
+        nameTag: dialogue_MainStandingPortraitRoot
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
@@ -184,10 +184,10 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 5
-        nameTag: PortraitSubLeftRoot
+        nameTag: dialogue_SubLeftStandingPortraitRoot
         text: 
         onClickRoute: 
-        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
+        prefabOverride: {fileID: 5695397828176504669, guid: fd2dd92275623814c97ee03282fafd54, type: 3}
         rectMode: 1
         textRole: 0
         disabled: 0
@@ -207,10 +207,10 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: 
       - widgetType: 5
-        nameTag: PortraitSubRightRoot
+        nameTag: dialogue_SubRightStandingPortraitRoot
         text: 
         onClickRoute: 
-        prefabOverride: {fileID: 5695397828176504669, guid: 28016223a74fe5544bb2ee09d81c52dc, type: 3}
+        prefabOverride: {fileID: 5695397828176504669, guid: 33f8a7b21775d89479be54b152c27550, type: 3}
         rectMode: 1
         textRole: 0
         disabled: 0
@@ -229,10 +229,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: 
-    - slotName: BG_Layer_01
+    - slotName: BG_Layer_02
       widgets:
       - widgetType: 2
-        nameTag: BG_Image01
+        nameTag: dialogue_Background_Image2
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -256,11 +256,11 @@ MonoBehaviour:
         slotId: 
     - slotName: DialogueBox_Layer
       widgets:
-      - widgetType: 6
-        nameTag: DialogueBox
+      - widgetType: 5
+        nameTag: dialogue_DialogueBoxRoot
         text: 
         onClickRoute: 
-        prefabOverride: {fileID: 0}
+        prefabOverride: {fileID: 2172210560082666547, guid: ceb17a186e95f304a89b1e483f384ff7, type: 3}
         rectMode: 1
         textRole: 0
         disabled: 0
@@ -279,104 +279,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: DialogueBox
-    - slotName: DialogueBox
-      widgets:
-      - widgetType: 2
-        nameTag: dialogue_LineBody
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 1
-        textRole: 0
-        disabled: 0
-        anchorMin: {x: 0, y: 0}
-        anchorMax: {x: 1, y: 1}
-        pivot: {x: 0.5, y: 0.5}
-        anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 0, y: 0}
-        imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
-        slotId: 
-      - widgetType: 2
-        nameTag: dialogue_ProtagonistCutin_Image
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 1
-        textRole: 0
-        disabled: 0
-        anchorMin: {x: 0, y: 0}
-        anchorMax: {x: 0, y: 1}
-        pivot: {x: 0, y: 0.5}
-        anchoredPosition: {x: 0, y: 0}
-        sizeDelta: {x: 300, y: 0}
-        imageSprite: {fileID: 21300000, guid: 8906eb633a60ab44396904fcc6841f35, type: 3}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
-        slotId: 
-      - widgetType: 0
-        nameTag: dialogue_SpeakerName
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 1
-        textRole: 0
-        disabled: 0
-        anchorMin: {x: 0, y: 1}
-        anchorMax: {x: 0, y: 1}
-        pivot: {x: 0, y: 1}
-        anchoredPosition: {x: 70, y: -20}
-        sizeDelta: {x: 200, y: 50}
-        imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
-        slotId: 
-      - widgetType: 0
-        nameTag: dialogue_LineText
-        text: 
-        onClickRoute: 
-        prefabOverride: {fileID: 0}
-        rectMode: 1
-        textRole: 0
-        disabled: 0
-        anchorMin: {x: 0, y: 1}
-        anchorMax: {x: 0, y: 1}
-        pivot: {x: 0, y: 1}
-        anchoredPosition: {x: 80, y: -80}
-        sizeDelta: {x: 800, y: 180}
-        imageSprite: {fileID: 0}
-        imageColor: {r: 1, g: 1, b: 1, a: 1}
-        imageSetNativeSize: 0
-        toggleInitialValue: 0
-        toggleInteractable: 1
-        sliderMin: 0
-        sliderMax: 1
-        sliderInitialValue: 0.5
-        sliderWholeNumbers: 0
-        slotId: 
     - slotName: ChoicePanel_Layer
       widgets:
-      - widgetType: 6
-        nameTag: ChoicePanelRoot
+      - widgetType: 5
+        nameTag: dialogue_ChoicePanelRoot
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}

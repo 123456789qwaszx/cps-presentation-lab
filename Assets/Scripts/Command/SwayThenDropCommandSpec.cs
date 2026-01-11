@@ -15,7 +15,7 @@ using System.Collections;
     Order = 30)]
 public sealed class SwayThenDropCommandSpec : CommandSpecBase
 {
-    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitSwayPivot;
 
     [Header("Sway (Fan-like)")]
     /// <summary>

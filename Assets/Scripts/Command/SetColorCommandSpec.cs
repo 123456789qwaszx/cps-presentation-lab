@@ -7,7 +7,7 @@ using IEnumerator = System.Collections.IEnumerator;
 [CommandMenuHint("Visual", "Set Color", Order = 30)]
 public sealed class SetColorCommandSpec : CommandSpecBase
 {
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitImage;
 
     [Header("Color")]
     public Color color = Color.white;

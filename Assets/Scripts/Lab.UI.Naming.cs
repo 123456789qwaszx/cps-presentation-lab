@@ -9,23 +9,58 @@ namespace Lab.UI.Naming
         private const string LineTextSuffix    = "_LineText";
         private const string SpeakerNameSuffix = "_SpeakerName";
 
-        // ---- Standing Portrait Set ----
-        private const string StandingPortraitRootSuffix        = "_StandingPortraitRoot";
-        private const string StandingPortraitTrackSuffix       = "_StandingPortrait_Track";
-        private const string StandingPortraitRigSuffix         = "_StandingPortrait_Rig";
-        private const string StandingPortraitSwayPivotSuffix   = "_StandingPortrait_SwayPivot";
-        private const string StandingPortraitShakeSuffix       = "_StandingPortrait_Shake";
-        private const string StandingPortraitScaleSuffix       = "_StandingPortrait_Scale";
-        private const string StandingPortraitVisualSuffix      = "_StandingPortrait_Visual";
-        private const string StandingPortraitImageSuffix       = "_StandingPortrait_Image";
-        private const string StandingPortraitEmojiAnchorSuffix = "_StandingPortrait_EmojiAnchor";
-        private const string StandingPortraitEmojiImageSuffix  = "_StandingPortrait_EmojiImage";
+        // ---- Main Standing Portrait Set ----
+        private const string MainStandingPortraitRootSuffix        = "_MainStandingPortraitRoot";
+        private const string MainStandingPortraitTrackSuffix       = "_MainStandingPortrait_Track";
+        private const string MainStandingPortraitRigSuffix         = "_MainStandingPortrait_Rig";
+        private const string MainStandingPortraitSwayPivotSuffix   = "_MainStandingPortrait_SwayPivot";
+        private const string MainStandingPortraitShakeSuffix       = "_MainStandingPortrait_Shake";
+        private const string MainStandingPortraitScaleSuffix       = "_MainStandingPortrait_Scale";
+        private const string MainStandingPortraitVisualSuffix      = "_MainStandingPortrait_Visual";
+        private const string MainStandingPortraitImageSuffix       = "_MainStandingPortrait_Image";
+        private const string MainStandingPortraitEmojiAnchorSuffix = "_MainStandingPortrait_EmojiAnchor";
+        private const string MainStandingPortraitEmojiImageSuffix  = "_MainStandingPortrait_EmojiImage";
+
+        // ---- SubLeft Standing Portrait Set ----
+        private const string SubLeftStandingPortraitRootSuffix        = "_SubLeftStandingPortraitRoot";
+        private const string SubLeftStandingPortraitTrackSuffix       = "_SubLeftStandingPortrait_Track";
+        private const string SubLeftStandingPortraitRigSuffix         = "_SubLeftStandingPortrait_Rig";
+        private const string SubLeftStandingPortraitSwayPivotSuffix   = "_SubLeftStandingPortrait_SwayPivot";
+        private const string SubLeftStandingPortraitShakeSuffix       = "_SubLeftStandingPortrait_Shake";
+        private const string SubLeftStandingPortraitScaleSuffix       = "_SubLeftStandingPortrait_Scale";
+        private const string SubLeftStandingPortraitVisualSuffix      = "_SubLeftStandingPortrait_Visual";
+        private const string SubLeftStandingPortraitImageSuffix       = "_SubLeftStandingPortrait_Image";
+        private const string SubLeftStandingPortraitEmojiAnchorSuffix = "_SubLeftStandingPortrait_EmojiAnchor";
+        private const string SubLeftStandingPortraitEmojiImageSuffix  = "_SubLeftStandingPortrait_EmojiImage";
+
+        // ---- SubRight Standing Portrait Set ----
+        private const string SubRightStandingPortraitRootSuffix        = "_SubRightStandingPortraitRoot";
+        private const string SubRightStandingPortraitTrackSuffix       = "_SubRightStandingPortrait_Track";
+        private const string SubRightStandingPortraitRigSuffix         = "_SubRightStandingPortrait_Rig";
+        private const string SubRightStandingPortraitSwayPivotSuffix   = "_SubRightStandingPortrait_SwayPivot";
+        private const string SubRightStandingPortraitShakeSuffix       = "_SubRightStandingPortrait_Shake";
+        private const string SubRightStandingPortraitScaleSuffix       = "_SubRightStandingPortrait_Scale";
+        private const string SubRightStandingPortraitVisualSuffix      = "_SubRightStandingPortrait_Visual";
+        private const string SubRightStandingPortraitImageSuffix       = "_SubRightStandingPortrait_Image";
+        private const string SubRightStandingPortraitEmojiAnchorSuffix = "_SubRightStandingPortrait_EmojiAnchor";
+        private const string SubRightStandingPortraitEmojiImageSuffix  = "_SubRightStandingPortrait_EmojiImage";
 
         // ---- Protagonist Cutin (Image만 사용) ----
         private const string ProtagonistCutinImageSuffix       = "_ProtagonistCutin_Image";
 
-        // ---- Background Set ----
+        // ---- Background Set (3장까지) ----
         private const string BackgroundImageSuffix             = "_Background_Image";
+        private const string BackgroundImage2Suffix            = "_Background_Image2";
+        private const string BackgroundImage3Suffix            = "_Background_Image3";
+
+        // ---- Dialogue Box Root ----
+        private const string DialogueBoxRootSuffix             = "_DialogueBoxRoot";
+
+        // ---- Choice Panel + 3 Choices ----
+        private const string ChoicePanelRootSuffix             = "_ChoicePanelRoot";
+        private const string ChoiceButton0RootSuffix           = "_ChoiceButton0Root";
+        private const string ChoiceButton1RootSuffix           = "_ChoiceButton1Root";
+        private const string ChoiceButton2RootSuffix           = "_ChoiceButton2Root";
 
         public DialogueRoleWidgetTags(string roleKey)
         {
@@ -37,22 +72,57 @@ namespace Lab.UI.Naming
         public string LineTextTag        => $"{_roleKey}{LineTextSuffix}";
         public string SpeakerNameTag     => $"{_roleKey}{SpeakerNameSuffix}";
 
-        // ---- Standing Portrait ----
-        public string StandingPortraitRootTag        => $"{_roleKey}{StandingPortraitRootSuffix}";
-        public string StandingPortraitTrackTag       => $"{_roleKey}{StandingPortraitTrackSuffix}";
-        public string StandingPortraitRigTag         => $"{_roleKey}{StandingPortraitRigSuffix}";
-        public string StandingPortraitSwayPivotTag   => $"{_roleKey}{StandingPortraitSwayPivotSuffix}";
-        public string StandingPortraitShakeTag       => $"{_roleKey}{StandingPortraitShakeSuffix}";
-        public string StandingPortraitScaleTag       => $"{_roleKey}{StandingPortraitScaleSuffix}";
-        public string StandingPortraitVisualTag      => $"{_roleKey}{StandingPortraitVisualSuffix}";
-        public string StandingPortraitImageTag       => $"{_roleKey}{StandingPortraitImageSuffix}";
-        public string StandingPortraitEmojiAnchorTag => $"{_roleKey}{StandingPortraitEmojiAnchorSuffix}";
-        public string StandingPortraitEmojiImageTag  => $"{_roleKey}{StandingPortraitEmojiImageSuffix}";
+        // ---- Main Standing Portrait ----
+        public string MainStandingPortraitRootTag        => $"{_roleKey}{MainStandingPortraitRootSuffix}";
+        public string MainStandingPortraitTrackTag       => $"{_roleKey}{MainStandingPortraitTrackSuffix}";
+        public string MainStandingPortraitRigTag         => $"{_roleKey}{MainStandingPortraitRigSuffix}";
+        public string MainStandingPortraitSwayPivotTag   => $"{_roleKey}{MainStandingPortraitSwayPivotSuffix}";
+        public string MainStandingPortraitShakeTag       => $"{_roleKey}{MainStandingPortraitShakeSuffix}";
+        public string MainStandingPortraitScaleTag       => $"{_roleKey}{MainStandingPortraitScaleSuffix}";
+        public string MainStandingPortraitVisualTag      => $"{_roleKey}{MainStandingPortraitVisualSuffix}";
+        public string MainStandingPortraitImageTag       => $"{_roleKey}{MainStandingPortraitImageSuffix}";
+        public string MainStandingPortraitEmojiAnchorTag => $"{_roleKey}{MainStandingPortraitEmojiAnchorSuffix}";
+        public string MainStandingPortraitEmojiImageTag  => $"{_roleKey}{MainStandingPortraitEmojiImageSuffix}";
+
+        // ---- SubLeft Standing Portrait ----
+        public string SubLeftStandingPortraitRootTag        => $"{_roleKey}{SubLeftStandingPortraitRootSuffix}";
+        public string SubLeftStandingPortraitTrackTag       => $"{_roleKey}{SubLeftStandingPortraitTrackSuffix}";
+        public string SubLeftStandingPortraitRigTag         => $"{_roleKey}{SubLeftStandingPortraitRigSuffix}";
+        public string SubLeftStandingPortraitSwayPivotTag   => $"{_roleKey}{SubLeftStandingPortraitSwayPivotSuffix}";
+        public string SubLeftStandingPortraitShakeTag       => $"{_roleKey}{SubLeftStandingPortraitShakeSuffix}";
+        public string SubLeftStandingPortraitScaleTag       => $"{_roleKey}{SubLeftStandingPortraitScaleSuffix}";
+        public string SubLeftStandingPortraitVisualTag      => $"{_roleKey}{SubLeftStandingPortraitVisualSuffix}";
+        public string SubLeftStandingPortraitImageTag       => $"{_roleKey}{SubLeftStandingPortraitImageSuffix}";
+        public string SubLeftStandingPortraitEmojiAnchorTag => $"{_roleKey}{SubLeftStandingPortraitEmojiAnchorSuffix}";
+        public string SubLeftStandingPortraitEmojiImageTag  => $"{_roleKey}{SubLeftStandingPortraitEmojiImageSuffix}";
+
+        // ---- SubRight Standing Portrait ----
+        public string SubRightStandingPortraitRootTag        => $"{_roleKey}{SubRightStandingPortraitRootSuffix}";
+        public string SubRightStandingPortraitTrackTag       => $"{_roleKey}{SubRightStandingPortraitTrackSuffix}";
+        public string SubRightStandingPortraitRigTag         => $"{_roleKey}{SubRightStandingPortraitRigSuffix}";
+        public string SubRightStandingPortraitSwayPivotTag   => $"{_roleKey}{SubRightStandingPortraitSwayPivotSuffix}";
+        public string SubRightStandingPortraitShakeTag       => $"{_roleKey}{SubRightStandingPortraitShakeSuffix}";
+        public string SubRightStandingPortraitScaleTag       => $"{_roleKey}{SubRightStandingPortraitScaleSuffix}";
+        public string SubRightStandingPortraitVisualTag      => $"{_roleKey}{SubRightStandingPortraitVisualSuffix}";
+        public string SubRightStandingPortraitImageTag       => $"{_roleKey}{SubRightStandingPortraitImageSuffix}";
+        public string SubRightStandingPortraitEmojiAnchorTag => $"{_roleKey}{SubRightStandingPortraitEmojiAnchorSuffix}";
+        public string SubRightStandingPortraitEmojiImageTag  => $"{_roleKey}{SubRightStandingPortraitEmojiImageSuffix}";
 
         // ---- Protagonist Cutin (Image만 사용) ----
         public string ProtagonistCutinImageTag       => $"{_roleKey}{ProtagonistCutinImageSuffix}";
 
         // ---- Background ----
         public string BackgroundImageTag             => $"{_roleKey}{BackgroundImageSuffix}";
+        public string BackgroundImage2Tag            => $"{_roleKey}{BackgroundImage2Suffix}";
+        public string BackgroundImage3Tag            => $"{_roleKey}{BackgroundImage3Suffix}";
+
+        // ---- Dialogue Box Root ----
+        public string DialogueBoxRootTag             => $"{_roleKey}{DialogueBoxRootSuffix}";
+
+        // ---- Choice Panel + 3 Choices ----
+        public string ChoicePanelRootTag             => $"{_roleKey}{ChoicePanelRootSuffix}";
+        public string ChoiceButton0RootTag           => $"{_roleKey}{ChoiceButton0RootSuffix}";
+        public string ChoiceButton1RootTag           => $"{_roleKey}{ChoiceButton1RootSuffix}";
+        public string ChoiceButton2RootTag           => $"{_roleKey}{ChoiceButton2RootSuffix}";
     }
 }

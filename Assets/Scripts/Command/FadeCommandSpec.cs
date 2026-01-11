@@ -18,7 +18,7 @@ using UnityEngine.UI;
 public sealed class FadeCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitImage;
 
     [Header("Fade")]
     [Range(0f, 1f)]

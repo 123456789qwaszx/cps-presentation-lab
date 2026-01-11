@@ -23,7 +23,7 @@ public enum CpsShakeAxis
 public sealed class ShakeWidgetCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitShake;
 
     [Header("Shake")]
     public CpsShakeAxis axis = CpsShakeAxis.X;

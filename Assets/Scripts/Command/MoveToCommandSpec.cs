@@ -9,7 +9,7 @@ using IEnumerator = System.Collections.IEnumerator;
 public sealed class MoveToCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
     [Header("Destination (absolute anchoredPosition)")]
     public Vector2 position;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5178053139687027597}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Anchors
+  m_Name: dialogue_MainStandingPortrait_Anchors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 4030065352562954025}
   - component: {fileID: 1460358913692957783}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Image
+  m_Name: dialogue_MainStandingPortrait_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 6138047862666158894}
   - component: {fileID: 872460007026563553}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_EmojiImage
+  m_Name: dialogue_MainStandingPortrait_EmojiImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6928414195182345511}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_FocusAnchor
+  m_Name: dialogue_MainStandingPortrait_FocusAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5681406155617465069}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Shake
+  m_Name: dialogue_MainStandingPortrait_Shake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515082924556496189}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Rig
+  m_Name: dialogue_MainStandingPortrait_Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 4049643215335843416}
   - component: {fileID: 5279714731816206669}
   m_Layer: 5
-  m_Name: PortraitSetRoot
+  m_Name: dialogue_MainStandingPortraitRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 7}
+  m_SizeDelta: {x: 680, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4049643215335843416
 CanvasRenderer:
@@ -365,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5150812146390684998}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_BubbleAnchor
+  m_Name: dialogue_MainStandingPortrait_BubbleAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1431261472453658805}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Scale
+  m_Name: dialogue_MainStandingPortrait_Scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5763481953794138406}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Visual
+  m_Name: dialogue_MainStandingPortrait_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 490212403586680855}
   - component: {fileID: 8959054399695849015}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_EffectOverlay
+  m_Name: dialogue_MainStandingPortrait_EffectOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8496243714620016079}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_EmojiAnchor
+  m_Name: dialogue_MainStandingPortrait_EmojiAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6238638829570572326}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Overlays
+  m_Name: dialogue_MainStandingPortrait_Overlays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4108646606809116950}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_Track
+  m_Name: dialogue_MainStandingPortrait_Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3447587109193284662}
   m_Layer: 5
-  m_Name: dialogue_StandingPortrait_SwayPivot
+  m_Name: dialogue_MainStandingPortrait_SwayPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

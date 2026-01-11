@@ -18,7 +18,7 @@ using System.Collections;
     Order = 20)]
 public sealed class SetActiveCommandSpec : CommandSpecBase
 {
-    public DialogueWidgetTarget target = DialogueWidgetTarget.StandingPortraitImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitRig;
     public bool active = true;
 }
 
