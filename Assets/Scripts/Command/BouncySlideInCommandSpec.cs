@@ -4,7 +4,7 @@ using DG.Tweening;
 using System.Collections;
 using RectTransform = UnityEngine.RectTransform;
 
-[Serializable]
+[Serializable][CommandMenuHint("Motion", "Bouncy Slide In", favorite: true)]
 public sealed class BouncySlideInCommandSpec : CommandSpecBase
 {
     [Header("Target")]

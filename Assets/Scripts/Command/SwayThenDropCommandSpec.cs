@@ -94,7 +94,7 @@ public sealed class CpsSwayThenDropCommand : CommandBase
     private float _finalRotZ;
 
     private Vector2 _originalPivot;
-    private bool _pivotAdjusted;
+    //private bool _pivotAdjusted;
 
     private bool _resolved;
 
@@ -276,7 +276,7 @@ public sealed class CpsSwayThenDropCommand : CommandBase
             Vector2 delta = Vector2.Scale(_rect.sizeDelta, _originalPivot - bottomCenter);
             _rect.pivot = bottomCenter;
             _rect.anchoredPosition += delta;
-            _pivotAdjusted = true;
+            //_pivotAdjusted = true;
         }
 
         // 2) 원래 상태 기준 정보 캐시

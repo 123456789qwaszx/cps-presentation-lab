@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[Serializable]
+[Serializable][CommandMenuHint("Text", "Show Line", favorite: false)]
 public sealed class TypeTextCommandSpec : CommandSpecBase
 {
     [Header("Target")]
