@@ -8,6 +8,7 @@ using UnityEngine;
     "Set Text",
     Sets = new[]
     {
+        CpsCommandMenuSets.VnMainEnterFirstLine,
         "Custom/Text/LineBasic",
         "Custom/Text/LineType"
     },

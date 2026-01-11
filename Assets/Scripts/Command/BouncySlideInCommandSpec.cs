@@ -10,6 +10,7 @@ using RectTransform = UnityEngine.RectTransform;
     "Bouncy Slide In",
     Sets = new[]
     {
+        CpsCommandMenuSets.VnMainEnterFirstLine,
         "Custom/Portrait/EnterMain"
     },
     SetOrder = 40,

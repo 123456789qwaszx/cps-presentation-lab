@@ -392,6 +392,19 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
                 return command != null;
             }
             
+            case HideAllDialogueLayerCommandSpec s:
+            {
+                command = new CpsHideAllDialogueLayerCommand(
+                    widgets:           _widgets,
+                    screenId:          s.screenId,
+                    widgetRoleKey:     s.widgetRoleKey,
+                    duration:          s.duration,
+                    waitForCompletion: s.wait,
+                    disableInteraction: s.disableInteraction
+                );
+                return command != null;
+            }
+            
             default:
                 return false;
         }

@@ -9,6 +9,7 @@ using UnityEngine.UI;
     "Set Portrait Sprite",
     Sets = new[]
     {
+        CpsCommandMenuSets.VnMainEnterFirstLine,
         "Custom/Portrait/EnterMain",
         "Custom/Portrait/ChangeEmotion",
         "Custom/Emote/PopEmoji",         // 이모지용으로도 재사용

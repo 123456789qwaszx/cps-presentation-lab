@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 3355854114991970315}
   - component: {fileID: 3268501157706842136}
   - component: {fileID: 7503682080074748759}
+  - component: {fileID: -7062794605539691698}
   m_Layer: 5
   m_Name: dialogue_DialogueBoxRoot
   m_TagString: Untagged
@@ -199,6 +200,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UISlot
   id: DialogueBox
   target: {fileID: 3355854114991970315}
+--- !u!225 &-7062794605539691698
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172210560082666547}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4009065193373501537
 GameObject:
   m_ObjectHideFlags: 0
