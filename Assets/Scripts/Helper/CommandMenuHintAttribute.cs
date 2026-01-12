@@ -14,7 +14,7 @@ public sealed class CommandMenuHintAttribute : Attribute
     // 추가: 세트 안에서의 정렬 우선순위 (작을수록 먼저)
     public int SetOrder { get; set; } = 0;
 
-    // (선택) 기존에 네가 좋아했던 Order도 같이 쓰고 싶다면 여기에 추가 가능
+    // 기존에 네가 좋아했던 Order도 같이 쓰고 싶다면 여기에 추가 가능
     public int Order { get; set; } = 0;
 
     public CommandMenuHintAttribute(string category, string displayName = null)
