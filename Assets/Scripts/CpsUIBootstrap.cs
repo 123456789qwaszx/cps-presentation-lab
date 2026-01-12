@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Lab.UI.Keys;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CpsUIBootStrap : MonoBehaviour
 {
