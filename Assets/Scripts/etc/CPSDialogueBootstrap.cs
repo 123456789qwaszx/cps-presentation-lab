@@ -16,9 +16,6 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
     private PresentationSession _session;
     private StepGateAdvancer _gateRunner;
 
-    private DialogueStarter _dialogueStarter;
-    public DialogueStarter DialogueStarter => _dialogueStarter;
-
 
     private void Awake()
     {
@@ -44,13 +41,11 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         CpsNodeCommandFactory nodeFactory = new(cpsCommandServiceConfig, time, signals, latch);
         executor.Initialize(sequencePlayer, nodeFactory);
 
-        PresentationModes modes = new();
-        PresentationSession session = new(gatePlanner, gateAdvancer, commandExecuter, routeCatalog, modes);
+        PlaybackSettings modes = new();
+        PresentationSession session = new(gatePlanner, gateAdvancer, commandExecuter, modes);
 
         _session = session;
         _gateRunner = gateAdvancer;
-
-        _dialogueStarter = new DialogueStarter(_session);
     }
 
 
@@ -63,23 +58,10 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
         if (enableDebugHotkeys)
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                _session.Context.Modes.IsAutoMode = !_session.Context.IsAutoMode;
-                Debug.Log($"[Dialogue] AutoMode = {_session.Context.IsAutoMode}");
-            }
-
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                _session.Context.Modes.IsSkipping = !_session.Context.IsSkipping;
-                Debug.Log($"[Dialogue] IsSkipping = {_session.Context.IsSkipping}");
-            }
-
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_02);
-                _session.End();
-                _session.Start(testRouteKey);
+                PlayRoute(testRouteKey);
                 Debug.Log($"Strat Session = {testRouteKey}");
             }
         }
@@ -90,5 +72,29 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
     private void OnDestroy()
     {
         _gateRunner?.Dispose();
+    }
+    
+    
+    public void PlayRoute(string routeKey)
+    {
+        if (routeCatalog == null)
+        {
+            Debug.LogError("[PresentationRoutePlayer] RouteCatalog is not assigned.");
+            return;
+        }
+
+        if (!routeCatalog.TryResolve(routeKey, out Route route, out SequenceSpecSO sequence))
+        {
+            Debug.LogWarning($"[PresentationRoutePlayer] Failed to resolve routeKey='{routeKey}'");
+            return;
+        }
+        
+        if (_session == null)
+        {
+            Debug.LogWarning("[PresentationEntryPoint] Session is null. Call StartSession() before PlayRoute.");
+            return;
+        }
+
+        _session.Start(route, sequence);
     }
 }

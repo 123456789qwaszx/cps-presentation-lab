@@ -22,7 +22,7 @@ MonoBehaviour:
       - rid: 2406591511975428217
       - rid: 2406591511975428218
       gate:
-        type: 1
+        type: 0
         seconds: 0
         signalKey: 
     - editorName: 
@@ -32,6 +32,17 @@ MonoBehaviour:
       - rid: 2406591511975428212
       - rid: 2406591511975428214
       - rid: 2406591511975428213
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Reaction_Drop01 (imported)
+      commands:
+      - rid: 2406591511975428224
+      - rid: 2406591511975428225
+      - rid: 2406591511975428226
+      - rid: 2406591511975428227
+      - rid: 2406591511975428228
       gate:
         type: 1
         seconds: 0
@@ -49,17 +60,6 @@ MonoBehaviour:
       - rid: 2406591511975428221
       - rid: 2406591511975428222
       - rid: 2406591511975428223
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: Reaction_Drop01 (imported)
-      commands:
-      - rid: 2406591511975428224
-      - rid: 2406591511975428225
-      - rid: 2406591511975428226
-      - rid: 2406591511975428227
-      - rid: 2406591511975428228
       gate:
         type: 1
         seconds: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
     - rid: 2406591511975428221
       type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
+        screenId: lab/ui/dialogue_02
         widgetRoleKey: 
         target: 2
         from: 0
@@ -206,18 +206,18 @@ MonoBehaviour:
     - rid: 2406591511975428224
       type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
-        widgetRoleKey: 
-        target: 2
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 4
         value: {x: 0, y: 0}
         relative: 0
         killTween: 1
     - rid: 2406591511975428225
       type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
-        widgetRoleKey: 
-        target: 2
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 4
         toAngle: 0
         overrideStartAngle: 0
         startAngle: 0
@@ -228,9 +228,9 @@ MonoBehaviour:
     - rid: 2406591511975428226
       type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
-        widgetRoleKey: 
-        target: 2
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 4
         toScale: {x: 1, y: 1, z: 1}
         overrideStartScale: 0
         startScale: {x: 1, y: 1, z: 1}
@@ -241,9 +241,9 @@ MonoBehaviour:
     - rid: 2406591511975428227
       type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
-        widgetRoleKey: 
-        target: 2
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 7
         swayAngle: 5
         swayLoops: 2
         swayDuration: 2.9
@@ -259,8 +259,8 @@ MonoBehaviour:
     - rid: 2406591511975428228
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
         target: 0
         text: "\uC557..."
         interval: -1
