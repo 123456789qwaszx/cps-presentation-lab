@@ -18,29 +18,28 @@ public class CpsUIBootStrap : MonoBehaviour
     [Header("Root")]
     [SerializeField] private Transform uiRoot;
     [SerializeField] private UIScreenCatalog catalog;
-    
-    private UIOpener _uiOpener;
-    public UIOpener Opener => _uiOpener;
 
     private void Awake()
     {
         if (uiRoot == null) uiRoot = transform;
         if (catalog == null) catalog = FindFirstObjectByType<UIScreenCatalog>();
+
+        catalog.Init();
         
         UISlotBinder              binder  = new();
         UIPatchApplier        patcher = new();
         WidgetRectApplier rectApplier = new();
         RouteKeyResolver routeKeyResolver = new(catalog);
         
-        IHudView hudView = null;
+        //IHudView hudView = null;
         UIRouter router = null;
         
-        CompositeUiActionBinder uiActionBinder = new (
-            new UIActionBinder(() => hudView),
-            new RouteActionBinder(() => router, routeKeyResolver)
-        );
+        // CompositeUiActionBinder uiActionBinder = new (
+        //     new UIActionBinder(() => hudView),
+        //     new RouteActionBinder(() => router, routeKeyResolver)
+        // );
         
-        WidgetFactory    widgetFactory = new(textPrefab, buttonPrefab, imagePrefab, togglePrefab, sliderPrefab, gameObjectPrefab,slotPrefab, uiActionBinder, true);
+        WidgetFactory    widgetFactory = new(textPrefab, buttonPrefab, imagePrefab, togglePrefab, sliderPrefab, gameObjectPrefab,slotPrefab/*, uiActionBinder*/, true);
         UIComposer            composer = new(widgetFactory, rectApplier);
         
         UIContext       context = UIContext.Default;
@@ -50,8 +49,7 @@ public class CpsUIBootStrap : MonoBehaviour
         router = new(resolver, factory, routeKeyResolver);
         
         UIRuntimeRouter.Router = router;
-        hudView   = new HudPresenter(() => router.CurrentScreen);
-        _uiOpener = new UIOpener(router, hudView);
+        //hudView   = new HudPresenter(() => router.CurrentScreen);
     }
 
     public void Update()
