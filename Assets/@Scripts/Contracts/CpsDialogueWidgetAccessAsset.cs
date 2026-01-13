@@ -94,9 +94,13 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
 
         // ---- Choice Panel + 3 Choices (정식 위젯) ----
         WidgetHandle choicePanelRootHandle = screen.GetWidgetHandle(set.ChoicePanelRootTag);
-        RectTransform choiceButton0Handle   = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag);
-        RectTransform choiceButton1Handle   = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag);
-        RectTransform choiceButton2Handle   = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag);
+        Image choiceButton0Handle   = screen.GetWidgetDirect<Image>(set.ChoiceButton0RootTag);
+        Image choiceButton1Handle   = screen.GetWidgetDirect<Image>(set.ChoiceButton1RootTag);
+        Image choiceButton2Handle   = screen.GetWidgetDirect<Image>(set.ChoiceButton2RootTag);
+        
+        TMP_Text choiceButton0Text   = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag);
+        TMP_Text choiceButton1Text   = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag);
+        TMP_Text choiceButton2Text   = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
@@ -159,6 +163,10 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             ChoiceButton0Root = choiceButton0Handle,
             ChoiceButton1Root = choiceButton1Handle,
             ChoiceButton2Root = choiceButton2Handle,
+            
+            ChoiceButton0Text = choiceButton0Text,
+            ChoiceButton1Text = choiceButton1Text,
+            ChoiceButton2Text = choiceButton2Text,
         };
 
         return true;

@@ -64,6 +64,10 @@ public enum DialogueWidgetTarget
     ChoiceButton0Root,
     ChoiceButton1Root,
     ChoiceButton2Root,
+    
+    ChoiceButton0Text,
+    ChoiceButton1Text,
+    ChoiceButton2Text,
 }
 
 public interface IDialogueWidgetAccess
@@ -128,9 +132,13 @@ public interface IDialogueWidgetAccess
 
         // ---- Choice Panel + 3 Choices ----
         public RectTransform ChoicePanelRoot;
-        public RectTransform ChoiceButton0Root;
-        public RectTransform ChoiceButton1Root;
-        public RectTransform ChoiceButton2Root;
+        public Image ChoiceButton0Root;
+        public Image ChoiceButton1Root;
+        public Image ChoiceButton2Root;
+        
+        public TMP_Text ChoiceButton0Text;
+        public TMP_Text ChoiceButton1Text;
+        public TMP_Text ChoiceButton2Text;
     }
 }
 
@@ -202,6 +210,10 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.ChoiceButton0Root:           return refs.ChoiceButton0Root;
             case DialogueWidgetTarget.ChoiceButton1Root:           return refs.ChoiceButton1Root;
             case DialogueWidgetTarget.ChoiceButton2Root:           return refs.ChoiceButton2Root;
+            
+            case DialogueWidgetTarget.ChoiceButton0Text:           return refs.ChoiceButton0Text;
+            case DialogueWidgetTarget.ChoiceButton1Text:           return refs.ChoiceButton1Text;
+            case DialogueWidgetTarget.ChoiceButton2Text:           return refs.ChoiceButton2Text;
 
             default:
                 return null;

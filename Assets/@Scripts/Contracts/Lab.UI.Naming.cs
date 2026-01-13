@@ -61,6 +61,10 @@ namespace Lab.UI.Naming
         private const string ChoiceButton1RootSuffix           = "_ChoiceButton1Root";
         private const string ChoiceButton2RootSuffix           = "_ChoiceButton2Root";
 
+        private const string ChoiceButton0TextSuffix = "_ChoiceButton0_text";
+        private const string ChoiceButton1TextSuffix = "_ChoiceButton1_text";
+        private const string ChoiceButton2TextSuffix = "_ChoiceButton2_text";
+
         public DialogueRoleWidgetTags(string roleKey)
         {
             _roleKey = roleKey ?? string.Empty;
@@ -122,8 +126,13 @@ namespace Lab.UI.Naming
 
         // ---- Choice Panel + 3 Choices ----
         public string ChoicePanelRootTag             => $"{_roleKey}{ChoicePanelRootSuffix}";
+        
         public string ChoiceButton0RootTag           => $"{_roleKey}{ChoiceButton0RootSuffix}";
         public string ChoiceButton1RootTag           => $"{_roleKey}{ChoiceButton1RootSuffix}";
         public string ChoiceButton2RootTag           => $"{_roleKey}{ChoiceButton2RootSuffix}";
+        
+        public string ChoiceButton0TextTag => $"{_roleKey}{ChoiceButton0TextSuffix}";
+        public string ChoiceButton1TextTag => $"{_roleKey}{ChoiceButton1TextSuffix}";
+        public string ChoiceButton2TextTag => $"{_roleKey}{ChoiceButton2TextSuffix}";
     }
 }

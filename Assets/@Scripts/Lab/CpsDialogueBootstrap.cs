@@ -62,7 +62,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
             {
                 UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_02);
                 PlayRoute(testRouteKey);
-                Debug.Log($"Strat Session = {testRouteKey}");
+                Debug.Log($"Start Session = {testRouteKey}");
             }
         }
 

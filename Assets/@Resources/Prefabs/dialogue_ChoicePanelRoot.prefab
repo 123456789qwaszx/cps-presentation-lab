@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 6363491742034375040}
   - component: {fileID: 4537542034120890840}
   m_Layer: 5
-  m_Name: Txt_End
+  m_Name: dialogue_ChoiceButton0_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8121934909687471714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 7116940494890171312}
   - component: {fileID: 1581966043921661337}
   m_Layer: 5
-  m_Name: Txt_End
+  m_Name: dialogue_ChoiceButton1_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 1690698049023713846}
   - component: {fileID: 2539545039539463106}
   m_Layer: 5
-  m_Name: Txt_End
+  m_Name: dialogue_ChoiceButton2_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
