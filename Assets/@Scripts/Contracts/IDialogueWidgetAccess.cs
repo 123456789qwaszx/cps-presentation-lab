@@ -7,7 +7,9 @@ public enum DialogueWidgetTarget
     // ---- Line / Text ----
     LineText,
     LineBodyImage,
+    SpeakerNameBox,
     SpeakerNameText,
+    ProtagonistCutinImage,
 
     // ---- Dialogue Box Root ----
     DialogueBoxRoot,
@@ -51,8 +53,6 @@ public enum DialogueWidgetTarget
     SubRightStandingPortraitEmojiAnchor,
     SubRightStandingPortraitEmojiImage,
 
-    // ---- Protagonist Cutin (현재는 Image만 사용) ----
-    ProtagonistCutinImage,
 
     // ---- Background Set ----
     BackgroundImage,
@@ -75,7 +75,9 @@ public interface IDialogueWidgetAccess
         // ---- Line / Text ----
         public TMP_Text LineText;
         public Image LineBodyImage;
+        public Image SpeakerNameBox;
         public TMP_Text SpeakerNameText;
+        public Image ProtagonistCutinImage;
 
         // ---- Dialogue Box ----
         public RectTransform DialogueBoxRoot;
@@ -119,9 +121,6 @@ public interface IDialogueWidgetAccess
         public RectTransform SubRightStandingPortraitEmojiAnchor;
         public Image SubRightStandingPortraitEmojiImage;
 
-        // ---- Protagonist Cutin (Image만) ----
-        public Image ProtagonistCutinImage;
-
         // ---- Background Set (3장) ----
         public Image BackgroundImage;
         public Image BackgroundImage2;
@@ -146,7 +145,9 @@ public static class WidgetRefsExtensions
             // ---- Line / Text ----
             case DialogueWidgetTarget.LineText:         return refs.LineText;
             case DialogueWidgetTarget.LineBodyImage:    return refs.LineBodyImage;
+            case DialogueWidgetTarget.SpeakerNameBox:     return refs.SpeakerNameBox;
             case DialogueWidgetTarget.SpeakerNameText:  return refs.SpeakerNameText;
+            case DialogueWidgetTarget.ProtagonistCutinImage:       return refs.ProtagonistCutinImage;
 
             // ---- Dialogue Box ----
             case DialogueWidgetTarget.DialogueBoxRoot:  return refs.DialogueBoxRoot;
@@ -190,8 +191,6 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.SubRightStandingPortraitEmojiAnchor: return refs.SubRightStandingPortraitEmojiAnchor;
             case DialogueWidgetTarget.SubRightStandingPortraitEmojiImage:  return refs.SubRightStandingPortraitEmojiImage;
 
-            // ---- Protagonist Cutin (Image만) ----
-            case DialogueWidgetTarget.ProtagonistCutinImage:       return refs.ProtagonistCutinImage;
 
             // ---- Background Set ----
             case DialogueWidgetTarget.BackgroundImage:             return refs.BackgroundImage;

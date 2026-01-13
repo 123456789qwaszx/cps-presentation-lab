@@ -123,7 +123,7 @@ public sealed class CpsCanvasFadeCommand : CommandBase
             .SetEase(_ease)
             .SetUpdate(true); // timeScale 무시 (Graphic fade와 동일 정책)
 
-        tween.BindToStep(scope);
+        tween.BindToRun(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

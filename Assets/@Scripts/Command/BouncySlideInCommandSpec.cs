@@ -206,7 +206,7 @@ public sealed class CpsBouncySlideInCommand : CommandBase
             )
             .SetUpdate(true);
 
-        tween.BindToStep(scope);
+        tween.BindToRun(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

@@ -35,7 +35,9 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         // ---- Line (정식 위젯) ----
         TMP_Text lineText      = screen.GetWidgetDirect<TMP_Text>(set.LineTextTag);
         Image lineBodyImage = screen.GetWidgetDirect<Image>(set.LineBodyTag);
+        Image speakerNameBox   = screen.GetWidgetDirect<Image>(set.SpeakerNameBoxTag);
         TMP_Text speakerName   = screen.GetWidgetDirect<TMP_Text>(set.SpeakerNameTag);
+        Image pcImage = screen.GetWidgetDirect<Image>(set.ProtagonistCutinImageTag);
 
         // ---- Dialogue Box Root (정식 위젯) ----
         WidgetHandle dialogueBoxRootHandle = screen.GetWidgetHandle(set.DialogueBoxRootTag);
@@ -85,9 +87,6 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
         RectTransform subRightEmojiAnchor = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitEmojiAnchorTag);
         Image         subRightEmojiImage  = screen.GetWidgetDirect<Image>(set.SubRightStandingPortraitEmojiImageTag);
 
-        // ---- Protagonist Cutin (현재는 Image만) ----
-        Image pcImage = screen.GetWidgetDirect<Image>(set.ProtagonistCutinImageTag);
-
         // ---- Background (정식 위젯 경로 유지, 3장) ----
         WidgetHandle bgImage  = screen.GetWidgetHandle(set.BackgroundImageTag);
         WidgetHandle bgImage2 = screen.GetWidgetHandle(set.BackgroundImage2Tag);
@@ -104,7 +103,9 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             // Line
             LineText        = lineText,
             LineBodyImage   = lineBodyImage,
+            SpeakerNameBox = speakerNameBox,
             SpeakerNameText = speakerName,
+            ProtagonistCutinImage       = pcImage,
 
             // Dialogue Box
             DialogueBoxRoot = dialogueBoxRootHandle?.RectTransform,
@@ -147,9 +148,6 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             SubRightStandingPortraitImage       = subRightImage,
             SubRightStandingPortraitEmojiAnchor = subRightEmojiAnchor,
             SubRightStandingPortraitEmojiImage  = subRightEmojiImage,
-
-            // Protagonist Cutin (Image만)
-            ProtagonistCutinImage       = pcImage,
 
             // Background (정식 위젯)
             BackgroundImage             = bgImage?.Image,

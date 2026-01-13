@@ -8,6 +8,8 @@ namespace Lab.UI.Naming
         private const string LineBodySuffix    = "_LineBody";
         private const string LineTextSuffix    = "_LineText";
         private const string SpeakerNameSuffix = "_SpeakerName";
+        private const string SpeakerNameBoxSuffix = "_SpeakerNameBox";
+        private const string ProtagonistCutinImageSuffix       = "_ProtagonistCutin_Image";
 
         // ---- Main Standing Portrait Set ----
         private const string MainStandingPortraitRootSuffix        = "_MainStandingPortraitRoot";
@@ -45,9 +47,6 @@ namespace Lab.UI.Naming
         private const string SubRightStandingPortraitEmojiAnchorSuffix = "_SubRightStandingPortrait_EmojiAnchor";
         private const string SubRightStandingPortraitEmojiImageSuffix  = "_SubRightStandingPortrait_EmojiImage";
 
-        // ---- Protagonist Cutin (Image만 사용) ----
-        private const string ProtagonistCutinImageSuffix       = "_ProtagonistCutin_Image";
-
         // ---- Background Set (3장까지) ----
         private const string BackgroundImageSuffix             = "_Background_Image";
         private const string BackgroundImage2Suffix            = "_Background_Image2";
@@ -70,7 +69,6 @@ namespace Lab.UI.Naming
         // ---- Line ----
         public string LineBodyTag        => $"{_roleKey}{LineBodySuffix}";
         public string LineTextTag        => $"{_roleKey}{LineTextSuffix}";
-        public string SpeakerNameTag     => $"{_roleKey}{SpeakerNameSuffix}";
 
         // ---- Main Standing Portrait ----
         public string MainStandingPortraitRootTag        => $"{_roleKey}{MainStandingPortraitRootSuffix}";
@@ -108,7 +106,10 @@ namespace Lab.UI.Naming
         public string SubRightStandingPortraitEmojiAnchorTag => $"{_roleKey}{SubRightStandingPortraitEmojiAnchorSuffix}";
         public string SubRightStandingPortraitEmojiImageTag  => $"{_roleKey}{SubRightStandingPortraitEmojiImageSuffix}";
 
-        // ---- Protagonist Cutin (Image만 사용) ----
+        // ---- SpeakerNameBox(Image만 사용) ----
+        
+        public string SpeakerNameBoxTag              => $"{_roleKey}{SpeakerNameBoxSuffix}";
+        public string SpeakerNameTag                 => $"{_roleKey}{SpeakerNameSuffix}";
         public string ProtagonistCutinImageTag       => $"{_roleKey}{ProtagonistCutinImageSuffix}";
 
         // ---- Background ----

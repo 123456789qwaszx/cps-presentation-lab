@@ -244,7 +244,7 @@ public sealed class CpsSwayThenDropCommand : CommandBase
             )
             .SetUpdate(true);
 
-        tween.BindToStep(scope);
+        tween.BindToRun(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();
