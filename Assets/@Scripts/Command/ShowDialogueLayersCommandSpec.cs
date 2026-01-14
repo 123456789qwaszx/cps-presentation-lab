@@ -20,7 +20,7 @@ using RectTransform = UnityEngine.RectTransform;
 public sealed class ShowDialogueLayersCommandSpec : CommandSpecBase
 {
     [Header("Layers")] public DialogueLayerMask layers =
-        DialogueLayerMask.Background1 | DialogueLayerMask.DialogueBox;
+        DialogueLayerMask.Background1Root | DialogueLayerMask.DialogueBoxRoot;
 
     [Header("Fade")] [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]
     public float duration = 0.25f;
@@ -158,32 +158,32 @@ public sealed class CpsShowDialogueLayersCommand : CommandBase
         // ------------------------------------
         // 1) Backgrounds
         // ------------------------------------
-        if (_layers.HasFlag(DialogueLayerMask.Background0))
+        if (_layers.HasFlag(DialogueLayerMask.Background0Root))
             ShowGraphic(_refs.BackgroundImage0, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.Background1))
+        if (_layers.HasFlag(DialogueLayerMask.Background1Root))
             ShowGraphic(_refs.BackgroundImage1, interactive: false);
         // 나중에 Background3 쓰면 여기 추가
 
         // ------------------------------------
         // 2) Portrait Roots
         // ------------------------------------
-        if (_layers.HasFlag(DialogueLayerMask.MainPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.MainPortraitRoot))
             ShowRoot(_refs.MainStandingPortraitRoot, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.SubLeftPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))
             ShowRoot(_refs.SubLeftStandingPortraitRoot, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.SubRightPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.SubRightPortraitRoot))
             ShowRoot(_refs.SubRightStandingPortraitRoot, interactive: false);
 
         // ------------------------------------
         // 3) Dialogue Box / Choice Panel
         // ------------------------------------
-        if (_layers.HasFlag(DialogueLayerMask.DialogueBox))
+        if (_layers.HasFlag(DialogueLayerMask.DialogueBoxRoot))
             ShowRoot(_refs.DialogueBoxRoot, interactive: true);
 
-        if (_layers.HasFlag(DialogueLayerMask.ChoicePanel))
+        if (_layers.HasFlag(DialogueLayerMask.ChoicePanelRoot))
             ShowRoot(_refs.ChoicePanelRoot, interactive: true);
 
         // ------------------------------------
@@ -241,26 +241,26 @@ public sealed class CpsShowDialogueLayersCommand : CommandBase
             }
         }
 
-        if (_layers.HasFlag(DialogueLayerMask.Background1))
+        if (_layers.HasFlag(DialogueLayerMask.Background1Root))
             InstantOnGraphic(_refs.BackgroundImage0, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.Background1))
+        if (_layers.HasFlag(DialogueLayerMask.Background1Root))
             InstantOnGraphic(_refs.BackgroundImage1, interactive: false);
         // Background3 필요하면 여기도 추가
 
-        if (_layers.HasFlag(DialogueLayerMask.MainPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.MainPortraitRoot))
             InstantOnRoot(_refs.MainStandingPortraitRoot, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.SubLeftPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))
             InstantOnRoot(_refs.SubLeftStandingPortraitRoot, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.SubRightPortrait))
+        if (_layers.HasFlag(DialogueLayerMask.SubRightPortraitRoot))
             InstantOnRoot(_refs.SubRightStandingPortraitRoot, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.DialogueBox))
+        if (_layers.HasFlag(DialogueLayerMask.DialogueBoxRoot))
             InstantOnRoot(_refs.DialogueBoxRoot, interactive: true);
 
-        if (_layers.HasFlag(DialogueLayerMask.ChoicePanel))
+        if (_layers.HasFlag(DialogueLayerMask.ChoicePanelRoot))
             InstantOnRoot(_refs.ChoicePanelRoot, interactive: true);
     }
 

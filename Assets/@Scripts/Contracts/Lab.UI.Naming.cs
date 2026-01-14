@@ -49,14 +49,16 @@ namespace Lab.UI.Naming
         private const string SubRightStandingPortraitEmojiImageSuffix  = "_SubRightStandingPortrait_EmojiImage";
 
         // ---- Background ----
-        private const string BackgroundImage0Suffix = "_Background_Image0";
-        private const string BackgroundImage1Suffix = "_Background_Image1";
+        private const string BackgroundRoot0Suffix = "_Background0_Root";
+        private const string BackgroundRoot1Suffix = "_Background1_Root";
+        private const string BackgroundImage0Suffix = "_Background0_Image";
+        private const string BackgroundImage1Suffix = "_Background1_Image";
 
         // ---- Choice Panel ----
-        private const string ChoicePanelRootSuffix   = "_ChoicePanelRoot";
-        private const string ChoiceButton0RootSuffix = "_ChoiceButton0Root";
-        private const string ChoiceButton1RootSuffix = "_ChoiceButton1Root";
-        private const string ChoiceButton2RootSuffix = "_ChoiceButton2Root";
+        private const string ChoicePanelRootSuffix   = "_ChoicePanel_Root";
+        private const string ChoiceButton0RootSuffix = "_ChoiceButton0_Root";
+        private const string ChoiceButton1RootSuffix = "_ChoiceButton1_Root";
+        private const string ChoiceButton2RootSuffix = "_ChoiceButton2_Root";
         private const string ChoiceButton0TextSuffix = "_ChoiceButton0_text";
         private const string ChoiceButton1TextSuffix = "_ChoiceButton1_text";
         private const string ChoiceButton2TextSuffix = "_ChoiceButton2_text";
@@ -111,6 +113,8 @@ namespace Lab.UI.Naming
         public string SubRightStandingPortraitEmojiImageTag  => $"{_roleKey}{SubRightStandingPortraitEmojiImageSuffix}";
 
         // ---- Background ----
+        public string BackgroundRoot0Tag => $"{_roleKey}{BackgroundRoot0Suffix}";
+        public string BackgroundRoot1Tag => $"{_roleKey}{BackgroundRoot1Suffix}";
         public string BackgroundImage0Tag => $"{_roleKey}{BackgroundImage0Suffix}";
         public string BackgroundImage1Tag => $"{_roleKey}{BackgroundImage1Suffix}";
 

@@ -42,6 +42,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SetScaleCommandSpec s           => Create(s),
             SetRotationCommandSpec s        => Create(s),
             ShowDialogueLayersCommandSpec s => Create(s),
+            HideRootLayersCommandSpec s      => Create(s),
 
             _ => null
         };
@@ -49,9 +50,16 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         return command != null;
     }
     
+    private HideRootLayersCommand Create(HideRootLayersCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
+            layers: s.layers,
+            duration: s.duration,
+            ease: s.ease,
+            disableInteraction: s.disableInteraction
+        );
 
     private CpsShowDialogueLayersCommand Create(ShowDialogueLayersCommandSpec s)
-        => new (widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.widgetRoleKey, waitForCompletion: s.wait,
+        => new (_widgets, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
             layers: s.layers,
             duration: s.duration,
             enableInteraction: s.enableInteraction

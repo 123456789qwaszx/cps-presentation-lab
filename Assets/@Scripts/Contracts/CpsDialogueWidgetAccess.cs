@@ -82,11 +82,13 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             SubRightStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.SubRightStandingPortraitEmojiImageTag),
 
             // ---- Background ----
+            BackgroundRoot0  = screen.GetWidgetHandle(set.BackgroundRoot0Tag)?.RectTransform,
+            BackgroundRoot1  = screen.GetWidgetHandle(set.BackgroundRoot1Tag)?.RectTransform,
             BackgroundImage0 = screen.GetWidgetHandle(set.BackgroundImage0Tag)?.Image,
             BackgroundImage1 = screen.GetWidgetHandle(set.BackgroundImage1Tag)?.Image,
 
             // ---- Choice Panel ----
-            ChoicePanelRoot  = screen.GetWidgetHandle(set.ChoicePanelRootTag)?.RectTransform,
+            ChoicePanelRoot   = screen.GetWidgetHandle(set.ChoicePanelRootTag)?.RectTransform,
             ChoiceButton0Root = screen.GetWidgetDirect<Image>(set.ChoiceButton0RootTag),
             ChoiceButton1Root = screen.GetWidgetDirect<Image>(set.ChoiceButton1RootTag),
             ChoiceButton2Root = screen.GetWidgetDirect<Image>(set.ChoiceButton2RootTag),

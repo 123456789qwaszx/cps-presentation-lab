@@ -16,11 +16,11 @@ MonoBehaviour:
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
-    - editorName: AllOff (imported)
+    - editorName: HideAll
       commands:
-      - rid: 2406591562052010047
+      - rid: 2406591583011209280
       gate:
-        type: 1
+        type: 0
         seconds: 0
         signalKey: 
     - editorName: ShowBG
@@ -108,7 +108,7 @@ MonoBehaviour:
         signalKey: 
     - editorName: "\uC88C\uC6B0\uB85C \uD754\uB4E4\uAE30"
       commands:
-      - rid: -2
+      - rid: 2406591562052010047
       gate:
         type: 0
         seconds: 0
@@ -226,13 +226,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 2406591562052010047
       type: {class: HideAllDialogueLayerCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
+        layers: 251
         duration: 0
         wait: 1
         disableInteraction: 1
@@ -717,3 +716,12 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         seconds: 0.2
         respectTimeScale: 1
+    - rid: 2406591583011209280
+      type: {class: HideAllDialogueLayerCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        layers: 251
+        duration: 0.25
+        wait: 1
+        disableInteraction: 1

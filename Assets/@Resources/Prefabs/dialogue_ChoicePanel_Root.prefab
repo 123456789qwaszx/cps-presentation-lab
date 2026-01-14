@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7981994742981925578}
   - component: {fileID: 109898127648632165}
   m_Layer: 5
-  m_Name: dialogue_ChoiceButton0Root
+  m_Name: dialogue_ChoiceButton0_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 6617036503878946226}
   - component: {fileID: 9185246706731984892}
   m_Layer: 5
-  m_Name: dialogue_ChoicePanelRoot
+  m_Name: dialogue_ChoicePanel_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 2401936039038040258}
   - component: {fileID: 366412977319274150}
   m_Layer: 5
-  m_Name: dialogue_ChoiceButton1Root
+  m_Name: dialogue_ChoiceButton1_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 7045158757128023759}
   - component: {fileID: 5170080592855287200}
   m_Layer: 5
-  m_Name: dialogue_ChoiceButton2Root
+  m_Name: dialogue_ChoiceButton2_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
