@@ -5,7 +5,6 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private RouteCatalogSO routeCatalog;
-    [SerializeField] private CpsCommandServiceConfig cpsCommandServiceConfig;
 
     [Header("Ports / Adapters")]
     [SerializeField] private CommandExecutor commandExecuter;
@@ -32,13 +31,8 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         CommandExecutor executor = commandExecuter;
         SequencePlayer sequencePlayer = new(executor);
 
-        if (cpsCommandServiceConfig == null)
-        {
-            Debug.LogError("[DialogueBootstrap] CommandServiceConfig is not assigned.");
-            return;
-        }
-
-        CpsNodeCommandFactory nodeFactory = new(cpsCommandServiceConfig, time, signals, latch);
+        CpsDialogueWidgetAccess widgetAccess = new();
+        CpsNodeCommandFactory nodeFactory = new(widgetAccess, time, signals, latch);
         executor.Initialize(sequencePlayer, nodeFactory);
 
         PlaybackSettings modes = new();

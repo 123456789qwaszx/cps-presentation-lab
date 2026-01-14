@@ -3,24 +3,18 @@ using UnityEngine;
 
 public sealed class CpsNodeCommandFactory : INodeCommandFactory
 {
-    private readonly CpsCommandServiceConfig _config;
     private readonly IDialogueWidgetAccess _widgets;
     private readonly ITimeSource _time;
     private readonly ISignalBus _signal;
     private readonly ISignalLatch _latch;
     
-    public CpsNodeCommandFactory(CpsCommandServiceConfig config, ITimeSource time, ISignalBus signal, ISignalLatch latch)
+    public CpsNodeCommandFactory(IDialogueWidgetAccess widgetAccess, ITimeSource time, ISignalBus signal, ISignalLatch latch)
     {
-        _config   = config;
-        _widgets  = config.WidgetAccess;
+        _widgets  = widgetAccess;
         _time   = time;
         _signal = signal;
         _latch = latch;
     }
-
-    private float TypeInterval => _config != null ? _config.TypeCharInterval : 0.03f;
-    private PortraitSlideSettings Slide => _config?.PortraitSlide;
-    private MovePortraitSettings MoveCfg => _config?.MovePortrait;
 
     public bool TryCreate(CommandSpecBase spec, out ISequenceCommand command)
     {
@@ -44,15 +38,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case TypeTextCommandSpec t:
             {
-                float interval = t.interval > 0f ? t.interval : TypeInterval;
-
                 command = new CpsTypeTextCommand(
                     widgets: _widgets,
                     screenId: t.screenId,
                     widgetId: t.widgetRoleKey,
                     target: t.target,
                     text: t.text,
-                    interval: interval,
+                    interval: t.interval,
                     waitForCompletion: t.wait,
                     clearWhenEmpty: t.clearWhenEmpty
                 );
@@ -61,17 +53,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case FadeCommandSpec f:
             {
-                // 디폴트 duration: Config에 별도 Fade 세팅이 없으면 일단 0.25f
-                float defaultDur = (Slide != null ? Mathf.Max(0f, Slide.fadeDur) : 0.25f);
-                float dur = f.duration > 0f ? f.duration : defaultDur;
-
                 command = new CpsFadeCommand(
                     widgets: _widgets,
                     screenId: f.screenId,
                     widgetId: f.widgetRoleKey,
                     target: f.target,
                     toAlpha: f.toAlpha,
-                    duration: dur,
+                    duration: f.duration,
                     ease: f.ease,
                     waitForCompletion: f.wait,
                     fromAlpha: f.fromAlpha
@@ -81,21 +69,14 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case SlideInCommandSpec s:
             {
-                // 고급 디폴트 (일단)
-                float defaultDistance = (Slide != null ? Mathf.Max(0f, Slide.offsetX) : 800f);
-                float defaultDuration = (Slide != null ? Mathf.Max(0f, Slide.duration) : 0.5f);
-
-                float dist = s.distance > 0f ? s.distance : defaultDistance;
-                float dur  = s.duration  > 0f ? s.duration  : defaultDuration;
-
                 command = new CpsSlideInCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
                     widgetId: s.widgetRoleKey,
                     target: s.target,
                     from: s.from,
-                    distance: dist,
-                    duration: dur,
+                    distance: s.distance,
+                    duration: s.duration,
                     ease: s.ease,
                     waitForCompletion: s.wait
                 );
@@ -245,21 +226,15 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 
             case MoveToCommandSpec m:
             {
-                float defaultDur = (MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f);
-                float dur = m.duration > 0f ? m.duration : defaultDur;
-
-                Ease ease = (MoveCfg != null ? MoveCfg.ease : m.ease);
-                bool wait = (MoveCfg != null ? MoveCfg.wait : m.wait);
-
                 command = new CpsMoveToCommand(
                     widgets: _widgets,
                     screenId: m.screenId,
                     widgetId: m.widgetRoleKey,
                     target: m.target,
                     position: m.position,
-                    duration: dur,
-                    ease: ease,
-                    waitForCompletion: wait,
+                    duration: m.duration,
+                    ease: m.ease,
+                    waitForCompletion: m.wait,
                     killTween: m.killTween
                 );
                 return command != null;
@@ -267,21 +242,15 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case MoveByCommandSpec m:
             {
-                float defaultDur = (MoveCfg != null ? Mathf.Max(0f, MoveCfg.duration) : 0.25f);
-                float dur = m.duration > 0f ? m.duration : defaultDur;
-
-                Ease ease = (MoveCfg != null ? MoveCfg.ease : m.ease);
-                bool wait = (MoveCfg != null ? MoveCfg.wait : m.wait);
-
                 command = new CpsMoveByCommand(
                     widgets: _widgets,
                     screenId: m.screenId,
                     widgetId: m.widgetRoleKey,
                     target: m.target,
                     delta: m.delta,
-                    duration: dur,
-                    ease: ease,
-                    waitForCompletion: wait
+                    duration: m.duration,
+                    ease: m.ease,
+                    waitForCompletion: m.wait
                     // killTween: m.killTween (필요하면 추가)
                 );
                 return command != null;
@@ -289,20 +258,14 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case BouncySlideInCommandSpec s:
             {
-                float defaultDist = (Slide != null ? Mathf.Max(0f, Slide.offsetX) : 800f);
-                float defaultDur  = (Slide != null ? Mathf.Max(0f, Slide.duration) : 0.5f);
-
-                float dist = s.slideDistance > 0f ? s.slideDistance : defaultDist;
-                float dur  = s.slideDuration  > 0f ? s.slideDuration  : defaultDur;
-
                 command = new CpsBouncySlideInCommand(
                     widgets: _widgets,
                     screenId: s.screenId,
                     widgetId: s.widgetRoleKey,
                     target:  s.target,
                     from:    s.from,
-                    slideDistance: dist,
-                    slideDuration: dur,
+                    slideDistance: s.slideDistance,
+                    slideDuration: s.slideDuration,
                     slideEase: s.slideEase,
                     waveAmplitude: s.waveAmplitude,
                     waveLoops: s.waveLoops,
@@ -374,16 +337,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             
             case CanvasFadeCommandSpec c:
             {
-                float defaultDur = (Slide != null ? Mathf.Max(0f, Slide.fadeDur) : 0.25f);
-                float dur = c.duration > 0f ? c.duration : defaultDur;
-
                 command = new CpsCanvasFadeCommand(
                     widgets: _widgets,
                     screenId: c.screenId,
                     widgetRoleKey: c.widgetRoleKey,
                     target: c.target,
                     toAlpha: c.toAlpha,
-                    duration: dur,
+                    duration: c.duration,
                     ease: c.ease,
                     waitForCompletion: c.wait,
                     fromAlpha: c.fromAlpha,
@@ -424,4 +384,3 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         }
     }
 }
-

@@ -4,8 +4,7 @@ using UnityEngine.UI;
 using Lab.UI.Naming;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
-public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
+public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
 {
     private readonly Dictionary<(UIScreen screen, string roleKey), IDialogueWidgetAccess.WidgetRefs> _widgetRefsCache = new();
     private readonly Dictionary<string, DialogueRoleWidgetTags> _widgetTagsCache = new();
