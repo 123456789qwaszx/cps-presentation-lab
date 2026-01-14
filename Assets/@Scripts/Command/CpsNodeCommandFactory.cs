@@ -7,7 +7,11 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     private readonly ISignalBus _signal;
     private readonly ISignalLatch _latch;
 
-    public CpsNodeCommandFactory(IDialogueWidgetAccess widgetAccess, ITimeSource time, ISignalBus signal, ISignalLatch latch)
+    public CpsNodeCommandFactory(
+        IDialogueWidgetAccess widgetAccess,
+        ITimeSource time,
+        ISignalBus signal,
+        ISignalLatch latch)
     {
         _widgets = widgetAccess;
         _time    = time;
@@ -42,87 +46,87 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SetScaleCommandSpec s           => Create(s),
             SetRotationCommandSpec s        => Create(s),
             ShowDialogueLayersCommandSpec s => Create(s),
-            HideRootLayersCommandSpec s      => Create(s),
+            HideRootLayersCommandSpec s     => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
-    
+
     private HideRootLayersCommand Create(HideRootLayersCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
-            layers: s.layers,
-            duration: s.duration,
-            ease: s.ease,
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            layers:             s.layers,
+            duration:           s.duration,
+            ease:               s.ease,
             disableInteraction: s.disableInteraction
         );
 
     private CpsShowDialogueLayersCommand Create(ShowDialogueLayersCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
-            layers: s.layers,
-            duration: s.duration,
+            layers:            s.layers,
+            duration:          s.duration,
             enableInteraction: s.enableInteraction
         );
 
     private CpsSetRotationCommand Create(SetRotationCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toAngle: s.toAngle,
+            toAngle:            s.toAngle,
             overrideStartAngle: s.overrideStartAngle,
-            startAngle: s.startAngle,
-            duration: s.duration,
-            ease: s.ease,
-            killTween: s.killTween
+            startAngle:         s.startAngle,
+            duration:           s.duration,
+            ease:               s.ease,
+            killTween:          s.killTween
         );
 
     private CpsSetScaleCommand Create(SetScaleCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toScale: s.toScale,
+            toScale:            s.toScale,
             overrideStartScale: s.overrideStartScale,
-            startScale: s.startScale,
-            duration: s.duration,
-            ease: s.ease,
-            killTween: s.killTween
+            startScale:         s.startScale,
+            duration:           s.duration,
+            ease:               s.ease,
+            killTween:          s.killTween
         );
 
     private CpsBouncySlideInCommand Create(BouncySlideInCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            from: s.from,
-            slideDistance: s.slideDistance,
-            slideDuration: s.slideDuration,
-            slideEase: s.slideEase,
-            waveAmplitude: s.waveAmplitude,
-            waveLoops: s.waveLoops,
-            waveAxis: s.waveAxis,
-            startFromLayout: s.startFromLayout
+            from:           s.from,
+            slideDistance:  s.slideDistance,
+            slideDuration:  s.slideDuration,
+            slideEase:      s.slideEase,
+            waveAmplitude:  s.waveAmplitude,
+            waveLoops:      s.waveLoops,
+            waveAxis:       s.waveAxis,
+            startFromLayout:s.startFromLayout
         );
 
     private CpsMoveByCommand Create(MoveByCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            delta: s.delta,
+            delta:    s.delta,
             duration: s.duration,
-            ease: s.ease
+            ease:     s.ease
         );
 
     private CpsMoveToCommand Create(MoveToCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
             position: s.position,
             duration: s.duration,
-            ease: s.ease,
-            killTween: s.killTween
+            ease:     s.ease,
+            killTween:s.killTween
         );
 
     private CpsSetAnchoredPosCommand Create(SetAnchoredPosCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            value: s.value,
+            value:    s.value,
             relative: s.relative,
-            killTween: s.killTween
+            killTween:s.killTween
         );
 
     private CpsSetInteractableCommand Create(SetInteractableCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            interactable: s.interactable,
-            searchParents: s.searchParents,
+            interactable:   s.interactable,
+            searchParents:  s.searchParents,
             blocksRaycasts: s.blocksRaycasts
         );
 
@@ -133,101 +137,101 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 
     private CpsRaiseSignalCommand Create(RaiseSignalCommandSpec s)
         => new (_signal,
-            key: s.signalKey,
+            key:         s.signalKey,
             raiseOnSkip: s.raiseOnSkip
         );
 
     private CpsHoldSignalCommand Create(HoldSignalCommandSpec s)
         => new (_latch, _time,
-            key: s.signalKey,
-            consume: s.consume,
-            timeoutSeconds: s.timeoutSeconds,
-            respectTimeScale: s.respectTimeScale
+            key:             s.signalKey,
+            consume:         s.consume,
+            timeoutSeconds:  s.timeoutSeconds,
+            respectTimeScale:s.respectTimeScale
         );
 
     private CpsWaitCommand Create(WaitCommandSpec s)
         => new (_time,
-            seconds: s.seconds,
-            respectTimeScale: s.respectTimeScale
+            seconds:         s.seconds,
+            respectTimeScale:s.respectTimeScale
         );
 
     private CpsShakeWidgetCommand Create(ShakeWidgetCommandSpec s)
     {
-        float dur = s.duration > 0f ? s.duration : 0.28f;
-        int vib   = s.vibrato  > 0  ? s.vibrato  : 12;
+        float dur = s.duration   > 0f ? s.duration   : 0.28f;
+        int   vib = s.vibrato    > 0  ? s.vibrato    : 12;
         float rnd = s.randomness >= 0f ? Mathf.Clamp(s.randomness, 0f, 180f) : 90f;
 
         return new CpsShakeWidgetCommand(_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            axis: s.axis,
+            axis:      s.axis,
             intensity: s.intensity,
-            duration: dur,
-            vibrato: vib,
-            randomness: rnd
+            duration:  dur,
+            vibrato:   vib,
+            randomness:rnd
         );
     }
 
     private CpsPunchScaleCommand Create(PunchScaleCommandSpec s)
     {
-        float dur = s.duration > 0f ? s.duration : 0.22f;
-        int vib   = s.vibrato  > 0  ? s.vibrato  : 8;
+        float dur = s.duration   > 0f ? s.duration   : 0.22f;
+        int   vib = s.vibrato    > 0  ? s.vibrato    : 8;
         float ela = s.elasticity >= 0f ? Mathf.Clamp01(s.elasticity) : 0.75f;
 
         return new CpsPunchScaleCommand(_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            strength: s.strength,
-            duration: dur,
-            vibrato: vib,
-            elasticity: ela
+            strength:  s.strength,
+            duration:  dur,
+            vibrato:   vib,
+            elasticity:ela
         );
     }
 
     private CpsSetColorCommand Create(SetColorCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            color: s.color,
-            preserveAlpha: s.preserveAlpha
+            color:         s.color,
+            preserveAlpha:s.preserveAlpha
         );
 
     private CpsSetSpriteCommand Create(SetSpriteCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            sprite: s.sprite,
-            clearWhenNull: s.clearWhenNull,
-            setNativeSize: s.setNativeSize
+            sprite:       s.sprite,
+            clearWhenNull:s.clearWhenNull,
+            setNativeSize:s.setNativeSize
         );
 
     private CpsSlideInCommand Create(SlideInCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            from: s.from,
+            from:     s.from,
             distance: s.distance,
             duration: s.duration,
-            ease: s.ease
+            ease:     s.ease
         );
 
     private CpsCanvasFadeCommand Create(CanvasFadeCommandSpec s)
         => new (widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.widgetRoleKey, target: s.target, waitForCompletion: s.wait,
-            toAlpha: s.toAlpha,
-            duration: s.duration,
-            ease: s.ease,
-            fromAlpha: s.fromAlpha,
-            addIfMissing: s.addIfMissing
+            toAlpha:     s.toAlpha,
+            duration:    s.duration,
+            ease:        s.ease,
+            fromAlpha:   s.fromAlpha,
+            addIfMissing:s.addIfMissing
         );
 
     private CpsFadeCommand Create(FadeCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toAlpha: s.toAlpha,
-            duration: s.duration,
-            ease: s.ease,
+            toAlpha:   s.toAlpha,
+            duration:  s.duration,
+            ease:      s.ease,
             fromAlpha: s.fromAlpha
         );
 
     private CpsTypeTextCommand Create(TypeTextCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            text: s.text,
-            interval: s.interval,
-            clearWhenEmpty: s.clearWhenEmpty
+            text:          s.text,
+            interval:      s.interval,
+            clearWhenEmpty:s.clearWhenEmpty
         );
 
     private CpsSetTextCommand Create(SetTextCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            text: s.text,
-            clearWhenEmpty: s.clearWhenEmpty
+            text:          s.text,
+            clearWhenEmpty:s.clearWhenEmpty
         );
 }
