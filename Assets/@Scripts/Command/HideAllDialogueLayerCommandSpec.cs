@@ -145,8 +145,8 @@ public sealed class CpsHideAllDialogueLayerCommand : CommandBase
         // ------------------------------------
         // 1) Background (2장)
         // ------------------------------------
-        FadeGraphic(_refs.BackgroundImage);
-        FadeGraphic(_refs.BackgroundImage2);
+        FadeGraphic(_refs.BackgroundImage0);
+        FadeGraphic(_refs.BackgroundImage1);
         // 필요하면 나중에 BackgroundImage3 추가:
         // FadeGraphic(_refs.BackgroundImage3);
 
@@ -221,8 +221,8 @@ public sealed class CpsHideAllDialogueLayerCommand : CommandBase
         }
 
         // Background
-        InstantOffGraphic(_refs.BackgroundImage);
-        InstantOffGraphic(_refs.BackgroundImage2);
+        InstantOffGraphic(_refs.BackgroundImage0);
+        InstantOffGraphic(_refs.BackgroundImage1);
         // InstantOffGraphic(_refs.BackgroundImage3);
 
         // Portrait Roots

@@ -4,15 +4,13 @@ using UnityEngine.UI;
 
 public enum DialogueWidgetTarget
 {
-    // ---- Line / Text ----
+    // ---- Dialogue Line ----
+    DialogueBoxRoot,
     LineText,
     LineBodyImage,
     SpeakerNameBox,
     SpeakerNameText,
     ProtagonistCutinImage,
-
-    // ---- Dialogue Box Root ----
-    DialogueBoxRoot,
 
     // ---- Main Standing Portrait Set ----
     MainStandingPortraitRoot,
@@ -22,12 +20,11 @@ public enum DialogueWidgetTarget
     MainStandingPortraitShake,
     MainStandingPortraitScale,
     MainStandingPortraitVisual,
+    MainStandingPortraitImage,
+    MainStandingPortraitEmojiAnchor,
+    MainStandingPortraitEmojiImage,
 
-    MainStandingPortraitImage,        // actual Image (sprite swap / color)
-    MainStandingPortraitEmojiAnchor,  // RectTransform anchor
-    MainStandingPortraitEmojiImage,   // optional Image overlay
-
-    // ---- SubLeft Standing Portrait Set ----
+    // ---- SubLeft Standing Portrait ----
     SubLeftStandingPortraitRoot,
     SubLeftStandingPortraitTrack,
     SubLeftStandingPortraitRig,
@@ -40,7 +37,7 @@ public enum DialogueWidgetTarget
     SubLeftStandingPortraitEmojiAnchor,
     SubLeftStandingPortraitEmojiImage,
 
-    // ---- SubRight Standing Portrait Set ----
+    // ---- SubRight Standing Portrait ----
     SubRightStandingPortraitRoot,
     SubRightStandingPortraitTrack,
     SubRightStandingPortraitRig,
@@ -48,23 +45,19 @@ public enum DialogueWidgetTarget
     SubRightStandingPortraitShake,
     SubRightStandingPortraitScale,
     SubRightStandingPortraitVisual,
-
     SubRightStandingPortraitImage,
     SubRightStandingPortraitEmojiAnchor,
     SubRightStandingPortraitEmojiImage,
+    
+    // ---- Background ----
+    BackgroundImage0,
+    BackgroundImage1,
 
-
-    // ---- Background Set ----
-    BackgroundImage,
-    BackgroundImage2,
-    BackgroundImage3,
-
-    // ---- Choice Panel + 3 Choices ----
+    // ---- Choice Panel----
     ChoicePanelRoot,
     ChoiceButton0Root,
     ChoiceButton1Root,
     ChoiceButton2Root,
-    
     ChoiceButton0Text,
     ChoiceButton1Text,
     ChoiceButton2Text,
@@ -76,17 +69,15 @@ public interface IDialogueWidgetAccess
 
     public sealed class WidgetRefs
     {
-        // ---- Line / Text ----
+        // ---- Dialogue Line ----
+        public RectTransform DialogueBoxRoot;
         public TMP_Text LineText;
         public Image LineBodyImage;
         public Image SpeakerNameBox;
         public TMP_Text SpeakerNameText;
         public Image ProtagonistCutinImage;
 
-        // ---- Dialogue Box ----
-        public RectTransform DialogueBoxRoot;
-
-        // ---- Main Standing Portrait Set ----
+        // ---- Main Standing Portrait ----
         public RectTransform MainStandingPortraitRoot;
         public RectTransform MainStandingPortraitTrack;
         public RectTransform MainStandingPortraitRig;
@@ -94,12 +85,11 @@ public interface IDialogueWidgetAccess
         public RectTransform MainStandingPortraitShake;
         public RectTransform MainStandingPortraitScale;
         public RectTransform MainStandingPortraitVisual;
-
         public Image MainStandingPortraitImage;
         public RectTransform MainStandingPortraitEmojiAnchor;
         public Image MainStandingPortraitEmojiImage;
 
-        // ---- SubLeft Standing Portrait Set ----
+        // ---- SubLeft Standing Portrait ----
         public RectTransform SubLeftStandingPortraitRoot;
         public RectTransform SubLeftStandingPortraitTrack;
         public RectTransform SubLeftStandingPortraitRig;
@@ -107,12 +97,11 @@ public interface IDialogueWidgetAccess
         public RectTransform SubLeftStandingPortraitShake;
         public RectTransform SubLeftStandingPortraitScale;
         public RectTransform SubLeftStandingPortraitVisual;
-
         public Image SubLeftStandingPortraitImage;
         public RectTransform SubLeftStandingPortraitEmojiAnchor;
         public Image SubLeftStandingPortraitEmojiImage;
 
-        // ---- SubRight Standing Portrait Set ----
+        // ---- SubRight Standing Portrait ----
         public RectTransform SubRightStandingPortraitRoot;
         public RectTransform SubRightStandingPortraitTrack;
         public RectTransform SubRightStandingPortraitRig;
@@ -120,22 +109,19 @@ public interface IDialogueWidgetAccess
         public RectTransform SubRightStandingPortraitShake;
         public RectTransform SubRightStandingPortraitScale;
         public RectTransform SubRightStandingPortraitVisual;
-
         public Image SubRightStandingPortraitImage;
         public RectTransform SubRightStandingPortraitEmojiAnchor;
         public Image SubRightStandingPortraitEmojiImage;
 
-        // ---- Background Set (3장) ----
-        public Image BackgroundImage;
-        public Image BackgroundImage2;
-        public Image BackgroundImage3;
+        // ---- Background ----
+        public Image BackgroundImage0;
+        public Image BackgroundImage1;
 
-        // ---- Choice Panel + 3 Choices ----
+        // ---- Choice Panel ----
         public RectTransform ChoicePanelRoot;
         public Image ChoiceButton0Root;
         public Image ChoiceButton1Root;
         public Image ChoiceButton2Root;
-        
         public TMP_Text ChoiceButton0Text;
         public TMP_Text ChoiceButton1Text;
         public TMP_Text ChoiceButton2Text;
@@ -150,17 +136,15 @@ public static class WidgetRefsExtensions
 
         switch (slot)
         {
-            // ---- Line / Text ----
-            case DialogueWidgetTarget.LineText:         return refs.LineText;
-            case DialogueWidgetTarget.LineBodyImage:    return refs.LineBodyImage;
-            case DialogueWidgetTarget.SpeakerNameBox:     return refs.SpeakerNameBox;
-            case DialogueWidgetTarget.SpeakerNameText:  return refs.SpeakerNameText;
-            case DialogueWidgetTarget.ProtagonistCutinImage:       return refs.ProtagonistCutinImage;
+            // ---- Dialogue Line ----
+            case DialogueWidgetTarget.DialogueBoxRoot:       return refs.DialogueBoxRoot;
+            case DialogueWidgetTarget.LineText:              return refs.LineText;
+            case DialogueWidgetTarget.LineBodyImage:         return refs.LineBodyImage;
+            case DialogueWidgetTarget.SpeakerNameBox:        return refs.SpeakerNameBox;
+            case DialogueWidgetTarget.SpeakerNameText:       return refs.SpeakerNameText;
+            case DialogueWidgetTarget.ProtagonistCutinImage: return refs.ProtagonistCutinImage;
 
-            // ---- Dialogue Box ----
-            case DialogueWidgetTarget.DialogueBoxRoot:  return refs.DialogueBoxRoot;
-
-            // ---- Main Standing Portrait Set ----
+            // ---- Main Standing Portrait ---
             case DialogueWidgetTarget.MainStandingPortraitRoot:        return refs.MainStandingPortraitRoot;
             case DialogueWidgetTarget.MainStandingPortraitTrack:       return refs.MainStandingPortraitTrack;
             case DialogueWidgetTarget.MainStandingPortraitRig:         return refs.MainStandingPortraitRig;
@@ -168,12 +152,11 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.MainStandingPortraitShake:       return refs.MainStandingPortraitShake;
             case DialogueWidgetTarget.MainStandingPortraitScale:       return refs.MainStandingPortraitScale;
             case DialogueWidgetTarget.MainStandingPortraitVisual:      return refs.MainStandingPortraitVisual;
-
             case DialogueWidgetTarget.MainStandingPortraitImage:       return refs.MainStandingPortraitImage;
             case DialogueWidgetTarget.MainStandingPortraitEmojiAnchor: return refs.MainStandingPortraitEmojiAnchor;
             case DialogueWidgetTarget.MainStandingPortraitEmojiImage:  return refs.MainStandingPortraitEmojiImage;
 
-            // ---- SubLeft Standing Portrait Set ----
+            // ---- SubLeft Standing Portrait ----
             case DialogueWidgetTarget.SubLeftStandingPortraitRoot:        return refs.SubLeftStandingPortraitRoot;
             case DialogueWidgetTarget.SubLeftStandingPortraitTrack:       return refs.SubLeftStandingPortraitTrack;
             case DialogueWidgetTarget.SubLeftStandingPortraitRig:         return refs.SubLeftStandingPortraitRig;
@@ -181,12 +164,11 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.SubLeftStandingPortraitShake:       return refs.SubLeftStandingPortraitShake;
             case DialogueWidgetTarget.SubLeftStandingPortraitScale:       return refs.SubLeftStandingPortraitScale;
             case DialogueWidgetTarget.SubLeftStandingPortraitVisual:      return refs.SubLeftStandingPortraitVisual;
-
             case DialogueWidgetTarget.SubLeftStandingPortraitImage:       return refs.SubLeftStandingPortraitImage;
             case DialogueWidgetTarget.SubLeftStandingPortraitEmojiAnchor: return refs.SubLeftStandingPortraitEmojiAnchor;
             case DialogueWidgetTarget.SubLeftStandingPortraitEmojiImage:  return refs.SubLeftStandingPortraitEmojiImage;
 
-            // ---- SubRight Standing Portrait Set ----
+            // ---- SubRight Standing Portrait----
             case DialogueWidgetTarget.SubRightStandingPortraitRoot:        return refs.SubRightStandingPortraitRoot;
             case DialogueWidgetTarget.SubRightStandingPortraitTrack:       return refs.SubRightStandingPortraitTrack;
             case DialogueWidgetTarget.SubRightStandingPortraitRig:         return refs.SubRightStandingPortraitRig;
@@ -194,26 +176,22 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.SubRightStandingPortraitShake:       return refs.SubRightStandingPortraitShake;
             case DialogueWidgetTarget.SubRightStandingPortraitScale:       return refs.SubRightStandingPortraitScale;
             case DialogueWidgetTarget.SubRightStandingPortraitVisual:      return refs.SubRightStandingPortraitVisual;
-
             case DialogueWidgetTarget.SubRightStandingPortraitImage:       return refs.SubRightStandingPortraitImage;
             case DialogueWidgetTarget.SubRightStandingPortraitEmojiAnchor: return refs.SubRightStandingPortraitEmojiAnchor;
             case DialogueWidgetTarget.SubRightStandingPortraitEmojiImage:  return refs.SubRightStandingPortraitEmojiImage;
-
-
-            // ---- Background Set ----
-            case DialogueWidgetTarget.BackgroundImage:             return refs.BackgroundImage;
-            case DialogueWidgetTarget.BackgroundImage2:            return refs.BackgroundImage2;
-            case DialogueWidgetTarget.BackgroundImage3:            return refs.BackgroundImage3;
-
-            // ---- Choice Panel + 3 Choices ----
-            case DialogueWidgetTarget.ChoicePanelRoot:             return refs.ChoicePanelRoot;
-            case DialogueWidgetTarget.ChoiceButton0Root:           return refs.ChoiceButton0Root;
-            case DialogueWidgetTarget.ChoiceButton1Root:           return refs.ChoiceButton1Root;
-            case DialogueWidgetTarget.ChoiceButton2Root:           return refs.ChoiceButton2Root;
             
-            case DialogueWidgetTarget.ChoiceButton0Text:           return refs.ChoiceButton0Text;
-            case DialogueWidgetTarget.ChoiceButton1Text:           return refs.ChoiceButton1Text;
-            case DialogueWidgetTarget.ChoiceButton2Text:           return refs.ChoiceButton2Text;
+            // ---- Background ----
+            case DialogueWidgetTarget.BackgroundImage0: return refs.BackgroundImage0;
+            case DialogueWidgetTarget.BackgroundImage1: return refs.BackgroundImage1;
+
+            // ---- Choice Panel ----
+            case DialogueWidgetTarget.ChoicePanelRoot:   return refs.ChoicePanelRoot;
+            case DialogueWidgetTarget.ChoiceButton0Root: return refs.ChoiceButton0Root;
+            case DialogueWidgetTarget.ChoiceButton1Root: return refs.ChoiceButton1Root;
+            case DialogueWidgetTarget.ChoiceButton2Root: return refs.ChoiceButton2Root;
+            case DialogueWidgetTarget.ChoiceButton0Text: return refs.ChoiceButton0Text;
+            case DialogueWidgetTarget.ChoiceButton1Text: return refs.ChoiceButton1Text;
+            case DialogueWidgetTarget.ChoiceButton2Text: return refs.ChoiceButton2Text;
 
             default:
                 return null;

@@ -19,7 +19,7 @@ MonoBehaviour:
     - slotName: root
       widgets:
       - widgetType: 6
-        nameTag: BG1
+        nameTag: BG0
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG1
+        slotId: BG0
       - widgetType: 6
         nameTag: DisplayRegion
         text: 
@@ -65,7 +65,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: DisplayRegion
       - widgetType: 6
-        nameTag: BG2
+        nameTag: BG1
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG2
+        slotId: BG1
       - widgetType: 6
         nameTag: TopArea
         text: 
@@ -156,10 +156,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: BottomArea
-    - slotName: BG1
+    - slotName: BG0
       widgets:
       - widgetType: 2
-        nameTag: dialogue_Background_Image
+        nameTag: dialogue_Background_Image0
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -231,10 +231,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: 
-    - slotName: BG2
+    - slotName: BG1
       widgets:
       - widgetType: 2
-        nameTag: dialogue_BackgroundImage2
+        nameTag: dialogue_BackgroundImage1
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}

@@ -4,14 +4,15 @@ namespace Lab.UI.Naming
     {
         private readonly string _roleKey;
 
-        // ---- Line ----
-        private const string LineBodySuffix    = "_LineBody";
-        private const string LineTextSuffix    = "_LineText";
-        private const string SpeakerNameSuffix = "_SpeakerName";
-        private const string SpeakerNameBoxSuffix = "_SpeakerNameBox";
-        private const string ProtagonistCutinImageSuffix       = "_ProtagonistCutin_Image";
+        // ---- Dialogue Line ----
+        private const string DialogueBoxRootSuffix       = "_DialogueBoxRoot";
+        private const string LineBodySuffix              = "_LineBody";
+        private const string LineTextSuffix              = "_LineText";
+        private const string SpeakerNameSuffix           = "_SpeakerName";
+        private const string SpeakerNameBoxSuffix        = "_SpeakerNameBox";
+        private const string ProtagonistCutinImageSuffix = "_ProtagonistCutin_Image";
 
-        // ---- Main Standing Portrait Set ----
+        // ---- Main Standing Portrait ----
         private const string MainStandingPortraitRootSuffix        = "_MainStandingPortraitRoot";
         private const string MainStandingPortraitTrackSuffix       = "_MainStandingPortrait_Track";
         private const string MainStandingPortraitRigSuffix         = "_MainStandingPortrait_Rig";
@@ -23,7 +24,7 @@ namespace Lab.UI.Naming
         private const string MainStandingPortraitEmojiAnchorSuffix = "_MainStandingPortrait_EmojiAnchor";
         private const string MainStandingPortraitEmojiImageSuffix  = "_MainStandingPortrait_EmojiImage";
 
-        // ---- SubLeft Standing Portrait Set ----
+        // ---- SubLeft Standing Portrait ----
         private const string SubLeftStandingPortraitRootSuffix        = "_SubLeftStandingPortraitRoot";
         private const string SubLeftStandingPortraitTrackSuffix       = "_SubLeftStandingPortrait_Track";
         private const string SubLeftStandingPortraitRigSuffix         = "_SubLeftStandingPortrait_Rig";
@@ -35,7 +36,7 @@ namespace Lab.UI.Naming
         private const string SubLeftStandingPortraitEmojiAnchorSuffix = "_SubLeftStandingPortrait_EmojiAnchor";
         private const string SubLeftStandingPortraitEmojiImageSuffix  = "_SubLeftStandingPortrait_EmojiImage";
 
-        // ---- SubRight Standing Portrait Set ----
+        // ---- SubRight Standing Portrait ----
         private const string SubRightStandingPortraitRootSuffix        = "_SubRightStandingPortraitRoot";
         private const string SubRightStandingPortraitTrackSuffix       = "_SubRightStandingPortrait_Track";
         private const string SubRightStandingPortraitRigSuffix         = "_SubRightStandingPortrait_Rig";
@@ -47,20 +48,15 @@ namespace Lab.UI.Naming
         private const string SubRightStandingPortraitEmojiAnchorSuffix = "_SubRightStandingPortrait_EmojiAnchor";
         private const string SubRightStandingPortraitEmojiImageSuffix  = "_SubRightStandingPortrait_EmojiImage";
 
-        // ---- Background Set (3장까지) ----
-        private const string BackgroundImageSuffix             = "_Background_Image";
-        private const string BackgroundImage2Suffix            = "_Background_Image2";
-        private const string BackgroundImage3Suffix            = "_Background_Image3";
+        // ---- Background ----
+        private const string BackgroundImage0Suffix = "_Background_Image0";
+        private const string BackgroundImage1Suffix = "_Background_Image1";
 
-        // ---- Dialogue Box Root ----
-        private const string DialogueBoxRootSuffix             = "_DialogueBoxRoot";
-
-        // ---- Choice Panel + 3 Choices ----
-        private const string ChoicePanelRootSuffix             = "_ChoicePanelRoot";
-        private const string ChoiceButton0RootSuffix           = "_ChoiceButton0Root";
-        private const string ChoiceButton1RootSuffix           = "_ChoiceButton1Root";
-        private const string ChoiceButton2RootSuffix           = "_ChoiceButton2Root";
-
+        // ---- Choice Panel ----
+        private const string ChoicePanelRootSuffix   = "_ChoicePanelRoot";
+        private const string ChoiceButton0RootSuffix = "_ChoiceButton0Root";
+        private const string ChoiceButton1RootSuffix = "_ChoiceButton1Root";
+        private const string ChoiceButton2RootSuffix = "_ChoiceButton2Root";
         private const string ChoiceButton0TextSuffix = "_ChoiceButton0_text";
         private const string ChoiceButton1TextSuffix = "_ChoiceButton1_text";
         private const string ChoiceButton2TextSuffix = "_ChoiceButton2_text";
@@ -70,9 +66,13 @@ namespace Lab.UI.Naming
             _roleKey = roleKey ?? string.Empty;
         }
 
-        // ---- Line ----
-        public string LineBodyTag        => $"{_roleKey}{LineBodySuffix}";
-        public string LineTextTag        => $"{_roleKey}{LineTextSuffix}";
+        // ---- Dialogue Line ----
+        public string DialogueBoxRootTag       => $"{_roleKey}{DialogueBoxRootSuffix}";
+        public string LineBodyTag              => $"{_roleKey}{LineBodySuffix}";
+        public string LineTextTag              => $"{_roleKey}{LineTextSuffix}";
+        public string SpeakerNameBoxTag        => $"{_roleKey}{SpeakerNameBoxSuffix}";
+        public string SpeakerNameTag           => $"{_roleKey}{SpeakerNameSuffix}";
+        public string ProtagonistCutinImageTag => $"{_roleKey}{ProtagonistCutinImageSuffix}";
 
         // ---- Main Standing Portrait ----
         public string MainStandingPortraitRootTag        => $"{_roleKey}{MainStandingPortraitRootSuffix}";
@@ -110,27 +110,15 @@ namespace Lab.UI.Naming
         public string SubRightStandingPortraitEmojiAnchorTag => $"{_roleKey}{SubRightStandingPortraitEmojiAnchorSuffix}";
         public string SubRightStandingPortraitEmojiImageTag  => $"{_roleKey}{SubRightStandingPortraitEmojiImageSuffix}";
 
-        // ---- SpeakerNameBox(Image만 사용) ----
-        
-        public string SpeakerNameBoxTag              => $"{_roleKey}{SpeakerNameBoxSuffix}";
-        public string SpeakerNameTag                 => $"{_roleKey}{SpeakerNameSuffix}";
-        public string ProtagonistCutinImageTag       => $"{_roleKey}{ProtagonistCutinImageSuffix}";
-
         // ---- Background ----
-        public string BackgroundImageTag             => $"{_roleKey}{BackgroundImageSuffix}";
-        public string BackgroundImage2Tag            => $"{_roleKey}{BackgroundImage2Suffix}";
-        public string BackgroundImage3Tag            => $"{_roleKey}{BackgroundImage3Suffix}";
-
-        // ---- Dialogue Box Root ----
-        public string DialogueBoxRootTag             => $"{_roleKey}{DialogueBoxRootSuffix}";
+        public string BackgroundImage0Tag => $"{_roleKey}{BackgroundImage0Suffix}";
+        public string BackgroundImage1Tag => $"{_roleKey}{BackgroundImage1Suffix}";
 
         // ---- Choice Panel + 3 Choices ----
-        public string ChoicePanelRootTag             => $"{_roleKey}{ChoicePanelRootSuffix}";
-        
-        public string ChoiceButton0RootTag           => $"{_roleKey}{ChoiceButton0RootSuffix}";
-        public string ChoiceButton1RootTag           => $"{_roleKey}{ChoiceButton1RootSuffix}";
-        public string ChoiceButton2RootTag           => $"{_roleKey}{ChoiceButton2RootSuffix}";
-        
+        public string ChoicePanelRootTag   => $"{_roleKey}{ChoicePanelRootSuffix}";
+        public string ChoiceButton0RootTag => $"{_roleKey}{ChoiceButton0RootSuffix}";
+        public string ChoiceButton1RootTag => $"{_roleKey}{ChoiceButton1RootSuffix}";
+        public string ChoiceButton2RootTag => $"{_roleKey}{ChoiceButton2RootSuffix}";
         public string ChoiceButton0TextTag => $"{_roleKey}{ChoiceButton0TextSuffix}";
         public string ChoiceButton1TextTag => $"{_roleKey}{ChoiceButton1TextSuffix}";
         public string ChoiceButton2TextTag => $"{_roleKey}{ChoiceButton2TextSuffix}";

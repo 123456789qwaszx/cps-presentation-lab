@@ -19,7 +19,7 @@ MonoBehaviour:
     - slotName: Root
       widgets:
       - widgetType: 6
-        nameTag: BG_Layer_01
+        nameTag: BG_Layer_0
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG_Layer_01
+        slotId: BG_Layer_0
       - widgetType: 6
         nameTag: Character_Layer
         text: 
@@ -65,7 +65,7 @@ MonoBehaviour:
         sliderWholeNumbers: 0
         slotId: Character_Layer
       - widgetType: 6
-        nameTag: BG_Layer_02
+        nameTag: BG_Layer_1
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
         sliderMax: 1
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
-        slotId: BG_Layer_02
+        slotId: BG_Layer_1
       - widgetType: 6
         nameTag: DialogueBox_Layer
         text: 
@@ -133,10 +133,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: ChoicePanel_Layer
-    - slotName: BG_Layer_01
+    - slotName: BG_Layer_0
       widgets:
       - widgetType: 2
-        nameTag: dialogue_Background_Image
+        nameTag: dialogue_Background_Image0
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -229,10 +229,10 @@ MonoBehaviour:
         sliderInitialValue: 0.5
         sliderWholeNumbers: 0
         slotId: 
-    - slotName: BG_Layer_02
+    - slotName: BG_Layer_1
       widgets:
       - widgetType: 2
-        nameTag: dialogue_Background_Image2
+        nameTag: dialogue_Background_Image1
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}

@@ -158,11 +158,11 @@ public sealed class CpsShowDialogueLayersCommand : CommandBase
         // ------------------------------------
         // 1) Backgrounds
         // ------------------------------------
-        if (_layers.HasFlag(DialogueLayerMask.Background1))
-            ShowGraphic(_refs.BackgroundImage, interactive: false);
+        if (_layers.HasFlag(DialogueLayerMask.Background0))
+            ShowGraphic(_refs.BackgroundImage0, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.Background2))
-            ShowGraphic(_refs.BackgroundImage2, interactive: false);
+        if (_layers.HasFlag(DialogueLayerMask.Background1))
+            ShowGraphic(_refs.BackgroundImage1, interactive: false);
         // 나중에 Background3 쓰면 여기 추가
 
         // ------------------------------------
@@ -242,10 +242,10 @@ public sealed class CpsShowDialogueLayersCommand : CommandBase
         }
 
         if (_layers.HasFlag(DialogueLayerMask.Background1))
-            InstantOnGraphic(_refs.BackgroundImage, interactive: false);
+            InstantOnGraphic(_refs.BackgroundImage0, interactive: false);
 
-        if (_layers.HasFlag(DialogueLayerMask.Background2))
-            InstantOnGraphic(_refs.BackgroundImage2, interactive: false);
+        if (_layers.HasFlag(DialogueLayerMask.Background1))
+            InstantOnGraphic(_refs.BackgroundImage1, interactive: false);
         // Background3 필요하면 여기도 추가
 
         if (_layers.HasFlag(DialogueLayerMask.MainPortrait))

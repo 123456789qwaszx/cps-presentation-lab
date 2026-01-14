@@ -3,6 +3,13 @@ using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 
+public enum PortraitShakeTarget
+{
+    Main,
+    SubLeft,
+    SubRight,
+}
+
 public enum CpsShakeAxis
 {
     X = 0,
@@ -22,11 +29,9 @@ public enum CpsShakeAxis
     Order = 20)]
 public sealed class ShakeWidgetCommandSpec : CommandSpecBase
 {
-    [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitShake;
+    [Header("Target")] public PortraitShakeTarget target = PortraitShakeTarget.Main;
 
-    [Header("Shake")]
-    public CpsShakeAxis axis = CpsShakeAxis.X;
+    [Header("Shake")] public CpsShakeAxis axis = CpsShakeAxis.X;
 
     /// <summary>
     /// 흔들림 강도(픽셀). 8~24 정도가 UI에서 효과적임.
@@ -58,14 +63,14 @@ public sealed class CpsShakeWidgetCommand : CommandBase
     private readonly string _screenId;
     private readonly string _widgetId;
 
-    private readonly DialogueWidgetTarget _target;
+    private readonly PortraitShakeTarget _target;
     private readonly CpsShakeAxis _axis;
 
     private readonly float _intensity;
     private readonly float _duration;
-    private readonly int   _vibrato;
+    private readonly int _vibrato;
     private readonly float _randomness;
-    private readonly bool  _wait;
+    private readonly bool _wait;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
@@ -76,7 +81,7 @@ public sealed class CpsShakeWidgetCommand : CommandBase
         IDialogueWidgetAccess widgets,
         string screenId,
         string widgetId,
-        DialogueWidgetTarget target,
+        PortraitShakeTarget target,
         CpsShakeAxis axis,
         float intensity,
         float duration,
@@ -108,7 +113,7 @@ public sealed class CpsShakeWidgetCommand : CommandBase
 
         // 고급 디폴트
         float dur = _duration > 0f ? _duration : 0.28f;
-        int vib   = _vibrato  > 0  ? _vibrato  : 12;
+        int vib = _vibrato > 0 ? _vibrato : 12;
         float rnd = _randomness >= 0f ? Mathf.Clamp(_randomness, 0f, 180f) : 90f;
 
         _rect.DOKill(false);
@@ -151,7 +156,17 @@ public sealed class CpsShakeWidgetCommand : CommandBase
         if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
-        _rect = _refs.GetRect(_target);
+        // NOTE: NOTE: 1:1 enum mapping for framework use. 
+#pragma warning disable CS8524
+        DialogueWidgetTarget widgetTarget = _target switch
+        {
+            PortraitShakeTarget.Main => DialogueWidgetTarget.MainStandingPortraitShake,
+            PortraitShakeTarget.SubLeft => DialogueWidgetTarget.SubLeftStandingPortraitShake,
+            PortraitShakeTarget.SubRight => DialogueWidgetTarget.SubRightStandingPortraitShake
+        };
+#pragma warning restore CS8524
+
+        _rect = _refs.GetRect(widgetTarget);
         if (_rect == null)
             return false;
 

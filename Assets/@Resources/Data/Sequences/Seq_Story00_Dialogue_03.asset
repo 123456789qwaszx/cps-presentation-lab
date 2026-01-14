@@ -43,7 +43,10 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      commands:
+      - rid: 2406591567600025669
+      - rid: 2406591567600025671
+      - rid: 2406591567600025670
       gate:
         type: 0
         seconds: 0
@@ -726,3 +729,26 @@ MonoBehaviour:
         interval: -1
         wait: 0
         clearWhenEmpty: 1
+    - rid: 2406591567600025669
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        signalKey: 
+        consume: 1
+        timeoutSeconds: -1
+        respectTimeScale: 1
+    - rid: 2406591567600025670
+      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        seconds: 0.2
+        respectTimeScale: 1
+    - rid: 2406591567600025671
+      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        seconds: 0.2
+        respectTimeScale: 1
