@@ -7,19 +7,23 @@ using System.Collections.Generic;
 [Serializable]
 [CommandMenuHint(
     "Scene",
-    "Hide Dialogue Layers (Root)",
-    Sets  = new[]
+    "Show Dialogue Layers (Root)",
+    Sets = new[]
     {
-        CpsCommandMenuSets.VnAllOff
-    },
-    Order = -100
+        CpsCommandMenuSets.VnMainEnterFirstLine,
+        CpsCommandMenuSets.VnLineBasic,
+        CpsCommandMenuSets.VnLineType,
+        CpsCommandMenuSets.VnChoiceBasic,
+    }
 )]
-public sealed class HideRootLayersCommandSpec : CommandSpecBase
+public sealed class ShowRootLayersCommandSpec : CommandSpecBase
 {
-    public DialogueLayerMask layers = DialogueLayerMask.All;
+    [Header("Layers")]
+    public DialogueLayerMask layers =
+        DialogueLayerMask.Background1Root | DialogueLayerMask.DialogueBoxRoot;
 
     [Header("Fade")]
-    [Tooltip("<= 0이면 즉시 끄기 (알파 0으로 스냅)")]
+    [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]
     public float duration = 0f;
 
     public Ease ease = Ease.Linear;
@@ -28,45 +32,45 @@ public sealed class HideRootLayersCommandSpec : CommandSpecBase
     public bool wait = true;
 
     [Header("Interaction")]
-    [Tooltip("true면 숨긴 레이어의 입력을 완전히 차단(interactable/blocksRaycasts=false)")]
-    public bool disableInteraction = true;
+    [Tooltip("대화박스 / 선택지의 상호작용을 자동으로 켤지 여부")]
+    public bool enableInteraction = true;
 }
 
-public sealed class HideRootLayersCommand : CommandBase
+public sealed class ShowRootLayersCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
-    private readonly string _screenId;
-    private readonly string _widgetRoleKey;
-    private readonly bool  _wait;
+    private readonly string                _screenId;
+    private readonly string                _widgetRoleKey;
+    private readonly bool                  _wait;
 
-    private readonly DialogueLayerMask _layers;
-    private readonly float _duration;
-    private readonly Ease  _ease;
-    private readonly bool  _disableInteraction;
+    private readonly DialogueLayerMask     _layers;
+    private readonly float                 _duration;
+    private readonly Ease                  _ease;
+    private readonly bool                  _enableInteraction;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
-    private readonly List<RectTransform> _targets = new();
+    private readonly List<RectTransform>     _targets = new();
 
     private bool _resolveAttempted;
 
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
-    public HideRootLayersCommand(IDialogueWidgetAccess widgets, string screenId, string widgetRoleKey, bool waitForCompletion,
+    public ShowRootLayersCommand(IDialogueWidgetAccess widgets, string screenId, string widgetRoleKey, bool waitForCompletion,
         DialogueLayerMask layers,
         float duration,
         Ease ease,
-        bool disableInteraction)
+        bool enableInteraction)
     {
-        _widgets            = widgets;
-        _screenId           = screenId;
-        _widgetRoleKey      = widgetRoleKey;
-        _wait               = waitForCompletion;
-        
-        _layers             = layers;
-        _duration           = Mathf.Max(0f, duration);
-        _ease               = ease;
-        _disableInteraction = disableInteraction;
+        _widgets           = widgets;
+        _screenId          = screenId;
+        _widgetRoleKey     = widgetRoleKey;
+        _wait              = waitForCompletion;
+
+        _layers            = layers;
+        _duration          = Mathf.Max(0f, duration);
+        _ease              = ease;
+        _enableInteraction = enableInteraction;
     }
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
@@ -80,7 +84,7 @@ public sealed class HideRootLayersCommand : CommandBase
 
         if (_duration <= 0f)
         {
-            SnapOffTargets(_targets);
+            SnapOnTargets(_targets);
             yield break;
         }
 
@@ -97,22 +101,23 @@ public sealed class HideRootLayersCommand : CommandBase
                 continue;
 
             canvasGroup.DOKill(false);
-
-            Tween tween = canvasGroup
-                .DOFade(0f, _duration)
-                .SetEase(_ease)
-                .SetUpdate(true);
+            canvasGroup.alpha = 0f;
 
             remaining++;
 
+            Tween tween = canvasGroup
+                .DOFade(1f, _duration)
+                .SetEase(_ease)
+                .SetUpdate(true);
+
             tween.OnComplete(() =>
                 {
-                    canvasGroup.alpha = 0f;
+                    canvasGroup.alpha = 1f;
 
-                    if (_disableInteraction)
+                    if (_enableInteraction)
                     {
-                        canvasGroup.interactable   = false;
-                        canvasGroup.blocksRaycasts = false;
+                        canvasGroup.interactable   = true;
+                        canvasGroup.blocksRaycasts = true;
                     }
 
                     remaining--;
@@ -133,10 +138,11 @@ public sealed class HideRootLayersCommand : CommandBase
             return;
 
         CollectLayerRoots(_refs, _layers, _targets);
-        SnapOffTargets(_targets);
+        SnapOnTargets(_targets);
     }
 
-    private void SnapOffTargets(List<RectTransform> targets)
+
+    private void SnapOnTargets(List<RectTransform> targets)
     {
         if (targets == null || targets.Count == 0)
             return;
@@ -152,12 +158,12 @@ public sealed class HideRootLayersCommand : CommandBase
                 continue;
 
             canvasGroup.DOKill(false);
-            canvasGroup.alpha = 0f;
+            canvasGroup.alpha = 1f;
 
-            if (_disableInteraction)
+            if (_enableInteraction)
             {
-                canvasGroup.interactable   = false;
-                canvasGroup.blocksRaycasts = false;
+                canvasGroup.interactable   = true;
+                canvasGroup.blocksRaycasts = true;
             }
         }
     }
@@ -201,7 +207,10 @@ public sealed class HideRootLayersCommand : CommandBase
         if (canvasGroup != null)
             return canvasGroup;
 
-        Debug.LogWarning($"[HideRootLayersCommand] CanvasGroup missing. Added automatically: {rect.name}", rect);
+        Debug.LogWarning(
+            $"[CpsShowDialogueLayersCommand] CanvasGroup missing. Added automatically: {rect.name}",
+            rect);
+
         return rect.gameObject.AddComponent<CanvasGroup>();
     }
 }

@@ -282,7 +282,7 @@ MonoBehaviour:
     - slotName: ChoicePanel_Layer
       widgets:
       - widgetType: 5
-        nameTag: dialogue_ChoicePanelRoot
+        nameTag: dialogue_ChoicePanel_Root
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 2983346716064046149, guid: fe1dda2dd468ce64a8e03d00a446972d, type: 3}

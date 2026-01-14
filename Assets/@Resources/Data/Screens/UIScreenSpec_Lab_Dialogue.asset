@@ -159,7 +159,7 @@ MonoBehaviour:
     - slotName: BG0
       widgets:
       - widgetType: 2
-        nameTag: dialogue_Background_Image0
+        nameTag: dialogue_Background0_Image
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
     - slotName: BG1
       widgets:
       - widgetType: 2
-        nameTag: dialogue_BackgroundImage1
+        nameTag: dialogue_Background1_Image
         text: 
         onClickRoute: 
         prefabOverride: {fileID: 0}

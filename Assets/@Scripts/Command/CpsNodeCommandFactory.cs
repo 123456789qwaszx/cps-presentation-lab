@@ -45,7 +45,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             BouncySlideInCommandSpec s      => Create(s),
             SetScaleCommandSpec s           => Create(s),
             SetRotationCommandSpec s        => Create(s),
-            ShowDialogueLayersCommandSpec s => Create(s),
+            ShowRootLayersCommandSpec s => Create(s),
             HideRootLayersCommandSpec s     => Create(s),
 
             _ => null
@@ -62,10 +62,11 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             disableInteraction: s.disableInteraction
         );
 
-    private CpsShowDialogueLayersCommand Create(ShowDialogueLayersCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
+    private ShowRootLayersCommand Create(ShowRootLayersCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
             layers:            s.layers,
             duration:          s.duration,
+            ease:              s.ease,
             enableInteraction: s.enableInteraction
         );
 

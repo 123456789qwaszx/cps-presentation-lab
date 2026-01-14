@@ -26,7 +26,7 @@ MonoBehaviour:
       anchoredPosition: {x: 0, y: -80}
       overrideSizeDelta: 0
       sizeDelta: {x: 0, y: 0}
-  - nameTag: dialogue_Background_Image
+  - nameTag: dialogue_Background0_Image
     overrideActive: 1
     active: 1
     rect:

@@ -18,7 +18,7 @@ MonoBehaviour:
     steps:
     - editorName: HideAll
       commands:
-      - rid: 2406591583011209280
+      - rid: 2406591591793557504
       gate:
         type: 0
         seconds: 0
@@ -107,8 +107,7 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: "\uC88C\uC6B0\uB85C \uD754\uB4E4\uAE30"
-      commands:
-      - rid: 2406591562052010047
+      commands: []
       gate:
         type: 0
         seconds: 0
@@ -226,15 +225,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2406591562052010047
-      type: {class: HideAllDialogueLayerCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        layers: 251
-        duration: 0
-        wait: 1
-        disableInteraction: 1
     - rid: 2406591562052010063
       type: {class: ShowDialogueLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -353,7 +343,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 7
+        target: 500
         from: 0
         slideDistance: 88
         slideDuration: 1.2
@@ -362,7 +352,7 @@ MonoBehaviour:
         waveLoops: 2
         waveAxis: 1
         startFromLayout: 1
-        wait: 0
+        wait: 1
     - rid: 2406591562052010109
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -716,12 +706,13 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         seconds: 0.2
         respectTimeScale: 1
-    - rid: 2406591583011209280
-      type: {class: HideAllDialogueLayerCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591591793557504
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        layers: 251
-        duration: 0.25
+        layers: -1
+        duration: 0
+        ease: 1
         wait: 1
         disableInteraction: 1
