@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public enum DialogueWidgetTarget
 {
+    None = -1,
     // ---- Dialogue Line ----
     DialogueBoxRoot,
     LineText,

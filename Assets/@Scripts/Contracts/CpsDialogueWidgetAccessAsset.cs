@@ -2,23 +2,39 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Lab.UI.Naming;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "CpsDialogueWidgetAccess", menuName = "Dialogue/Services/CPS Widget Access")]
 public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWidgetAccess
 {
+    private readonly Dictionary<(UIScreen screen, string roleKey), IDialogueWidgetAccess.WidgetRefs> _widgetRefsCache = new();
+    private readonly Dictionary<string, DialogueRoleWidgetTags> _widgetTagsCache = new();
+
     public bool TryResolve(string screenId, string widgetRoleKey, out IDialogueWidgetAccess.WidgetRefs refs)
     {
         refs = null;
 
         UIRouter router = UIRuntimeRouter.Router;
-        if (router == null) 
-        { Debug.LogWarning("[CpsDialogueWidgetAccess] UIRuntimeRouter.Router is null."); return false; }
+        if (router == null)
+        {
+            Debug.LogWarning("[CpsDialogueWidgetAccess] UIRuntimeRouter.Router is null.");
+            return false;
+        }
 
         ScreenKey key = new ScreenKey(screenId);
-        if (!router.TryGetScreen(key, out UIScreen screen)) 
-        { Debug.LogWarning($"[CpsDialogueWidgetAccess] Failed to resolve UIScreen. screenId='{screenId}', ScreenKey='{key}'"); return false; }
-        
-        DialogueRoleWidgetTags set = new (widgetRoleKey);
+        if (!router.TryGetScreen(key, out UIScreen screen))
+        {
+            Debug.LogWarning($"[CpsDialogueWidgetAccess] Failed to resolve UIScreen. screenId='{screenId}', ScreenKey='{key}'");
+            return false;
+        }
+
+        string role = widgetRoleKey;
+        var cacheKey = (screen, role);
+
+        if (_widgetRefsCache.TryGetValue(cacheKey, out refs) && refs != null)
+            return true;
+
+        DialogueRoleWidgetTags set = GetDialogueRoleWidgetTags(role);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
@@ -29,7 +45,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             SpeakerNameBox        = screen.GetWidgetDirect<Image>(set.SpeakerNameBoxTag),
             SpeakerNameText       = screen.GetWidgetDirect<TMP_Text>(set.SpeakerNameTag),
             ProtagonistCutinImage = screen.GetWidgetDirect<Image>(set.ProtagonistCutinImageTag),
-            
+
             // ---- Main Standing Portrait ----
             MainStandingPortraitRoot        = screen.GetWidgetHandle(set.MainStandingPortraitRootTag)?.RectTransform,
             MainStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitTrackTag),
@@ -71,7 +87,7 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             BackgroundImage1 = screen.GetWidgetHandle(set.BackgroundImage1Tag)?.Image,
 
             // ---- Choice Panel ----
-            ChoicePanelRoot = screen.GetWidgetHandle(set.ChoicePanelRootTag)?.RectTransform,
+            ChoicePanelRoot  = screen.GetWidgetHandle(set.ChoicePanelRootTag)?.RectTransform,
             ChoiceButton0Root = screen.GetWidgetDirect<Image>(set.ChoiceButton0RootTag),
             ChoiceButton1Root = screen.GetWidgetDirect<Image>(set.ChoiceButton1RootTag),
             ChoiceButton2Root = screen.GetWidgetDirect<Image>(set.ChoiceButton2RootTag),
@@ -80,6 +96,32 @@ public sealed class CpsDialogueWidgetAccessAsset : ScriptableObject, IDialogueWi
             ChoiceButton2Text = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
         };
 
+        _widgetRefsCache[cacheKey] = refs;
         return true;
+    }
+    
+    private DialogueRoleWidgetTags GetDialogueRoleWidgetTags(string roleKey)
+    {
+        if (_widgetTagsCache.TryGetValue(roleKey, out DialogueRoleWidgetTags tags))
+            return tags;
+
+        tags = new DialogueRoleWidgetTags(roleKey);
+        _widgetTagsCache[roleKey] = tags;
+        return tags;
+    }
+
+    public void InvalidateForScreen(UIScreen screen)
+    {
+        if (screen == null) return;
+
+        var keysToRemove = new List<(UIScreen, string)>();
+        foreach (var kv in _widgetRefsCache)
+        {
+            if (kv.Key.screen == screen)
+                keysToRemove.Add(kv.Key);
+        }
+
+        foreach (var k in keysToRemove)
+            _widgetRefsCache.Remove(k);
     }
 }
