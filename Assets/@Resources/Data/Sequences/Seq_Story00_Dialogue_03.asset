@@ -108,7 +108,7 @@ MonoBehaviour:
         signalKey: 
     - editorName: "\uC88C\uC6B0\uB85C \uD754\uB4E4\uAE30"
       commands:
-      - rid: 2406591562052010137
+      - rid: -2
       gate:
         type: 0
         seconds: 0
@@ -218,7 +218,6 @@ MonoBehaviour:
       - rid: 2406591567600025662
       - rid: 2406591567600025663
       - rid: 2406591567600025664
-      - rid: 2406591567600025665
       - rid: 2406591567600025666
       gate:
         type: 1
@@ -227,6 +226,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2406591562052010047
       type: {class: HideAllDialogueLayerCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -258,7 +259,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 2
+        target: 3
         sprite: {fileID: 21300000, guid: 9a7bb0e3c84658c4e9096cff832a6a6f, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -267,7 +268,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: 
         clearWhenEmpty: 1
     - rid: 2406591562052010080
@@ -285,7 +286,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 1
+        target: 2
         sprite: {fileID: 21300000, guid: e2c0902a725a5b5499a4603810e5fbc7, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -294,7 +295,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 3
+        target: 4
         text: 
         clearWhenEmpty: 1
     - rid: 2406591562052010090
@@ -303,7 +304,7 @@ MonoBehaviour:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         target: 4
-        active: 0
+        active: 1
     - rid: 2406591562052010094
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -318,7 +319,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 3
+        target: 4
         text: Juno
         clearWhenEmpty: 1
     - rid: 2406591562052010100
@@ -368,7 +369,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: ...
         interval: -1
         wait: 1
@@ -378,7 +379,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: "\uC800\uAE30..."
         interval: -1
         wait: 1
@@ -397,7 +398,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: "\uD639\uC2DC \uBCF5\uAD8C \uC0AC\uB7EC \uC624\uC168\uC5B4\uC694?\n\uC624\uB298\uC740
           \uAF2D \uB2F9\uCCA8 \uB418\uC2E4\uAC70\uC5D0\uC694."
         interval: -1
@@ -450,7 +451,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 39
+        target: 38
         toAlpha: 1
         fromAlpha: 0
         duration: -1
@@ -462,41 +463,23 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 39
+        target: 38
         active: 1
     - rid: 2406591562052010133
       type: {class: SetInteractableCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 40
+        target: 38
         interactable: 1
         searchParents: 1
         blocksRaycasts: 1
-    - rid: 2406591562052010137
-      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 9
-        swayAngle: 7
-        swayLoops: 2
-        swayDuration: 2.2
-        dropDistance: 0
-        dropDuration: 0.35
-        dropAngle: 0
-        dropEase: 8
-        wait: 0
-        swayForwardEase: 6
-        swayBackwardEase: 2
-        swayDecay: 1
-        dropStartRatio: 0
     - rid: 2406591562052010138
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 43
+        target: 42
         text: "\uC0B0\uB2E4"
         clearWhenEmpty: 1
     - rid: 2406591562052010139
@@ -504,7 +487,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 44
+        target: 43
         text: "\uC0AC\uC9C0\uC54A\uB294\uB2E4"
         clearWhenEmpty: 1
     - rid: 2406591562052010140
@@ -512,7 +495,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 45
+        target: 44
         text: ???
         clearWhenEmpty: 1
     - rid: 2406591562052010141
@@ -520,7 +503,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 40
+        target: 39
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -529,7 +512,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 41
+        target: 40
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -538,7 +521,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 42
+        target: 41
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -556,7 +539,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 39
+        target: 38
         toAlpha: 0
         fromAlpha: 1
         duration: -1
@@ -568,7 +551,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: ......
         interval: 0.6
         wait: 1
@@ -603,7 +586,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 10
+        target: 0
         axis: 0
         intensity: 6
         duration: 1.2
@@ -615,7 +598,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: "\uC544\uC27D\uC9C0\uB9CC \uB2E4\uC74C\uC5D0\uB294 \uAF2D \uB2F9\uCCA8\uB418\uC2E4\uAC70\uC5D0\uC694."
         interval: -1
         wait: 1
@@ -661,7 +644,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 1
         text: "\uD639\uC2DC \uB2E4\uC2DC \uACE8\uB77C\uBCF4\uC2DC\uACA0\uC5B4\uC694?"
         interval: -1
         wait: 1
@@ -701,24 +684,6 @@ MonoBehaviour:
         ease: 9
         wait: 0
         killTween: 1
-    - rid: 2406591567600025665
-      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 9
-        swayAngle: 5
-        swayLoops: 2
-        swayDuration: 2.9
-        dropDistance: 999
-        dropDuration: 0.6
-        dropAngle: 2
-        dropEase: 17
-        wait: 0
-        swayForwardEase: 6
-        swayBackwardEase: 4
-        swayDecay: 0
-        dropStartRatio: 0.553
     - rid: 2406591567600025666
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
