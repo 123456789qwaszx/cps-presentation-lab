@@ -5,16 +5,16 @@ using DG.Tweening;
 
 public enum PortraitShakeTarget
 {
-    Main,
-    SubLeft,
-    SubRight,
+    Main     = 0,
+    SubLeft  = 1,
+    SubRight = 2,
 }
 
 public enum CpsShakeAxis
 {
-    X = 0,
-    Y,
-    XY,
+    X  = 0,
+    Y  = 1,
+    XY = 2,
 }
 
 [Serializable]
@@ -75,7 +75,7 @@ public sealed class CpsShakeWidgetCommand : CommandBase
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
     private Vector2 _originPos;
-    private bool _resolved;
+    private bool _resolveAttempted;
 
     public CpsShakeWidgetCommand(
         IDialogueWidgetAccess widgets,
@@ -105,6 +105,8 @@ public sealed class CpsShakeWidgetCommand : CommandBase
 
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
+
+    #region Execute & Skip
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
@@ -145,26 +147,38 @@ public sealed class CpsShakeWidgetCommand : CommandBase
         _rect.anchoredPosition = _originPos;
     }
 
+    #endregion
+
     private bool ResolveIfNeeded()
     {
-        if (_resolved) return _rect != null;
-        _resolved = true;
+        if (_rect != null)
+            return true;
 
-        if (_widgets == null)
+        if (_resolveAttempted)
             return false;
+
+        _resolveAttempted = true;
 
         if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
             return false;
 
+#if UNITY_EDITOR
+        if (!Enum.IsDefined(typeof(PortraitShakeTarget), _target))
+        {
+            Debug.LogWarning(
+                $"[CpsShakeWidgetCommand] Invalid {nameof(PortraitShakeTarget)} value in command data: {_target}. " +
+                $"screenId='{_screenId}', widgetId='{_widgetId}'");
+            return false;
+        }
+#endif
         // NOTE: NOTE: 1:1 enum mapping for framework use. 
-#pragma warning disable CS8524
         DialogueWidgetTarget widgetTarget = _target switch
         {
             PortraitShakeTarget.Main => DialogueWidgetTarget.MainStandingPortraitShake,
             PortraitShakeTarget.SubLeft => DialogueWidgetTarget.SubLeftStandingPortraitShake,
-            PortraitShakeTarget.SubRight => DialogueWidgetTarget.SubRightStandingPortraitShake
+            PortraitShakeTarget.SubRight => DialogueWidgetTarget.SubRightStandingPortraitShake,
+            _ => DialogueWidgetTarget.None
         };
-#pragma warning restore CS8524
 
         _rect = _refs.GetRect(widgetTarget);
         if (_rect == null)
