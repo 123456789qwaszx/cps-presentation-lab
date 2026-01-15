@@ -273,7 +273,6 @@ public sealed class SwayThenDropCommand : CommandBase
     
     void ApplyFinal()
     {
-        Debug.Log("qweqqwe");
         if (_dropRect != null)
             _dropRect.anchoredPosition = _finalDropPos;
 

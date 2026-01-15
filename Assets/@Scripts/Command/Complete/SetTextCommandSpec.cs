@@ -9,8 +9,6 @@ using UnityEngine;
     Sets = new[]
     {
         CpsCommandMenuSets.VnMainEnterFirstLine,
-        "Custom/Text/LineBasic",
-        "Custom/Text/LineType"
     },
     SetOrder = 10,
     Order = 10)]
@@ -25,64 +23,62 @@ public sealed class SetTextCommandSpec : CommandSpecBase
     public string text;
 
     [Header("Behavior")]
-    public bool clearWhenEmpty = true; // text가 비었을 때도 비울지 여부
+    [Tooltip("텍스트가 비었을 때 기존 내용을 지울지 여부")]
+    public bool clearWhenEmpty = true;
 }
 
-
-public sealed class CpsSetTextCommand : CommandBase
+public sealed class SetTextCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
-    private readonly string _widgetId;
+    private readonly string _widgetRoleKey;
 
     private readonly DialogueWidgetTarget _target;
     private readonly string _text;
     private readonly bool _clearWhenEmpty;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
-    private bool _resolved;
+    private TMP_Text _textComponent;
+    private bool _resolveAttempted;
 
-    public CpsSetTextCommand(
+    public SetTextCommand(
         IDialogueWidgetAccess widgets,
         string screenId,
-        string widgetId,
+        string widgetRoleKey,
         DialogueWidgetTarget target,
         string text,
         bool clearWhenEmpty = true)
     {
-        _widgets = widgets;
-        _screenId = screenId;
-        _widgetId = widgetId;
+        _widgets       = widgets;
+        _screenId      = screenId;
+        _widgetRoleKey = widgetRoleKey;
 
-        _target = target;
-        _text = text; // null 허용 (아래에서 처리)
+        _target         = target;
+        _text           = text;
         _clearWhenEmpty = clearWhenEmpty;
     }
 
-    public override bool WaitForCompletion => false;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
         if (!ResolveIfNeeded())
             yield break;
-        
+
         Apply();
-        yield break;
     }
 
     protected override void OnSkip(CommandRunScope scope)
     {
         if (!ResolveIfNeeded())
             return;
-        
+
         Apply();
     }
 
     private void Apply()
     {
-        TMP_Text targetText = _refs.GetText(_target);
-        if (targetText == null)
+        if (_textComponent == null)
             return;
 
         string content = _text ?? string.Empty;
@@ -90,22 +86,35 @@ public sealed class CpsSetTextCommand : CommandBase
         if (string.IsNullOrEmpty(content) && !_clearWhenEmpty)
             return;
 
-        targetText.text = content;
+        _textComponent.text = content;
 
-        // 타이핑 흔적 제거
-        targetText.maxVisibleCharacters = int.MaxValue;
+        // 이전 타이핑 효과 흔적 제거 (항상 전체가 보이도록)
+        _textComponent.maxVisibleCharacters = int.MaxValue;
     }
 
     private bool ResolveIfNeeded()
     {
-        if (_resolved) return _refs != null;
-        _resolved = true;
+        if (_textComponent != null)
+            return true;
+
+        if (_resolveAttempted)
+            return false;
+
+        _resolveAttempted = true;
 
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetRoleKey, out _refs) || _refs == null)
             return false;
+
+        _textComponent = _refs.GetText(_target);
+        if (_textComponent == null)
+        {
+            Debug.LogWarning(
+                $"[SetTextCommand] TMP_Text not found. screen='{_screenId}', roleKey='{_widgetRoleKey}', target={_target}");
+            return false;
+        }
 
         return true;
     }

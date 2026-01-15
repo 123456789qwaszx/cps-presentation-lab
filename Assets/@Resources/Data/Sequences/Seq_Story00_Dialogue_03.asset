@@ -54,15 +54,17 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: Slide
+    - editorName: Input
       commands:
-      - rid: 2406591611139784772
+      - rid: 2406591611139784775
       gate:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: Input
-      commands: []
+    - editorName: Slide
+      commands:
+      - rid: 2406591611139784774
+      - rid: 2406591611139784772
       gate:
         type: 1
         seconds: 0
@@ -73,6 +75,13 @@ MonoBehaviour:
         type: 3
         seconds: 0
         signalKey: qwe
+    - editorName: Input
+      commands:
+      - rid: 2406591611139784773
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
     - editorName: Ready_NameBox,LineBody
       commands:
       - rid: 2406591562052010078
@@ -169,13 +178,6 @@ MonoBehaviour:
       - rid: 2406591562052010138
       - rid: 2406591562052010139
       - rid: 2406591562052010140
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uC120\uD0DD\uC9C0 \uB4F1\uC7A5"
-      commands:
-      - rid: 2406591562052010133
       gate:
         type: 0
         seconds: 0
@@ -387,15 +389,6 @@ MonoBehaviour:
         target: 15
         toScale: {x: 1.6, y: 1.6}
         killTween: 1
-    - rid: 2406591562052010133
-      type: {class: SetInteractableCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 38
-        interactable: 1
-        searchParents: 1
-        blocksRaycasts: 1
     - rid: 2406591562052010138
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -664,3 +657,24 @@ MonoBehaviour:
         duration: 1.2
         ease: 9
         wait: 0
+    - rid: 2406591611139784773
+      type: {class: StubCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+    - rid: 2406591611139784774
+      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 510
+        offset: {x: 0, y: 0}
+        resetToZero: 1
+        killTween: 1
+    - rid: 2406591611139784775
+      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        seconds: 0
+        respectTimeScale: 1
