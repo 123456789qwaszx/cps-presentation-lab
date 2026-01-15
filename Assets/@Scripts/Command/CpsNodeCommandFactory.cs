@@ -49,12 +49,20 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             HideTargetsCommandSpec s     => Create(s),
             ShowTargetsCommandSpec s     => Create(s),
             SetSpriteCommandSpec s       => Create(s),
+            RestoreRectCommandSpec s     => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private RestoreRectCommand Create(RestoreRectCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            s.target,
+            s.flags,
+            s.captureBaselineIfMissing
+        );
     
     private SetSpriteCommand Create(SetSpriteCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey,
