@@ -25,38 +25,56 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         {
             null => null,
 
-            SetTextCommandSpec s         => Create(s),
-            TypeTextCommandSpec s        => Create(s),
-            FadeCommandSpec s            => Create(s),
-            CanvasFadeCommandSpec s      => Create(s),
-            SlideInCommandSpec s         => Create(s),
-            PunchScaleCommandSpec s      => Create(s),
-            ShakeWidgetCommandSpec s     => Create(s),
-            WaitCommandSpec s            => Create(s),
-            HoldSignalCommandSpec s      => Create(s),
-            RaiseSignalCommandSpec s     => Create(s),
-            SetInteractableCommandSpec s => Create(s),
-            SetAnchoredPosCommandSpec s  => Create(s),
-            MoveToCommandSpec s          => Create(s),
-            MoveByCommandSpec s          => Create(s),
-            BouncySlideInCommandSpec s   => Create(s),
-            ShowRootLayersCommandSpec s  => Create(s),
-            HideRootLayersCommandSpec s  => Create(s),
-            HideTargetsCommandSpec s     => Create(s),
-            ShowTargetsCommandSpec s     => Create(s),
-            SetSpriteCommandSpec s       => Create(s),
-            RestoreRectCommandSpec s     => Create(s),
-            SetRotationCommandSpec s     => Create(s),
-            RotateFromToCommandSpec s    => Create(s),
-            SetScaleCommandSpec s        => Create(s),
-            ScaleFromToCommandSpec s     => Create(s),
-            SetColorCommandSpec s        => Create(s),
+            SetTextCommandSpec s            => Create(s),
+            TypeTextCommandSpec s           => Create(s),
+            FadeCommandSpec s               => Create(s),
+            CanvasFadeCommandSpec s         => Create(s),
+            SlideInCommandSpec s            => Create(s),
+            PunchScaleCommandSpec s         => Create(s),
+            ShakeWidgetCommandSpec s        => Create(s),
+            WaitCommandSpec s               => Create(s),
+            HoldSignalCommandSpec s         => Create(s),
+            RaiseSignalCommandSpec s        => Create(s),
+            SetInteractableCommandSpec s    => Create(s),
+            MoveToCommandSpec s             => Create(s),
+            MoveByCommandSpec s             => Create(s),
+            BouncySlideInCommandSpec s      => Create(s),
+            ShowRootLayersCommandSpec s     => Create(s),
+            HideRootLayersCommandSpec s     => Create(s),
+            HideTargetsCommandSpec s        => Create(s),
+            ShowTargetsCommandSpec s        => Create(s),
+            SetSpriteCommandSpec s          => Create(s),
+            RestoreRectCommandSpec s        => Create(s),
+            SetRotationCommandSpec s        => Create(s),
+            RotateFromToCommandSpec s       => Create(s),
+            SetScaleCommandSpec s           => Create(s),
+            ScaleFromToCommandSpec s        => Create(s),
+            SetColorCommandSpec s           => Create(s),
+            SetAnchoredPosCommandSpec s     => Create(s),
+            SetRootStageCommandSpec s       => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private SetRootStageCommand Create(SetRootStageCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            layers:        s.layers,
+            anchorPreset:  s.anchorPreset,
+            offset:        s.offset,
+            killTween:     s.killTween
+        );
+    
+    private SetAnchoredPosCommand Create(SetAnchoredPosCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            target:          s.target,
+            useAnchorPreset: s.useAnchorPreset,
+            anchorPreset:    s.anchorPreset,
+            offset:          s.offset,
+            killTween:       s.killTween
+        );
     
     private SetColorCommand Create(SetColorCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey,
@@ -170,13 +188,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             position: s.position,
             duration: s.duration,
             ease:     s.ease,
-            killTween:s.killTween
-        );
-
-    private CpsSetAnchoredPosCommand Create(SetAnchoredPosCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            value:    s.value,
-            relative: s.relative,
             killTween:s.killTween
         );
 
