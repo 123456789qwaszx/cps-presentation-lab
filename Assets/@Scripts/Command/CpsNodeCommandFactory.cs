@@ -27,16 +27,10 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
 
             SetTextCommandSpec s           => Create(s),
             TypeTextCommandSpec s          => Create(s),
-            FadeCommandSpec s              => Create(s),
-            CanvasFadeCommandSpec s        => Create(s),
-            SlideInCommandSpec s           => Create(s),
-            PunchScaleCommandSpec s        => Create(s),
-            ShakeWidgetCommandSpec s       => Create(s),
             WaitCommandSpec s              => Create(s),
             HoldSignalCommandSpec s        => Create(s),
             RaiseSignalCommandSpec s       => Create(s),
             SetInteractableCommandSpec s   => Create(s),
-            BouncySlideInCommandSpec s     => Create(s),
             ShowRootLayersCommandSpec s    => Create(s),
             HideRootLayersCommandSpec s    => Create(s),
             HideTargetsCommandSpec s       => Create(s),
@@ -52,12 +46,91 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SetRootStageCommandSpec s      => Create(s),
             MoveToCommandSpec s            => Create(s),
             MoveByCommandSpec s            => Create(s),
+            SlideInCommandSpec s           => Create(s),
+            ShakeRigsCommandSpec s         => Create(s),
+            PunchScaleCommandSpec s        => Create(s),
+            BouncySlideInCommandSpec s     => Create(s),
+            FadeLayersCommandSpec s        => Create(s),
+            SwayThenDropCommandSpec s      => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    
+    private SwayThenDropCommand Create(SwayThenDropCommandSpec s)
+        => new (_widgets,s.screenId,s.widgetRoleKey, s.wait,
+            swayTarget:       s.swayTarget,
+            dropTarget:       s.dropTarget,
+            
+            swayAngle:        s.swayAngle,
+            swayLoops:        s.swayLoops,
+            swayDuration:     s.swayDuration,
+            
+            dropDistance:     s.dropDistance,
+            dropDuration:     s.dropDuration,
+            dropEase:         s.dropEase,
+
+            swayForwardEase:  s.swayForwardEase,
+            swayDecay:        s.swayDecay,
+
+            dropStartRatio:   s.dropStartRatio
+        );
+    
+    private FadeLayersCommand Create(FadeLayersCommandSpec s)
+        => new (widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.widgetRoleKey, waitForCompletion: s.wait,
+            layers:      s.layers,
+            toAlpha:     s.toAlpha,
+            duration:    s.duration,
+            ease:        s.ease,
+            fromAlpha:   s.fromAlpha,
+            addIfMissing:s.addIfMissing
+        );
+    
+    private BouncySlideInCommand Create(BouncySlideInCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:         s.target, 
+            from:           s.from,
+            slideDistance:  s.slideDistance,
+            slideDuration:  s.slideDuration,
+            slideEase:      s.slideEase,
+            waveAmplitude:  s.waveAmplitude,
+            waveLoops:      s.waveLoops,
+            waveAxis:       s.waveAxis
+        );
+    
+    
+    private PunchScaleCommand Create(PunchScaleCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:     s.target, 
+            strength:   s.strength,
+            duration:   s.duration,
+            vibrato:    s.vibrato,
+            elasticity: s.elasticity
+        );
+    
+    
+    private ShakeRigsCommand Create(ShakeRigsCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:     s.target,
+            axis:       s.axis,
+            intensity:  s.intensity,
+            duration:   s.duration,
+            vibrato:    s.vibrato,
+            randomness: s.randomness
+        );
+    
+    
+    private SlideInCommand Create(SlideInCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, wait: s.wait,
+            target:   s.target, 
+            from:     s.from,
+            distance: s.distance,
+            duration: s.duration,
+            ease:     s.ease
+        );
     
     private MoveByCommand Create(MoveByCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
@@ -181,17 +254,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             enableInteraction: s.enableInteraction
         );
 
-    private CpsBouncySlideInCommand Create(BouncySlideInCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            from:           s.from,
-            slideDistance:  s.slideDistance,
-            slideDuration:  s.slideDuration,
-            slideEase:      s.slideEase,
-            waveAmplitude:  s.waveAmplitude,
-            waveLoops:      s.waveLoops,
-            waveAxis:       s.waveAxis,
-            startFromLayout:s.startFromLayout
-        );
     
     private CpsSetInteractableCommand Create(SetInteractableCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
@@ -218,60 +280,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         => new (_time,
             seconds:         s.seconds,
             respectTimeScale:s.respectTimeScale
-        );
-
-    private CpsShakeWidgetCommand Create(ShakeWidgetCommandSpec s)
-    {
-        float dur = s.duration   > 0f ? s.duration   : 0.28f;
-        int   vib = s.vibrato    > 0  ? s.vibrato    : 12;
-        float rnd = s.randomness >= 0f ? Mathf.Clamp(s.randomness, 0f, 180f) : 90f;
-
-        return new CpsShakeWidgetCommand(_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            axis:      s.axis,
-            intensity: s.intensity,
-            duration:  dur,
-            vibrato:   vib,
-            randomness:rnd
-        );
-    }
-
-    private CpsPunchScaleCommand Create(PunchScaleCommandSpec s)
-    {
-        float dur = s.duration   > 0f ? s.duration   : 0.22f;
-        int   vib = s.vibrato    > 0  ? s.vibrato    : 8;
-        float ela = s.elasticity >= 0f ? Mathf.Clamp01(s.elasticity) : 0.75f;
-
-        return new CpsPunchScaleCommand(_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            strength:  s.strength,
-            duration:  dur,
-            vibrato:   vib,
-            elasticity:ela
-        );
-    }
-    
-    private CpsSlideInCommand Create(SlideInCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            from:     s.from,
-            distance: s.distance,
-            duration: s.duration,
-            ease:     s.ease
-        );
-
-    private CpsCanvasFadeCommand Create(CanvasFadeCommandSpec s)
-        => new (widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.widgetRoleKey, target: s.target, waitForCompletion: s.wait,
-            toAlpha:     s.toAlpha,
-            duration:    s.duration,
-            ease:        s.ease,
-            fromAlpha:   s.fromAlpha,
-            addIfMissing:s.addIfMissing
-        );
-
-    private CpsFadeCommand Create(FadeCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toAlpha:   s.toAlpha,
-            duration:  s.duration,
-            ease:      s.ease,
-            fromAlpha: s.fromAlpha
         );
 
     private CpsTypeTextCommand Create(TypeTextCommandSpec s)

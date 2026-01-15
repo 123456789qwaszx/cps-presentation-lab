@@ -13,8 +13,7 @@ public sealed class MoveToCommandSpec : CommandSpecBase
     [Header("Target (Track or Rig)")]
     public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
-    [Header("Destination (absolute anchoredPosition)")]
-    [Tooltip("도착 지점(절대 anchoredPosition, 픽셀 단위).")]
+    [Header("Destination (absolute anchoredPosition)")] [Tooltip("도착 지점(절대 anchoredPosition, 픽셀 단위).")]
     public Vector2 toPosition = Vector2.zero;
 
     [Header("Tween")]
@@ -28,53 +27,51 @@ public sealed class MoveToCommandSpec : CommandSpecBase
     [Tooltip("체크하면 트윈이 끝날 때까지 Step 진행을 멈춥니다.")]
     public bool wait = false;
 
-    [Header("Options")]
-    [Tooltip("체크하면 기존 위치 관련 트윈을 끊고 시작합니다.")]
+    [Header("Options")] [Tooltip("체크하면 기존 위치 관련 트윈을 끊고 시작합니다.")]
     public bool killTween = true;
 }
 
 public sealed class MoveToCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
-    private readonly string                _screenId;
-    private readonly string                _widgetRoleKey;
-    private readonly bool                  _wait;
+    private readonly string _screenId;
+    private readonly string _widgetRoleKey;
+    private readonly bool _wait;
 
-    private readonly DialogueWidgetTarget  _target;
-    private readonly Vector2               _toPosition;
-    private readonly float                 _duration;
-    private readonly Ease                  _ease;
-    private readonly bool                  _killTween;
+    private readonly DialogueWidgetTarget _target;
+    private readonly Vector2 _toPosition;
+    private readonly float _duration;
+    private readonly Ease _ease;
+    private readonly bool _killTween;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
-    private RectTransform                     _rect;
-    private bool                              _resolveAttempted;
+    private RectTransform _rect;
+    private bool _resolveAttempted;
 
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
     public MoveToCommand(
         IDialogueWidgetAccess widgets,
-        string                screenId,
-        string                widgetRoleKey,
-        bool                  waitForCompletion,
-
-        DialogueWidgetTarget  target,
-        Vector2               toPosition,
-        float                 duration,
-        Ease                  ease,
-        bool                  killTween)
+        string screenId,
+        string widgetRoleKey,
+        bool waitForCompletion,
+        DialogueWidgetTarget target,
+        Vector2 toPosition,
+        float duration,
+        Ease ease,
+        bool killTween)
     {
-        _widgets       = widgets;
-        _screenId      = screenId;
+        _widgets = widgets;
+        _screenId = screenId;
         _widgetRoleKey = widgetRoleKey;
-        _wait          = waitForCompletion;
+        _wait = waitForCompletion;
 
-        _target      = target;
-        _toPosition  = toPosition;
-        _duration    = Mathf.Max(0f, duration);
-        _ease        = ease;
-        _killTween   = killTween;
+        _target = target;
+        _toPosition = toPosition;
+        _duration = Mathf.Max(0f, duration);
+        _ease = ease;
+        _killTween = killTween;
     }
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
@@ -87,7 +84,6 @@ public sealed class MoveToCommand : CommandBase
 
         if (_duration <= 0f)
         {
-            // 스냅 이동
             _rect.anchoredPosition = _toPosition;
             yield break;
         }
@@ -97,7 +93,8 @@ public sealed class MoveToCommand : CommandBase
             .SetEase(_ease)
             .SetUpdate(true);
 
-        tween.BindToStep(scope);
+        tween.OnComplete(() => { _rect.anchoredPosition = _toPosition; })
+            .BindToRun(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

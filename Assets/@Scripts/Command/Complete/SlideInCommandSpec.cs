@@ -16,35 +16,30 @@ public enum CpsSlideFrom
 [CommandMenuHint("Motion", "Slide In", Order = 10)]
 public sealed class SlideInCommandSpec : CommandSpecBase
 {
-    [Header("Target")]
+    [Header("Target (Track)")]
     public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
     [Header("Slide")]
     public CpsSlideFrom from = CpsSlideFrom.Left;
 
-    /// <summary>
-    /// <= 0이면 Config 기본값 사용
-    /// </summary>
-    public float distance = -1f;
+    [Tooltip("슬라이드 시작 위치를 얼마나 멀리에서 잡을지 (픽셀). <= 0이면 기본값 사용.")]
+    public float distance = 480f;
 
-    /// <summary>
-    /// <= 0이면 Config 기본값 사용
-    /// </summary>
-    public float duration = -1f;
+    [Header("Tween")]
+    [Tooltip("트윈 시간. <= 0이면 즉시 도착 위치로 스냅.")]
+    public float duration = 1.2f;
 
     public Ease ease = Ease.OutCubic;
 
-    /// <summary>
-    /// true면 슬라이드가 끝날 때까지 Step 진행을 멈춤 (기본 false 추천)
-    /// </summary>
+    [Tooltip("체크하면 슬라이드가 끝날 때까지 Step 진행을 멈춥니다.")]
     public bool wait = false;
 }
 
-public sealed class CpsSlideInCommand : CommandBase
+public sealed class SlideInCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
-    private readonly string _widgetId;
+    private readonly string _widgetRoleKey;
 
     private readonly DialogueWidgetTarget _target;
     private readonly CpsSlideFrom _from;
@@ -58,27 +53,27 @@ public sealed class CpsSlideInCommand : CommandBase
     private Vector2 _destPos;
     private bool _resolved;
 
-    public CpsSlideInCommand(
+    public SlideInCommand(
         IDialogueWidgetAccess widgets,
         string screenId,
-        string widgetId,
+        string widgetRoleKey,
+        bool wait,
         DialogueWidgetTarget target,
         CpsSlideFrom from,
         float distance,
         float duration,
-        Ease ease = Ease.OutCubic,
-        bool waitForCompletion = false)
+        Ease ease = Ease.OutCubic)
     {
         _widgets  = widgets;
         _screenId = screenId;
-        _widgetId = widgetId;
+        _widgetRoleKey = widgetRoleKey;
+        _wait     = wait;
 
         _target   = target;
         _from     = from;
         _distance = Mathf.Max(0f, distance);
         _duration = Mathf.Max(0f, duration);
         _ease     = ease;
-        _wait     = waitForCompletion;
     }
 
     public override bool WaitForCompletion => _wait;
@@ -89,7 +84,7 @@ public sealed class CpsSlideInCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        _rect.DOKill(false);
+        _rect.DOKill();
 
         Vector2 start = _destPos + GetOffset(_from, _distance);
         _rect.anchoredPosition = start;
@@ -104,8 +99,12 @@ public sealed class CpsSlideInCommand : CommandBase
             .DOAnchorPos(_destPos, _duration)
             .SetEase(_ease)
             .SetUpdate(true);
-
-        tween.BindToRun(scope);
+        
+        tween.OnComplete(() =>
+        {
+            _rect.anchoredPosition = _destPos;
+        })
+        .BindToRun(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();
@@ -128,14 +127,13 @@ public sealed class CpsSlideInCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetRoleKey, out _refs) || _refs == null)
             return false;
 
         _rect = _refs.GetRect(_target);
         if (_rect == null)
             return false;
 
-        // “dest = 현재 레이아웃 위치” (아날로그 규칙)
         _destPos = _rect.anchoredPosition;
         return true;
     }

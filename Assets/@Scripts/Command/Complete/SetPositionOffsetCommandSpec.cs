@@ -86,12 +86,10 @@ public sealed class SetPositionOffsetCommand : CommandBase
 
         if (_resetToZero)
         {
-            // 트랙 오프셋을 원점으로 리셋
             _rect.anchoredPosition = Vector2.zero;
         }
         else
         {
-            // 현재 위치에서 offset 만큼 이동
             _rect.anchoredPosition = _rect.anchoredPosition + _offset;
         }
     }

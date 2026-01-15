@@ -18,6 +18,8 @@ MonoBehaviour:
     steps:
     - editorName: SetLayer
       commands:
+      - rid: 2406591609627213893
+      - rid: 2406591609627213898
       - rid: 2406591603016728662
       - rid: 2406591603016728663
       - rid: 2406591603016728664
@@ -39,22 +41,28 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: SetRootStage
-      commands:
-      - rid: 2406591609435324416
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
     - editorName: Input
       commands: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: Offset
+    - editorName: SwayDrop
       commands:
-      - rid: 2406591609627213888
+      - rid: 2406591611139784769
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Slide
+      commands:
+      - rid: 2406591611139784772
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Input
+      commands: []
       gate:
         type: 1
         seconds: 0
@@ -102,7 +110,6 @@ MonoBehaviour:
     - editorName: showChar
       commands:
       - rid: 2406591562052010108
-      - rid: 2406591562052010103
       gate:
         type: 0
         seconds: 0
@@ -168,7 +175,6 @@ MonoBehaviour:
         signalKey: 
     - editorName: "\uC120\uD0DD\uC9C0 \uB4F1\uC7A5"
       commands:
-      - rid: 2406591562052010131
       - rid: 2406591562052010133
       gate:
         type: 0
@@ -184,8 +190,7 @@ MonoBehaviour:
   - editorName: "\uC120\uD0DD\uC9C0\uACB0\uACFC"
     steps:
     - editorName: "\uC120\uD0DD\uC9C0 \uC885\uB8CC"
-      commands:
-      - rid: 2406591562052010149
+      commands: []
       gate:
         type: 0
         seconds: 0
@@ -223,7 +228,7 @@ MonoBehaviour:
     - editorName: "\uB2E4\uC2DC\uACE8\uB77C\uBCFC\uB798?"
       commands:
       - rid: 2406591562052010156
-      - rid: 2406591562052010159
+      - rid: -2
       - rid: 2406591562052010160
       - rid: 2406591562052010166
       - rid: 2406591562052010167
@@ -235,7 +240,6 @@ MonoBehaviour:
     steps:
     - editorName: Reaction_Drop01 (imported) (imported)
       commands:
-      - rid: -2
       - rid: 2406591567600025663
       - rid: 2406591567600025664
       - rid: 2406591567600025666
@@ -306,17 +310,6 @@ MonoBehaviour:
         target: 4
         text: Juno
         clearWhenEmpty: 1
-    - rid: 2406591562052010103
-      type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 13
-        toAlpha: 1
-        fromAlpha: 0
-        duration: 0.8
-        ease: 9
-        wait: 1
     - rid: 2406591562052010108
       type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -330,7 +323,6 @@ MonoBehaviour:
         waveAmplitude: 22
         waveLoops: 2
         waveAxis: 1
-        startFromLayout: 1
         wait: 1
     - rid: 2406591562052010109
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
@@ -395,18 +387,6 @@ MonoBehaviour:
         target: 15
         toScale: {x: 1.6, y: 1.6}
         killTween: 1
-    - rid: 2406591562052010131
-      type: {class: CanvasFadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 38
-        toAlpha: 1
-        fromAlpha: 0
-        duration: -1
-        ease: 9
-        wait: 0
-        addIfMissing: 1
     - rid: 2406591562052010133
       type: {class: SetInteractableCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -473,18 +453,6 @@ MonoBehaviour:
         consume: 1
         timeoutSeconds: 3
         respectTimeScale: 1
-    - rid: 2406591562052010149
-      type: {class: CanvasFadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 38
-        toAlpha: 0
-        fromAlpha: 1
-        duration: -1
-        ease: 9
-        wait: 0
-        addIfMissing: 1
     - rid: 2406591562052010152
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -511,18 +479,6 @@ MonoBehaviour:
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 319f2619808184f4db1a05903031721e, type: 3}
         setNativeSize: 0
-    - rid: 2406591562052010159
-      type: {class: ShakeWidgetCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 0
-        axis: 0
-        intensity: 6
-        duration: 1.2
-        vibrato: 6
-        randomness: 5
-        wait: 0
     - rid: 2406591562052010160
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -661,20 +617,50 @@ MonoBehaviour:
         spriteTarget: 0
         color: {r: 1, g: 0.87358487, b: 0.87358487, a: 0.6666667}
         keepAlpha: 0
-    - rid: 2406591609435324416
+    - rid: 2406591609627213893
       type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        layers: 3
-        anchorPreset: 2
+        layers: 8
+        anchorPreset: 0
         offset: {x: 0, y: 0}
         killTween: 1
-    - rid: 2406591609627213888
+    - rid: 2406591609627213898
       type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         target: 510
-        offset: {x: -200, y: 0}
+        offset: {x: 0, y: 0}
+        resetToZero: 1
         killTween: 1
+    - rid: 2406591611139784769
+      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        swayTarget: 530
+        dropTarget: 510
+        swayAngle: 18
+        swayLoops: 3
+        swayDuration: 2.4
+        dropDistance: 800
+        dropDuration: 0.24
+        dropAngle: 0
+        dropEase: 8
+        wait: 0
+        swayForwardEase: 6
+        swayDecay: 1
+        dropStartRatio: 0.407
+    - rid: 2406591611139784772
+      type: {class: SlideInCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 510
+        from: 0
+        distance: 480
+        duration: 1.2
+        ease: 9
+        wait: 0

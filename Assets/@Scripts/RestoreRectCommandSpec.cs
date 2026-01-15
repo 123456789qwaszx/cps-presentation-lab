@@ -4,16 +4,16 @@ using System.Collections;
 using TMPro;
 using UnityEngine.UI;
 
-[Serializable]
-[CommandMenuHint(
-    "Rect",
-    "Restore Rect Baseline",
-    Sets = new[]
-    {
-        CpsCommandMenuSets.VnLayerRestore,
-    },
-    SetOrder = -85
-)]
+// [Serializable]
+// [CommandMenuHint(
+//     "Rect",
+//     "Restore Rect Baseline",
+//     Sets = new[]
+//     {
+//         CpsCommandMenuSets.VnLayerRestore,
+//     },
+//     SetOrder = -85
+// )]
 public sealed class RestoreRectCommandSpec : CommandSpecBase
 {
     [Header("Target")]
