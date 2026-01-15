@@ -29,7 +29,7 @@ public sealed class HideTargetsCommandSpec : CommandSpecBase
 
     [Header("Interaction")]
     [Tooltip("true면 숨긴 대상의 입력을 완전히 차단(interactable/blocksRaycasts=false)")]
-    public bool disableInteraction = false;
+    public bool disableInteraction = true;
 }
 
 public sealed class HideTargetsCommand : CommandBase

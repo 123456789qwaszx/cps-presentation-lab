@@ -13,6 +13,12 @@ public static class CpsCommandMenuSets
     /// </summary>
     public const string VnLayerSetup = "VN/LayerSetup";
     
+    /// <summary>
+    /// 대화 레이아웃을 기본 상태로 원상복구하는 세트
+    /// (숨겼던 타깃들을 다시 보여주고, 루트 레이어도 켠다)
+    /// 메뉴: VN/LayerRestore
+    /// </summary>
+    public const string VnLayerRestore = "VN/LayerRestore";
     
     
     /// <summary>

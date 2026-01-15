@@ -25,29 +25,30 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         {
             null => null,
 
-            SetTextCommandSpec s            => Create(s),
-            TypeTextCommandSpec s           => Create(s),
-            FadeCommandSpec s               => Create(s),
-            CanvasFadeCommandSpec s         => Create(s),
-            SlideInCommandSpec s            => Create(s),
-            SetSpriteCommandSpec s          => Create(s),
-            SetColorCommandSpec s           => Create(s),
-            PunchScaleCommandSpec s         => Create(s),
-            ShakeWidgetCommandSpec s        => Create(s),
-            WaitCommandSpec s               => Create(s),
-            HoldSignalCommandSpec s         => Create(s),
-            RaiseSignalCommandSpec s        => Create(s),
-            SetActiveCommandSpec s          => Create(s),
-            SetInteractableCommandSpec s    => Create(s),
-            SetAnchoredPosCommandSpec s     => Create(s),
-            MoveToCommandSpec s             => Create(s),
-            MoveByCommandSpec s             => Create(s),
-            BouncySlideInCommandSpec s      => Create(s),
-            SetScaleCommandSpec s           => Create(s),
-            SetRotationCommandSpec s        => Create(s),
-            ShowRootLayersCommandSpec s => Create(s),
-            HideRootLayersCommandSpec s     => Create(s),
-            HideTargetsCommandSpec s        => Create(s),
+            SetTextCommandSpec s         => Create(s),
+            TypeTextCommandSpec s        => Create(s),
+            FadeCommandSpec s            => Create(s),
+            CanvasFadeCommandSpec s      => Create(s),
+            SlideInCommandSpec s         => Create(s),
+            SetSpriteCommandSpec s       => Create(s),
+            SetColorCommandSpec s        => Create(s),
+            PunchScaleCommandSpec s      => Create(s),
+            ShakeWidgetCommandSpec s     => Create(s),
+            WaitCommandSpec s            => Create(s),
+            HoldSignalCommandSpec s      => Create(s),
+            RaiseSignalCommandSpec s     => Create(s),
+            SetActiveCommandSpec s       => Create(s),
+            SetInteractableCommandSpec s => Create(s),
+            SetAnchoredPosCommandSpec s  => Create(s),
+            MoveToCommandSpec s          => Create(s),
+            MoveByCommandSpec s          => Create(s),
+            BouncySlideInCommandSpec s   => Create(s),
+            SetScaleCommandSpec s        => Create(s),
+            SetRotationCommandSpec s     => Create(s),
+            ShowRootLayersCommandSpec s  => Create(s),
+            HideRootLayersCommandSpec s  => Create(s),
+            HideTargetsCommandSpec s     => Create(s),
+            ShowTargetsCommandSpec s     => Create(s),
 
             _ => null
         };
@@ -55,6 +56,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
         return command != null;
     }
     
+    private ShowTargetsCommand Create(ShowTargetsCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            targetsMask:        s.targets,
+            duration:           s.duration,
+            ease:               s.ease,
+            enableInteraction:  s.enableInteraction
+        );
     
     private HideTargetsCommand Create(HideTargetsCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,

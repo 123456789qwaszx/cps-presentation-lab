@@ -1,24 +1,22 @@
 using System;
-using DG.Tweening;
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using UnityEngine;
 
 [Serializable]
 [CommandMenuHint(
     "Scene",
-    "Show Dialogue Layers (Root)",
-    Sets = new[]
+    "Show Dialogue Layers (Targets)",
+    Sets  = new[]
     {
-        CpsCommandMenuSets.VnLayerSetup,
-        CpsCommandMenuSets.VnLayerRestore,
+        CpsCommandMenuSets.VnLayerRestore
     },
-    SetOrder = -90
+    SetOrder = -80
 )]
-public sealed class ShowRootLayersCommandSpec : CommandSpecBase
+public sealed class ShowTargetsCommandSpec : CommandSpecBase
 {
-    [Header("Layers")]
-    public DialogueLayerMask layers = DialogueLayerMask.MainPortraitRoot |DialogueLayerMask.Background1Root | DialogueLayerMask.DialogueBoxRoot;
+    public DialogueTargetMask targets = DialogueTargetMask.All;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]
@@ -30,32 +28,38 @@ public sealed class ShowRootLayersCommandSpec : CommandSpecBase
     public bool wait = true;
 
     [Header("Interaction")]
-    [Tooltip("대화박스 / 선택지의 상호작용을 자동으로 켤지 여부")]
+    [Tooltip("true면 보여줄 때 입력을 다시 허용(interactable/blocksRaycasts=true)")]
     public bool enableInteraction = true;
 }
 
-public sealed class ShowRootLayersCommand : CommandBase
+public sealed class ShowTargetsCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
-    private readonly string                _screenId;
-    private readonly string                _widgetRoleKey;
-    private readonly bool                  _wait;
+    private readonly string _screenId;
+    private readonly string _widgetRoleKey;
+    private readonly bool  _wait;
 
-    private readonly DialogueLayerMask     _layers;
-    private readonly float                 _duration;
-    private readonly Ease                  _ease;
-    private readonly bool                  _enableInteraction;
+    private readonly DialogueTargetMask _targetsMask;
+    private readonly float _duration;
+    private readonly Ease  _ease;
+    private readonly bool  _enableInteraction;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
-    private readonly List<RectTransform>     _targets = new();
+
+    // RectTransform 기준으로 페이드하되, 중복 방지를 위해 HashSet/리스트
+    private readonly List<RectTransform> _targets = new();
 
     private bool _resolveAttempted;
 
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
-    public ShowRootLayersCommand(IDialogueWidgetAccess widgets, string screenId, string widgetRoleKey, bool waitForCompletion,
-        DialogueLayerMask layers,
+    public ShowTargetsCommand(
+        IDialogueWidgetAccess widgets,
+        string screenId,
+        string widgetRoleKey,
+        bool waitForCompletion,
+        DialogueTargetMask targetsMask,
         float duration,
         Ease ease,
         bool enableInteraction)
@@ -65,7 +69,7 @@ public sealed class ShowRootLayersCommand : CommandBase
         _widgetRoleKey     = widgetRoleKey;
         _wait              = waitForCompletion;
 
-        _layers            = layers;
+        _targetsMask       = targetsMask;
         _duration          = Mathf.Max(0f, duration);
         _ease              = ease;
         _enableInteraction = enableInteraction;
@@ -76,7 +80,7 @@ public sealed class ShowRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        CollectTargetRects(_refs, _targetsMask, _targets);
         if (_targets.Count == 0)
             yield break;
 
@@ -99,14 +103,13 @@ public sealed class ShowRootLayersCommand : CommandBase
                 continue;
 
             canvasGroup.DOKill(false);
-            canvasGroup.alpha = 0f;
-
-            remaining++;
 
             Tween tween = canvasGroup
                 .DOFade(1f, _duration)
                 .SetEase(_ease)
                 .SetUpdate(true);
+
+            remaining++;
 
             tween.OnComplete(() =>
                 {
@@ -135,10 +138,9 @@ public sealed class ShowRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        CollectTargetRects(_refs, _targetsMask, _targets);
         SnapOnTargets(_targets);
     }
-
 
     private void SnapOnTargets(List<RectTransform> targets)
     {
@@ -166,22 +168,6 @@ public sealed class ShowRootLayersCommand : CommandBase
         }
     }
 
-    private void CollectLayerRoots(IDialogueWidgetAccess.WidgetRefs refs, DialogueLayerMask layerMask, List<RectTransform> outList)
-    {
-        outList.Clear();
-        if (refs == null) return;
-
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root)) outList.Add(refs.BackgroundRoot0);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root)) outList.Add(refs.BackgroundRoot1);
-
-        if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot))     outList.Add(refs.MainStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))  outList.Add(refs.SubLeftStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot)) outList.Add(refs.SubRightStandingPortraitRoot);
-
-        if (layerMask.HasFlag(DialogueLayerMask.DialogueBoxRoot)) outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot)) outList.Add(refs.ChoicePanelRoot);
-    }
-
     private bool ResolveIfNeeded()
     {
         if (_resolveAttempted)
@@ -205,10 +191,41 @@ public sealed class ShowRootLayersCommand : CommandBase
         if (canvasGroup != null)
             return canvasGroup;
 
-        Debug.LogWarning(
-            $"[CpsShowDialogueLayersCommand] CanvasGroup missing. Added automatically: {rect.name}",
-            rect);
-
+        Debug.LogWarning($"[ShowTargetsCommand] CanvasGroup missing. Added automatically: {rect.name}", rect);
         return rect.gameObject.AddComponent<CanvasGroup>();
+    }
+
+    /// <summary>
+    /// DialogueTargetMask → 실제 RectTransform 리스트로 변환.
+    /// 매핑 테이블(DialogueTargetMaskMap)은
+    /// "덩어리 루트"에 해당하는 DialogueWidgetTarget들만 가리킨다는 전제.
+    /// </summary>
+    private static void CollectTargetRects(
+        IDialogueWidgetAccess.WidgetRefs refs,
+        DialogueTargetMask mask,
+        List<RectTransform> outList)
+    {
+        outList.Clear();
+
+        if (refs == null || mask == DialogueTargetMask.None)
+            return;
+
+        // 1) 마스크 → DialogueWidgetTarget 리스트
+        var widgetTargets = DialogueTargetMaskMap.ResolveTargets(mask);
+        if (widgetTargets == null || widgetTargets.Count == 0)
+            return;
+
+        // 2) 각 target → RectTransform (WidgetRefsExtensions.GetRect 사용)
+        var set = new HashSet<RectTransform>();
+
+        foreach (var wt in widgetTargets)
+        {
+            RectTransform rect = refs.GetRect(wt);
+            if (rect == null)
+                continue;
+
+            if (set.Add(rect))
+                outList.Add(rect);
+        }
     }
 }
