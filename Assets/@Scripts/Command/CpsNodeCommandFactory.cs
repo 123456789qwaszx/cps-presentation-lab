@@ -30,13 +30,11 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             FadeCommandSpec s            => Create(s),
             CanvasFadeCommandSpec s      => Create(s),
             SlideInCommandSpec s         => Create(s),
-            SetColorCommandSpec s        => Create(s),
             PunchScaleCommandSpec s      => Create(s),
             ShakeWidgetCommandSpec s     => Create(s),
             WaitCommandSpec s            => Create(s),
             HoldSignalCommandSpec s      => Create(s),
             RaiseSignalCommandSpec s     => Create(s),
-            SetActiveCommandSpec s       => Create(s),
             SetInteractableCommandSpec s => Create(s),
             SetAnchoredPosCommandSpec s  => Create(s),
             MoveToCommandSpec s          => Create(s),
@@ -52,12 +50,20 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             RotateFromToCommandSpec s    => Create(s),
             SetScaleCommandSpec s        => Create(s),
             ScaleFromToCommandSpec s     => Create(s),
+            SetColorCommandSpec s        => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private SetColorCommand Create(SetColorCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            spriteTarget:  s.spriteTarget,
+            color:         s.color,
+            keepAlpha: s.keepAlpha
+        );
     
     private ScaleFromToCommand Create(ScaleFromToCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait, 
@@ -181,11 +187,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             blocksRaycasts: s.blocksRaycasts
         );
 
-    private CpsSetActiveCommand Create(SetActiveCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            active: s.active
-        );
-
     private CpsRaiseSignalCommand Create(RaiseSignalCommandSpec s)
         => new (_signal,
             key:         s.signalKey,
@@ -234,14 +235,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             elasticity:ela
         );
     }
-
-    private CpsSetColorCommand Create(SetColorCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            color:         s.color,
-            preserveAlpha:s.preserveAlpha
-        );
-
-
+    
     private CpsSlideInCommand Create(SlideInCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
             from:     s.from,
