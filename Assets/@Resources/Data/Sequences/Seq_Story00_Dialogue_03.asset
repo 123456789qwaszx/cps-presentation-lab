@@ -25,22 +25,32 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: Input
-      commands: []
-      gate:
-        type: 3
-        seconds: 0
-        signalKey: s
     - editorName: SetSprite
       commands:
       - rid: 2406591603016728665
-      - rid: 2406591603016728666
-      - rid: 2406591603016728667
-      - rid: 2406591603016728668
       gate:
         type: 0
         seconds: 0
         signalKey: 
+    - editorName: Input
+      commands: []
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Rotate
+      commands:
+      - rid: 2406591603016728676
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: signal
+      commands: []
+      gate:
+        type: 3
+        seconds: 0
+        signalKey: qwe
     - editorName: Ready_NameBox,LineBody
       commands:
       - rid: 2406591562052010078
@@ -387,11 +397,6 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         target: 15
         toAngle: 270
-        overrideStartAngle: 0
-        startAngle: 0
-        duration: 0
-        ease: 9
-        wait: 0
         killTween: 1
     - rid: 2406591562052010124
       type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
@@ -565,11 +570,6 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         target: 15
         toAngle: 240
-        overrideStartAngle: 0
-        startAngle: 0
-        duration: 0
-        ease: 9
-        wait: 0
         killTween: 1
     - rid: 2406591562052010164
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
@@ -619,11 +619,6 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         target: 4
         toAngle: 0
-        overrideStartAngle: 0
-        startAngle: 0
-        duration: 0
-        ease: 9
-        wait: 0
         killTween: 1
     - rid: 2406591567600025664
       type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
@@ -704,32 +699,21 @@ MonoBehaviour:
     - rid: 2406591603016728665
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
         spriteTarget: 0
-        sprite: {fileID: 0}
+        sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
         setNativeSize: 0
-    - rid: 2406591603016728666
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591603016728676
+      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
-        spriteTarget: 0
-        sprite: {fileID: 0}
-        setNativeSize: 0
-    - rid: 2406591603016728667
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        spriteTarget: 0
-        sprite: {fileID: 0}
-        setNativeSize: 0
-    - rid: 2406591603016728668
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        spriteTarget: 0
-        sprite: {fileID: 0}
-        setNativeSize: 0
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 30
+        toEuler: {x: 0, y: 30, z: 0}
+        overrideFromEuler: 0
+        fromEuler: {x: 0, y: 0, z: 0}
+        duration: 0.18
+        ease: 9
+        wait: 0
+        killTween: 1

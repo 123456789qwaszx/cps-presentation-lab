@@ -43,19 +43,37 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             MoveByCommandSpec s          => Create(s),
             BouncySlideInCommandSpec s   => Create(s),
             SetScaleCommandSpec s        => Create(s),
-            SetRotationCommandSpec s     => Create(s),
             ShowRootLayersCommandSpec s  => Create(s),
             HideRootLayersCommandSpec s  => Create(s),
             HideTargetsCommandSpec s     => Create(s),
             ShowTargetsCommandSpec s     => Create(s),
             SetSpriteCommandSpec s       => Create(s),
             RestoreRectCommandSpec s     => Create(s),
+            SetRotationCommandSpec s     => Create(s),
+            RotateFromToCommandSpec s    => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private RotateFromToCommand Create(RotateFromToCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:            s.target,
+            toEuler:           s.toEuler,
+            overrideFromEuler: s.overrideFromEuler,
+            fromEuler:         s.fromEuler,
+            duration:          s.duration,
+            ease:              s.ease,
+            killTween:         s.killTween
+        );
+    
+    private SetRotationCommand Create(SetRotationCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
+            toAngle:            s.toAngle,
+            killTween:          s.killTween
+        );
     
     private RestoreRectCommand Create(RestoreRectCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey,
@@ -103,15 +121,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             enableInteraction: s.enableInteraction
         );
 
-    private CpsSetRotationCommand Create(SetRotationCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toAngle:            s.toAngle,
-            overrideStartAngle: s.overrideStartAngle,
-            startAngle:         s.startAngle,
-            duration:           s.duration,
-            ease:               s.ease,
-            killTween:          s.killTween
-        );
 
     private CpsSetScaleCommand Create(SetScaleCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,

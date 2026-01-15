@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 [Serializable]
 [CommandMenuHint(
-    "Scene",
+    "Rect",
     "Restore Rect Baseline",
     Sets = new[]
     {
