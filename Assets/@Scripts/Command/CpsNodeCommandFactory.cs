@@ -30,7 +30,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             FadeCommandSpec s            => Create(s),
             CanvasFadeCommandSpec s      => Create(s),
             SlideInCommandSpec s         => Create(s),
-            SetSpriteCommandSpec s       => Create(s),
             SetColorCommandSpec s        => Create(s),
             PunchScaleCommandSpec s      => Create(s),
             ShakeWidgetCommandSpec s     => Create(s),
@@ -49,12 +48,20 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             HideRootLayersCommandSpec s  => Create(s),
             HideTargetsCommandSpec s     => Create(s),
             ShowTargetsCommandSpec s     => Create(s),
+            SetSpriteCommandSpec s       => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private SetSpriteCommand Create(SetSpriteCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            spriteTarget: s.spriteTarget,
+            sprite:       s.sprite,
+            setNativeSize:s.setNativeSize
+        );
     
     private ShowTargetsCommand Create(ShowTargetsCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
@@ -209,12 +216,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             preserveAlpha:s.preserveAlpha
         );
 
-    private CpsSetSpriteCommand Create(SetSpriteCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
-            sprite:       s.sprite,
-            clearWhenNull:s.clearWhenNull,
-            setNativeSize:s.setNativeSize
-        );
 
     private CpsSlideInCommand Create(SlideInCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,

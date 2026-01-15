@@ -16,23 +16,11 @@ MonoBehaviour:
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
-    - editorName: HideAll
+    - editorName: SetLayer
       commands:
-      - rid: 2406591591793557504
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: ShowSelectedRoot
-      commands:
-      - rid: 2406591593170337854
-      gate:
-        type: 0
-        seconds: 0.3
-        signalKey: 
-    - editorName: HideDontNeed
-      commands:
-      - rid: 2406591603016728639
+      - rid: 2406591603016728662
+      - rid: 2406591603016728663
+      - rid: 2406591603016728664
       gate:
         type: 0
         seconds: 0
@@ -43,6 +31,16 @@ MonoBehaviour:
         type: 3
         seconds: 0
         signalKey: s
+    - editorName: SetSprite
+      commands:
+      - rid: 2406591603016728665
+      - rid: 2406591603016728666
+      - rid: 2406591603016728667
+      - rid: 2406591603016728668
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: Ready_NameBox,LineBody
       commands:
       - rid: 2406591562052010078
@@ -74,15 +72,13 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: showDialogueRootandSlideIN
-      commands:
-      - rid: 2406591562052010063
+      commands: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: showChar
       commands:
-      - rid: 2406591562052010064
       - rid: 2406591562052010108
       - rid: 2406591562052010103
       gate:
@@ -232,34 +228,13 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 2406591562052010063
-      type: {class: ShowDialogueLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        layers: 1
-        duration: 0.8
-        wait: 1
-        enableInteraction: 1
-    - rid: 2406591562052010064
-      type: {class: ShowDialogueLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        layers: 64
-        duration: 0
-        wait: 0
-        enableInteraction: 1
     - rid: 2406591562052010078
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 30
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 9a7bb0e3c84658c4e9096cff832a6a6f, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010079
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
@@ -284,9 +259,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 20
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: e2c0902a725a5b5499a4603810e5fbc7, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010085
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
@@ -308,9 +282,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 13
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010095
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
@@ -378,9 +351,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 13
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 99dda86e5896b464593debe1f48efbbe, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010118
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
@@ -405,9 +377,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 15
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 056ef096f6e1c6447bd9cb33b66fd244, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010123
       type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
@@ -492,27 +463,24 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 39
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010142
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 40
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010143
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 41
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010144
       type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
@@ -550,9 +518,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 13
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 00143ef6b4ee9d54ea475f7478f220f3, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010154
       type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
@@ -566,9 +533,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 13
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 319f2619808184f4db1a05903031721e, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010159
       type: {class: ShakeWidgetCommandSpec, ns: , asm: Assembly-CSharp}
@@ -610,9 +576,8 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 15
+        spriteTarget: 0
         sprite: {fileID: 21300000, guid: 4b53a58a3b10e3c4bb974e217720b58b, type: 3}
-        clearWhenNull: 1
         setNativeSize: 0
     - rid: 2406591562052010165
       type: {class: SetActiveCommandSpec, ns: , asm: Assembly-CSharp}
@@ -706,33 +671,65 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         seconds: 0.2
         respectTimeScale: 1
-    - rid: 2406591591793557504
+    - rid: 2406591603016728662
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        layers: -1
+        layers: 251
         duration: 0
         ease: 1
         wait: 1
         disableInteraction: 1
-    - rid: 2406591593170337854
+    - rid: 2406591603016728663
       type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        layers: 72
+        layers: 74
         duration: 0
         ease: 1
         wait: 1
         enableInteraction: 1
-    - rid: 2406591603016728639
+    - rid: 2406591603016728664
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
-        targets: 16383
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        targets: 136
         duration: 0
         ease: 1
         wait: 1
         disableInteraction: 0
+    - rid: 2406591603016728665
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        spriteTarget: 0
+        sprite: {fileID: 0}
+        setNativeSize: 0
+    - rid: 2406591603016728666
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        spriteTarget: 0
+        sprite: {fileID: 0}
+        setNativeSize: 0
+    - rid: 2406591603016728667
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        spriteTarget: 0
+        sprite: {fileID: 0}
+        setNativeSize: 0
+    - rid: 2406591603016728668
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        spriteTarget: 0
+        sprite: {fileID: 0}
+        setNativeSize: 0
