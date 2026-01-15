@@ -736,7 +736,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CPSDialogueBootstrap
   routeCatalog: {fileID: 11400000, guid: 4f53ef6320610b64388e9aa18d2e4399, type: 2}
-  cpsCommandServiceConfig: {fileID: 11400000, guid: 37cb374191f79394794a6a39de08e3aa, type: 2}
   commandExecuter: {fileID: 1117495969}
   signals: {fileID: 713045950}
   enableDebugHotkeys: 1
