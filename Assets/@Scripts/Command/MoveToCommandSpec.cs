@@ -1,76 +1,81 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
-using IEnumerator = System.Collections.IEnumerator;
+using System.Collections;
+using DG.Tweening;
 
 [Serializable]
-[CommandMenuHint("Motion", "Move To", Order = 20)]
+[CommandMenuHint(
+    "Motion",
+    "Move To (XY)",
+    Order = 20)]
 public sealed class MoveToCommandSpec : CommandSpecBase
 {
-    [Header("Target")]
+    [Header("Target (Track or Rig)")]
     public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
     [Header("Destination (absolute anchoredPosition)")]
-    public Vector2 position;
+    [Tooltip("도착 지점(절대 anchoredPosition, 픽셀 단위).")]
+    public Vector2 toPosition = Vector2.zero;
 
     [Header("Tween")]
-    [Tooltip("<=0이면 Config 기본 duration 사용.")]
-    public float duration = -1f;
+    /// <summary>
+    /// 트윈 시간. <= 0이면 즉시 toPosition으로 스냅.
+    /// </summary>
+    public float duration = 0.4f;
 
     public Ease ease = Ease.OutCubic;
 
-    [Tooltip("true면 스텝이 이 이동이 끝날 때까지 대기.")]
+    [Tooltip("체크하면 트윈이 끝날 때까지 Step 진행을 멈춥니다.")]
     public bool wait = false;
 
-    [Tooltip("true면 기존 트윈을 끊고 시작.")]
+    [Header("Options")]
+    [Tooltip("체크하면 기존 위치 관련 트윈을 끊고 시작합니다.")]
     public bool killTween = true;
 }
 
-public sealed class CpsMoveToCommand : CommandBase
+public sealed class MoveToCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
-    private readonly string _screenId;
-    private readonly string _widgetId;
+    private readonly string                _screenId;
+    private readonly string                _widgetRoleKey;
+    private readonly bool                  _wait;
 
-    private readonly DialogueWidgetTarget _target;
-    private readonly Vector2 _position;
+    private readonly DialogueWidgetTarget  _target;
+    private readonly Vector2               _toPosition;
+    private readonly float                 _duration;
+    private readonly Ease                  _ease;
+    private readonly bool                  _killTween;
 
-    private readonly float _duration;
-    private readonly Ease  _ease;
-    private readonly bool  _wait;
-    private readonly bool  _killTween;
-    
     private IDialogueWidgetAccess.WidgetRefs _refs;
-    private RectTransform _rect;
-    private bool _resolved;
-
-    public CpsMoveToCommand(
-        IDialogueWidgetAccess widgets,
-        string screenId,
-        string widgetId,
-        DialogueWidgetTarget target,
-        Vector2 position,
-        float duration,
-        Ease ease,
-        bool waitForCompletion,
-        bool killTween = true)
-    {
-        _widgets  = widgets;
-        _screenId = screenId;
-        _widgetId = widgetId;
-
-        _target   = target;
-        _position = position;
-
-        _duration = Mathf.Max(0f, duration);
-        _ease     = ease;
-        _wait     = waitForCompletion;
-        _killTween = killTween;
-    }
+    private RectTransform                     _rect;
+    private bool                              _resolveAttempted;
 
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
+
+    public MoveToCommand(
+        IDialogueWidgetAccess widgets,
+        string                screenId,
+        string                widgetRoleKey,
+        bool                  waitForCompletion,
+
+        DialogueWidgetTarget  target,
+        Vector2               toPosition,
+        float                 duration,
+        Ease                  ease,
+        bool                  killTween)
+    {
+        _widgets       = widgets;
+        _screenId      = screenId;
+        _widgetRoleKey = widgetRoleKey;
+        _wait          = waitForCompletion;
+
+        _target      = target;
+        _toPosition  = toPosition;
+        _duration    = Mathf.Max(0f, duration);
+        _ease        = ease;
+        _killTween   = killTween;
+    }
 
     protected override IEnumerator ExecuteInner(CommandRunScope scope)
     {
@@ -82,12 +87,13 @@ public sealed class CpsMoveToCommand : CommandBase
 
         if (_duration <= 0f)
         {
-            _rect.anchoredPosition = _position;
+            // 스냅 이동
+            _rect.anchoredPosition = _toPosition;
             yield break;
         }
 
         Tween tween = _rect
-            .DOAnchorPos(_position, _duration)
+            .DOAnchorPos(_toPosition, _duration)
             .SetEase(_ease)
             .SetUpdate(true);
 
@@ -105,22 +111,31 @@ public sealed class CpsMoveToCommand : CommandBase
         if (_killTween)
             _rect.DOKill(false);
 
-        _rect.anchoredPosition = _position;
+        // 스킵 시 최종 위치로 바로 고정
+        _rect.anchoredPosition = _toPosition;
     }
 
     private bool ResolveIfNeeded()
     {
-        if (_resolved) return _rect != null;
-        _resolved = true;
+        if (_resolveAttempted)
+            return _rect != null;
+
+        _resolveAttempted = true;
 
         if (_widgets == null)
             return false;
 
-        if (!_widgets.TryResolve(_screenId, _widgetId, out _refs) || _refs == null)
+        if (!_widgets.TryResolve(_screenId, _widgetRoleKey, out _refs) || _refs == null)
             return false;
 
         _rect = _refs.GetRect(_target);
-        
-        return _rect != null;
+        if (_rect == null)
+        {
+            Debug.LogWarning(
+                $"[MoveToCommand] RectTransform not found. screen='{_screenId}', roleKey='{_widgetRoleKey}', target={_target}");
+            return false;
+        }
+
+        return true;
     }
 }

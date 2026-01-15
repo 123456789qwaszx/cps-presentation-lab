@@ -36,8 +36,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             HoldSignalCommandSpec s        => Create(s),
             RaiseSignalCommandSpec s       => Create(s),
             SetInteractableCommandSpec s   => Create(s),
-            MoveToCommandSpec s            => Create(s),
-            MoveByCommandSpec s            => Create(s),
             BouncySlideInCommandSpec s     => Create(s),
             ShowRootLayersCommandSpec s    => Create(s),
             HideRootLayersCommandSpec s    => Create(s),
@@ -52,12 +50,32 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SetColorCommandSpec s          => Create(s),
             SetPositionOffsetCommandSpec s => Create(s),
             SetRootStageCommandSpec s      => Create(s),
+            MoveToCommandSpec s            => Create(s),
+            MoveByCommandSpec s            => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private MoveByCommand Create(MoveByCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:    s.target,
+            delta:     s.delta,
+            duration:  s.duration,
+            ease:      s.ease,
+            killTween: s.killTween
+        );
+    
+    private MoveToCommand Create(MoveToCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            target:     s.target,
+            toPosition: s.toPosition,
+            duration:   s.duration,
+            ease:       s.ease,
+            killTween:  s.killTween
+        );
     
     private SetRootStageCommand Create(SetRootStageCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey,
@@ -69,9 +87,10 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
     
     private SetPositionOffsetCommand Create(SetPositionOffsetCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey,
-            target:    s.target,
-            offset:    s.offset,
-            killTween: s.killTween
+            target:      s.target,
+            offset:      s.offset,
+            resetToZero: s.resetToZero,
+            killTween:   s.killTween
         );
     
     private SetColorCommand Create(SetColorCommandSpec s)
@@ -173,22 +192,7 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             waveAxis:       s.waveAxis,
             startFromLayout:s.startFromLayout
         );
-
-    private CpsMoveByCommand Create(MoveByCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            delta:    s.delta,
-            duration: s.duration,
-            ease:     s.ease
-        );
-
-    private CpsMoveToCommand Create(MoveToCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            position: s.position,
-            duration: s.duration,
-            ease:     s.ease,
-            killTween:s.killTween
-        );
-
+    
     private CpsSetInteractableCommand Create(SetInteractableCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.target,
             interactable:   s.interactable,

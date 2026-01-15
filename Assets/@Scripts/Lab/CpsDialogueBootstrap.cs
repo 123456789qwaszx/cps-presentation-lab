@@ -52,9 +52,13 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
 
         if (enableDebugHotkeys)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_02);
+            }
+            
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
                 PlayRoute(testRouteKey);
                 Debug.Log($"Start Session = {testRouteKey}");
             }
