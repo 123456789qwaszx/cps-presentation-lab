@@ -42,7 +42,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             MoveToCommandSpec s          => Create(s),
             MoveByCommandSpec s          => Create(s),
             BouncySlideInCommandSpec s   => Create(s),
-            SetScaleCommandSpec s        => Create(s),
             ShowRootLayersCommandSpec s  => Create(s),
             HideRootLayersCommandSpec s  => Create(s),
             HideTargetsCommandSpec s     => Create(s),
@@ -51,12 +50,32 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             RestoreRectCommandSpec s     => Create(s),
             SetRotationCommandSpec s     => Create(s),
             RotateFromToCommandSpec s    => Create(s),
+            SetScaleCommandSpec s        => Create(s),
+            ScaleFromToCommandSpec s     => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private ScaleFromToCommand Create(ScaleFromToCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait, 
+            target:            s.target,
+            toScale:           s.toScale,
+            overrideFromScale: s.overrideFromScale,
+            fromScale:         s.fromScale,
+            duration:          s.duration,
+            ease:              s.ease,
+            killTween:         s.killTween
+        );
+    
+    private SetScaleCommand Create(SetScaleCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey,
+            target:    s.target,
+            toScale:   s.toScale,
+            killTween: s.killTween
+        );
     
     private RotateFromToCommand Create(RotateFromToCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
@@ -119,17 +138,6 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             duration:          s.duration,
             ease:              s.ease,
             enableInteraction: s.enableInteraction
-        );
-
-
-    private CpsSetScaleCommand Create(SetScaleCommandSpec s)
-        => new (_widgets, s.screenId, s.widgetRoleKey, s.target, waitForCompletion: s.wait,
-            toScale:            s.toScale,
-            overrideStartScale: s.overrideStartScale,
-            startScale:         s.startScale,
-            duration:           s.duration,
-            ease:               s.ease,
-            killTween:          s.killTween
         );
 
     private CpsBouncySlideInCommand Create(BouncySlideInCommandSpec s)
