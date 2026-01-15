@@ -23,13 +23,26 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: ShowBG
+    - editorName: ShowSelectedRoot
       commands:
-      - rid: 2406591562052010063
+      - rid: 2406591593170337854
       gate:
-        type: 2
+        type: 0
         seconds: 0.3
         signalKey: 
+    - editorName: HideDontNeed
+      commands:
+      - rid: 2406591603016728639
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: Input
+      commands: []
+      gate:
+        type: 3
+        seconds: 0
+        signalKey: s
     - editorName: Ready_NameBox,LineBody
       commands:
       - rid: 2406591562052010078
@@ -60,22 +73,16 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: Input
-      commands: []
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
     - editorName: showDialogueRootandSlideIN
       commands:
-      - rid: 2406591562052010064
+      - rid: 2406591562052010063
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: showChar
       commands:
-      - rid: 2406591562052010101
+      - rid: 2406591562052010064
       - rid: 2406591562052010108
       - rid: 2406591562052010103
       gate:
@@ -225,6 +232,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2406591562052010063
       type: {class: ShowDialogueLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -248,7 +257,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 3
+        target: 30
         sprite: {fileID: 21300000, guid: 9a7bb0e3c84658c4e9096cff832a6a6f, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -257,7 +266,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 1
+        target: 40
         text: 
         clearWhenEmpty: 1
     - rid: 2406591562052010080
@@ -265,7 +274,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 0
+        target: 10
         text: 
         interval: -1
         wait: 1
@@ -275,7 +284,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 2
+        target: 20
         sprite: {fileID: 21300000, guid: e2c0902a725a5b5499a4603810e5fbc7, type: 3}
         clearWhenNull: 1
         setNativeSize: 0
@@ -284,7 +293,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 4
+        target: 10
         text: 
         clearWhenEmpty: 1
     - rid: 2406591562052010090
@@ -292,7 +301,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 4
+        target: 20
         active: 1
     - rid: 2406591562052010094
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
@@ -318,15 +327,6 @@ MonoBehaviour:
         widgetRoleKey: dialogue
         target: 15
         active: 0
-    - rid: 2406591562052010101
-      type: {class: ShowDialogueLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        layers: 8
-        duration: 0.25
-        wait: 0
-        enableInteraction: 1
     - rid: 2406591562052010103
       type: {class: FadeCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -716,3 +716,23 @@ MonoBehaviour:
         ease: 1
         wait: 1
         disableInteraction: 1
+    - rid: 2406591593170337854
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        layers: 72
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591603016728639
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        targets: 16383
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 0

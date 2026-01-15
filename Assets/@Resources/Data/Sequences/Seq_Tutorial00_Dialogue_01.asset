@@ -13,7 +13,26 @@ MonoBehaviour:
   m_Name: Seq_Tutorial00_Dialogue_01
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: tutorial00.dialogue.01
-  nodes: []
+  nodes:
+  - editorName: 
+    steps:
+    - editorName: 
+      commands:
+      - rid: 2406591591793557570
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591591793557570
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        layers: 66
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1

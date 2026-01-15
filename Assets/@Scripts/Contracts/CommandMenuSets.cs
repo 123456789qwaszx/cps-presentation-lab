@@ -1,16 +1,26 @@
 public static class CpsCommandMenuSets
 {
     /// <summary>
+    /// 배경/초상/대화박스/선택지까지 싹 끄는 세트
+    /// 메뉴: VN/AllOff
+    /// </summary>
+    public const string VnAllOff = "VN/AllOff";
+    
+    /// <summary>
+    /// 대화 레이아웃(루트 + 타깃 레이어)을 세팅/조정하는 기본 세트
+    /// 예: 루트 레이어 켜기 + 이모지/선택지 일부 끄기 등
+    /// 메뉴: VN/LayerSetup
+    /// </summary>
+    public const string VnLayerSetup = "VN/LayerSetup";
+    
+    
+    
+    /// <summary>
     /// 메인 화자 등장 + 첫 대사 세트
     /// 메뉴: VN/MainEnterFirstLine (Add 4)
     /// </summary>
     public const string VnMainEnterFirstLine = "VN/MainEnterFirstLine";
     
-    /// <summary>
-    /// 배경/초상/대화박스/선택지까지 싹 끄는 세트
-    /// 메뉴: VN/AllOff
-    /// </summary>
-    public const string VnAllOff = "VN/AllOff";
 
     /// <summary>
     /// 기본 대사 1줄 (일반 텍스트) 세트
@@ -29,4 +39,5 @@ public static class CpsCommandMenuSets
     /// 메뉴: Custom/Choice/Basic
     /// </summary>
     public const string VnChoiceBasic = "VN/Choice/Basic";
+    
 }

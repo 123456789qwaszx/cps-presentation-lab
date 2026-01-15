@@ -1,22 +1,22 @@
 using System;
-using DG.Tweening;
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using UnityEngine;
 
 [Serializable]
 [CommandMenuHint(
     "Scene",
-    "Hide Dialogue Layers (Root)",
+    "Hide Dialogue Layers (Targets)",
     Sets  = new[]
     {
         CpsCommandMenuSets.VnLayerSetup,
     },
-    SetOrder = -100
+    SetOrder = -80
 )]
-public sealed class HideRootLayersCommandSpec : CommandSpecBase
+public sealed class HideTargetsCommandSpec : CommandSpecBase
 {
-    public DialogueLayerMask layers = DialogueLayerMask.All;
+    public DialogueTargetMask targets = DialogueTargetMask.MainEmoji | DialogueTargetMask.ProtagonistCutin;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 끄기 (알파 0으로 스냅)")]
@@ -28,23 +28,25 @@ public sealed class HideRootLayersCommandSpec : CommandSpecBase
     public bool wait = true;
 
     [Header("Interaction")]
-    [Tooltip("true면 숨긴 레이어의 입력을 완전히 차단(interactable/blocksRaycasts=false)")]
-    public bool disableInteraction = true;
+    [Tooltip("true면 숨긴 대상의 입력을 완전히 차단(interactable/blocksRaycasts=false)")]
+    public bool disableInteraction = false;
 }
 
-public sealed class HideRootLayersCommand : CommandBase
+public sealed class HideTargetsCommand : CommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
     private readonly string _widgetRoleKey;
     private readonly bool  _wait;
 
-    private readonly DialogueLayerMask _layers;
+    private readonly DialogueTargetMask _targetsMask;
     private readonly float _duration;
     private readonly Ease  _ease;
     private readonly bool  _disableInteraction;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
+
+    // RectTransform 기준으로 페이드하되, 중복 방지를 위해 HashSet/리스트
     private readonly List<RectTransform> _targets = new();
 
     private bool _resolveAttempted;
@@ -52,8 +54,12 @@ public sealed class HideRootLayersCommand : CommandBase
     public override bool WaitForCompletion => _wait;
     protected override SkipPolicy SkipPolicy => SkipPolicy.CompleteImmediately;
 
-    public HideRootLayersCommand(IDialogueWidgetAccess widgets, string screenId, string widgetRoleKey, bool waitForCompletion,
-        DialogueLayerMask layers,
+    public HideTargetsCommand(
+        IDialogueWidgetAccess widgets,
+        string screenId,
+        string widgetRoleKey,
+        bool waitForCompletion,
+        DialogueTargetMask targetsMask,
         float duration,
         Ease ease,
         bool disableInteraction)
@@ -62,8 +68,8 @@ public sealed class HideRootLayersCommand : CommandBase
         _screenId           = screenId;
         _widgetRoleKey      = widgetRoleKey;
         _wait               = waitForCompletion;
-        
-        _layers             = layers;
+
+        _targetsMask        = targetsMask;
         _duration           = Mathf.Max(0f, duration);
         _ease               = ease;
         _disableInteraction = disableInteraction;
@@ -74,7 +80,7 @@ public sealed class HideRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        CollectTargetRects(_refs, _targetsMask, _targets);
         if (_targets.Count == 0)
             yield break;
 
@@ -132,7 +138,7 @@ public sealed class HideRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        CollectTargetRects(_refs, _targetsMask, _targets);
         SnapOffTargets(_targets);
     }
 
@@ -162,22 +168,6 @@ public sealed class HideRootLayersCommand : CommandBase
         }
     }
 
-    private void CollectLayerRoots(IDialogueWidgetAccess.WidgetRefs refs, DialogueLayerMask layerMask, List<RectTransform> outList)
-    {
-        outList.Clear();
-        if (refs == null) return;
-
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root)) outList.Add(refs.BackgroundRoot0);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root)) outList.Add(refs.BackgroundRoot1);
-
-        if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot))     outList.Add(refs.MainStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))  outList.Add(refs.SubLeftStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot)) outList.Add(refs.SubRightStandingPortraitRoot);
-
-        if (layerMask.HasFlag(DialogueLayerMask.DialogueBoxRoot)) outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot)) outList.Add(refs.ChoicePanelRoot);
-    }
-
     private bool ResolveIfNeeded()
     {
         if (_resolveAttempted)
@@ -201,7 +191,41 @@ public sealed class HideRootLayersCommand : CommandBase
         if (canvasGroup != null)
             return canvasGroup;
 
-        Debug.LogWarning($"[HideRootLayersCommand] CanvasGroup missing. Added automatically: {rect.name}", rect);
+        Debug.LogWarning($"[HideTargetsCommand] CanvasGroup missing. Added automatically: {rect.name}", rect);
         return rect.gameObject.AddComponent<CanvasGroup>();
+    }
+
+    /// <summary>
+    /// DialogueTargetMask → 실제 RectTransform 리스트로 변환.
+    /// 매핑 테이블(DialogueTargetMaskMap)은
+    /// "덩어리 루트"에 해당하는 DialogueWidgetTarget들만 가리킨다는 전제.
+    /// </summary>
+    private static void CollectTargetRects(
+        IDialogueWidgetAccess.WidgetRefs refs,
+        DialogueTargetMask mask,
+        List<RectTransform> outList)
+    {
+        outList.Clear();
+
+        if (refs == null || mask == DialogueTargetMask.None)
+            return;
+
+        // 1) 마스크 → DialogueWidgetTarget 리스트
+        var widgetTargets = DialogueTargetMaskMap.ResolveTargets(mask);
+        if (widgetTargets == null || widgetTargets.Count == 0)
+            return;
+
+        // 2) 각 target → RectTransform (WidgetRefsExtensions.GetRect 사용)
+        var set = new HashSet<RectTransform>();
+
+        foreach (var wt in widgetTargets)
+        {
+            RectTransform rect = refs.GetRect(wt);
+            if (rect == null)
+                continue;
+
+            if (set.Add(rect))
+                outList.Add(rect);
+        }
     }
 }

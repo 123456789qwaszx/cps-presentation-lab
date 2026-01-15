@@ -47,12 +47,22 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SetRotationCommandSpec s        => Create(s),
             ShowRootLayersCommandSpec s => Create(s),
             HideRootLayersCommandSpec s     => Create(s),
+            HideTargetsCommandSpec s        => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    
+    private HideTargetsCommand Create(HideTargetsCommandSpec s)
+        => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
+            targetsMask:        s.targets,
+            duration:           s.duration,
+            ease:               s.ease,
+            disableInteraction: s.disableInteraction
+        );
 
     private HideRootLayersCommand Create(HideRootLayersCommandSpec s)
         => new (_widgets, s.screenId, s.widgetRoleKey, s.wait,
