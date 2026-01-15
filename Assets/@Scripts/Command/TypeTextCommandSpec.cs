@@ -9,7 +9,6 @@ using UnityEngine;
     Sets = new[]
     {
         CpsCommandMenuSets.VnMainEnterFirstLine,
-        "Custom/Text/LineType"
     },
     SetOrder = 20,
     Order = 20)]
@@ -24,7 +23,7 @@ public sealed class TypeTextCommandSpec : CommandSpecBase
     public string text;
 
     [Header("Typing")]
-    public float interval = -1f;
+    public float interval = 0.1f;
 
     public bool wait = false;
 }
@@ -59,11 +58,11 @@ public sealed class TypeTextCommand : CommandBase
         _time          = time;
         _screenId      = screenId;
         _widgetRoleKey = widgetRoleKey;
-        _wait     = waitForCompletion;
 
         _target   = target;
         _text     = text;
         _interval = Mathf.Max(0f, interval);
+        _wait     = waitForCompletion;
     }
 
     public override bool WaitForCompletion => _wait;
@@ -83,13 +82,6 @@ public sealed class TypeTextCommand : CommandBase
             yield break;
         }
 
-        if (!_wait || _interval <= 0f)
-        {
-            _textComponent.text = content;
-            _textComponent.maxVisibleCharacters = int.MaxValue;
-            yield break;
-        }
-
         _textComponent.text = content;
 
         _textComponent.ForceMeshUpdate();
@@ -104,13 +96,22 @@ public sealed class TypeTextCommand : CommandBase
             yield break;
         }
 
+        if (_interval <= 0f)
+        {
+            _textComponent.maxVisibleCharacters = int.MaxValue;
+            yield break;
+        }
+
         _textComponent.maxVisibleCharacters = 0;
 
-        float time     = 0f;
+        float time = 0f;
         int   shown = 0;
 
         while (shown < totalVisible)
         {
+            if (scope.Token.IsCancellationRequested)
+                yield break;
+
             time += _time.UnscaledDeltaTime;
 
             while (time >= _interval && shown < totalVisible)
@@ -140,6 +141,7 @@ public sealed class TypeTextCommand : CommandBase
             return;
         }
 
+        // 스킵 시에는 항상 즉시 완성
         _textComponent.text = content;
         _textComponent.maxVisibleCharacters = int.MaxValue;
     }

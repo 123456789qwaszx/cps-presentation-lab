@@ -23,18 +23,17 @@ public sealed class FadeLayersCommandSpec : CommandSpecBase
     public float toAlpha = 1f;
 
     [Tooltip("0 이상이면 이 값에서부터 페이드 시작, 음수면 현재 alpha에서 시작합니다.")]
-    public float fromAlpha = -1f;
+    public float fromAlpha = 0.1f;
 
     [Tooltip("페이드 시간(초). 0 이하이면 즉시 toAlpha로 스냅합니다.")]
-    public float duration = 0.3f;
+    public float duration = 0.8f;
 
     public Ease ease = Ease.OutCubic;
 
-    [Tooltip("체크하면 모든 레이어 페이드가 끝날 때까지 Step 진행을 멈춥니다.")]
     public bool wait = false;
 
     [Header("Options")]
-    [Tooltip("대상 Rect에 CanvasGroup이 없으면 자동으로 추가합니다.")]
+    [Tooltip("대상 Rect에 CanvasGroup이 없으면 자동으로 추가.")]
     public bool addIfMissing = true;
 }
 

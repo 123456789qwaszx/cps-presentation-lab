@@ -41,32 +41,29 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: Input
-      commands: []
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: SwayDrop
+    - editorName: 
       commands:
-      - rid: 2406591611139784769
+      - rid: 2406591611139784780
+      - rid: 2406591611139784779
       gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: Input
-      commands:
-      - rid: 2406591611139784775
-      gate:
-        type: 1
+        type: 0
         seconds: 0
         signalKey: 
     - editorName: Slide
       commands:
       - rid: 2406591611139784774
-      - rid: 2406591611139784772
+      - rid: 2406591611139784777
+      - rid: 2406591611139784778
       gate:
-        type: 1
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591611139784776
+      - rid: 2406591611139784781
+      gate:
+        type: 0
         seconds: 0
         signalKey: 
     - editorName: signal
@@ -279,7 +276,6 @@ MonoBehaviour:
         text: 
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010082
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -335,7 +331,6 @@ MonoBehaviour:
         text: ...
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010110
       type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -345,7 +340,6 @@ MonoBehaviour:
         text: "\uC800\uAE30..."
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010117
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -364,7 +358,6 @@ MonoBehaviour:
           \uAF2D \uB2F9\uCCA8 \uB418\uC2E4\uAC70\uC5D0\uC694."
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010122
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -455,7 +448,6 @@ MonoBehaviour:
         text: ......
         interval: 0.6
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010153
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -481,7 +473,6 @@ MonoBehaviour:
         text: "\uC544\uC27D\uC9C0\uB9CC \uB2E4\uC74C\uC5D0\uB294 \uAF2D \uB2F9\uCCA8\uB418\uC2E4\uAC70\uC5D0\uC694."
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591562052010163
       type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -514,7 +505,6 @@ MonoBehaviour:
         text: "\uD639\uC2DC \uB2E4\uC2DC \uACE8\uB77C\uBCF4\uC2DC\uACA0\uC5B4\uC694?"
         interval: -1
         wait: 1
-        clearWhenEmpty: 1
     - rid: 2406591567600025663
       type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -540,7 +530,6 @@ MonoBehaviour:
         text: "\uC557..."
         interval: -1
         wait: 0
-        clearWhenEmpty: 1
     - rid: 2406591567600025669
       type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -608,7 +597,7 @@ MonoBehaviour:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         spriteTarget: 0
-        color: {r: 1, g: 0.87358487, b: 0.87358487, a: 0.6666667}
+        color: {r: 1, g: 0.87358487, b: 0.87358487, a: 1}
         keepAlpha: 0
     - rid: 2406591609627213893
       type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
@@ -628,35 +617,6 @@ MonoBehaviour:
         offset: {x: 0, y: 0}
         resetToZero: 1
         killTween: 1
-    - rid: 2406591611139784769
-      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        swayTarget: 530
-        dropTarget: 510
-        swayAngle: 18
-        swayLoops: 3
-        swayDuration: 2.4
-        dropDistance: 800
-        dropDuration: 0.24
-        dropAngle: 0
-        dropEase: 8
-        wait: 0
-        swayForwardEase: 6
-        swayDecay: 1
-        dropStartRatio: 0.407
-    - rid: 2406591611139784772
-      type: {class: SlideInCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 510
-        from: 0
-        distance: 480
-        duration: 1.2
-        ease: 9
-        wait: 0
     - rid: 2406591611139784773
       type: {class: StubCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -671,10 +631,63 @@ MonoBehaviour:
         offset: {x: 0, y: 0}
         resetToZero: 1
         killTween: 1
-    - rid: 2406591611139784775
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591611139784776
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        seconds: 0
-        respectTimeScale: 1
+        target: 10
+        text: "\uC548\uB155...\n\uB4DC\uB514\uC5B4 \uB0B4 \uB9D0\uC774 \uB4E4\uB9AC\uB294\uAD6C\uB098."
+        interval: 0.1
+        wait: 0
+    - rid: 2406591611139784777
+      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 530
+        from: 0
+        slideDistance: 480
+        slideDuration: 1.2
+        slideEase: 9
+        waveAmplitude: 12
+        waveLoops: 4
+        waveAxis: 1
+        wait: 0
+    - rid: 2406591611139784778
+      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        layers: 8
+        toAlpha: 1
+        fromAlpha: 0
+        duration: 0.7
+        ease: 9
+        wait: 0
+        addIfMissing: 1
+    - rid: 2406591611139784779
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: ...
+        clearWhenEmpty: 1
+    - rid: 2406591611139784780
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 40
+        text: ???
+        clearWhenEmpty: 1
+    - rid: 2406591611139784781
+      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: "\uC548\uB155...\n\uB4DC\uB514\uC5B4 \uB0B4 \uB9D0\uC774 \uB4E4\uB9AC\uB294\uAD6C\uB098."
+        interval: 0.1
+        wait: 0
