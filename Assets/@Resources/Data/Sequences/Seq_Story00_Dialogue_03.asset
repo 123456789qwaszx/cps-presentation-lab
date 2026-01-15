@@ -39,17 +39,24 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
+    - editorName: SetRootStage
+      commands:
+      - rid: 2406591609435324416
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: Input
       commands: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: 
+    - editorName: Offset
       commands:
-      - rid: 2406591603016728685
+      - rid: 2406591609627213888
       gate:
-        type: 0
+        type: 1
         seconds: 0
         signalKey: 
     - editorName: signal
@@ -228,7 +235,7 @@ MonoBehaviour:
     steps:
     - editorName: Reaction_Drop01 (imported) (imported)
       commands:
-      - rid: 2406591567600025662
+      - rid: -2
       - rid: 2406591567600025663
       - rid: 2406591567600025664
       - rid: 2406591567600025666
@@ -239,6 +246,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2406591562052010078
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -557,16 +566,6 @@ MonoBehaviour:
         interval: -1
         wait: 1
         clearWhenEmpty: 1
-    - rid: 2406591567600025662
-      type: {class: SetAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 6
-        useAnchorPreset: 0
-        anchorPreset: 0
-        offset: {x: 0, y: 0}
-        killTween: 1
     - rid: 2406591567600025663
       type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -662,12 +661,20 @@ MonoBehaviour:
         spriteTarget: 0
         color: {r: 1, g: 0.87358487, b: 0.87358487, a: 0.6666667}
         keepAlpha: 0
-    - rid: 2406591603016728685
-      type: {class: SetRootAnchoredPosCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591609435324416
+      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         layers: 3
         anchorPreset: 2
-        offset: {x: 33333, y: 333}
+        offset: {x: 0, y: 0}
+        killTween: 1
+    - rid: 2406591609627213888
+      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 510
+        offset: {x: -200, y: 0}
         killTween: 1
