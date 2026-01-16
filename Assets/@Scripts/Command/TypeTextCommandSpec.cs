@@ -43,6 +43,7 @@ public sealed class TypeTextCommand : CommandBase
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private TMP_Text _textComponent;
     private bool _resolveAttempted;
+    private bool _isFinalized;
 
     public TypeTextCommand(
         IDialogueWidgetAccess widgets,
@@ -83,7 +84,6 @@ public sealed class TypeTextCommand : CommandBase
         }
 
         _textComponent.text = content;
-
         _textComponent.ForceMeshUpdate();
 
         int totalVisible = _textComponent.textInfo != null
@@ -103,23 +103,33 @@ public sealed class TypeTextCommand : CommandBase
         }
 
         _textComponent.maxVisibleCharacters = 0;
-
-        float time = 0f;
+        
+        float elapsed = 0f;
         int   shown = 0;
 
         while (shown < totalVisible)
         {
-            if (scope.Token.IsCancellationRequested)
+            if (IsCanceled(scope))
+                yield break;
+            
+            if(_isFinalized)
                 yield break;
 
-            time += _time.UnscaledDeltaTime;
+            elapsed += _time.UnscaledDeltaTime * scope.TimeScale;
 
-            while (time >= _interval && shown < totalVisible)
+            int targetShown = Mathf.Min(
+                totalVisible,
+                Mathf.FloorToInt(elapsed / _interval)
+            );
+
+            if (targetShown != shown)
             {
-                time -= _interval;
-                shown++;
+                shown = targetShown;
                 _textComponent.maxVisibleCharacters = shown;
             }
+
+            if (shown >= totalVisible)
+                break;
 
             yield return null;
         }
@@ -129,16 +139,21 @@ public sealed class TypeTextCommand : CommandBase
 
     protected override void OnSkip(CommandRunScope scope)
     {
-        ApplyFinalText(scope);
+        ApplyFinalText();
     }
     
     public override void OnCommandCompleted(CommandRunScope scope)
     {
-        ApplyFinalText(scope);
+        ApplyFinalText();
     }
     
-    private void ApplyFinalText(CommandRunScope scope)
+    private void ApplyFinalText()
     {
+        if (_isFinalized)
+            return;
+
+        _isFinalized = true;
+        
         if (!ResolveIfNeeded())
             return;
 

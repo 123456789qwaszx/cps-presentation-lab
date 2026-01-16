@@ -124,12 +124,8 @@ public sealed class ScaleFromToCommand : CommandBase
             .DOScale(endScale, _duration)
             .SetEase(_ease)
             .SetUpdate(true);
-
-        tween.OnComplete(() =>
-            {
-                ApplyScaleXY(_rect, _toScaleXY);
-            })
-            .BindToRun(scope);
+        
+        tween.BindToStep(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();
@@ -145,7 +141,15 @@ public sealed class ScaleFromToCommand : CommandBase
 
         ApplyScaleXY(_rect, _toScaleXY);
     }
-
+    
+    public override void OnCommandCompleted(CommandRunScope scope)
+    {
+        if (!ResolveIfNeeded())
+            return;
+        
+        ApplyScaleXY(_rect, _toScaleXY);
+    }
+    
     private bool ResolveIfNeeded()
     {
         if (_resolveAttempted)

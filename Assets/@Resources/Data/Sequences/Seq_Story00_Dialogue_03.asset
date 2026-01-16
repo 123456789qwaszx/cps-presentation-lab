@@ -65,6 +65,13 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
+    - editorName: FadeDialogueBox
+      commands:
+      - rid: 2406591623625441344
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
     - editorName: TypeText
       commands:
       - rid: 2406591611139784776
@@ -700,3 +707,16 @@ MonoBehaviour:
         ease: 9
         wait: 0
         addIfMissing: 1
+    - rid: 2406591623625441344
+      type: {class: ScaleFromToCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 550
+        toScale: {x: 1.1, y: 1.1}
+        overrideFromScale: 1
+        fromScale: {x: 1, y: 1}
+        duration: 1.2
+        ease: 9
+        wait: 0
+        killTween: 1
