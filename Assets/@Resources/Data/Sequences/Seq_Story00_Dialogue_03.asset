@@ -219,6 +219,41 @@ MonoBehaviour:
         type: 3
         seconds: 0
         signalKey: qwe
+    - editorName: Persistency
+      commands:
+      - rid: 2406591632223240258
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Persistency
+      commands:
+      - rid: 2406591632223240261
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: Persistency
+      commands:
+      - rid: 2406591632223240262
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: stopPersistency
+      commands:
+      - rid: 2406591632223240256
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: Persistency
+      commands:
+      - rid: 2406591632223240255
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
   references:
     version: 2
     RefIds:
@@ -510,3 +545,64 @@ MonoBehaviour:
         ease: 9
         wait: 0
         killTween: 0
+    - rid: 2406591632223240255
+      type: {class: BubblePulseCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 570
+        effectKey: qwe
+        maxScale: 1.04
+        periodSeconds: 0.8
+        startDelay: 0
+        replacePolicy: 0
+        ignoreWhenSkipping: 1
+    - rid: 2406591632223240256
+      type: {class: StopPersistentEffectCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        effectKey: qwe
+        policy: 0
+        executeEvenIfSkipping: 1
+    - rid: 2406591632223240258
+      type: {class: BlinkAlphaPersistentCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 570
+        effectKey: 
+        minAlpha: 0.25
+        maxAlpha: 1
+        halfPeriodSeconds: 0.35
+        startDelay: 0
+        ease: 4
+        replacePolicy: 0
+        ignoreWhenSkipping: 1
+    - rid: 2406591632223240261
+      type: {class: GlowColorPersistentCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 20
+        effectKey: 
+        glowColor: {r: 0.84370637, g: 1, b: 0, a: 1}
+        glowStrength: 0.35
+        halfPeriodSeconds: 0.45
+        ease: 4
+        startDelay: 0
+        replacePolicy: 0
+        ignoreWhenSkipping: 1
+    - rid: 2406591632223240262
+      type: {class: BobYPersistentCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 510
+        effectKey: 
+        amplitudeY: 10
+        halfPeriodSeconds: 0.6
+        ease: 4
+        startDelay: 0
+        replacePolicy: 0
+        ignoreWhenSkipping: 1

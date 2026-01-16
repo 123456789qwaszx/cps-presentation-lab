@@ -739,7 +739,7 @@ MonoBehaviour:
   commandExecuter: {fileID: 1117495969}
   signals: {fileID: 713045950}
   enableDebugHotkeys: 1
-  testRouteKey: story00.dialogue.03
+  testRouteKey: story00.dialogue.01
 --- !u!4 &1602582869
 Transform:
   m_ObjectHideFlags: 0

@@ -32,7 +32,8 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         SequencePlayer sequencePlayer = new(executor);
 
         CpsDialogueWidgetAccess widgetAccess = new();
-        NodeCommandFactory nodeFactory = new(widgetAccess, time, signals, latch);
+        PersistentEffectRegistry effects = new(); 
+        NodeCommandFactory nodeFactory = new(widgetAccess, time, signals, latch, effects);
         executor.Initialize(sequencePlayer, nodeFactory);
 
         PlaybackSettings modes = new();
