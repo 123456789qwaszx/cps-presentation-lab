@@ -129,19 +129,20 @@ public sealed class TypeTextCommand : CommandBase
 
     protected override void OnSkip(CommandRunScope scope)
     {
+        ApplyFinalText(scope);
+    }
+    
+    public override void OnCommandCompleted(CommandRunScope scope)
+    {
+        ApplyFinalText(scope);
+    }
+    
+    private void ApplyFinalText(CommandRunScope scope)
+    {
         if (!ResolveIfNeeded())
             return;
 
         string content = _text ?? string.Empty;
-
-        if (string.IsNullOrEmpty(content))
-        {
-            _textComponent.text = string.Empty;
-            _textComponent.maxVisibleCharacters = int.MaxValue;
-            return;
-        }
-
-        // 스킵 시에는 항상 즉시 완성
         _textComponent.text = content;
         _textComponent.maxVisibleCharacters = int.MaxValue;
     }

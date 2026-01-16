@@ -131,7 +131,7 @@ public sealed class FadeLayersCommand : CommandBase
                     group.alpha = _toAlpha;
                     remaining--;
                 })
-                .BindToRun(scope);
+                .BindToStep(scope);
         }
 
         if (!_wait)
