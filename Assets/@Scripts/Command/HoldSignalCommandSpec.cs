@@ -2,26 +2,23 @@ using System;
 using UnityEngine;
 using IEnumerator = System.Collections.IEnumerator;
 
-
 [Serializable]
 [CommandMenuHint(
-    "Flow",
+    "Signal",
     "Hold Signal",
-    Sets = new[]
-    {
-        "Custom/Flow/WaitSignal"
-    },
     SetOrder = 10,
     Order = 20)]
 public sealed class HoldSignalCommandSpec : CommandSpecBase
 {
     public string signalKey;
     public bool consume = true;
+    
+    [Header("최대 대기 시간 <=0이면 무제한 대기")]
     public float timeoutSeconds = -1f;  // <= 0이면 무제한 대기
     public bool respectTimeScale = true;
 }
 
-public sealed class CpsHoldSignalCommand : CommandBase
+public sealed class HoldSignalCommand : CommandBase
 {
     private readonly ISignalLatch _latch;
     private readonly ITimeSource _time;
@@ -31,7 +28,7 @@ public sealed class CpsHoldSignalCommand : CommandBase
     private readonly float _timeoutSeconds;
     private readonly bool _respectTimeScale;
 
-    public CpsHoldSignalCommand(
+    public HoldSignalCommand(
         ISignalLatch latch,
         ITimeSource time,
         string key,
@@ -56,11 +53,9 @@ public sealed class CpsHoldSignalCommand : CommandBase
         if (string.IsNullOrEmpty(_key) || _latch == null)
             yield break;
 
-        // ✅ 이미 래치된 신호면 즉시 만족
         if (IsSatisfied())
             yield break;
 
-        // timeout이 있는데 time이 없다면: 즉시 종료해버리면 더 혼란스러움 → 무제한 대기로 처리 + 경고
         bool hasTimeout = _timeoutSeconds > 0f;
         if (hasTimeout && _time == null)
         {
@@ -89,12 +84,8 @@ public sealed class CpsHoldSignalCommand : CommandBase
             yield return null;
         }
     }
-
-    protected override void OnSkip(CommandRunScope scope)
-    {
-        // 즉시 완료(스킵은 CompleteImmediately 정책)
-    }
+    
+    protected override void OnSkip(CommandRunScope scope) { }
     
     private bool IsSatisfied() => _consumeSignal ? _latch.Consume(_key) : _latch.IsLatched(_key);
 }
-

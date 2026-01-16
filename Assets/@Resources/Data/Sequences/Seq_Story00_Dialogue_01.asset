@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Seq_Story00_Dialogue_01
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: story00.dialogue.01
-  nodes:
-  - editorName: ichika~~ Start!
-    steps: []
+  nodes: []
   references:
     version: 2
     RefIds: []

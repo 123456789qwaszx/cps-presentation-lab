@@ -4,7 +4,7 @@ using IEnumerator = System.Collections.IEnumerator;
 
 [Serializable]
 [CommandMenuHint(
-    "Flow",
+    "Signal",
     "Raise Signal",
     Order = 30)]
 public sealed class RaiseSignalCommandSpec : CommandSpecBase
@@ -16,13 +16,13 @@ public sealed class RaiseSignalCommandSpec : CommandSpecBase
     public bool raiseOnSkip = true;
 }
 
-public sealed class CpsRaiseSignalCommand : CommandBase
+public sealed class RaiseSignalCommand : CommandBase
 {
     private readonly ISignalBus _signals;
     private readonly string _key;
     private readonly bool _raiseOnSkip;
 
-    public CpsRaiseSignalCommand(ISignalBus signals, string key, bool raiseOnSkip = true)
+    public RaiseSignalCommand(ISignalBus signals, string key, bool raiseOnSkip = true)
     {
         _signals = signals;
         _key = key;

@@ -1,13 +1,11 @@
-using UnityEngine;
-
-public sealed class CpsNodeCommandFactory : INodeCommandFactory
+public sealed class NodeCommandFactory : INodeCommandFactory
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly ITimeSource _time;
     private readonly ISignalBus _signal;
     private readonly ISignalLatch _latch;
 
-    public CpsNodeCommandFactory(
+    public NodeCommandFactory(
         IDialogueWidgetAccess widgetAccess,
         ITimeSource time,
         ISignalBus signal,
@@ -276,13 +274,13 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             enableInteraction: s.enableInteraction
         );
 
-    private CpsRaiseSignalCommand Create(RaiseSignalCommandSpec s)
+    private RaiseSignalCommand Create(RaiseSignalCommandSpec s)
         => new (_signal,
             key:         s.signalKey,
             raiseOnSkip: s.raiseOnSkip
         );
 
-    private CpsHoldSignalCommand Create(HoldSignalCommandSpec s)
+    private HoldSignalCommand Create(HoldSignalCommandSpec s)
         => new (_latch, _time,
             key:             s.signalKey,
             consume:         s.consume,

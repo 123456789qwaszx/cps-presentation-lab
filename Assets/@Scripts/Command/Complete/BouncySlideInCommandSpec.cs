@@ -16,7 +16,7 @@ using RectTransform = UnityEngine.RectTransform;
     Order = 40)]
 public sealed class BouncySlideInCommandSpec : CommandSpecBase
 {
-    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitSwayPivot;
+    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
 
     [Header("Slide")] public CpsSlideFrom from = CpsSlideFrom.Left;
 

@@ -59,9 +59,7 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: "\uBC30\uACBD \uD398\uC774\uB4DC"
-      commands:
-      - rid: 2406591511975428200
-      - rid: 2406591511975428201
+      commands: []
       gate:
         type: 0
         seconds: 0
@@ -86,52 +84,11 @@ MonoBehaviour:
         seconds: 0
         signalKey: 
     - editorName: "\uC2DC\uADF8\uB110 \uB300\uAE30"
-      commands:
-      - rid: 2406591511975428198
-      - rid: 2406591511975428199
+      commands: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
   references:
     version: 2
-    RefIds:
-    - rid: 2406591511975428198
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        target: 0
-        text: 
-        clearWhenEmpty: 1
-    - rid: 2406591511975428199
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        target: 0
-        text: 
-        interval: -1
-        wait: 1
-        clearWhenEmpty: 1
-    - rid: 2406591511975428200
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        target: 14
-        sprite: {fileID: 0}
-        clearWhenNull: 1
-        setNativeSize: 0
-    - rid: 2406591511975428201
-      type: {class: CanvasFadeCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: 
-        widgetRoleKey: 
-        target: 3
-        toAlpha: 1
-        fromAlpha: -1
-        duration: -1
-        ease: 9
-        wait: 0
-        addIfMissing: 1
+    RefIds: []

@@ -4,12 +4,8 @@ using System.Collections;
 
 [Serializable]
 [CommandMenuHint(
-    "Flow",
+    "Signal",
     "Wait",
-    Sets = new[]
-    {
-        "Custom/Flow/BeatPauseShort"
-    },
     SetOrder = 10,
     Order = 10)]
 public sealed class WaitCommandSpec : CommandSpecBase
@@ -18,7 +14,7 @@ public sealed class WaitCommandSpec : CommandSpecBase
     public float seconds = 0.2f;
 
     [Header("Clock")]
-    public bool respectTimeScale = true; // ctx.TimeScale 반영 (StepGateAdvancer와 동일 감각)
+    public bool respectTimeScale = true; // ctx.TimeScale 반영
 }
 
 public sealed class CpsWaitCommand : CommandBase
@@ -57,4 +53,3 @@ public sealed class CpsWaitCommand : CommandBase
 
     protected override void OnSkip(CommandRunScope scope) { }
 }
-

@@ -16,13 +16,31 @@ MonoBehaviour:
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
+    - editorName: "\uCD08\uAE30\uD654"
+      commands:
+      - rid: 2406591626690953330
+      - rid: 2406591626690953331
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: SetLayer
       commands:
-      - rid: 2406591609627213893
-      - rid: 2406591609627213898
       - rid: 2406591603016728662
       - rid: 2406591603016728663
-      - rid: 2406591603016728664
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: HideTarget
+      commands:
+      - rid: 2406591626690953337
       gate:
         type: 0
         seconds: 0
@@ -34,17 +52,16 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: SetColor
-      commands:
-      - rid: 2406591603016728681
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
     - editorName: SetText
       commands:
       - rid: 2406591611139784780
       - rid: 2406591611139784779
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
       gate:
         type: 0
         seconds: 0
@@ -58,6 +75,12 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: FadeDialogueBox
       commands:
       - rid: 2406591611139784782
@@ -65,12 +88,18 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: Set...
+    - editorName: type...
       commands:
       - rid: 2406591626690953289
       gate:
-        type: 1
+        type: 0
         seconds: 0.7
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
         signalKey: 
     - editorName: sway
       commands:
@@ -79,13 +108,54 @@ MonoBehaviour:
         type: 0
         seconds: 0
         signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uBA54\uC778\uC774\uBBF8\uC9C0\uAD50\uCCB4"
+      commands:
+      - rid: 2406591626690953310
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uAC10\uC815\uC774\uBAA8\uD2F0\uCF58\uC900\uBE44"
+      commands:
+      - rid: 2406591626690953324
+      - rid: 2406591626690953339
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
     - editorName: TypeText(advanced)
       commands:
-      - rid: 2406591626690953295
       - rid: 2406591626690953288
       gate:
         type: 1
         seconds: 0.2
+        signalKey: 
+    - editorName: "\uAC10\uC815\uC774\uBAA8\uD2F0\uCF58\uCD94\uAC00"
+      commands:
+      - rid: 2406591626690953341
+      - rid: 2406591626690953340
+      - rid: 2406591626690953312
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
         signalKey: 
     - editorName: TypeText(advanced)
       commands:
@@ -95,521 +165,63 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: signal
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
+      commands:
+      - rid: 2406591626690953313
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uBA54\uC778\uC774\uBBF8\uC9C0\uAD50\uCCB4"
+      commands:
+      - rid: 2406591626690953346
+      - rid: 2406591626690953348
+      - rid: 2406591626690953347
+      gate:
+        type: 2
+        seconds: 1.5
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
+      commands:
+      - rid: 2406591626690953358
+      gate:
+        type: 2
+        seconds: 1.5
+        signalKey: 
+    - editorName: -----------------------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
+      commands:
+      - rid: 2406591626690953359
+      gate:
+        type: 2
+        seconds: 1.5
+        signalKey: 
+    - editorName: 
       commands: []
       gate:
         type: 3
         seconds: 0
         signalKey: qwe
-    - editorName: Punch
-      commands:
-      - rid: 2406591626690953280
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: TypeText(advanced)
-      commands:
-      - rid: 2406591626690953284
-      gate:
-        type: 2
-        seconds: 1
-        signalKey: 
-    - editorName: TypeText
-      commands:
-      - rid: 2406591611139784776
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: ScaleUp
-      commands:
-      - rid: 2406591623625441344
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: Input
-      commands:
-      - rid: 2406591611139784773
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: Ready_NameBox,LineBody
-      commands:
-      - rid: 2406591562052010078
-      - rid: 2406591562052010085
-      - rid: 2406591562052010079
-      - rid: 2406591562052010080
-      - rid: 2406591562052010082
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: -----------------------------------------------
-      commands:
-      - rid: 2406591567600025669
-      - rid: 2406591567600025671
-      - rid: 2406591567600025670
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: ReadyChar
-      commands:
-      - rid: 2406591562052010094
-      - rid: 2406591562052010095
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: showDialogueRootandSlideIN
-      commands: []
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: showChar
-      commands:
-      - rid: 2406591562052010108
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: ...
-      commands:
-      - rid: 2406591562052010109
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: "\uC800\uAE30..."
-      commands:
-      - rid: 2406591562052010110
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-  - editorName: "\uBCF5\uAD8C\uAD8C\uC720"
-    steps:
-    - editorName: "\uD45C\uC815+\uB300\uC0AC"
-      commands:
-      - rid: 2406591562052010117
-      - rid: 2406591562052010118
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uC88C\uC6B0\uB85C \uD754\uB4E4\uAE30"
-      commands: []
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uAC10\uC815\uC774\uBAA8\uC9C0"
-      commands:
-      - rid: 2406591562052010122
-      - rid: 2406591562052010123
-      - rid: 2406591562052010124
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-  - editorName: "\uC120\uD0DD\uC9C0"
-    steps:
-    - editorName: "\uC120\uD0DD\uC9C0 \uC900\uBE44"
-      commands:
-      - rid: 2406591562052010141
-      - rid: 2406591562052010142
-      - rid: 2406591562052010143
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uC120\uD0DD\uC9C0 \uD14D\uC2A4\uD2B8\uC138\uD305"
-      commands:
-      - rid: 2406591562052010138
-      - rid: 2406591562052010139
-      - rid: 2406591562052010140
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uCD5C\uB300 3\uCD08 \uB300\uAE30"
-      commands:
-      - rid: 2406591562052010144
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-  - editorName: "\uC120\uD0DD\uC9C0\uACB0\uACFC"
-    steps:
-    - editorName: "\uC120\uD0DD\uC9C0 \uC885\uB8CC"
-      commands: []
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "s\uC785\uB825\uC2DC.."
-      commands: []
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: ......
-      commands:
-      - rid: 2406591562052010152
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uAC10\uC815\uBC0F \uD45C\uC815 \uB514\uD3F4\uD2B8"
-      commands:
-      - rid: 2406591562052010153
-      gate:
-        type: 2
-        seconds: 2
-        signalKey: 
-  - editorName: "\uADF8\uAC74 \uBCC4\uB85C..."
-    steps:
-    - editorName: "\uAC10\uC815\uD45C\uD604"
-      commands:
-      - rid: 2406591562052010163
-      - rid: 2406591562052010164
-      gate:
-        type: 0
-        seconds: 0
-        signalKey: 
-    - editorName: "\uB2E4\uC2DC\uACE8\uB77C\uBCFC\uB798?"
-      commands:
-      - rid: 2406591562052010156
-      - rid: -2
-      - rid: 2406591562052010160
-      - rid: 2406591562052010166
-      - rid: 2406591562052010167
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-  - editorName: "\uB4DC\uB86D"
-    steps:
-    - editorName: Reaction_Drop01 (imported) (imported)
-      commands:
-      - rid: 2406591567600025663
-      - rid: 2406591567600025664
-      - rid: 2406591567600025666
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 2406591562052010078
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 9a7bb0e3c84658c4e9096cff832a6a6f, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010079
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 40
-        text: 
-        clearWhenEmpty: 1
-    - rid: 2406591562052010080
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 10
-        text: 
-        interval: -1
-        wait: 1
-    - rid: 2406591562052010082
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: e2c0902a725a5b5499a4603810e5fbc7, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010085
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 10
-        text: 
-        clearWhenEmpty: 1
-    - rid: 2406591562052010094
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010095
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 4
-        text: Juno
-        clearWhenEmpty: 1
-    - rid: 2406591562052010108
-      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 500
-        from: 0
-        slideDistance: 88
-        slideDuration: 1.2
-        slideEase: 9
-        waveAmplitude: 22
-        waveLoops: 2
-        waveAxis: 1
-        wait: 1
-    - rid: 2406591562052010109
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: ...
-        interval: -1
-        wait: 1
-    - rid: 2406591562052010110
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: "\uC800\uAE30..."
-        interval: -1
-        wait: 1
-    - rid: 2406591562052010117
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 99dda86e5896b464593debe1f48efbbe, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010118
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: "\uD639\uC2DC \uBCF5\uAD8C \uC0AC\uB7EC \uC624\uC168\uC5B4\uC694?\n\uC624\uB298\uC740
-          \uAF2D \uB2F9\uCCA8 \uB418\uC2E4\uAC70\uC5D0\uC694."
-        interval: -1
-        wait: 1
-    - rid: 2406591562052010122
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 056ef096f6e1c6447bd9cb33b66fd244, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010123
-      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 15
-        toAngle: 270
-        killTween: 1
-    - rid: 2406591562052010124
-      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 15
-        toScale: {x: 1.6, y: 1.6}
-        killTween: 1
-    - rid: 2406591562052010138
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 42
-        text: "\uC0B0\uB2E4"
-        clearWhenEmpty: 1
-    - rid: 2406591562052010139
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 43
-        text: "\uC0AC\uC9C0\uC54A\uB294\uB2E4"
-        clearWhenEmpty: 1
-    - rid: 2406591562052010140
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 44
-        text: ???
-        clearWhenEmpty: 1
-    - rid: 2406591562052010141
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010142
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010143
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 5f5380d488dd06a43a5cf9febf6361e7, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010144
-      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        signalKey: s
-        consume: 1
-        timeoutSeconds: 3
-        respectTimeScale: 1
-    - rid: 2406591562052010152
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: ......
-        interval: 0.6
-        wait: 1
-    - rid: 2406591562052010153
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 00143ef6b4ee9d54ea475f7478f220f3, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010156
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 319f2619808184f4db1a05903031721e, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010160
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: "\uC544\uC27D\uC9C0\uB9CC \uB2E4\uC74C\uC5D0\uB294 \uAF2D \uB2F9\uCCA8\uB418\uC2E4\uAC70\uC5D0\uC694."
-        interval: -1
-        wait: 1
-    - rid: 2406591562052010163
-      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 15
-        toAngle: 240
-        killTween: 1
-    - rid: 2406591562052010164
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 4b53a58a3b10e3c4bb974e217720b58b, type: 3}
-        setNativeSize: 0
-    - rid: 2406591562052010166
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        seconds: 1.2
-        respectTimeScale: 1
-    - rid: 2406591562052010167
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 1
-        text: "\uD639\uC2DC \uB2E4\uC2DC \uACE8\uB77C\uBCF4\uC2DC\uACA0\uC5B4\uC694?"
-        interval: -1
-        wait: 1
-    - rid: 2406591567600025663
-      type: {class: SetRotationCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 4
-        toAngle: 0
-        killTween: 1
-    - rid: 2406591567600025664
-      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 13
-        toScale: {x: 1, y: 1}
-        killTween: 1
-    - rid: 2406591567600025666
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 0
-        text: "\uC557..."
-        interval: -1
-        wait: 0
-    - rid: 2406591567600025669
-      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        signalKey: 
-        consume: 1
-        timeoutSeconds: -1
-        respectTimeScale: 1
-    - rid: 2406591567600025670
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        seconds: 0.2
-        respectTimeScale: 1
-    - rid: 2406591567600025671
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        seconds: 0.2
-        respectTimeScale: 1
     - rid: 2406591603016728662
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -618,7 +230,7 @@ MonoBehaviour:
         layers: 251
         duration: 0
         ease: 1
-        wait: 1
+        wait: 0
         disableInteraction: 1
     - rid: 2406591603016728663
       type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
@@ -628,18 +240,8 @@ MonoBehaviour:
         layers: 11
         duration: 0
         ease: 1
-        wait: 1
+        wait: 0
         enableInteraction: 1
-    - rid: 2406591603016728664
-      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        targets: 136
-        duration: 0
-        ease: 1
-        wait: 1
-        disableInteraction: 0
     - rid: 2406591603016728665
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -648,37 +250,6 @@ MonoBehaviour:
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
         setNativeSize: 0
-    - rid: 2406591603016728681
-      type: {class: SetColorCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        color: {r: 1, g: 1, b: 1, a: 1}
-        keepAlpha: 0
-    - rid: 2406591609627213893
-      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        layers: 8
-        anchorPreset: 0
-        offset: {x: 0, y: 0}
-        killTween: 1
-    - rid: 2406591609627213898
-      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 510
-        offset: {x: 0, y: 0}
-        resetToZero: 1
-        killTween: 1
-    - rid: 2406591611139784773
-      type: {class: StubCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
     - rid: 2406591611139784774
       type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
@@ -688,21 +259,12 @@ MonoBehaviour:
         offset: {x: 0, y: 0}
         resetToZero: 1
         killTween: 1
-    - rid: 2406591611139784776
-      type: {class: TypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 10
-        text: ...
-        interval: 0.1
-        wait: 0
     - rid: 2406591611139784777
       type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        target: 530
+        target: 510
         from: 0
         slideDistance: 480
         slideDuration: 1.2
@@ -751,47 +313,13 @@ MonoBehaviour:
         ease: 9
         wait: 0
         addIfMissing: 1
-    - rid: 2406591623625441344
-      type: {class: ScaleFromToCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 550
-        toScale: {x: 1.1, y: 1.1}
-        overrideFromScale: 1
-        fromScale: {x: 1, y: 1}
-        duration: 1.2
-        ease: 9
-        wait: 0
-        killTween: 1
-    - rid: 2406591626690953280
-      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 550
-        strength: 0.1
-        duration: 2
-        vibrato: 2
-        elasticity: 0.542
-        wait: 0
-    - rid: 2406591626690953284
-      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 10
-        text: ...
-        baseInterval: 0.3
-        defaultPauseSeconds: 0.25
-        wait: 1
     - rid: 2406591626690953288
       type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         target: 10
-        text: "<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640..."
+        text: "<speed0.5>\uC5B4\uC11C\uC640~~"
         baseInterval: 0.2
         defaultPauseSeconds: 0.25
         wait: 0
@@ -837,12 +365,148 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        seconds: 0.8
+        seconds: 0.1
         respectTimeScale: 1
-    - rid: 2406591626690953295
+    - rid: 2406591626690953310
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        spriteTarget: 0
+        sprite: {fileID: 21300000, guid: 99dda86e5896b464593debe1f48efbbe, type: 3}
+        setNativeSize: 0
+    - rid: 2406591626690953312
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        targets: 128
+        duration: 0.4
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591626690953313
+      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        toEuler: {x: 0, y: 180, z: 0}
+        overrideFromEuler: 1
+        fromEuler: {x: 0, y: 0, z: 0}
+        duration: 1.2
+        ease: 9
+        wait: 0
+        killTween: 0
+    - rid: 2406591626690953324
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        spriteTarget: 3
+        sprite: {fileID: 21300000, guid: 805bcba044e4afb48b4380fe9a215140, type: 3}
+        setNativeSize: 0
+    - rid: 2406591626690953330
+      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        layers: 8
+        anchorPreset: 0
+        offset: {x: 0, y: 0}
+        killTween: 1
+    - rid: 2406591626690953331
+      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 510
+        offset: {x: 0, y: 0}
+        resetToZero: 1
+        killTween: 1
+    - rid: 2406591626690953337
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        targets: 136
+        duration: 0
+        ease: 1
+        wait: 0
+        disableInteraction: 0
+    - rid: 2406591626690953339
+      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        toScale: {x: 0.1, y: 0.1}
+        killTween: 1
+    - rid: 2406591626690953340
+      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        strength: 0.2
+        duration: 0.4
+        vibrato: 2
+        elasticity: 0.75
+        wait: 0
+    - rid: 2406591626690953341
+      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        toScale: {x: 1, y: 1}
+        killTween: 1
+    - rid: 2406591626690953346
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        spriteTarget: 0
+        sprite: {fileID: 21300000, guid: 00143ef6b4ee9d54ea475f7478f220f3, type: 3}
+        setNativeSize: 0
+    - rid: 2406591626690953347
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        spriteTarget: 0
+        sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
+        setNativeSize: 0
+    - rid: 2406591626690953348
       type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        seconds: 0.3
+        seconds: 0.08
         respectTimeScale: 1
+    - rid: 2406591626690953358
+      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        toEuler: {x: 0, y: 360, z: 0}
+        overrideFromEuler: 1
+        fromEuler: {x: 0, y: 180, z: 0}
+        duration: 1.2
+        ease: 9
+        wait: 0
+        killTween: 0
+    - rid: 2406591626690953359
+      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 590
+        toEuler: {x: 0, y: 360, z: 0}
+        overrideFromEuler: 1
+        fromEuler: {x: 0, y: 540, z: 0}
+        duration: 1.2
+        ease: 9
+        wait: 0
+        killTween: 0
