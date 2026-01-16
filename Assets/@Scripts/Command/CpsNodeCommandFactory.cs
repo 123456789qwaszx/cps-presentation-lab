@@ -51,12 +51,22 @@ public sealed class CpsNodeCommandFactory : INodeCommandFactory
             SwayThenDropCommandSpec s      => Create(s),
             SetTextCommandSpec s           => Create(s),
             TypeTextCommandSpec s          => Create(s),
+            AdvancedTypeTextCommandSpec s  => Create(s),
 
             _ => null
         };
 
         return command != null;
     }
+    
+    private AdvancedTypeTextCommand Create(AdvancedTypeTextCommandSpec s)
+        => new(_widgets, _time, s.screenId, s.widgetRoleKey,
+            target:              s.target,
+            text:                s.text,
+            baseInterval:        s.baseInterval,
+            defaultPauseSeconds: s.defaultPauseSeconds,
+            waitForCompletion:   s.wait
+        );
     
     private TypeTextCommand Create(TypeTextCommandSpec s)
         => new (_widgets, _time, s.screenId, s.widgetRoleKey,  waitForCompletion: s.wait,

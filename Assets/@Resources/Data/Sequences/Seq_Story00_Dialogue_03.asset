@@ -65,16 +65,32 @@ MonoBehaviour:
         type: 1
         seconds: 0
         signalKey: 
-    - editorName: FadeDialogueBox
+    - editorName: Set...
       commands:
-      - rid: 2406591623625441344
+      - rid: 2406591626690953289
       gate:
         type: 1
+        seconds: 0.7
+        signalKey: 
+    - editorName: sway
+      commands:
+      - rid: 2406591626690953291
+      gate:
+        type: 0
         seconds: 0
         signalKey: 
-    - editorName: TypeText
+    - editorName: TypeText(advanced)
       commands:
-      - rid: 2406591611139784776
+      - rid: 2406591626690953295
+      - rid: 2406591626690953288
+      gate:
+        type: 1
+        seconds: 0.2
+        signalKey: 
+    - editorName: TypeText(advanced)
+      commands:
+      - rid: 2406591626690953294
+      - rid: 2406591626690953292
       gate:
         type: 1
         seconds: 0
@@ -85,6 +101,34 @@ MonoBehaviour:
         type: 3
         seconds: 0
         signalKey: qwe
+    - editorName: Punch
+      commands:
+      - rid: 2406591626690953280
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: TypeText(advanced)
+      commands:
+      - rid: 2406591626690953284
+      gate:
+        type: 2
+        seconds: 1
+        signalKey: 
+    - editorName: TypeText
+      commands:
+      - rid: 2406591611139784776
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: ScaleUp
+      commands:
+      - rid: 2406591623625441344
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
     - editorName: Input
       commands:
       - rid: 2406591611139784773
@@ -581,7 +625,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
-        layers: 10
+        layers: 11
         duration: 0
         ease: 1
         wait: 1
@@ -650,7 +694,7 @@ MonoBehaviour:
         screenId: lab/ui/dialogue_02
         widgetRoleKey: dialogue
         target: 10
-        text: "\uC548\uB155...\n\uB4DC\uB514\uC5B4 \uB0B4 \uB9D0\uC774 \uB4E4\uB9AC\uB294\uAD6C\uB098."
+        text: ...
         interval: 0.1
         wait: 0
     - rid: 2406591611139784777
@@ -720,3 +764,85 @@ MonoBehaviour:
         ease: 9
         wait: 0
         killTween: 1
+    - rid: 2406591626690953280
+      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 550
+        strength: 0.1
+        duration: 2
+        vibrato: 2
+        elasticity: 0.542
+        wait: 0
+    - rid: 2406591626690953284
+      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: ...
+        baseInterval: 0.3
+        defaultPauseSeconds: 0.25
+        wait: 1
+    - rid: 2406591626690953288
+      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: "<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640...<speed0.5>\uC5B4\uC11C\uC640..."
+        baseInterval: 0.2
+        defaultPauseSeconds: 0.25
+        wait: 0
+    - rid: 2406591626690953289
+      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: ...
+        clearWhenEmpty: 1
+    - rid: 2406591626690953291
+      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        swayTarget: 530
+        dropTarget: 510
+        swayAngle: 12
+        swayLoops: 3
+        swayDuration: 1.5
+        dropDistance: 0
+        dropDuration: 0
+        dropAngle: 0
+        dropEase: 8
+        wait: 1
+        swayForwardEase: 6
+        swayDecay: 1
+        dropStartRatio: 0.3
+    - rid: 2406591626690953292
+      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        target: 10
+        text: "<speed0.4> \uD639\uC2DC \uB108\uC758 \uC6B4\uC744...<wait0.1> <speed0.25>\uC2DC\uD5D8\uD574\uBCF4\uC9C0
+          \uC54A\uC744\uB798??"
+        baseInterval: 0.2
+        defaultPauseSeconds: 0.25
+        wait: 0
+    - rid: 2406591626690953294
+      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        seconds: 0.8
+        respectTimeScale: 1
+    - rid: 2406591626690953295
+      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_02
+        widgetRoleKey: dialogue
+        seconds: 0.3
+        respectTimeScale: 1
