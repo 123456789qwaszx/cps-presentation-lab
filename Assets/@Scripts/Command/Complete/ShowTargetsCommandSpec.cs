@@ -10,7 +10,7 @@ using UnityEngine;
     "Show Dialogue Layers (Targets)",
     Sets  = new[]
     {
-        CpsCommandMenuSets.VnLayerRestore
+        CpsCommandMenuSets.VnLayerSetup,
     },
     SetOrder = -80
 )]

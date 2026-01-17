@@ -88,20 +88,20 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             BackgroundImage01 = screen.GetWidgetDirect<Image>(set.BackgroundImage01Tag),
 
             // ---- Choice Panel ----
-            ChoicePanelRoot   = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
+            ChoicePanel00Root   = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
             ChoicePanelImage  = screen.GetWidgetDirect<Image>(set.ChoicePanelImageTag),
 
-            ChoiceButton0Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag),
-            ChoiceButton1Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag),
-            ChoiceButton2Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag),
+            ChoiceButton00Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag),
+            ChoiceButton01Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag),
+            ChoiceButton02Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag),
 
-            ChoiceButton0Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag),
-            ChoiceButton1Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag),
-            ChoiceButton2Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
+            ChoiceButton00Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag),
+            ChoiceButton01Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag),
+            ChoiceButton02Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
 
-            ChoiceButton0Image = screen.GetWidgetDirect<Image>(set.ChoiceButton0ImageTag),
-            ChoiceButton1Image = screen.GetWidgetDirect<Image>(set.ChoiceButton1ImageTag),
-            ChoiceButton2Image = screen.GetWidgetDirect<Image>(set.ChoiceButton2ImageTag),
+            ChoiceButton00Image = screen.GetWidgetDirect<Image>(set.ChoiceButton0ImageTag),
+            ChoiceButton01Image = screen.GetWidgetDirect<Image>(set.ChoiceButton1ImageTag),
+            ChoiceButton02Image = screen.GetWidgetDirect<Image>(set.ChoiceButton2ImageTag),
 
             // ---- VFX Panel ----
             VFXBlackScreen00Root = screen.GetWidgetDirect<RectTransform>(set.VFXBlackScreen00RootTag),
@@ -111,28 +111,27 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             BlackFade00Root      = screen.GetWidgetDirect<RectTransform>(set.BlackFade00RootTag),
             BlackFade00Image     = screen.GetWidgetDirect<Image>(set.BlackFade00ImageTag),
 
-            // ---- Skip Toggle ----
+            
+            // ---- Toggle Panel ----
+            TogglePanel00Root    = screen.GetWidgetDirect<RectTransform>(set.TogglePanel00RootTag),
+            
             SkipToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.SkipToggle00RootTag),
             SkipToggle00Image    = screen.GetWidgetDirect<Image>(set.SkipToggle00ImageTag),
             SkipToggle01Image    = screen.GetWidgetDirect<Image>(set.SkipToggle01ImageTag),
             SkipToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.SkipToggle00TextTag),
 
-            // ---- Next Toggle ----
             NextToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.NextToggle00RootTag),
             NextToggle00Image    = screen.GetWidgetDirect<Image>(set.NextToggle00ImageTag),
             NextToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.NextToggle00TextTag),
 
-            // ---- Auto Toggle ----
             AutoToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.AutoToggle00RootTag),
             AutoToggle00Image    = screen.GetWidgetDirect<Image>(set.AutoToggle00ImageTag),
             AutoToggle01Image    = screen.GetWidgetDirect<Image>(set.AutoToggle01ImageTag),
 
-            // ---- Speedup Toggle ----
             SpeedupToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SpeedupToggle00RootTag),
             SpeedupToggle00Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle00ImageTag),
             SpeedupToggle01Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle01ImageTag),
 
-            // ---- SetSpeed Toggle ----
             SetSpeedToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SetSpeedToggle00RootTag),
             SetSpeedToggle00Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle00ImageTag),
             SetSpeedToggle01Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle01ImageTag),

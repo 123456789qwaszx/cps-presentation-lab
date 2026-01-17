@@ -13,7 +13,117 @@ MonoBehaviour:
   m_Name: Seq_Story00_Dialogue_10
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: story00.dialogue.10
-  nodes: []
+  nodes:
+  - editorName: 
+    steps:
+    - editorName: ResetUI
+      commands:
+      - rid: 2406591647328501825
+      - rid: 2406591647328501826
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501827
+      - rid: 2406591647328501835
+      - rid: 2406591647328501828
+      - rid: 2406591647328501829
+      - rid: 2406591647328501830
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: --------------------------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501834
+      gate:
+        type: 3
+        seconds: 0
+        signalKey: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591647328501825
+      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 0
+        anchorPreset: 0
+        offset: {x: 0, y: 0}
+        killTween: 1
+    - rid: 2406591647328501826
+      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        target: 510
+        offset: {x: 0, y: 0}
+        resetToZero: 1
+        killTween: 1
+    - rid: 2406591647328501827
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 0
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501828
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 74
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501829
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 136
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501830
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 16382
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501834
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        signalKey: qwe
+        consume: 1
+        timeoutSeconds: -1
+        respectTimeScale: 1
+    - rid: 2406591647328501835
+      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        signalKey: s
+        consume: 1
+        timeoutSeconds: -1
+        respectTimeScale: 1

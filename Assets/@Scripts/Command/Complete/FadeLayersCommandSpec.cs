@@ -15,7 +15,7 @@ public sealed class FadeLayersCommandSpec : CommandSpecBase
     [Header("Layers")]
     [Tooltip("페이드할 Root 레이어들을 선택합니다. (Background / Portrait / DialogueBox / ChoicePanel 등)")]
     public DialogueLayerMask layers =
-        DialogueLayerMask.Story_Default;
+        DialogueLayerMask.None;
 
     [Header("Fade")]
     [Range(0f, 1f)]
@@ -90,7 +90,7 @@ public sealed class FadeLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        DialogueLayerRoots.Collect(_refs, _layers, _targets);
         if (_targets.Count == 0)
             yield break;
 
@@ -146,7 +146,7 @@ public sealed class FadeLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        DialogueLayerRoots.Collect(_refs, _layers, _targets);
         if (_targets.Count == 0)
             return;
 
@@ -187,7 +187,7 @@ public sealed class FadeLayersCommand : CommandBase
         if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot)) outList.Add(refs.SubRightStandingPortraitRoot);
 
         if (layerMask.HasFlag(DialogueLayerMask.DialogueBoxRoot))  outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot))  outList.Add(refs.ChoicePanelRoot);
+        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot))  outList.Add(refs.ChoicePanel00Root);
     }
 
     private static CanvasGroup GetOrAddCanvasGroup(RectTransform rect, bool addIfMissing)

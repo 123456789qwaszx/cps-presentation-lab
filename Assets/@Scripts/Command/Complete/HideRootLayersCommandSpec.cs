@@ -74,7 +74,7 @@ public sealed class HideRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        DialogueLayerRoots.Collect(_refs, _layers, _targets);
         if (_targets.Count == 0)
             yield break;
 
@@ -132,7 +132,7 @@ public sealed class HideRootLayersCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        CollectLayerRoots(_refs, _layers, _targets);
+        DialogueLayerRoots.Collect(_refs, _layers, _targets);
         SnapOffTargets(_targets);
     }
 
@@ -160,22 +160,6 @@ public sealed class HideRootLayersCommand : CommandBase
                 canvasGroup.blocksRaycasts = false;
             }
         }
-    }
-
-    private void CollectLayerRoots(IDialogueWidgetAccess.WidgetRefs refs, DialogueLayerMask layerMask, List<RectTransform> outList)
-    {
-        outList.Clear();
-        if (refs == null) return;
-
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root)) outList.Add(refs.BackgroundRoot00);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root)) outList.Add(refs.BackgroundRoot01);
-
-        if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot))     outList.Add(refs.MainStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))  outList.Add(refs.SubLeftStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot)) outList.Add(refs.SubRightStandingPortraitRoot);
-
-        if (layerMask.HasFlag(DialogueLayerMask.DialogueBoxRoot)) outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot)) outList.Add(refs.ChoicePanelRoot);
     }
 
     private bool ResolveIfNeeded()

@@ -1,5 +1,8 @@
 public static class CpsCommandMenuSets
 {
+    public const string ResetUI = "VN/ResetUI";
+    
+    
     /// <summary>
     /// 배경/초상/대화박스/선택지까지 싹 끄는 세트
     /// 메뉴: VN/AllOff

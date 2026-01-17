@@ -78,7 +78,11 @@ namespace Lab.UI.Naming
 
         private const string BlackFade00RootSuffix  = "_VFXBlackFade00_Root";
         private const string BlackFade00ImageSuffix = "_VFXBlackFade00_Image";
-
+        
+        // ---- Toggle Panel ----
+        
+        private const string TogglePanel00RootSuffix  = "_TogglePanel00_Root";
+        
         private const string SkipToggle00RootSuffix  = "_SkipToggle00_Root";
         private const string SkipToggle00ImageSuffix = "_SkipToggle00_Image0";
         private const string SkipToggle01ImageSuffix = "_SkipToggle00_Image1";
@@ -180,7 +184,11 @@ namespace Lab.UI.Naming
 
         public string BlackFade00RootTag      => $"{_roleKey}{BlackFade00RootSuffix}";
         public string BlackFade00ImageTag     => $"{_roleKey}{BlackFade00ImageSuffix}";
-
+        
+        
+        // ---- Toggle Panel ----
+        public string TogglePanel00RootTag     => $"{_roleKey}{TogglePanel00RootSuffix}";
+        
         public string SkipToggle00RootTag     => $"{_roleKey}{SkipToggle00RootSuffix}";
         public string SkipToggle00ImageTag    => $"{_roleKey}{SkipToggle00ImageSuffix}";
         public string SkipToggle01ImageTag    => $"{_roleKey}{SkipToggle01ImageSuffix}";

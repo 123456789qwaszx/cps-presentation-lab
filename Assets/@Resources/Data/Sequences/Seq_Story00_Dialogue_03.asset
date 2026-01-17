@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
   m_Name: Seq_Story00_Dialogue_03
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
-  sequenceKey: story00.dialogue.03
+  sequenceKey: story00.dialogue.2
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:

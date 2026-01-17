@@ -8,7 +8,12 @@ using DG.Tweening;
 [CommandMenuHint(
     "Set Rect",
     "Set Root Stage (AnchorPreset)",
-    Order = 20)]
+    Sets = new[]
+    {
+        CpsCommandMenuSets.ResetUI,
+    },
+    SetOrder = -90
+    )]
 public sealed class SetRootStageCommandSpec : CommandSpecBase
 {
     [Header("Layers (Roots only)")]
@@ -114,30 +119,7 @@ public sealed class SetRootStageCommand : CommandBase
         if (!_widgets.TryResolve(_screenId, _widgetRoleKey, out _refs) || _refs == null)
             return false;
 
-        CollectRootTargets(_refs, _layers, _targets);
+        DialogueLayerRoots.Collect(_refs, _layers, _targets);
         return _targets.Count > 0;
-    }
-
-    private static void CollectRootTargets(IDialogueWidgetAccess.WidgetRefs refs, DialogueLayerMask layerMask, List<RectTransform> outList)
-    {
-        outList.Clear();
-        if (refs == null) return;
-
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root) && refs.BackgroundRoot00 != null)
-            outList.Add(refs.BackgroundRoot00);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root) && refs.BackgroundRoot01 != null)
-            outList.Add(refs.BackgroundRoot01);
-
-        if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot)     && refs.MainStandingPortraitRoot != null)
-            outList.Add(refs.MainStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot)  && refs.SubLeftStandingPortraitRoot != null)
-            outList.Add(refs.SubLeftStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot) && refs.SubRightStandingPortraitRoot != null)
-            outList.Add(refs.SubRightStandingPortraitRoot);
-
-        if (layerMask.HasFlag(DialogueLayerMask.DialogueBoxRoot) && refs.DialogueBoxRoot != null)
-            outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanelRoot) && refs.ChoicePanelRoot != null)
-            outList.Add(refs.ChoicePanelRoot);
     }
 }

@@ -6,8 +6,13 @@ using DG.Tweening;
 [Serializable]
 [CommandMenuHint(
     "Set Rect",
-    "Offset Position (XY)",
-    Order = 30)]
+    "Offset Position (default = ResetToZero)",
+    Sets = new[]
+    {
+        CpsCommandMenuSets.ResetUI,
+    },
+    SetOrder = -80
+    )]
 public sealed class SetPositionOffsetCommandSpec : CommandSpecBase
 {
     [Header("Target (Track or Rig)")]
@@ -19,7 +24,7 @@ public sealed class SetPositionOffsetCommandSpec : CommandSpecBase
 
     [Header("Reset (Track Origin)")]
     [Tooltip("체크하면 현재 설정된 오프셋을 무시하고 anchoredPosition을 (0,0)으로 리셋합니다.")]
-    public bool resetToZero = false;
+    public bool resetToZero = true;
 
     [Header("Options")]
     [Tooltip("체크하면 RectTransform 관련 트윈을 끊고 적용합니다.")]

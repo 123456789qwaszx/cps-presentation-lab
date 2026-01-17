@@ -85,7 +85,7 @@ public enum DialogueWidgetTarget
     ChoiceButton2Image = 3100,
 
     // ======================================================
-    // VFX / Toggle Panel (4000 ~ 4220)
+    // VFX / Toggle Panel (4000 ~ 4040)
     // ======================================================
     VFXBlackScreen00Root = 4000,
     VFXBlackOut00Image   = 4010,
@@ -93,29 +93,35 @@ public enum DialogueWidgetTarget
 
     BlackFade00Root      = 4030,
     BlackFade00Image     = 4040,
+    
+    // ======================================================
+    // VFX / Toggle Panel (4500 ~ 5040)
+    // ======================================================
+    
+    TogglePanel00Root = 4500,
 
-    SkipToggle00Root     = 4050,
-    SkipToggle00Image    = 4060,
-    SkipToggle01Image    = 4070,
-    SkipToggle00Text     = 4080,
+    SkipToggle00Root     = 4600,
+    SkipToggle00Image    = 4610,
+    SkipToggle01Image    = 4620,
+    SkipToggle00Text     = 4630,
 
-    NextToggle00Root     = 4090,
-    NextToggle00Image    = 4100,
-    NextToggle00Text     = 4110,
+    NextToggle00Root     = 4700,
+    NextToggle00Image    = 4710,
+    NextToggle00Text     = 4720,
 
-    AutoToggle00Root     = 4120,
-    AutoToggle00Image    = 4130,
-    AutoToggle01Image    = 4140,
+    AutoToggle00Root     = 4800,
+    AutoToggle00Image    = 4810,
+    AutoToggle01Image    = 4820,
 
-    SpeedupToggle00Root  = 4150,
-    SpeedupToggle00Image = 4160,
-    SpeedupToggle01Image = 4170,
+    SpeedupToggle00Root  = 4900,
+    SpeedupToggle00Image = 4910,
+    SpeedupToggle01Image = 4920,
 
-    SetSpeedToggle00Root  = 4180,
-    SetSpeedToggle00Image = 4190,
-    SetSpeedToggle01Image = 4200,
-    SetSpeedToggle02Image = 4210,
-    SetSpeedToggle03Image = 4220,
+    SetSpeedToggle00Root  = 5000,
+    SetSpeedToggle00Image = 5010,
+    SetSpeedToggle01Image = 5020,
+    SetSpeedToggle02Image = 5030,
+    SetSpeedToggle03Image = 5040,
 }
 
 public interface IDialogueWidgetAccess
@@ -175,20 +181,20 @@ public interface IDialogueWidgetAccess
         public Image BackgroundImage01;
 
         // ---- Choice Panel ----
-        public RectTransform ChoicePanelRoot;
+        public RectTransform ChoicePanel00Root;
         public Image ChoicePanelImage;
 
-        public RectTransform ChoiceButton0Root;
-        public RectTransform ChoiceButton1Root;
-        public RectTransform ChoiceButton2Root;
+        public RectTransform ChoiceButton00Root;
+        public TMP_Text ChoiceButton00Text;
+        public Image ChoiceButton00Image;
 
-        public TMP_Text ChoiceButton0Text;
-        public TMP_Text ChoiceButton1Text;
-        public TMP_Text ChoiceButton2Text;
-
-        public Image ChoiceButton0Image;
-        public Image ChoiceButton1Image;
-        public Image ChoiceButton2Image;
+        public RectTransform ChoiceButton01Root;
+        public TMP_Text ChoiceButton01Text;
+        public Image ChoiceButton01Image;
+        
+        public RectTransform ChoiceButton02Root;
+        public TMP_Text ChoiceButton02Text;
+        public Image ChoiceButton02Image;
 
         // ---- VFX Panel ----
         public RectTransform VFXBlackScreen00Root;
@@ -199,6 +205,8 @@ public interface IDialogueWidgetAccess
         public Image BlackFade00Image;
 
         // ---- Skip Toggle ----
+        public RectTransform TogglePanel00Root;
+        
         public RectTransform SkipToggle00Root;
         public Image SkipToggle00Image;
         public Image SkipToggle01Image;
@@ -287,28 +295,31 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.BackgroundImage01: return refs.BackgroundImage01;
 
             // ---- Choice Panel ----
-            case DialogueWidgetTarget.ChoicePanelRoot:   return refs.ChoicePanelRoot;
+            case DialogueWidgetTarget.ChoicePanelRoot:   return refs.ChoicePanel00Root;
             case DialogueWidgetTarget.ChoicePanelImage:  return refs.ChoicePanelImage;
 
-            case DialogueWidgetTarget.ChoiceButton0Root:  return refs.ChoiceButton0Root;
-            case DialogueWidgetTarget.ChoiceButton1Root:  return refs.ChoiceButton1Root;
-            case DialogueWidgetTarget.ChoiceButton2Root:  return refs.ChoiceButton2Root;
+            case DialogueWidgetTarget.ChoiceButton0Root:  return refs.ChoiceButton00Root;
+            case DialogueWidgetTarget.ChoiceButton1Root:  return refs.ChoiceButton01Root;
+            case DialogueWidgetTarget.ChoiceButton2Root:  return refs.ChoiceButton02Root;
 
-            case DialogueWidgetTarget.ChoiceButton0Text:  return refs.ChoiceButton0Text;
-            case DialogueWidgetTarget.ChoiceButton1Text:  return refs.ChoiceButton1Text;
-            case DialogueWidgetTarget.ChoiceButton2Text:  return refs.ChoiceButton2Text;
+            case DialogueWidgetTarget.ChoiceButton0Text:  return refs.ChoiceButton00Text;
+            case DialogueWidgetTarget.ChoiceButton1Text:  return refs.ChoiceButton01Text;
+            case DialogueWidgetTarget.ChoiceButton2Text:  return refs.ChoiceButton02Text;
 
-            case DialogueWidgetTarget.ChoiceButton0Image: return refs.ChoiceButton0Image;
-            case DialogueWidgetTarget.ChoiceButton1Image: return refs.ChoiceButton1Image;
-            case DialogueWidgetTarget.ChoiceButton2Image: return refs.ChoiceButton2Image;
+            case DialogueWidgetTarget.ChoiceButton0Image: return refs.ChoiceButton00Image;
+            case DialogueWidgetTarget.ChoiceButton1Image: return refs.ChoiceButton01Image;
+            case DialogueWidgetTarget.ChoiceButton2Image: return refs.ChoiceButton02Image;
 
-            // ---- VFX / Toggle Panel ----
+            // ---- VFX ----
             case DialogueWidgetTarget.VFXBlackScreen00Root: return refs.VFXBlackScreen00Root;
             case DialogueWidgetTarget.VFXBlackOut00Image:   return refs.VFXBlackOut00Image;
             case DialogueWidgetTarget.VFXBlackOut01Image:   return refs.VFXBlackOut01Image;
 
             case DialogueWidgetTarget.BlackFade00Root:      return refs.BlackFade00Root;
             case DialogueWidgetTarget.BlackFade00Image:     return refs.BlackFade00Image;
+            
+            // ---- Toggle Panel ----
+            case DialogueWidgetTarget.TogglePanel00Root:    return refs.TogglePanel00Root;
 
             case DialogueWidgetTarget.SkipToggle00Root:     return refs.SkipToggle00Root;
             case DialogueWidgetTarget.SkipToggle00Image:    return refs.SkipToggle00Image;
