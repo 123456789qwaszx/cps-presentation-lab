@@ -1,9 +1,4 @@
-// ------------------------------------------------------------
-// 3) Bob Y (Persistent) : RectTransform anchored Y yoyo
-// ------------------------------------------------------------
-
 using System;
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -41,7 +36,7 @@ public sealed class BobYPersistentCommandSpec : CommandSpecBase
     public bool ignoreWhenSkipping = true;
 }
 
-public sealed class BobYPersistentCommand : ISequenceCommand
+public sealed class BobYPersistentCommand : PersistentCommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly PersistentEffectRegistry _effects;
@@ -61,8 +56,6 @@ public sealed class BobYPersistentCommand : ISequenceCommand
     private bool _resolveAttempted;
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
-
-    public bool WaitForCompletion => false;
 
     public BobYPersistentCommand(
         IDialogueWidgetAccess widgets,
@@ -95,12 +88,14 @@ public sealed class BobYPersistentCommand : ISequenceCommand
         _ignoreWhenSkipping = ignoreWhenSkipping;
     }
 
-    public IEnumerator Execute(CommandRunScope scope)
+    protected override SkipPolicy SkipPolicy =>
+        _ignoreWhenSkipping ? SkipPolicy.Ignore : SkipPolicy.ExecuteEvenIfSkipping;
+
+    protected override void ApplyPersistent(CommandRunScope scope)
     {
-        if (scope == null) yield break;
-        if (_ignoreWhenSkipping && scope.IsSkipping) yield break;
-        if (_effects == null) yield break;
-        if (!ResolveIfNeeded()) yield break;
+        if (scope == null) return;
+        if (_effects == null) return;
+        if (!ResolveIfNeeded()) return;
 
         string key = BuildKey("BobY");
 
@@ -110,6 +105,9 @@ public sealed class BobYPersistentCommand : ISequenceCommand
             replacePolicy: _replacePolicy,
             create: () =>
             {
+                if (_rect == null)
+                    return default;
+
                 _rect.DOKill(false);
 
                 Vector2 basePos = _rect.anchoredPosition;
@@ -135,8 +133,6 @@ public sealed class BobYPersistentCommand : ISequenceCommand
                     }
                 );
             });
-
-        yield break;
     }
 
     private string BuildKey(string kind)

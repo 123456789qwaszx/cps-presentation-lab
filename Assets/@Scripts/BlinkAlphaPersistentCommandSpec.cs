@@ -1,27 +1,7 @@
-// ============================================================
-// Persistent Effects 3-Pack for CPS
-// - BlinkAlphaPersistent (CanvasGroup alpha yoyo)
-// - GlowColorPersistent (Graphic color yoyo: Image/TMP_Text etc. via UnityEngine.UI.Graphic)
-// - BobYPersistent (RectTransform anchored Y yoyo)
-// 
-// Requirements:
-// - PersistentEffectRegistry, EffectInstance, ReplacePolicy already exist.
-// - IDialogueWidgetAccess.WidgetRefs has GetRect(DialogueWidgetTarget) and GetGraphic/GetImage/GetText helpers.
-//   If you don't have GetGraphic yet, see the small helper at bottom.
-// - CommandSpecBase has screenId, widgetRoleKey like your other specs.
-// - ISequenceCommand and CommandRunScope exist.
-// - DOTween installed.
-// ============================================================
-
 using System;
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
-// ------------------------------------------------------------
-// 1) Blink Alpha (Persistent) : CanvasGroup alpha loop
-// ------------------------------------------------------------
 [Serializable]
 [CommandMenuHint(
     "VFX",
@@ -53,10 +33,11 @@ public sealed class BlinkAlphaPersistentCommandSpec : CommandSpecBase
     public ReplacePolicy replacePolicy = ReplacePolicy.Cancel;
 
     [Header("Behavior")]
+    [Tooltip("Skip 중에도 켜야 한다면 false로.")]
     public bool ignoreWhenSkipping = true;
 }
 
-public sealed class BlinkAlphaPersistentCommand : ISequenceCommand
+public sealed class BlinkAlphaPersistentCommand : PersistentCommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly PersistentEffectRegistry _effects;
@@ -77,8 +58,6 @@ public sealed class BlinkAlphaPersistentCommand : ISequenceCommand
     private bool _resolveAttempted;
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private RectTransform _rect;
-
-    public bool WaitForCompletion => false;
 
     public BlinkAlphaPersistentCommand(
         IDialogueWidgetAccess widgets,
@@ -113,12 +92,14 @@ public sealed class BlinkAlphaPersistentCommand : ISequenceCommand
         _ignoreWhenSkipping = ignoreWhenSkipping;
     }
 
-    public IEnumerator Execute(CommandRunScope scope)
+    protected override SkipPolicy SkipPolicy =>
+        _ignoreWhenSkipping ? SkipPolicy.Ignore : SkipPolicy.ExecuteEvenIfSkipping;
+
+    protected override void ApplyPersistent(CommandRunScope scope)
     {
-        if (scope == null) yield break;
-        if (_ignoreWhenSkipping && scope.IsSkipping) yield break;
-        if (_effects == null) yield break;
-        if (!ResolveIfNeeded()) yield break;
+        if (scope == null) return;
+        if (_effects == null) return;
+        if (!ResolveIfNeeded()) return;
 
         string key = BuildKey("BlinkAlpha");
 
@@ -128,43 +109,43 @@ public sealed class BlinkAlphaPersistentCommand : ISequenceCommand
             replacePolicy: _replacePolicy,
             create: () =>
             {
-                // single-owner: kill any tweens on CanvasGroup if present
                 CanvasGroup cg = GetOrAddCanvasGroup(_rect);
+                if (cg == null)
+                    return default;
+
                 cg.DOKill(false);
 
                 float baseAlpha = cg.alpha;
 
-                // choose start dir based on closer endpoint
                 float a0 = baseAlpha;
                 float aMin = _minAlpha;
                 float aMax = _maxAlpha;
 
-                // if min==max, just snap and done
+                // min==max -> no loop, but still keep ownership and restore on stop.
                 if (Mathf.Abs(aMax - aMin) <= 0.0001f)
                 {
                     cg.alpha = aMax;
+
                     return new EffectInstance(
                         cancel: () => { if (cg != null) cg.alpha = baseAlpha; },
                         finish: () => { if (cg != null) cg.alpha = baseAlpha; }
                     );
                 }
 
-                // Start by moving to the far endpoint then yoyo between endpoints
+                // Start by moving to the farther endpoint, then loop between endpoints.
                 float startTarget = (Mathf.Abs(a0 - aMax) > Mathf.Abs(a0 - aMin)) ? aMax : aMin;
 
-                Tween t = cg
+                Tween kickoff = cg
                     .DOFade(startTarget, _halfPeriod)
                     .SetEase(_ease)
                     .SetDelay(_startDelay)
                     .SetUpdate(true)
                     .OnComplete(() =>
                     {
-                        // loop between min/max forever
                         if (cg == null) return;
 
-                        // kill any chained tweens first
+                        // kill kickoff and chain safely, then create the infinite yoyo
                         cg.DOKill(false);
-
                         cg.alpha = startTarget;
 
                         cg.DOFade(startTarget == aMax ? aMin : aMax, _halfPeriod)
@@ -186,8 +167,6 @@ public sealed class BlinkAlphaPersistentCommand : ISequenceCommand
                     }
                 );
             });
-
-        yield break;
     }
 
     private string BuildKey(string kind)

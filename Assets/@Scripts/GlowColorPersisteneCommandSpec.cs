@@ -1,11 +1,4 @@
-// ------------------------------------------------------------
-// 2) Glow Color (Persistent) : Graphic color yoyo
-//    Works for Image, TMP_Text (via TMP_Text inherits Graphic?), or any UI.Graphic.
-//    If your TMP is TextMeshProUGUI, it inherits MaskableGraphic -> Graphic, so OK.
-// ------------------------------------------------------------
-
 using System;
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,7 +39,7 @@ public sealed class GlowColorPersistentCommandSpec : CommandSpecBase
     public bool ignoreWhenSkipping = true;
 }
 
-public sealed class GlowColorPersistentCommand : ISequenceCommand
+public sealed class GlowColorPersistentCommand : PersistentCommandBase
 {
     private readonly IDialogueWidgetAccess _widgets;
     private readonly PersistentEffectRegistry _effects;
@@ -67,8 +60,6 @@ public sealed class GlowColorPersistentCommand : ISequenceCommand
     private bool _resolveAttempted;
     private IDialogueWidgetAccess.WidgetRefs _refs;
     private Graphic _graphic;
-
-    public bool WaitForCompletion => false;
 
     public GlowColorPersistentCommand(
         IDialogueWidgetAccess widgets,
@@ -103,12 +94,14 @@ public sealed class GlowColorPersistentCommand : ISequenceCommand
         _ignoreWhenSkipping = ignoreWhenSkipping;
     }
 
-    public IEnumerator Execute(CommandRunScope scope)
+    protected override SkipPolicy SkipPolicy =>
+        _ignoreWhenSkipping ? SkipPolicy.Ignore : SkipPolicy.ExecuteEvenIfSkipping;
+
+    protected override void ApplyPersistent(CommandRunScope scope)
     {
-        if (scope == null) yield break;
-        if (_ignoreWhenSkipping && scope.IsSkipping) yield break;
-        if (_effects == null) yield break;
-        if (!ResolveIfNeeded()) yield break;
+        if (scope == null) return;
+        if (_effects == null) return;
+        if (!ResolveIfNeeded()) return;
 
         string key = BuildKey("GlowColor");
 
@@ -118,6 +111,9 @@ public sealed class GlowColorPersistentCommand : ISequenceCommand
             replacePolicy: _replacePolicy,
             create: () =>
             {
+                if (_graphic == null)
+                    return default;
+
                 _graphic.DOKill(false);
 
                 Color baseColor = _graphic.color;
@@ -143,8 +139,6 @@ public sealed class GlowColorPersistentCommand : ISequenceCommand
                     }
                 );
             });
-
-        yield break;
     }
 
     private string BuildKey(string kind)
