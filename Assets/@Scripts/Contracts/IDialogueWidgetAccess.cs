@@ -201,8 +201,8 @@ public interface IDialogueWidgetAccess
         public Image VFXBlackOut00Image;
         public Image VFXBlackOut01Image;
 
-        public RectTransform BlackFade00Root;
-        public Image BlackFade00Image;
+        public RectTransform VFXBlackFade00Root;
+        public Image VFXBlackFade00Image;
 
         // ---- Skip Toggle ----
         public RectTransform TogglePanel00Root;
@@ -315,8 +315,8 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.VFXBlackOut00Image:   return refs.VFXBlackOut00Image;
             case DialogueWidgetTarget.VFXBlackOut01Image:   return refs.VFXBlackOut01Image;
 
-            case DialogueWidgetTarget.BlackFade00Root:      return refs.BlackFade00Root;
-            case DialogueWidgetTarget.BlackFade00Image:     return refs.BlackFade00Image;
+            case DialogueWidgetTarget.BlackFade00Root:      return refs.VFXBlackFade00Root;
+            case DialogueWidgetTarget.BlackFade00Image:     return refs.VFXBlackFade00Image;
             
             // ---- Toggle Panel ----
             case DialogueWidgetTarget.TogglePanel00Root:    return refs.TogglePanel00Root;

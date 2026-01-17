@@ -108,8 +108,8 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             VFXBlackOut00Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut00ImageTag),
             VFXBlackOut01Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut01ImageTag),
 
-            BlackFade00Root      = screen.GetWidgetDirect<RectTransform>(set.BlackFade00RootTag),
-            BlackFade00Image     = screen.GetWidgetDirect<Image>(set.BlackFade00ImageTag),
+            VFXBlackFade00Root      = screen.GetWidgetDirect<RectTransform>(set.BlackFade00RootTag),
+            VFXBlackFade00Image     = screen.GetWidgetDirect<Image>(set.BlackFade00ImageTag),
 
             
             // ---- Toggle Panel ----

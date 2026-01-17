@@ -74,7 +74,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        layers: 0
+        layers: -1
         duration: 0
         ease: 1
         wait: 1

@@ -17,7 +17,7 @@ using System.Collections.Generic;
 public sealed class ShowRootLayersCommandSpec : CommandSpecBase
 {
     [Header("Layers")]
-    public DialogueLayerMask layers = DialogueLayerMask.MainPortraitRoot |DialogueLayerMask.Background1Root | DialogueLayerMask.DialogueBoxRoot;
+    public DialogueLayerMask layers = DialogueLayerMask.MainPortraitRoot |DialogueLayerMask.Background01Root | DialogueLayerMask.DialogueBox00Root;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]
