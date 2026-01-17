@@ -16,7 +16,7 @@ using UnityEngine;
 )]
 public sealed class ShowTargetsCommandSpec : CommandSpecBase
 {
-    public DialogueTargetMask targets = DialogueTargetMask.All;
+    public DialogueTargetMask targets = DialogueTargetMask.None;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]

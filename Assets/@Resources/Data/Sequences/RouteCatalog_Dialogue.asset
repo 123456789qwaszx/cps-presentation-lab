@@ -22,9 +22,9 @@ MonoBehaviour:
   - routeKey: story00.dialogue.01
     sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
     startKey: story00.dialogue.01
-  - routeKey: story00.dialogue.03
+  - routeKey: story00.dialogue.02
     sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
-    startKey: story00.dialogue.03
+    startKey: story00.dialogue.02
   - routeKey: story00.dialogue.10
     sequenceCatalog: {fileID: 11400000, guid: 709fb42f3f4c7c44985b247098b67c47, type: 2}
     startKey: story00.dialogue.10

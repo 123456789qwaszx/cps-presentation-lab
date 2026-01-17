@@ -14,9 +14,28 @@ public enum DialogueWidgetTarget
     SpeakerNameBox00Root  = 100,
     SpeakerNameBox00Text  = 110,
     SpeakerNameBox00Image = 120,
+    
+    AdvanceIndicator00Root  = 200,
+    AdvanceIndicator00Image = 210,
 
-    ProtagonistCutin00Root  = 200,
-    ProtagonistCutin00Image = 210,
+    ProtagonistCutin00Root   = 300,
+    ProtagonistCutin00Anchor = 310,
+    ProtagonistCutin00Image  = 320,
+    
+    ProtagonistCutin00Emoji00Root      = 400,
+    ProtagonistCutin00Emoji00Anchor    = 410,
+    ProtagonistCutin00Emoji00SwayPivot = 420,
+    ProtagonistCutin00Emoji00Image     = 430,
+    
+    ProtagonistCutin00Emoji01Root      = 500,
+    ProtagonistCutin00Emoji01Anchor    = 510,
+    ProtagonistCutin00Emoji01SwayPivot = 520,
+    ProtagonistCutin00Emoji01Image     = 530,
+    
+    ProtagonistCutin00Emoji02Root      = 600,
+    ProtagonistCutin00Emoji02Anchor    = 610,
+    ProtagonistCutin00Emoji02SwayPivot = 620,
+    ProtagonistCutin00Emoji02Image     = 630,
 
     // ---- Standing00 ----
     Standing00Root  = 1000,
@@ -195,8 +214,27 @@ public interface IDialogueWidgetAccess
         public Image         SpeakerNameBox00Image;
         public TMP_Text      SpeakerNameBox00Text;
 
+        public RectTransform AdvanceIndicator00Root;
+        public Image         AdvanceIndicator00Image;
+
         public RectTransform ProtagonistCutin00Root;
+        public RectTransform ProtagonistCutin00Anchor;
         public Image         ProtagonistCutin00Image;
+
+        public RectTransform ProtagonistCutin00Emoji00Root;
+        public RectTransform ProtagonistCutin00Emoji00Anchor;
+        public RectTransform ProtagonistCutin00Emoji00SwayPivot;
+        public Image         ProtagonistCutin00Emoji00Image;
+
+        public RectTransform ProtagonistCutin00Emoji01Root;
+        public RectTransform ProtagonistCutin00Emoji01Anchor;
+        public RectTransform ProtagonistCutin00Emoji01SwayPivot;
+        public Image         ProtagonistCutin00Emoji01Image;
+
+        public RectTransform ProtagonistCutin00Emoji02Root;
+        public RectTransform ProtagonistCutin00Emoji02Anchor;
+        public RectTransform ProtagonistCutin00Emoji02SwayPivot;
+        public Image         ProtagonistCutin00Emoji02Image;
 
         // ======================================================
         // Standing00
@@ -385,13 +423,32 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.DialogueBox00Root:  return refs.DialogueBox00Root;
             case DialogueWidgetTarget.DialogueBox00Image: return refs.DialogueBox00Image;
             case DialogueWidgetTarget.DialogueBox00Text:  return refs.DialogueBox00Text;
+    
+            case DialogueWidgetTarget.AdvanceIndicator00Root:  return refs.AdvanceIndicator00Root;
+            case DialogueWidgetTarget.AdvanceIndicator00Image: return refs.AdvanceIndicator00Image;
 
             case DialogueWidgetTarget.SpeakerNameBox00Root:  return refs.SpeakerNameBox00Root;
             case DialogueWidgetTarget.SpeakerNameBox00Image: return refs.SpeakerNameBox00Image;
             case DialogueWidgetTarget.SpeakerNameBox00Text:  return refs.SpeakerNameBox00Text;
 
-            case DialogueWidgetTarget.ProtagonistCutin00Root:  return refs.ProtagonistCutin00Root;
-            case DialogueWidgetTarget.ProtagonistCutin00Image: return refs.ProtagonistCutin00Image;
+            case DialogueWidgetTarget.ProtagonistCutin00Root:   return refs.ProtagonistCutin00Root;
+            case DialogueWidgetTarget.ProtagonistCutin00Anchor: return refs.ProtagonistCutin00Anchor;
+            case DialogueWidgetTarget.ProtagonistCutin00Image:  return refs.ProtagonistCutin00Image;
+            
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji00Root:      return refs.ProtagonistCutin00Emoji00Root;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji00Anchor:    return refs.ProtagonistCutin00Emoji00Anchor;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji00SwayPivot: return refs.ProtagonistCutin00Emoji00SwayPivot;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji00Image:     return refs.ProtagonistCutin00Emoji00Image;
+    
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji01Root:      return refs.ProtagonistCutin00Emoji01Root;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji01Anchor:    return refs.ProtagonistCutin00Emoji01Anchor;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji01SwayPivot: return refs.ProtagonistCutin00Emoji01SwayPivot;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji01Image:     return refs.ProtagonistCutin00Emoji01Image;
+            
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji02Root:      return refs.ProtagonistCutin00Emoji02Root;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji02Anchor:    return refs.ProtagonistCutin00Emoji02Anchor;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji02SwayPivot: return refs.ProtagonistCutin00Emoji02SwayPivot;
+            case DialogueWidgetTarget.ProtagonistCutin00Emoji02Image:     return refs.ProtagonistCutin00Emoji02Image;
 
             // ---- Standing00 ----
             case DialogueWidgetTarget.Standing00Root:  return refs.Standing00Root;

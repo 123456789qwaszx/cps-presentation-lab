@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Lab.UI.Naming;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
@@ -43,13 +44,32 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             DialogueBox00Root  = screen.GetWidgetDirect<RectTransform>(tags.DialogueBox00RootTag),
             DialogueBox00Image = screen.GetWidgetDirect<Image>(tags.DialogueBox00ImageTag),
             DialogueBox00Text  = screen.GetWidgetDirect<TMP_Text>(tags.DialogueBox00TextTag),
+            
+            AdvanceIndicator00Root = screen.GetWidgetDirect<RectTransform>(tags.AdvanceIndicator00RootTag),
+            AdvanceIndicator00Image = screen.GetWidgetDirect<Image>(tags.AdvanceIndicator00ImageTag),
 
             SpeakerNameBox00Root  = screen.GetWidgetDirect<RectTransform>(tags.SpeakerNameBox00RootTag),
             SpeakerNameBox00Image = screen.GetWidgetDirect<Image>(tags.SpeakerNameBox00ImageTag),
             SpeakerNameBox00Text  = screen.GetWidgetDirect<TMP_Text>(tags.SpeakerNameBox00TextTag),
 
-            ProtagonistCutin00Root  = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00RootTag),
-            ProtagonistCutin00Image = screen.GetWidgetDirect<Image>(tags.ProtagonistCutin00ImageTag),
+            ProtagonistCutin00Root   = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00RootTag),
+            ProtagonistCutin00Anchor = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00AnchorTag),
+            ProtagonistCutin00Image  = screen.GetWidgetDirect<Image>(tags.ProtagonistCutin00ImageTag),
+            
+            ProtagonistCutin00Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji00RootTag),
+            ProtagonistCutin00Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji00AnchorTag),
+            ProtagonistCutin00Emoji00SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji00SwayPivotTag),
+            ProtagonistCutin00Emoji00Image     = screen.GetWidgetDirect<Image>        (tags.ProtagonistCutin00Emoji00ImageTag),
+            
+            ProtagonistCutin00Emoji01Root      = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji01RootTag),
+            ProtagonistCutin00Emoji01Anchor    = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji01AnchorTag),
+            ProtagonistCutin00Emoji01SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji01SwayPivotTag),
+            ProtagonistCutin00Emoji01Image     = screen.GetWidgetDirect<Image>        (tags.ProtagonistCutin00Emoji01ImageTag),
+            
+            ProtagonistCutin00Emoji02Root      = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji02RootTag),
+            ProtagonistCutin00Emoji02Anchor    = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji02AnchorTag),
+            ProtagonistCutin00Emoji02SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00Emoji02SwayPivotTag),
+            ProtagonistCutin00Emoji02Image     = screen.GetWidgetDirect<Image>        (tags.ProtagonistCutin00Emoji02ImageTag),
 
             // ======================================================
             // Standing00
@@ -63,6 +83,9 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             Standing00PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitScaleTag),
             Standing00PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitVisualTag),
             Standing00PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing00PortraitImageTag),
+            
+            Standing00PortraitOverlaysRoot  = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitOverlaysRootTag),
+            Standing00PortraitOverlaysImage = screen.GetWidgetDirect<Image>(tags.Standing00PortraitOverlaysImageTag),
 
             Standing00Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji00RootTag),
             Standing00Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji00AnchorTag),
@@ -96,6 +119,9 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             Standing01PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitScaleTag),
             Standing01PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitVisualTag),
             Standing01PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing01PortraitImageTag),
+            
+            Standing01PortraitOverlaysRoot  = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitOverlaysRootTag),
+            Standing01PortraitOverlaysImage = screen.GetWidgetDirect<Image>(tags.Standing01PortraitOverlaysImageTag),
 
             Standing01Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji00RootTag),
             Standing01Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji00AnchorTag),
@@ -129,6 +155,9 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             Standing02PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitScaleTag),
             Standing02PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitVisualTag),
             Standing02PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing02PortraitImageTag),
+            
+            Standing02PortraitOverlaysRoot  = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitOverlaysRootTag),
+            Standing02PortraitOverlaysImage = screen.GetWidgetDirect<Image>(tags.Standing02PortraitOverlaysImageTag),
 
             Standing02Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji00RootTag),
             Standing02Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji00AnchorTag),

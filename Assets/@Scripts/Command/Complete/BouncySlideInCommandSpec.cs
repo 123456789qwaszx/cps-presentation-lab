@@ -162,7 +162,7 @@ public sealed class BouncySlideInCommand : CommandBase
             .SetUpdate(true);
 
         tween.OnComplete(() => { _rect.anchoredPosition = dest; })
-            .BindToRun(scope);
+            .BindToStep(scope);
 
         if (_wait)
             yield return tween.WaitForCompletion();

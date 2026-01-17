@@ -9,13 +9,32 @@ namespace Lab.UI.Naming
         private const string DialogueBox00ImageSuffix   = "_DialogueBox00_Image";
         private const string DialogueBox00TextSuffix    = "_DialogueBox00_Text";
 
-        private const string SpeakerNameBox00RootSuffix = "_SpeakerNameBox00_Root";
-        private const string SpeakerNameBox00ImageSuffix= "_SpeakerNameBox00_Image";
-        private const string SpeakerNameBox00TextSuffix = "_SpeakerNameBox00_Text";
-
-        private const string ProtagonistCutin00RootSuffix  = "_ProtagonistCutin00_Root";
-        private const string ProtagonistCutin00ImageSuffix = "_ProtagonistCutin00_Image";
-
+        private const string SpeakerNameBox00RootSuffix  = "_SpeakerNameBox00_Root";
+        private const string SpeakerNameBox00ImageSuffix = "_SpeakerNameBox00_Image";
+        private const string SpeakerNameBox00TextSuffix  = "_SpeakerNameBox00_Text";
+        
+        private const string AdvanceIndicator00RootSuffix  = "_AdvanceIndicator00_Root";
+        private const string AdvanceIndicator00ImageSuffix = "_AdvanceIndicator00_Image";
+        
+        private const string ProtagonistCutin00RootSuffix   = "_ProtagonistCutin00_Root";
+        private const string ProtagonistCutin00AnchorSuffix = "_ProtagonistCutin00_Anchor";
+        private const string ProtagonistCutin00ImageSuffix  = "_ProtagonistCutin00_Image";
+        
+        private const string ProtagonistCutin00Emoji00RootSuffix      = "_ProtagonistCutin00Emoji00_Root";
+        private const string ProtagonistCutin00Emoji00AnchorSuffix    = "_ProtagonistCutin00Emoji00_Anchor";
+        private const string ProtagonistCutin00Emoji00SwayPivotSuffix = "_ProtagonistCutin00Emoji00_SwayPivot";
+        private const string ProtagonistCutin00Emoji00ImageSuffix     = "_ProtagonistCutin00Emoji00_Image";
+        
+        private const string ProtagonistCutin00Emoji01RootSuffix      = "_ProtagonistCutin00Emoji01_Root";
+        private const string ProtagonistCutin00Emoji01AnchorSuffix    = "_ProtagonistCutin00Emoji01_Anchor";
+        private const string ProtagonistCutin00Emoji01SwayPivotSuffix = "_ProtagonistCutin00Emoji01_SwayPivot";
+        private const string ProtagonistCutin00Emoji01ImageSuffix     = "_ProtagonistCutin00Emoji01_Image";
+        
+        private const string ProtagonistCutin00Emoji02RootSuffix      = "_ProtagonistCutin00Emoji02_Root";
+        private const string ProtagonistCutin00Emoji02AnchorSuffix    = "_ProtagonistCutin00Emoji02_Anchor";
+        private const string ProtagonistCutin00Emoji02SwayPivotSuffix = "_ProtagonistCutin00Emoji02_SwayPivot";
+        private const string ProtagonistCutin00Emoji02ImageSuffix     = "_ProtagonistCutin00Emoji02_Image";
+        
         // ======================================================
         // Standing00 / Standing01 / Standing02
         // ======================================================
@@ -188,9 +207,30 @@ namespace Lab.UI.Naming
         public string SpeakerNameBox00RootTag => $"{_roleKey}{SpeakerNameBox00RootSuffix}";
         public string SpeakerNameBox00ImageTag=> $"{_roleKey}{SpeakerNameBox00ImageSuffix}";
         public string SpeakerNameBox00TextTag => $"{_roleKey}{SpeakerNameBox00TextSuffix}";
-
-        public string ProtagonistCutin00RootTag  => $"{_roleKey}{ProtagonistCutin00RootSuffix}";
-        public string ProtagonistCutin00ImageTag => $"{_roleKey}{ProtagonistCutin00ImageSuffix}";
+        
+        public string AdvanceIndicator00RootTag  => $"{_roleKey}{AdvanceIndicator00RootSuffix}";
+        public string AdvanceIndicator00ImageTag => $"{_roleKey}{AdvanceIndicator00ImageSuffix}";
+        
+        public string ProtagonistCutin00RootTag   => $"{_roleKey}{ProtagonistCutin00RootSuffix}";
+        public string ProtagonistCutin00AnchorTag => $"{_roleKey}{ProtagonistCutin00AnchorSuffix}";
+        public string ProtagonistCutin00ImageTag  => $"{_roleKey}{ProtagonistCutin00ImageSuffix}";
+        
+        public string ProtagonistCutin00Emoji00RootTag      => $"{_roleKey}{ProtagonistCutin00Emoji00RootSuffix}";
+        public string ProtagonistCutin00Emoji00AnchorTag    => $"{_roleKey}{ProtagonistCutin00Emoji00AnchorSuffix}";
+        public string ProtagonistCutin00Emoji00SwayPivotTag => $"{_roleKey}{ProtagonistCutin00Emoji00SwayPivotSuffix}";
+        public string ProtagonistCutin00Emoji00ImageTag     => $"{_roleKey}{ProtagonistCutin00Emoji00ImageSuffix}";
+        
+        public string ProtagonistCutin00Emoji01RootTag      => $"{_roleKey}{ProtagonistCutin00Emoji01RootSuffix}";
+        public string ProtagonistCutin00Emoji01AnchorTag    => $"{_roleKey}{ProtagonistCutin00Emoji01AnchorSuffix}";
+        public string ProtagonistCutin00Emoji01SwayPivotTag => $"{_roleKey}{ProtagonistCutin00Emoji01SwayPivotSuffix}";
+        public string ProtagonistCutin00Emoji01ImageTag     => $"{_roleKey}{ProtagonistCutin00Emoji01ImageSuffix}";
+        
+        public string ProtagonistCutin00Emoji02RootTag      => $"{_roleKey}{ProtagonistCutin00Emoji02RootSuffix}";
+        public string ProtagonistCutin00Emoji02AnchorTag    => $"{_roleKey}{ProtagonistCutin00Emoji02AnchorSuffix}";
+        public string ProtagonistCutin00Emoji02SwayPivotTag => $"{_roleKey}{ProtagonistCutin00Emoji02SwayPivotSuffix}";
+        public string ProtagonistCutin00Emoji02ImageTag     => $"{_roleKey}{ProtagonistCutin00Emoji02ImageSuffix}";
+        
+        
 
         // ---- Standing00 ----
         public string Standing00RootTag  => $"{_roleKey}{Standing00RootSuffix}";

@@ -8,49 +8,84 @@ public enum DialogueTargetMask
     // ---------------------------
     // DialogueBox
     // ---------------------------
-    DialogueBox00Root       = 1 << 0,
-    SpeakerNameBox00Root    = 1 << 1,
-    ProtagonistCutin00Root  = 1 << 2,
+    DialogueBox00Root              = 1 << 0,
+    SpeakerNameBox00Root           = 1 << 1,
+
+    // ---------------------------
+    // Protagonist Cutin 00
+    // ---------------------------
+    ProtagonistCutin00Root         = 1 << 2,
+    ProtagonistCutin00Emoji00Root  = 1 << 3,
+    ProtagonistCutin00Emoji01Root  = 1 << 4,
+    ProtagonistCutin00Emoji02Root  = 1 << 5,
 
     // ---------------------------
     // Standing 00 (Main)
     // ---------------------------
-    Standing00PortraitRoot          = 1 << 3,
-    Standing00PortraitOverlaysRoot  = 1 << 4,
-    Standing00Emoji00Root           = 1 << 5,
-    Standing00Emoji01Root           = 1 << 6,
-    Standing00Emoji02Root           = 1 << 7,
-    Standing00Emoji03Root           = 1 << 8,
+    Standing00PortraitRoot         = 1 << 6,
+    Standing00PortraitOverlaysRoot = 1 << 7,
+    Standing00Emoji00Root          = 1 << 8,
+    Standing00Emoji01Root          = 1 << 9,
+    Standing00Emoji02Root          = 1 << 10,
+    Standing00Emoji03Root          = 1 << 11,
 
     // ---------------------------
     // Standing 01
     // ---------------------------
-    Standing01PortraitRoot          = 1 << 9,
-    Standing01PortraitOverlaysRoot  = 1 << 10,
-    Standing01Emoji00Root           = 1 << 11,
-    Standing01Emoji01Root           = 1 << 12,
-    Standing01Emoji02Root           = 1 << 13,
-    Standing01Emoji03Root           = 1 << 14,
+    Standing01PortraitRoot         = 1 << 12,
+    Standing01PortraitOverlaysRoot = 1 << 13,
+    Standing01Emoji00Root          = 1 << 14,
+    Standing01Emoji01Root          = 1 << 15,
+    Standing01Emoji02Root          = 1 << 16,
+    Standing01Emoji03Root          = 1 << 17,
 
     // ---------------------------
     // Standing 02
     // ---------------------------
-    Standing02PortraitRoot          = 1 << 15,
-    Standing02PortraitOverlaysRoot  = 1 << 16,
-    Standing02Emoji00Root           = 1 << 17,
-    Standing02Emoji01Root           = 1 << 18,
-    Standing02Emoji02Root           = 1 << 19,
-    Standing02Emoji03Root           = 1 << 20,
+    Standing02PortraitRoot         = 1 << 18,
+    Standing02PortraitOverlaysRoot = 1 << 19,
+    Standing02Emoji00Root          = 1 << 20,
+    Standing02Emoji01Root          = 1 << 21,
+    Standing02Emoji02Root          = 1 << 22,
+    Standing02Emoji03Root          = 1 << 23,
 
     // ---------------------------
     // Choice UI
     // ---------------------------
-    ChoicePanel00Root        = 1 << 21,
-    ChoiceButton00Root       = 1 << 22,
-    ChoiceButton01Root       = 1 << 23,
-    ChoiceButton02Root       = 1 << 24,
+    ChoicePanel00Root              = 1 << 24,
+    ChoiceButton00Root             = 1 << 25,
+    ChoiceButton01Root             = 1 << 26,
+    ChoiceButton02Root             = 1 << 27,
+
+    // ---------------------------
+    // Background UI
+    // ---------------------------
+    Background00Root               = 1 << 28,
+    Background01Root               = 1 << 29,
+
+    // ---------------------------
+    // Advance Indicator
+    // ---------------------------
+    AdvanceIndicator00Root         = 1 << 30,
 
     // ======================================================
+    // Practical groups
+    // ======================================================
+
+    // ---- Protagonist cutin groups ----
+    ProtagonistCutin00Emojis =
+        ProtagonistCutin00Emoji00Root |
+        ProtagonistCutin00Emoji01Root |
+        ProtagonistCutin00Emoji02Root,
+
+    ProtagonistCutin00All =
+        ProtagonistCutin00Root |
+        ProtagonistCutin00Emojis,
+
+    // ---- Background groups ----
+    AllBackgrounds =
+        Background00Root |
+        Background01Root,
 
     // ---- Standing per slot ----
     Standing00Emojis =
@@ -86,7 +121,6 @@ public enum DialogueTargetMask
         Standing02PortraitOverlaysRoot |
         Standing02Emojis,
 
-    // ---- Global standing groups ----
     AllPortraitRoots =
         Standing00PortraitRoot |
         Standing01PortraitRoot |
@@ -107,7 +141,6 @@ public enum DialogueTargetMask
         Standing01All |
         Standing02All,
 
-    // ---- Choice groups ----
     AllChoiceButtons =
         ChoiceButton00Root |
         ChoiceButton01Root |
@@ -118,19 +151,23 @@ public enum DialogueTargetMask
         AllChoiceButtons,
 
     // ---- Core UI groups ----
+    // "다음 진행 표시"는 보통 Dialogue UI에 포함시키는 게 실전에서 편함
     AllDialogueUI =
         DialogueBox00Root |
-        SpeakerNameBox00Root,
+        SpeakerNameBox00Root |
+        AdvanceIndicator00Root,
 
+    // 기본 스토리 라인(배경 포함 여부는 취향인데, 일단 실용적으로 포함)
     StoryLineDefault =
         AllDialogueUI |
-        AllPortraitRoots,
+        AllPortraitRoots |
+        AllBackgrounds,
 
     // ---- Everything ----
     All =
-        DialogueBox00Root |
-        SpeakerNameBox00Root |
-        ProtagonistCutin00Root |
+        AllDialogueUI |
+        ProtagonistCutin00All |
         AllStandings |
-        AllChoices
+        AllChoices |
+        AllBackgrounds
 }

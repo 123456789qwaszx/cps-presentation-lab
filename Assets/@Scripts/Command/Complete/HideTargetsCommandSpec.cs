@@ -16,9 +16,7 @@ using UnityEngine;
 )]
 public sealed class HideTargetsCommandSpec : CommandSpecBase
 {
-    public DialogueTargetMask targets =
-        DialogueTargetMask.Standing00Emoji02Root |
-        DialogueTargetMask.ProtagonistCutin00Root;
+    public DialogueTargetMask targets = DialogueTargetMask.None;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 끄기 (알파 0으로 스냅)")]

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
   m_Name: Seq_Story00_Dialogue_03
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
-  sequenceKey: story00.dialogue.2
+  sequenceKey: story00.dialogue.02
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
@@ -260,7 +260,7 @@ MonoBehaviour:
     - rid: 2406591603016728662
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         layers: 251
         duration: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
     - rid: 2406591603016728663
       type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         layers: 11
         duration: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
     - rid: 2406591603016728665
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
@@ -288,7 +288,7 @@ MonoBehaviour:
     - rid: 2406591611139784774
       type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 510
         offset: {x: 0, y: 0}
@@ -297,7 +297,7 @@ MonoBehaviour:
     - rid: 2406591611139784777
       type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 510
         from: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
     - rid: 2406591611139784778
       type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         layers: 8
         toAlpha: 1
@@ -339,7 +339,7 @@ MonoBehaviour:
     - rid: 2406591611139784782
       type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         layers: 64
         toAlpha: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
     - rid: 2406591626690953288
       type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 10
         text: "<speed0.5>\uC5B4\uC11C\uC640~~"
@@ -361,7 +361,7 @@ MonoBehaviour:
     - rid: 2406591626690953289
       type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 10
         text: ...
@@ -369,7 +369,7 @@ MonoBehaviour:
     - rid: 2406591626690953291
       type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         swayTarget: 530
         dropTarget: 510
@@ -387,7 +387,7 @@ MonoBehaviour:
     - rid: 2406591626690953292
       type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 10
         text: "<speed0.4> \uD639\uC2DC \uB108\uC758 \uC6B4\uC744...<wait0.1> <speed0.25>\uC2DC\uD5D8\uD574\uBCF4\uC9C0
@@ -398,14 +398,14 @@ MonoBehaviour:
     - rid: 2406591626690953294
       type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         seconds: 0.1
         respectTimeScale: 1
     - rid: 2406591626690953310
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 99dda86e5896b464593debe1f48efbbe, type: 3}
@@ -413,7 +413,7 @@ MonoBehaviour:
     - rid: 2406591626690953312
       type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         targets: 128
         duration: 0.4
@@ -423,7 +423,7 @@ MonoBehaviour:
     - rid: 2406591626690953313
       type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 590
         toEuler: {x: 0, y: 180, z: 0}
@@ -436,7 +436,7 @@ MonoBehaviour:
     - rid: 2406591626690953324
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         spriteTarget: 3
         sprite: {fileID: 21300000, guid: 805bcba044e4afb48b4380fe9a215140, type: 3}
@@ -444,7 +444,7 @@ MonoBehaviour:
     - rid: 2406591626690953330
       type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         layers: 8
         anchorPreset: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
     - rid: 2406591626690953331
       type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 510
         offset: {x: 0, y: 0}
@@ -462,7 +462,7 @@ MonoBehaviour:
     - rid: 2406591626690953337
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         targets: 136
         duration: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
     - rid: 2406591626690953339
       type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 590
         toScale: {x: 0.1, y: 0.1}
@@ -480,7 +480,7 @@ MonoBehaviour:
     - rid: 2406591626690953340
       type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 590
         strength: 0.2
@@ -491,7 +491,7 @@ MonoBehaviour:
     - rid: 2406591626690953341
       type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         target: 590
         toScale: {x: 1, y: 1}
@@ -499,7 +499,7 @@ MonoBehaviour:
     - rid: 2406591626690953346
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 00143ef6b4ee9d54ea475f7478f220f3, type: 3}
@@ -507,7 +507,7 @@ MonoBehaviour:
     - rid: 2406591626690953347
       type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         spriteTarget: 0
         sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
@@ -515,7 +515,7 @@ MonoBehaviour:
     - rid: 2406591626690953348
       type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_02
+        screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
         seconds: 0.08
         respectTimeScale: 1

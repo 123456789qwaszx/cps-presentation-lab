@@ -14,37 +14,170 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
   sequenceKey: story00.dialogue.10
   nodes:
-  - editorName: 
+  - editorName: "\uC2DC\uC791 \uB3C4\uB9DD"
     steps:
     - editorName: ResetUI
       commands:
       - rid: 2406591647328501826
+      - rid: 2406591647328501840
+      - rid: 2406591647328501848
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: ----------------
+      commands: []
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: Set Sprite
+      commands:
+      - rid: 2406591647328501837
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: 
       commands:
-      - rid: 2406591647328501827
-      - rid: 2406591647328501829
-      - rid: 2406591647328501835
-      - rid: 2406591647328501830
-      - rid: 2406591647328501828
+      - rid: 2406591647328501851
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: SetBG
+      commands:
+      - rid: 2406591647328501843
+      - rid: 2406591647328501845
+      - rid: 2406591647328501846
       gate:
         type: 0
         seconds: 0
         signalKey: 
-    - editorName: --------------------------------
+    - editorName: FadeVFX
+      commands:
+      - rid: 2406591647328501853
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: SlideIn
+      commands:
+      - rid: 2406591647328501849
+      - rid: 2406591647328501850
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: SlideIn
+      commands:
+      - rid: 2406591647328501867
+      - rid: 2406591647328501869
+      - rid: 2406591647328501871
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: SlideIn
+      commands:
+      - rid: 2406591647328501858
+      - rid: 2406591647328501859
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501864
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+    - editorName: ----------------
       commands: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: 
-      commands:
-      - rid: 2406591647328501834
+      commands: []
       gate:
         type: 3
+        seconds: 0
+        signalKey: s
+  - editorName: 
+    steps:
+    - editorName: ResetUI
+      commands:
+      - rid: 2406591647328501883
+      - rid: 2406591647328501884
+      - rid: 2406591647328501885
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: Set Sprite
+      commands:
+      - rid: 2406591647328501886
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501888
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: SetBG
+      commands:
+      - rid: 2406591647328501889
+      - rid: 2406591647328501890
+      - rid: 2406591647328501891
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: FadeVFX
+      commands:
+      - rid: 2406591647328501892
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
+  - editorName: 
+    steps:
+    - editorName: 
+      commands:
+      - rid: 2406591647328501877
+      - rid: 2406591647328501878
+      - rid: 2406591647328501879
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: SetBG
+      commands:
+      - rid: 2406591647328501875
+      - rid: 2406591647328501876
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501873
+      - rid: 2406591647328501874
+      gate:
+        type: 0
+        seconds: 0
+        signalKey: 
+    - editorName: 
+      commands:
+      - rid: 2406591647328501894
+      gate:
+        type: 0
         seconds: 0
         signalKey: 
   references:
@@ -59,7 +192,15 @@ MonoBehaviour:
         offset: {x: 0, y: 0}
         resetToZero: 1
         killTween: 1
-    - rid: 2406591647328501827
+    - rid: 2406591647328501837
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 0
+        sprite: {fileID: 21300000, guid: a91cb6a2ff04c954992fbe9c727bfd1f, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501840
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
@@ -69,8 +210,189 @@ MonoBehaviour:
         ease: 1
         wait: 1
         disableInteraction: 1
-    - rid: 2406591647328501828
+    - rid: 2406591647328501843
       type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 3
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501845
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 22
+        sprite: {fileID: 21300000, guid: 422691646d0266a4aad34437e09572c8, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501846
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 23
+        sprite: {fileID: 21300000, guid: e71b97e8099ca7044b0e19b8b2685a8c, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501848
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 1090252732
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501849
+      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        target: 1010
+        from: 0
+        slideDistance: 580
+        slideDuration: 1.2
+        slideEase: 9
+        waveAmplitude: 15
+        waveLoops: 2
+        waveAxis: 1
+        wait: 0
+    - rid: 2406591647328501850
+      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 8
+        toAlpha: 1
+        fromAlpha: 0.2
+        duration: 0.6
+        ease: 9
+        wait: 1
+        addIfMissing: 1
+    - rid: 2406591647328501851
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1536
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501853
+      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1024
+        toAlpha: 0.1
+        fromAlpha: 1
+        duration: 0.8
+        ease: 9
+        wait: 0
+        addIfMissing: 1
+    - rid: 2406591647328501858
+      type: {class: MoveByCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        target: 1010
+        delta: {x: 2322, y: 0}
+        duration: 2
+        ease: 9
+        wait: 0
+        killTween: 1
+    - rid: 2406591647328501859
+      type: {class: ShakeRigsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        target: 1120
+        axis: 1
+        intensity: 18
+        duration: 0.6
+        vibrato: 15
+        randomness: 59.8
+        wait: 0
+    - rid: 2406591647328501864
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1024
+        duration: 1.5
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501867
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 3
+        sprite: {fileID: 21300000, guid: ae3590be5ef0f53449aba77962f49441, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501869
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 16
+        duration: 0.6
+        ease: 8
+        wait: 0
+        enableInteraction: 1
+    - rid: 2406591647328501871
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 0
+        duration: 0.8
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501873
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 512
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501874
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1024
+        duration: 0.8
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501875
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 22
+        sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+        setNativeSize: 0
+    - rid: 2406591647328501876
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 23
+        sprite: {fileID: 0}
+        setNativeSize: 0
+    - rid: 2406591647328501877
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
@@ -78,37 +400,113 @@ MonoBehaviour:
         duration: 0
         ease: 1
         wait: 1
-        enableInteraction: 1
-    - rid: 2406591647328501829
+        disableInteraction: 1
+    - rid: 2406591647328501878
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        targets: -1
+        targets: 0
         duration: 0
         ease: 1
         wait: 1
         disableInteraction: 1
-    - rid: 2406591647328501830
+    - rid: 2406591647328501879
       type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        targets: 16382
+        targets: 0
         duration: 0
         ease: 1
         wait: 1
         enableInteraction: 1
-    - rid: 2406591647328501834
-      type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
+    - rid: 2406591647328501883
+      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        signalKey: qwe
-        consume: 1
-        timeoutSeconds: -1
-        respectTimeScale: 1
-    - rid: 2406591647328501835
+        target: 1010
+        offset: {x: 0, y: 0}
+        resetToZero: 1
+        killTween: 1
+    - rid: 2406591647328501884
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: -1
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501885
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        targets: 1090252732
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591647328501886
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 0
+        sprite: {fileID: 21300000, guid: a91cb6a2ff04c954992fbe9c727bfd1f, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501888
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1536
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501889
+      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 3
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591647328501890
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 22
+        sprite: {fileID: 21300000, guid: 422691646d0266a4aad34437e09572c8, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501891
+      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        spriteTarget: 23
+        sprite: {fileID: 21300000, guid: e71b97e8099ca7044b0e19b8b2685a8c, type: 3}
+        setNativeSize: 0
+    - rid: 2406591647328501892
+      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        widgetRoleKey: dialogue
+        layers: 1024
+        toAlpha: 0.1
+        fromAlpha: 1
+        duration: 0.8
+        ease: 9
+        wait: 0
+        addIfMissing: 1
+    - rid: 2406591647328501894
       type: {class: HoldSignalCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10

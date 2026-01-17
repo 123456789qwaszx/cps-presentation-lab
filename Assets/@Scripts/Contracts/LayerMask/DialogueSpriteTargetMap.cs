@@ -27,18 +27,18 @@ public enum DialogueSpriteTarget
     Standing02Emoji01,
     Standing02Emoji02,
     Standing02Emoji03,
-
+    
+    // Cutin
+    ProtagonistCutin00,
+    ProtagonistCutin00Emoji00,
+    ProtagonistCutin00Emoji01,
+    ProtagonistCutin00Emoji02,
+    
     // Backgrounds
     Background00,
     Background01,
-
-    // Choice button images
-    ChoiceButton00,
-    ChoiceButton01,
-    ChoiceButton02,
-
-    // Cutin
-    ProtagonistCutin00,
+    
+    AdvanceIndicator00Image,
 }
 
 
@@ -80,17 +80,17 @@ public static class DialogueSpriteTargetMap
             DialogueSpriteTarget.Standing02Emoji02 => DialogueWidgetTarget.Standing02Emoji02Image,
             DialogueSpriteTarget.Standing02Emoji03 => DialogueWidgetTarget.Standing02Emoji03Image,
 
+            // Cutin
+            DialogueSpriteTarget.ProtagonistCutin00 => DialogueWidgetTarget.ProtagonistCutin00Image,
+            DialogueSpriteTarget.ProtagonistCutin00Emoji00 => DialogueWidgetTarget.ProtagonistCutin00Emoji00Image,
+            DialogueSpriteTarget.ProtagonistCutin00Emoji01 => DialogueWidgetTarget.ProtagonistCutin00Emoji01Image,
+            DialogueSpriteTarget.ProtagonistCutin00Emoji02 => DialogueWidgetTarget.ProtagonistCutin00Emoji02Image,
+            
             // Background
             DialogueSpriteTarget.Background00 => DialogueWidgetTarget.Background00Image,
             DialogueSpriteTarget.Background01 => DialogueWidgetTarget.Background01Image,
-
-            // Choice button images (주의: Image 슬롯으로!)
-            DialogueSpriteTarget.ChoiceButton00 => DialogueWidgetTarget.ChoiceButton00Image,
-            DialogueSpriteTarget.ChoiceButton01 => DialogueWidgetTarget.ChoiceButton01Image,
-            DialogueSpriteTarget.ChoiceButton02 => DialogueWidgetTarget.ChoiceButton02Image,
-
-            // Cutin
-            DialogueSpriteTarget.ProtagonistCutin00 => DialogueWidgetTarget.ProtagonistCutin00Image,
+            
+            DialogueSpriteTarget.AdvanceIndicator00Image => DialogueWidgetTarget.AdvanceIndicator00Image,
 
             _ => DialogueWidgetTarget.None
         };
