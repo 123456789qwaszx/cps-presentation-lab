@@ -8,7 +8,7 @@ using IEnumerator = System.Collections.IEnumerator;
 public sealed class SetColorCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueSpriteTarget spriteTarget = DialogueSpriteTarget.MainPortrait;
+    public DialogueSpriteTarget spriteTarget = DialogueSpriteTarget.None;
 
     [Header("Color")]
     public Color color = Color.white;

@@ -169,27 +169,6 @@ public sealed class FadeLayersCommand : CommandBase
         return true;
     }
 
-    private static void CollectLayerRoots(
-        IDialogueWidgetAccess.WidgetRefs refs,
-        DialogueLayerMask layerMask,
-        List<RectTransform> outList)
-    {
-        outList.Clear();
-        
-        if (refs == null)
-            return;
-
-        if (layerMask.HasFlag(DialogueLayerMask.Background00Root)) outList.Add(refs.BackgroundRoot00);
-        if (layerMask.HasFlag(DialogueLayerMask.Background01Root)) outList.Add(refs.BackgroundRoot01);
-
-        if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot))     outList.Add(refs.MainStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))  outList.Add(refs.SubLeftStandingPortraitRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.SubRightPortraitRoot)) outList.Add(refs.SubRightStandingPortraitRoot);
-
-        if (layerMask.HasFlag(DialogueLayerMask.DialogueBox00Root))  outList.Add(refs.DialogueBoxRoot);
-        if (layerMask.HasFlag(DialogueLayerMask.ChoicePanel00Root))  outList.Add(refs.ChoicePanel00Root);
-    }
-
     private static CanvasGroup GetOrAddCanvasGroup(RectTransform rect, bool addIfMissing)
     {
         if (rect == null)

@@ -16,7 +16,7 @@ using UnityEngine;
 public sealed class SetTextCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.LineText;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.DialogueBox00Text;
 
     [Header("Content")]
     [TextArea]

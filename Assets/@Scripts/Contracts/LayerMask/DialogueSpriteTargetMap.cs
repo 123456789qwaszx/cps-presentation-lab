@@ -1,34 +1,52 @@
 public enum DialogueSpriteTarget
 {
-    // Portraits
-    MainPortrait,
-    SubLeftPortrait,
-    SubRightPortrait,
+    None = -1,
 
-    // Emojis
-    MainEmoji,
-    SubLeftEmoji,
-    SubRightEmoji,
+    // Portrait images (Standing 0~2)
+    Standing00Portrait,
+    Standing01Portrait,
+    Standing02Portrait,
+
+    // Portrait overlays (optional layer)
+    Standing00PortraitOverlay,
+    Standing01PortraitOverlay,
+    Standing02PortraitOverlay,
+
+    // Emojis (each standing has 4 emoji slots)
+    Standing00Emoji00,
+    Standing00Emoji01,
+    Standing00Emoji02,
+    Standing00Emoji03,
+
+    Standing01Emoji00,
+    Standing01Emoji01,
+    Standing01Emoji02,
+    Standing01Emoji03,
+
+    Standing02Emoji00,
+    Standing02Emoji01,
+    Standing02Emoji02,
+    Standing02Emoji03,
 
     // Backgrounds
-    Background0,
-    Background1,
+    Background00,
+    Background01,
 
-    // Choice buttons
-    Choice0,
-    Choice1,
-    Choice2,
+    // Choice button images
+    ChoiceButton00,
+    ChoiceButton01,
+    ChoiceButton02,
 
     // Cutin
-    ProtagonistCutin,
+    ProtagonistCutin00,
 }
+
 
 public static class DialogueSpriteTargetMap
 {
     /// <summary>
-    /// DialogueSpriteTarget → 실제 위젯 슬롯(DialogueWidgetTarget) 매핑.
-    /// "어떤 논리적인 스프라이트 타겟이 어느 위젯에 연결되는가"에 대한
-    /// 계약을 한 곳에 모아둔다.
+    /// DialogueSpriteTarget -> DialogueWidgetTarget(Image 슬롯) 매핑.
+    /// "논리적 스프라이트 타겟이 실제 어느 Image 위젯에 연결되는가" 계약.
     /// </summary>
     public static bool TryResolve(
         DialogueSpriteTarget spriteTarget,
@@ -36,22 +54,43 @@ public static class DialogueSpriteTargetMap
     {
         widgetTarget = spriteTarget switch
         {
-            DialogueSpriteTarget.MainPortrait     => DialogueWidgetTarget.MainStandingPortraitImage,
-            DialogueSpriteTarget.SubLeftPortrait  => DialogueWidgetTarget.SubLeftStandingPortraitImage,
-            DialogueSpriteTarget.SubRightPortrait => DialogueWidgetTarget.SubRightStandingPortraitImage,
+            // Portrait
+            DialogueSpriteTarget.Standing00Portrait => DialogueWidgetTarget.Standing00PortraitImage,
+            DialogueSpriteTarget.Standing01Portrait => DialogueWidgetTarget.Standing01PortraitImage,
+            DialogueSpriteTarget.Standing02Portrait => DialogueWidgetTarget.Standing02PortraitImage,
 
-            DialogueSpriteTarget.MainEmoji        => DialogueWidgetTarget.MainStandingPortraitEmojiImage,
-            DialogueSpriteTarget.SubLeftEmoji     => DialogueWidgetTarget.SubLeftStandingPortraitEmojiImage,
-            DialogueSpriteTarget.SubRightEmoji    => DialogueWidgetTarget.SubRightStandingPortraitEmojiImage,
+            // Overlay (single image)
+            DialogueSpriteTarget.Standing00PortraitOverlay => DialogueWidgetTarget.Standing00PortraitOverlaysImage,
+            DialogueSpriteTarget.Standing01PortraitOverlay => DialogueWidgetTarget.Standing01PortraitOverlaysImage,
+            DialogueSpriteTarget.Standing02PortraitOverlay => DialogueWidgetTarget.Standing02PortraitOverlaysImage,
 
-            DialogueSpriteTarget.Background0      => DialogueWidgetTarget.BackgroundImage00,
-            DialogueSpriteTarget.Background1      => DialogueWidgetTarget.BackgroundImage01,
+            // Emojis
+            DialogueSpriteTarget.Standing00Emoji00 => DialogueWidgetTarget.Standing00Emoji00Image,
+            DialogueSpriteTarget.Standing00Emoji01 => DialogueWidgetTarget.Standing00Emoji01Image,
+            DialogueSpriteTarget.Standing00Emoji02 => DialogueWidgetTarget.Standing00Emoji02Image,
+            DialogueSpriteTarget.Standing00Emoji03 => DialogueWidgetTarget.Standing00Emoji03Image,
 
-            DialogueSpriteTarget.Choice0          => DialogueWidgetTarget.ChoiceButton0Root,
-            DialogueSpriteTarget.Choice1          => DialogueWidgetTarget.ChoiceButton1Root,
-            DialogueSpriteTarget.Choice2          => DialogueWidgetTarget.ChoiceButton2Root,
+            DialogueSpriteTarget.Standing01Emoji00 => DialogueWidgetTarget.Standing01Emoji00Image,
+            DialogueSpriteTarget.Standing01Emoji01 => DialogueWidgetTarget.Standing01Emoji01Image,
+            DialogueSpriteTarget.Standing01Emoji02 => DialogueWidgetTarget.Standing01Emoji02Image,
+            DialogueSpriteTarget.Standing01Emoji03 => DialogueWidgetTarget.Standing01Emoji03Image,
 
-            DialogueSpriteTarget.ProtagonistCutin => DialogueWidgetTarget.ProtagonistCutinImage,
+            DialogueSpriteTarget.Standing02Emoji00 => DialogueWidgetTarget.Standing02Emoji00Image,
+            DialogueSpriteTarget.Standing02Emoji01 => DialogueWidgetTarget.Standing02Emoji01Image,
+            DialogueSpriteTarget.Standing02Emoji02 => DialogueWidgetTarget.Standing02Emoji02Image,
+            DialogueSpriteTarget.Standing02Emoji03 => DialogueWidgetTarget.Standing02Emoji03Image,
+
+            // Background
+            DialogueSpriteTarget.Background00 => DialogueWidgetTarget.Background00Image,
+            DialogueSpriteTarget.Background01 => DialogueWidgetTarget.Background01Image,
+
+            // Choice button images (주의: Image 슬롯으로!)
+            DialogueSpriteTarget.ChoiceButton00 => DialogueWidgetTarget.ChoiceButton00Image,
+            DialogueSpriteTarget.ChoiceButton01 => DialogueWidgetTarget.ChoiceButton01Image,
+            DialogueSpriteTarget.ChoiceButton02 => DialogueWidgetTarget.ChoiceButton02Image,
+
+            // Cutin
+            DialogueSpriteTarget.ProtagonistCutin00 => DialogueWidgetTarget.ProtagonistCutin00Image,
 
             _ => DialogueWidgetTarget.None
         };

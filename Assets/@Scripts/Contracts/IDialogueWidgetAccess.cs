@@ -6,122 +6,176 @@ public enum DialogueWidgetTarget
 {
     None = -1,
 
-    // ======================================================
-    // Dialogue Line
-    // ======================================================
-    DialogueBoxRoot       = 0,
-    LineText              = 10,
-    LineBodyImage         = 20,
-    SpeakerNameBox        = 30,
-    SpeakerNameText       = 40,
-    ProtagonistCutinImage = 50,
+    // ---- Dialogue ----
+    DialogueBox00Root  = 0,
+    DialogueBox00Image = 10,
+    DialogueBox00Text  = 20,
 
-    // ======================================================
-    // Main Standing Portrait Set (500 ~ 590)
-    // ======================================================
-    MainStandingPortraitRoot        = 500,
-    MainStandingPortraitTrack       = 510,
-    MainStandingPortraitRig         = 520,
-    MainStandingPortraitSwayPivot   = 530,
-    MainStandingPortraitShake       = 540,
-    MainStandingPortraitScale       = 550,
-    MainStandingPortraitVisual      = 560,
-    MainStandingPortraitImage       = 570,
-    MainStandingPortraitEmojiAnchor = 580,
-    MainStandingPortraitEmojiImage  = 590,
+    SpeakerNameBox00Root  = 100,
+    SpeakerNameBox00Text  = 110,
+    SpeakerNameBox00Image = 120,
 
-    // ======================================================
-    // SubLeft Standing Portrait (1000 ~ 1090)
-    // ======================================================
-    SubLeftStandingPortraitRoot        = 1000,
-    SubLeftStandingPortraitTrack       = 1010,
-    SubLeftStandingPortraitRig         = 1020,
-    SubLeftStandingPortraitSwayPivot   = 1030,
-    SubLeftStandingPortraitShake       = 1040,
-    SubLeftStandingPortraitScale       = 1050,
-    SubLeftStandingPortraitVisual      = 1060,
-    SubLeftStandingPortraitImage       = 1070,
-    SubLeftStandingPortraitEmojiAnchor = 1080,
-    SubLeftStandingPortraitEmojiImage  = 1090,
+    ProtagonistCutin00Root  = 200,
+    ProtagonistCutin00Image = 210,
 
-    // ======================================================
-    // SubRight Standing Portrait (1500 ~ 1590)
-    // ======================================================
-    SubRightStandingPortraitRoot        = 1500,
-    SubRightStandingPortraitTrack       = 1510,
-    SubRightStandingPortraitRig         = 1520,
-    SubRightStandingPortraitSwayPivot   = 1530,
-    SubRightStandingPortraitShake       = 1540,
-    SubRightStandingPortraitScale       = 1550,
-    SubRightStandingPortraitVisual      = 1560,
-    SubRightStandingPortraitImage       = 1570,
-    SubRightStandingPortraitEmojiAnchor = 1580,
-    SubRightStandingPortraitEmojiImage  = 1590,
+    // ---- Standing00 ----
+    Standing00Root  = 1000,
+    Standing00Track = 1010,
 
-    // ======================================================
-    // Background (2000 ~ 2030)
-    // ======================================================
-    BackgroundRoot00  = 2000,
-    BackgroundRoot01  = 2010,
-    BackgroundImage00 = 2020,
-    BackgroundImage01 = 2030,
-
-    // ======================================================
-    // Choice Panel (3000 ~ 3100)
-    // ======================================================
-    ChoicePanelRoot   = 3000,
-    ChoicePanelImage  = 3010,
-
-    ChoiceButton0Root  = 3020,
-    ChoiceButton1Root  = 3030,
-    ChoiceButton2Root  = 3040,
-
-    ChoiceButton0Text  = 3050,
-    ChoiceButton1Text  = 3060,
-    ChoiceButton2Text  = 3070,
-
-    ChoiceButton0Image = 3080,
-    ChoiceButton1Image = 3090,
-    ChoiceButton2Image = 3100,
-
-    // ======================================================
-    // VFX / Toggle Panel (4000 ~ 4040)
-    // ======================================================
-    VFXBlackScreen00Root = 4000,
-    VFXBlackOut00Image   = 4010,
-    VFXBlackOut01Image   = 4020,
-
-    BlackFade00Root      = 4030,
-    BlackFade00Image     = 4040,
+    Standing00PortraitRoot      = 1100,
+    Standing00PortraitSwayPivot = 1110,
+    Standing00PortraitShake     = 1120,
+    Standing00PortraitScale     = 1130,
+    Standing00PortraitVisual    = 1140,
+    Standing00PortraitImage     = 1150,
     
-    // ======================================================
-    // VFX / Toggle Panel (4500 ~ 5040)
-    // ======================================================
+    Standing00PortraitOverlaysRoot  = 1200,
+    Standing00PortraitOverlaysImage = 1210,
+
+    Standing00Emoji00Root      = 1300,
+    Standing00Emoji00Anchor    = 1310,
+    Standing00Emoji00SwayPivot = 1320,
+    Standing00Emoji00Image     = 1330,
+
+    Standing00Emoji01Root      = 1400,
+    Standing00Emoji01Anchor    = 1410,
+    Standing00Emoji01SwayPivot = 1420,
+    Standing00Emoji01Image     = 1430,
+
+    Standing00Emoji02Root      = 1500,
+    Standing00Emoji02Anchor    = 1510,
+    Standing00Emoji02SwayPivot = 1520,
+    Standing00Emoji02Image     = 1530,
+
+    Standing00Emoji03Root      = 1600,
+    Standing00Emoji03Anchor    = 1610,
+    Standing00Emoji03SwayPivot = 1620,
+    Standing00Emoji03Image     = 1630,
+
+    // ---- Standing01 ----
+    Standing01Root  = 2000,
+    Standing01Track = 2010,
+
+    Standing01PortraitRoot      = 2100,
+    Standing01PortraitSwayPivot = 2110,
+    Standing01PortraitShake     = 2120,
+    Standing01PortraitScale     = 2130,
+    Standing01PortraitVisual    = 2140,
+    Standing01PortraitImage     = 2150,
     
-    TogglePanel00Root = 4500,
+    Standing01PortraitOverlaysRoot  = 2200,
+    Standing01PortraitOverlaysImage = 2210,
 
-    SkipToggle00Root     = 4600,
-    SkipToggle00Image    = 4610,
-    SkipToggle01Image    = 4620,
-    SkipToggle00Text     = 4630,
+    Standing01Emoji00Root      = 2300,
+    Standing01Emoji00Anchor    = 2310,
+    Standing01Emoji00SwayPivot = 2320,
+    Standing01Emoji00Image     = 2330,
 
-    NextToggle00Root     = 4700,
-    NextToggle00Image    = 4710,
-    NextToggle00Text     = 4720,
+    Standing01Emoji01Root      = 2400,
+    Standing01Emoji01Anchor    = 2410,
+    Standing01Emoji01SwayPivot = 2420,
+    Standing01Emoji01Image     = 2430,
 
-    AutoToggle00Root     = 4800,
-    AutoToggle00Image    = 4810,
-    AutoToggle01Image    = 4820,
+    Standing01Emoji02Root      = 2500,
+    Standing01Emoji02Anchor    = 2510,
+    Standing01Emoji02SwayPivot = 2520,
+    Standing01Emoji02Image     = 2530,
 
-    SpeedupToggle00Root  = 4900,
-    SpeedupToggle00Image = 4910,
-    SpeedupToggle01Image = 4920,
+    Standing01Emoji03Root      = 2600,
+    Standing01Emoji03Anchor    = 2610,
+    Standing01Emoji03SwayPivot = 2620,
+    Standing01Emoji03Image     = 2630,
 
-    SetSpeedToggle00Root  = 5000,
-    SetSpeedToggle00Image = 5010,
-    SetSpeedToggle01Image = 5020,
-    SetSpeedToggle02Image = 5030,
-    SetSpeedToggle03Image = 5040,
+    // ---- Standing02 ----
+    Standing02Root  = 3000,
+    Standing02Track = 3010,
+
+    Standing02PortraitRoot      = 3100,
+    Standing02PortraitSwayPivot = 3110,
+    Standing02PortraitShake     = 3120,
+    Standing02PortraitScale     = 3130,
+    Standing02PortraitVisual    = 3140,
+    Standing02PortraitImage     = 3150,
+    
+    Standing02PortraitOverlaysRoot  = 3200,
+    Standing02PortraitOverlaysImage = 3210,
+    
+    Standing02Emoji00Root      = 3300,
+    Standing02Emoji00Anchor    = 3310,
+    Standing02Emoji00SwayPivot = 3320,
+    Standing02Emoji00Image     = 3330,
+
+    Standing02Emoji01Root      = 3400,
+    Standing02Emoji01Anchor    = 3410,
+    Standing02Emoji01SwayPivot = 3420,
+    Standing02Emoji01Image     = 3430,
+
+    Standing02Emoji02Root      = 3500,
+    Standing02Emoji02Anchor    = 3510,
+    Standing02Emoji02SwayPivot = 3520,
+    Standing02Emoji02Image     = 3530,
+
+    Standing02Emoji03Root      = 3600,
+    Standing02Emoji03Anchor    = 3610,
+    Standing02Emoji03SwayPivot = 3620,
+    Standing02Emoji03Image     = 3630,
+
+    // ---- Background ----
+    Background00Root  = 4000,
+    Background00Image = 4010,
+
+    Background01Root  = 4100,
+    Background01Image = 4110,
+
+    // ---- Choice ----
+    ChoicePanel00Root  = 5000,
+    ChoicePanel00Image = 5010,
+
+    ChoiceButton00Root  = 5100,
+    ChoiceButton00Image = 5110,
+    ChoiceButton00Text  = 5120,
+
+    ChoiceButton01Root  = 5200,
+    ChoiceButton01Image = 5210,
+    ChoiceButton01Text  = 5220,
+
+    ChoiceButton02Root  = 5300,
+    ChoiceButton02Image = 5310,
+    ChoiceButton02Text  = 5320,
+
+    // ---- VFX ----
+    VFXBlackScreen00Root   = 6000,
+    VFXBlackScreen00Image0 = 6010,
+    VFXBlackScreen00Image1 = 6020,
+
+    VFXBlackFade00Root  = 6100,
+    VFXBlackFade00Image = 6110,
+
+    // ---- Toggle ----
+    TogglePanel00Root = 8000,
+
+    SkipToggle00Root   = 8100,
+    SkipToggle00Image0 = 8110,
+    SkipToggle00Image1 = 8120,
+    SkipToggle00Text   = 8130,
+
+    NextToggle00Root  = 8200,
+    NextToggle00Image = 8210,
+    NextToggle00Text  = 8220,
+
+    AutoToggle00Root   = 8300,
+    AutoToggle00Image0 = 8310,
+    AutoToggle00Image1 = 8320,
+
+    SpeedupToggle00Root   = 8400,
+    SpeedupToggle00Image0 = 8410,
+    SpeedupToggle00Image1 = 8420,
+
+    SetSpeedToggle00Root   = 8500,
+    SetSpeedToggle00Image0 = 8510,
+    SetSpeedToggle00Image1 = 8520,
+    SetSpeedToggle00Image2 = 8530,
+    SetSpeedToggle00Image3 = 8540,
 }
 
 public interface IDialogueWidgetAccess
@@ -130,236 +184,390 @@ public interface IDialogueWidgetAccess
 
     public sealed class WidgetRefs
     {
-        // ---- Dialogue Line ----
-        public RectTransform DialogueBoxRoot;
-        public TMP_Text LineText;
-        public Image LineBodyImage;
-        public Image SpeakerNameBox;
-        public TMP_Text SpeakerNameText;
-        public Image ProtagonistCutinImage;
+        // ======================================================
+        // Dialogue Line
+        // ======================================================
+        public RectTransform DialogueBox00Root;
+        public Image         DialogueBox00Image;
+        public TMP_Text      DialogueBox00Text;
 
-        // ---- Main Standing Portrait ----
-        public RectTransform MainStandingPortraitRoot;
-        public RectTransform MainStandingPortraitTrack;
-        public RectTransform MainStandingPortraitRig;
-        public RectTransform MainStandingPortraitSwayPivot;
-        public RectTransform MainStandingPortraitShake;
-        public RectTransform MainStandingPortraitScale;
-        public RectTransform MainStandingPortraitVisual;
-        public Image MainStandingPortraitImage;
-        public RectTransform MainStandingPortraitEmojiAnchor;
-        public Image MainStandingPortraitEmojiImage;
+        public RectTransform SpeakerNameBox00Root;
+        public Image         SpeakerNameBox00Image;
+        public TMP_Text      SpeakerNameBox00Text;
 
-        // ---- SubLeft Standing Portrait ----
-        public RectTransform SubLeftStandingPortraitRoot;
-        public RectTransform SubLeftStandingPortraitTrack;
-        public RectTransform SubLeftStandingPortraitRig;
-        public RectTransform SubLeftStandingPortraitSwayPivot;
-        public RectTransform SubLeftStandingPortraitShake;
-        public RectTransform SubLeftStandingPortraitScale;
-        public RectTransform SubLeftStandingPortraitVisual;
-        public Image SubLeftStandingPortraitImage;
-        public RectTransform SubLeftStandingPortraitEmojiAnchor;
-        public Image SubLeftStandingPortraitEmojiImage;
+        public RectTransform ProtagonistCutin00Root;
+        public Image         ProtagonistCutin00Image;
 
-        // ---- SubRight Standing Portrait ----
-        public RectTransform SubRightStandingPortraitRoot;
-        public RectTransform SubRightStandingPortraitTrack;
-        public RectTransform SubRightStandingPortraitRig;
-        public RectTransform SubRightStandingPortraitSwayPivot;
-        public RectTransform SubRightStandingPortraitShake;
-        public RectTransform SubRightStandingPortraitScale;
-        public RectTransform SubRightStandingPortraitVisual;
-        public Image SubRightStandingPortraitImage;
-        public RectTransform SubRightStandingPortraitEmojiAnchor;
-        public Image SubRightStandingPortraitEmojiImage;
+        // ======================================================
+        // Standing00
+        // ======================================================
+        public RectTransform Standing00Root;
+        public RectTransform Standing00Track;
 
-        // ---- Background (00/01) ----
-        public RectTransform BackgroundRoot00;
-        public RectTransform BackgroundRoot01;
-        public Image BackgroundImage00;
-        public Image BackgroundImage01;
+        public RectTransform Standing00PortraitRoot;
+        public RectTransform Standing00PortraitSwayPivot;
+        public RectTransform Standing00PortraitShake;
+        public RectTransform Standing00PortraitScale;
+        public RectTransform Standing00PortraitVisual;
+        public Image         Standing00PortraitImage;
+        
+        public RectTransform Standing00PortraitOverlaysRoot;
+        public Image         Standing00PortraitOverlaysImage;
 
-        // ---- Choice Panel ----
+        public RectTransform Standing00Emoji00Root;
+        public RectTransform Standing00Emoji00Anchor;
+        public RectTransform Standing00Emoji00SwayPivot;
+        public Image         Standing00Emoji00Image;
+
+        public RectTransform Standing00Emoji01Root;
+        public RectTransform Standing00Emoji01Anchor;
+        public RectTransform Standing00Emoji01SwayPivot;
+        public Image         Standing00Emoji01Image;
+
+        public RectTransform Standing00Emoji02Root;
+        public RectTransform Standing00Emoji02Anchor;
+        public RectTransform Standing00Emoji02SwayPivot;
+        public Image         Standing00Emoji02Image;
+
+        public RectTransform Standing00Emoji03Root;
+        public RectTransform Standing00Emoji03Anchor;
+        public RectTransform Standing00Emoji03SwayPivot;
+        public Image         Standing00Emoji03Image;
+
+        // ======================================================
+        // Standing01
+        // ======================================================
+        public RectTransform Standing01Root;
+        public RectTransform Standing01Track;
+
+        public RectTransform Standing01PortraitRoot;
+        public RectTransform Standing01PortraitSwayPivot;
+        public RectTransform Standing01PortraitShake;
+        public RectTransform Standing01PortraitScale;
+        public RectTransform Standing01PortraitVisual;
+        public Image         Standing01PortraitImage;
+        
+        public RectTransform Standing01PortraitOverlaysRoot;
+        public Image         Standing01PortraitOverlaysImage;
+
+        public RectTransform Standing01Emoji00Root;
+        public RectTransform Standing01Emoji00Anchor;
+        public RectTransform Standing01Emoji00SwayPivot;
+        public Image         Standing01Emoji00Image;
+
+        public RectTransform Standing01Emoji01Root;
+        public RectTransform Standing01Emoji01Anchor;
+        public RectTransform Standing01Emoji01SwayPivot;
+        public Image         Standing01Emoji01Image;
+
+        public RectTransform Standing01Emoji02Root;
+        public RectTransform Standing01Emoji02Anchor;
+        public RectTransform Standing01Emoji02SwayPivot;
+        public Image         Standing01Emoji02Image;
+
+        public RectTransform Standing01Emoji03Root;
+        public RectTransform Standing01Emoji03Anchor;
+        public RectTransform Standing01Emoji03SwayPivot;
+        public Image         Standing01Emoji03Image;
+
+        // ======================================================
+        // Standing02
+        // ======================================================
+        public RectTransform Standing02Root;
+        public RectTransform Standing02Track;
+
+        public RectTransform Standing02PortraitRoot;
+        public RectTransform Standing02PortraitSwayPivot;
+        public RectTransform Standing02PortraitShake;
+        public RectTransform Standing02PortraitScale;
+        public RectTransform Standing02PortraitVisual;
+        public Image         Standing02PortraitImage;
+        
+        public RectTransform Standing02PortraitOverlaysRoot;
+        public Image         Standing02PortraitOverlaysImage;
+
+        public RectTransform Standing02Emoji00Root;
+        public RectTransform Standing02Emoji00Anchor;
+        public RectTransform Standing02Emoji00SwayPivot;
+        public Image         Standing02Emoji00Image;
+
+        public RectTransform Standing02Emoji01Root;
+        public RectTransform Standing02Emoji01Anchor;
+        public RectTransform Standing02Emoji01SwayPivot;
+        public Image         Standing02Emoji01Image;
+
+        public RectTransform Standing02Emoji02Root;
+        public RectTransform Standing02Emoji02Anchor;
+        public RectTransform Standing02Emoji02SwayPivot;
+        public Image         Standing02Emoji02Image;
+
+        public RectTransform Standing02Emoji03Root;
+        public RectTransform Standing02Emoji03Anchor;
+        public RectTransform Standing02Emoji03SwayPivot;
+        public Image         Standing02Emoji03Image;
+
+        // ======================================================
+        // Background
+        // ======================================================
+        public RectTransform Background00Root;
+        public Image         Background00Image;
+
+        public RectTransform Background01Root;
+        public Image         Background01Image;
+
+        // ======================================================
+        // Choice
+        // ======================================================
         public RectTransform ChoicePanel00Root;
-        public Image ChoicePanelImage;
+        public Image         ChoicePanel00Image;
 
         public RectTransform ChoiceButton00Root;
-        public TMP_Text ChoiceButton00Text;
-        public Image ChoiceButton00Image;
+        public Image         ChoiceButton00Image;
+        public TMP_Text      ChoiceButton00Text;
 
         public RectTransform ChoiceButton01Root;
-        public TMP_Text ChoiceButton01Text;
-        public Image ChoiceButton01Image;
-        
-        public RectTransform ChoiceButton02Root;
-        public TMP_Text ChoiceButton02Text;
-        public Image ChoiceButton02Image;
+        public Image         ChoiceButton01Image;
+        public TMP_Text      ChoiceButton01Text;
 
-        // ---- VFX Panel ----
+        public RectTransform ChoiceButton02Root;
+        public Image         ChoiceButton02Image;
+        public TMP_Text      ChoiceButton02Text;
+
+        // ======================================================
+        // VFX
+        // ======================================================
         public RectTransform VFXBlackScreen00Root;
-        public Image VFXBlackOut00Image;
-        public Image VFXBlackOut01Image;
+        public Image         VFXBlackScreen00Image0;
+        public Image         VFXBlackScreen00Image1;
 
         public RectTransform VFXBlackFade00Root;
-        public Image VFXBlackFade00Image;
+        public Image         VFXBlackFade00Image;
 
-        // ---- Skip Toggle ----
+        // ======================================================
+        // Toggle
+        // ======================================================
         public RectTransform TogglePanel00Root;
-        
+
         public RectTransform SkipToggle00Root;
-        public Image SkipToggle00Image;
-        public Image SkipToggle01Image;
-        public TMP_Text SkipToggle00Text;
+        public Image         SkipToggle00Image0;
+        public Image         SkipToggle00Image1;
+        public TMP_Text      SkipToggle00Text;
 
-        // ---- Next Toggle ----
         public RectTransform NextToggle00Root;
-        public Image NextToggle00Image;
-        public TMP_Text NextToggle00Text;
+        public Image         NextToggle00Image;
+        public TMP_Text      NextToggle00Text;
 
-        // ---- Auto Toggle ----
         public RectTransform AutoToggle00Root;
-        public Image AutoToggle00Image;
-        public Image AutoToggle01Image;
+        public Image         AutoToggle00Image0;
+        public Image         AutoToggle00Image1;
 
-        // ---- Speedup Toggle ----
         public RectTransform SpeedupToggle00Root;
-        public Image SpeedupToggle00Image;
-        public Image SpeedupToggle01Image;
+        public Image         SpeedupToggle00Image0;
+        public Image         SpeedupToggle00Image1;
 
-        // ---- SetSpeed Toggle ----
         public RectTransform SetSpeedToggle00Root;
-        public Image SetSpeedToggle00Image;
-        public Image SetSpeedToggle01Image;
-        public Image SetSpeedToggle02Image;
-        public Image SetSpeedToggle03Image;
+        public Image         SetSpeedToggle00Image0;
+        public Image         SetSpeedToggle00Image1;
+        public Image         SetSpeedToggle00Image2;
+        public Image         SetSpeedToggle00Image3;
     }
 }
 
 public static class WidgetRefsExtensions
 {
-    public static Component GetComponent(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
+    public static Component GetComponent(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
     {
         if (refs == null) return null;
 
-        switch (slot)
+        switch (target)
         {
-            // ---- Dialogue Line ----
-            case DialogueWidgetTarget.DialogueBoxRoot:       return refs.DialogueBoxRoot;
-            case DialogueWidgetTarget.LineText:              return refs.LineText;
-            case DialogueWidgetTarget.LineBodyImage:         return refs.LineBodyImage;
-            case DialogueWidgetTarget.SpeakerNameBox:        return refs.SpeakerNameBox;
-            case DialogueWidgetTarget.SpeakerNameText:       return refs.SpeakerNameText;
-            case DialogueWidgetTarget.ProtagonistCutinImage: return refs.ProtagonistCutinImage;
+            // ---- Dialogue ----
+            case DialogueWidgetTarget.DialogueBox00Root:  return refs.DialogueBox00Root;
+            case DialogueWidgetTarget.DialogueBox00Image: return refs.DialogueBox00Image;
+            case DialogueWidgetTarget.DialogueBox00Text:  return refs.DialogueBox00Text;
 
-            // ---- Main Standing Portrait ----
-            case DialogueWidgetTarget.MainStandingPortraitRoot:        return refs.MainStandingPortraitRoot;
-            case DialogueWidgetTarget.MainStandingPortraitTrack:       return refs.MainStandingPortraitTrack;
-            case DialogueWidgetTarget.MainStandingPortraitRig:         return refs.MainStandingPortraitRig;
-            case DialogueWidgetTarget.MainStandingPortraitSwayPivot:   return refs.MainStandingPortraitSwayPivot;
-            case DialogueWidgetTarget.MainStandingPortraitShake:       return refs.MainStandingPortraitShake;
-            case DialogueWidgetTarget.MainStandingPortraitScale:       return refs.MainStandingPortraitScale;
-            case DialogueWidgetTarget.MainStandingPortraitVisual:      return refs.MainStandingPortraitVisual;
-            case DialogueWidgetTarget.MainStandingPortraitImage:       return refs.MainStandingPortraitImage;
-            case DialogueWidgetTarget.MainStandingPortraitEmojiAnchor: return refs.MainStandingPortraitEmojiAnchor;
-            case DialogueWidgetTarget.MainStandingPortraitEmojiImage:  return refs.MainStandingPortraitEmojiImage;
+            case DialogueWidgetTarget.SpeakerNameBox00Root:  return refs.SpeakerNameBox00Root;
+            case DialogueWidgetTarget.SpeakerNameBox00Image: return refs.SpeakerNameBox00Image;
+            case DialogueWidgetTarget.SpeakerNameBox00Text:  return refs.SpeakerNameBox00Text;
 
-            // ---- SubLeft Standing Portrait ----
-            case DialogueWidgetTarget.SubLeftStandingPortraitRoot:        return refs.SubLeftStandingPortraitRoot;
-            case DialogueWidgetTarget.SubLeftStandingPortraitTrack:       return refs.SubLeftStandingPortraitTrack;
-            case DialogueWidgetTarget.SubLeftStandingPortraitRig:         return refs.SubLeftStandingPortraitRig;
-            case DialogueWidgetTarget.SubLeftStandingPortraitSwayPivot:   return refs.SubLeftStandingPortraitSwayPivot;
-            case DialogueWidgetTarget.SubLeftStandingPortraitShake:       return refs.SubLeftStandingPortraitShake;
-            case DialogueWidgetTarget.SubLeftStandingPortraitScale:       return refs.SubLeftStandingPortraitScale;
-            case DialogueWidgetTarget.SubLeftStandingPortraitVisual:      return refs.SubLeftStandingPortraitVisual;
-            case DialogueWidgetTarget.SubLeftStandingPortraitImage:       return refs.SubLeftStandingPortraitImage;
-            case DialogueWidgetTarget.SubLeftStandingPortraitEmojiAnchor: return refs.SubLeftStandingPortraitEmojiAnchor;
-            case DialogueWidgetTarget.SubLeftStandingPortraitEmojiImage:  return refs.SubLeftStandingPortraitEmojiImage;
+            case DialogueWidgetTarget.ProtagonistCutin00Root:  return refs.ProtagonistCutin00Root;
+            case DialogueWidgetTarget.ProtagonistCutin00Image: return refs.ProtagonistCutin00Image;
 
-            // ---- SubRight Standing Portrait ----
-            case DialogueWidgetTarget.SubRightStandingPortraitRoot:        return refs.SubRightStandingPortraitRoot;
-            case DialogueWidgetTarget.SubRightStandingPortraitTrack:       return refs.SubRightStandingPortraitTrack;
-            case DialogueWidgetTarget.SubRightStandingPortraitRig:         return refs.SubRightStandingPortraitRig;
-            case DialogueWidgetTarget.SubRightStandingPortraitSwayPivot:   return refs.SubRightStandingPortraitSwayPivot;
-            case DialogueWidgetTarget.SubRightStandingPortraitShake:       return refs.SubRightStandingPortraitShake;
-            case DialogueWidgetTarget.SubRightStandingPortraitScale:       return refs.SubRightStandingPortraitScale;
-            case DialogueWidgetTarget.SubRightStandingPortraitVisual:      return refs.SubRightStandingPortraitVisual;
-            case DialogueWidgetTarget.SubRightStandingPortraitImage:       return refs.SubRightStandingPortraitImage;
-            case DialogueWidgetTarget.SubRightStandingPortraitEmojiAnchor: return refs.SubRightStandingPortraitEmojiAnchor;
-            case DialogueWidgetTarget.SubRightStandingPortraitEmojiImage:  return refs.SubRightStandingPortraitEmojiImage;
+            // ---- Standing00 ----
+            case DialogueWidgetTarget.Standing00Root:  return refs.Standing00Root;
+            case DialogueWidgetTarget.Standing00Track: return refs.Standing00Track;
 
-            // ---- Background (00/01) ----
-            case DialogueWidgetTarget.BackgroundRoot00:  return refs.BackgroundRoot00;
-            case DialogueWidgetTarget.BackgroundRoot01:  return refs.BackgroundRoot01;
-            case DialogueWidgetTarget.BackgroundImage00: return refs.BackgroundImage00;
-            case DialogueWidgetTarget.BackgroundImage01: return refs.BackgroundImage01;
+            case DialogueWidgetTarget.Standing00PortraitRoot:      return refs.Standing00PortraitRoot;
+            case DialogueWidgetTarget.Standing00PortraitSwayPivot: return refs.Standing00PortraitSwayPivot;
+            case DialogueWidgetTarget.Standing00PortraitShake:     return refs.Standing00PortraitShake;
+            case DialogueWidgetTarget.Standing00PortraitScale:     return refs.Standing00PortraitScale;
+            case DialogueWidgetTarget.Standing00PortraitVisual:    return refs.Standing00PortraitVisual;
+            case DialogueWidgetTarget.Standing00PortraitImage:     return refs.Standing00PortraitImage;;
+                
+            case DialogueWidgetTarget.Standing00PortraitOverlaysRoot:  return refs.Standing00PortraitOverlaysRoot;
+            case DialogueWidgetTarget.Standing00PortraitOverlaysImage: return refs.Standing00PortraitOverlaysImage;
 
-            // ---- Choice Panel ----
-            case DialogueWidgetTarget.ChoicePanelRoot:   return refs.ChoicePanel00Root;
-            case DialogueWidgetTarget.ChoicePanelImage:  return refs.ChoicePanelImage;
+            case DialogueWidgetTarget.Standing00Emoji00Root:      return refs.Standing00Emoji00Root;
+            case DialogueWidgetTarget.Standing00Emoji00Anchor:    return refs.Standing00Emoji00Anchor;
+            case DialogueWidgetTarget.Standing00Emoji00SwayPivot: return refs.Standing00Emoji00SwayPivot;
+            case DialogueWidgetTarget.Standing00Emoji00Image:     return refs.Standing00Emoji00Image;
 
-            case DialogueWidgetTarget.ChoiceButton0Root:  return refs.ChoiceButton00Root;
-            case DialogueWidgetTarget.ChoiceButton1Root:  return refs.ChoiceButton01Root;
-            case DialogueWidgetTarget.ChoiceButton2Root:  return refs.ChoiceButton02Root;
+            case DialogueWidgetTarget.Standing00Emoji01Root:      return refs.Standing00Emoji01Root;
+            case DialogueWidgetTarget.Standing00Emoji01Anchor:    return refs.Standing00Emoji01Anchor;
+            case DialogueWidgetTarget.Standing00Emoji01SwayPivot: return refs.Standing00Emoji01SwayPivot;
+            case DialogueWidgetTarget.Standing00Emoji01Image:     return refs.Standing00Emoji01Image;
 
-            case DialogueWidgetTarget.ChoiceButton0Text:  return refs.ChoiceButton00Text;
-            case DialogueWidgetTarget.ChoiceButton1Text:  return refs.ChoiceButton01Text;
-            case DialogueWidgetTarget.ChoiceButton2Text:  return refs.ChoiceButton02Text;
+            case DialogueWidgetTarget.Standing00Emoji02Root:      return refs.Standing00Emoji02Root;
+            case DialogueWidgetTarget.Standing00Emoji02Anchor:    return refs.Standing00Emoji02Anchor;
+            case DialogueWidgetTarget.Standing00Emoji02SwayPivot: return refs.Standing00Emoji02SwayPivot;
+            case DialogueWidgetTarget.Standing00Emoji02Image:     return refs.Standing00Emoji02Image;
 
-            case DialogueWidgetTarget.ChoiceButton0Image: return refs.ChoiceButton00Image;
-            case DialogueWidgetTarget.ChoiceButton1Image: return refs.ChoiceButton01Image;
-            case DialogueWidgetTarget.ChoiceButton2Image: return refs.ChoiceButton02Image;
+            case DialogueWidgetTarget.Standing00Emoji03Root:      return refs.Standing00Emoji03Root;
+            case DialogueWidgetTarget.Standing00Emoji03Anchor:    return refs.Standing00Emoji03Anchor;
+            case DialogueWidgetTarget.Standing00Emoji03SwayPivot: return refs.Standing00Emoji03SwayPivot;
+            case DialogueWidgetTarget.Standing00Emoji03Image:     return refs.Standing00Emoji03Image;
+
+            // ---- Standing01 ----
+            case DialogueWidgetTarget.Standing01Root:  return refs.Standing01Root;
+            case DialogueWidgetTarget.Standing01Track: return refs.Standing01Track;
+
+            case DialogueWidgetTarget.Standing01PortraitRoot:      return refs.Standing01PortraitRoot;
+            case DialogueWidgetTarget.Standing01PortraitSwayPivot: return refs.Standing01PortraitSwayPivot;
+            case DialogueWidgetTarget.Standing01PortraitShake:     return refs.Standing01PortraitShake;
+            case DialogueWidgetTarget.Standing01PortraitScale:     return refs.Standing01PortraitScale;
+            case DialogueWidgetTarget.Standing01PortraitVisual:    return refs.Standing01PortraitVisual;
+            case DialogueWidgetTarget.Standing01PortraitImage:     return refs.Standing01PortraitImage;
+            
+            case DialogueWidgetTarget.Standing01PortraitOverlaysRoot:  return refs.Standing01PortraitOverlaysRoot;
+            case DialogueWidgetTarget.Standing01PortraitOverlaysImage: return refs.Standing01PortraitOverlaysImage;
+
+            case DialogueWidgetTarget.Standing01Emoji00Root:      return refs.Standing01Emoji00Root;
+            case DialogueWidgetTarget.Standing01Emoji00Anchor:    return refs.Standing01Emoji00Anchor;
+            case DialogueWidgetTarget.Standing01Emoji00SwayPivot: return refs.Standing01Emoji00SwayPivot;
+            case DialogueWidgetTarget.Standing01Emoji00Image:     return refs.Standing01Emoji00Image;
+
+            case DialogueWidgetTarget.Standing01Emoji01Root:      return refs.Standing01Emoji01Root;
+            case DialogueWidgetTarget.Standing01Emoji01Anchor:    return refs.Standing01Emoji01Anchor;
+            case DialogueWidgetTarget.Standing01Emoji01SwayPivot: return refs.Standing01Emoji01SwayPivot;
+            case DialogueWidgetTarget.Standing01Emoji01Image:     return refs.Standing01Emoji01Image;
+
+            case DialogueWidgetTarget.Standing01Emoji02Root:      return refs.Standing01Emoji02Root;
+            case DialogueWidgetTarget.Standing01Emoji02Anchor:    return refs.Standing01Emoji02Anchor;
+            case DialogueWidgetTarget.Standing01Emoji02SwayPivot: return refs.Standing01Emoji02SwayPivot;
+            case DialogueWidgetTarget.Standing01Emoji02Image:     return refs.Standing01Emoji02Image;
+
+            case DialogueWidgetTarget.Standing01Emoji03Root:      return refs.Standing01Emoji03Root;
+            case DialogueWidgetTarget.Standing01Emoji03Anchor:    return refs.Standing01Emoji03Anchor;
+            case DialogueWidgetTarget.Standing01Emoji03SwayPivot: return refs.Standing01Emoji03SwayPivot;
+            case DialogueWidgetTarget.Standing01Emoji03Image:     return refs.Standing01Emoji03Image;
+
+            // ---- Standing02 ----
+            case DialogueWidgetTarget.Standing02Root:  return refs.Standing02Root;
+            case DialogueWidgetTarget.Standing02Track: return refs.Standing02Track;
+
+            case DialogueWidgetTarget.Standing02PortraitRoot:      return refs.Standing02PortraitRoot;
+            case DialogueWidgetTarget.Standing02PortraitSwayPivot: return refs.Standing02PortraitSwayPivot;
+            case DialogueWidgetTarget.Standing02PortraitShake:     return refs.Standing02PortraitShake;
+            case DialogueWidgetTarget.Standing02PortraitScale:     return refs.Standing02PortraitScale;
+            case DialogueWidgetTarget.Standing02PortraitVisual:    return refs.Standing02PortraitVisual;
+            case DialogueWidgetTarget.Standing02PortraitImage:     return refs.Standing02PortraitImage;
+            
+            case DialogueWidgetTarget.Standing02PortraitOverlaysRoot:  return refs.Standing02PortraitOverlaysRoot;
+            case DialogueWidgetTarget.Standing02PortraitOverlaysImage: return refs.Standing02PortraitOverlaysImage;
+
+            case DialogueWidgetTarget.Standing02Emoji00Root:      return refs.Standing02Emoji00Root;
+            case DialogueWidgetTarget.Standing02Emoji00Anchor:    return refs.Standing02Emoji00Anchor;
+            case DialogueWidgetTarget.Standing02Emoji00SwayPivot: return refs.Standing02Emoji00SwayPivot;
+            case DialogueWidgetTarget.Standing02Emoji00Image:     return refs.Standing02Emoji00Image;
+
+            case DialogueWidgetTarget.Standing02Emoji01Root:      return refs.Standing02Emoji01Root;
+            case DialogueWidgetTarget.Standing02Emoji01Anchor:    return refs.Standing02Emoji01Anchor;
+            case DialogueWidgetTarget.Standing02Emoji01SwayPivot: return refs.Standing02Emoji01SwayPivot;
+            case DialogueWidgetTarget.Standing02Emoji01Image:     return refs.Standing02Emoji01Image;
+
+            case DialogueWidgetTarget.Standing02Emoji02Root:      return refs.Standing02Emoji02Root;
+            case DialogueWidgetTarget.Standing02Emoji02Anchor:    return refs.Standing02Emoji02Anchor;
+            case DialogueWidgetTarget.Standing02Emoji02SwayPivot: return refs.Standing02Emoji02SwayPivot;
+            case DialogueWidgetTarget.Standing02Emoji02Image:     return refs.Standing02Emoji02Image;
+
+            case DialogueWidgetTarget.Standing02Emoji03Root:      return refs.Standing02Emoji03Root;
+            case DialogueWidgetTarget.Standing02Emoji03Anchor:    return refs.Standing02Emoji03Anchor;
+            case DialogueWidgetTarget.Standing02Emoji03SwayPivot: return refs.Standing02Emoji03SwayPivot;
+            case DialogueWidgetTarget.Standing02Emoji03Image:     return refs.Standing02Emoji03Image;
+
+            // ---- Background ----
+            case DialogueWidgetTarget.Background00Root:  return refs.Background00Root;
+            case DialogueWidgetTarget.Background00Image: return refs.Background00Image;
+            
+            case DialogueWidgetTarget.Background01Root:  return refs.Background01Root;
+            case DialogueWidgetTarget.Background01Image: return refs.Background01Image;
+
+            // ---- Choice ----
+            case DialogueWidgetTarget.ChoicePanel00Root:  return refs.ChoicePanel00Root;
+            case DialogueWidgetTarget.ChoicePanel00Image: return refs.ChoicePanel00Image;
+
+            case DialogueWidgetTarget.ChoiceButton00Root:  return refs.ChoiceButton00Root;
+            case DialogueWidgetTarget.ChoiceButton00Image: return refs.ChoiceButton00Image;
+            case DialogueWidgetTarget.ChoiceButton00Text:  return refs.ChoiceButton00Text;
+
+            case DialogueWidgetTarget.ChoiceButton01Root:  return refs.ChoiceButton01Root;
+            case DialogueWidgetTarget.ChoiceButton01Image: return refs.ChoiceButton01Image;
+            case DialogueWidgetTarget.ChoiceButton01Text:  return refs.ChoiceButton01Text;
+
+            case DialogueWidgetTarget.ChoiceButton02Root:  return refs.ChoiceButton02Root;
+            case DialogueWidgetTarget.ChoiceButton02Image: return refs.ChoiceButton02Image;
+            case DialogueWidgetTarget.ChoiceButton02Text:  return refs.ChoiceButton02Text;
 
             // ---- VFX ----
-            case DialogueWidgetTarget.VFXBlackScreen00Root: return refs.VFXBlackScreen00Root;
-            case DialogueWidgetTarget.VFXBlackOut00Image:   return refs.VFXBlackOut00Image;
-            case DialogueWidgetTarget.VFXBlackOut01Image:   return refs.VFXBlackOut01Image;
+            case DialogueWidgetTarget.VFXBlackScreen00Root:   return refs.VFXBlackScreen00Root;
+            case DialogueWidgetTarget.VFXBlackScreen00Image0: return refs.VFXBlackScreen00Image0;
+            case DialogueWidgetTarget.VFXBlackScreen00Image1: return refs.VFXBlackScreen00Image1;
 
-            case DialogueWidgetTarget.BlackFade00Root:      return refs.VFXBlackFade00Root;
-            case DialogueWidgetTarget.BlackFade00Image:     return refs.VFXBlackFade00Image;
-            
-            // ---- Toggle Panel ----
-            case DialogueWidgetTarget.TogglePanel00Root:    return refs.TogglePanel00Root;
+            case DialogueWidgetTarget.VFXBlackFade00Root:  return refs.VFXBlackFade00Root;
+            case DialogueWidgetTarget.VFXBlackFade00Image: return refs.VFXBlackFade00Image;
 
-            case DialogueWidgetTarget.SkipToggle00Root:     return refs.SkipToggle00Root;
-            case DialogueWidgetTarget.SkipToggle00Image:    return refs.SkipToggle00Image;
-            case DialogueWidgetTarget.SkipToggle01Image:    return refs.SkipToggle01Image;
-            case DialogueWidgetTarget.SkipToggle00Text:     return refs.SkipToggle00Text;
+            // ---- Toggle ----
+            case DialogueWidgetTarget.TogglePanel00Root: return refs.TogglePanel00Root;
 
-            case DialogueWidgetTarget.NextToggle00Root:     return refs.NextToggle00Root;
-            case DialogueWidgetTarget.NextToggle00Image:    return refs.NextToggle00Image;
-            case DialogueWidgetTarget.NextToggle00Text:     return refs.NextToggle00Text;
+            case DialogueWidgetTarget.SkipToggle00Root:   return refs.SkipToggle00Root;
+            case DialogueWidgetTarget.SkipToggle00Image0: return refs.SkipToggle00Image0;
+            case DialogueWidgetTarget.SkipToggle00Image1: return refs.SkipToggle00Image1;
+            case DialogueWidgetTarget.SkipToggle00Text:   return refs.SkipToggle00Text;
 
-            case DialogueWidgetTarget.AutoToggle00Root:     return refs.AutoToggle00Root;
-            case DialogueWidgetTarget.AutoToggle00Image:    return refs.AutoToggle00Image;
-            case DialogueWidgetTarget.AutoToggle01Image:    return refs.AutoToggle01Image;
+            case DialogueWidgetTarget.NextToggle00Root:  return refs.NextToggle00Root;
+            case DialogueWidgetTarget.NextToggle00Image: return refs.NextToggle00Image;
+            case DialogueWidgetTarget.NextToggle00Text:  return refs.NextToggle00Text;
 
-            case DialogueWidgetTarget.SpeedupToggle00Root:  return refs.SpeedupToggle00Root;
-            case DialogueWidgetTarget.SpeedupToggle00Image: return refs.SpeedupToggle00Image;
-            case DialogueWidgetTarget.SpeedupToggle01Image: return refs.SpeedupToggle01Image;
+            case DialogueWidgetTarget.AutoToggle00Root:   return refs.AutoToggle00Root;
+            case DialogueWidgetTarget.AutoToggle00Image0: return refs.AutoToggle00Image0;
+            case DialogueWidgetTarget.AutoToggle00Image1: return refs.AutoToggle00Image1;
 
-            case DialogueWidgetTarget.SetSpeedToggle00Root:  return refs.SetSpeedToggle00Root;
-            case DialogueWidgetTarget.SetSpeedToggle00Image: return refs.SetSpeedToggle00Image;
-            case DialogueWidgetTarget.SetSpeedToggle01Image: return refs.SetSpeedToggle01Image;
-            case DialogueWidgetTarget.SetSpeedToggle02Image: return refs.SetSpeedToggle02Image;
-            case DialogueWidgetTarget.SetSpeedToggle03Image: return refs.SetSpeedToggle03Image;
+            case DialogueWidgetTarget.SpeedupToggle00Root:   return refs.SpeedupToggle00Root;
+            case DialogueWidgetTarget.SpeedupToggle00Image0: return refs.SpeedupToggle00Image0;
+            case DialogueWidgetTarget.SpeedupToggle00Image1: return refs.SpeedupToggle00Image1;
+
+            case DialogueWidgetTarget.SetSpeedToggle00Root:   return refs.SetSpeedToggle00Root;
+            case DialogueWidgetTarget.SetSpeedToggle00Image0: return refs.SetSpeedToggle00Image0;
+            case DialogueWidgetTarget.SetSpeedToggle00Image1: return refs.SetSpeedToggle00Image1;
+            case DialogueWidgetTarget.SetSpeedToggle00Image2: return refs.SetSpeedToggle00Image2;
+            case DialogueWidgetTarget.SetSpeedToggle00Image3: return refs.SetSpeedToggle00Image3;
 
             default:
                 return null;
         }
     }
 
-    public static Graphic GetGraphic(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
-        => refs.GetComponent(slot) as Graphic;
+    public static Graphic GetGraphic(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
+        => refs.GetComponent(target) as Graphic;
 
-    public static GameObject GetGameObject(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
+    public static TMP_Text GetText(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
+        => refs.GetComponent(target) as TMP_Text;
+
+    public static GameObject GetGameObject(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
     {
-        var c = refs.GetComponent(slot);
+        var c = refs.GetComponent(target);
         return c != null ? c.gameObject : null;
     }
-
-    public static TMP_Text GetText(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
-        => refs.GetComponent(slot) as TMP_Text;
 
     public static RectTransform GetRect(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
     {

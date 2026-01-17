@@ -36,7 +36,6 @@ public sealed class NodeCommandFactory : INodeCommandFactory
             HideTargetsCommandSpec s => Create(s),
             ShowTargetsCommandSpec s => Create(s),
             SetSpriteCommandSpec s => Create(s),
-            RestoreRectCommandSpec s => Create(s),
             SetRotationCommandSpec s => Create(s),
             RotateFromToCommandSpec s => Create(s),
             SetScaleCommandSpec s => Create(s),
@@ -290,13 +289,6 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         => new(_widgets, s.screenId, s.widgetRoleKey, s.target,
             toAngle: s.toAngle,
             killTween: s.killTween
-        );
-
-    private RestoreRectCommand Create(RestoreRectCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
-            s.target,
-            s.flags,
-            s.captureBaselineIfMissing
         );
 
     private SetSpriteCommand Create(SetSpriteCommandSpec s)

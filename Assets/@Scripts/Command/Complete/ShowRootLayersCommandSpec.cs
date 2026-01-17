@@ -8,16 +8,16 @@ using System.Collections.Generic;
 [CommandMenuHint(
     "Scene",
     "Show Dialogue Layers (Root)",
-    Sets = new[]
-    {
-        CpsCommandMenuSets.VnLayerSetup,
-    },
+    // Sets = new[]
+    // {
+    //     CpsCommandMenuSets.VnLayerSetup,
+    // },
     SetOrder = -90
 )]
 public sealed class ShowRootLayersCommandSpec : CommandSpecBase
 {
     [Header("Layers")]
-    public DialogueLayerMask layers = DialogueLayerMask.MainPortraitRoot |DialogueLayerMask.Background01Root | DialogueLayerMask.DialogueBox00Root;
+    public DialogueLayerMask layers = DialogueLayerMask.MainStandingRoot |DialogueLayerMask.Background01Root | DialogueLayerMask.DialogueBox00Root;
 
     [Header("Fade")]
     [Tooltip("<= 0이면 즉시 켜기 (알파 1로 스냅)")]

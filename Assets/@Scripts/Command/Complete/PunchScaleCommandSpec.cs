@@ -16,7 +16,7 @@ using DG.Tweening;
     Order = 10)]
 public sealed class PunchScaleCommandSpec : CommandSpecBase
 {
-    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitScale;
+    [Header("Target")] public DialogueWidgetTarget target = DialogueWidgetTarget.Standing00Track;
 
     [Header("Punch")] [Tooltip("펀치 강도. 0.15 ~ 0.35 정도가 UI에서 예쁘게 보입니다.")]
     public float strength = 0.25f;

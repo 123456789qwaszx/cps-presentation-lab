@@ -11,7 +11,7 @@ using UnityEngine;
 public sealed class BobYPersistentCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None;
 
     [Header("Key")]
     [Tooltip("비우면 자동 생성: screenId/roleKey/target 기반")]

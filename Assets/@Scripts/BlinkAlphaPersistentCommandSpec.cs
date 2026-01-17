@@ -11,7 +11,7 @@ using UnityEngine;
 public sealed class BlinkAlphaPersistentCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.DialogueBoxRoot;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None;
 
     [Header("Key")]
     [Tooltip("비우면 자동 생성: screenId/roleKey/target 기반")]

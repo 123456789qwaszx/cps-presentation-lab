@@ -27,116 +27,193 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             return false;
         }
 
-        string role = widgetRoleKey;
+        string role = widgetRoleKey ?? string.Empty;
         var cacheKey = (screen, role);
 
         if (_widgetRefsCache.TryGetValue(cacheKey, out refs) && refs != null)
             return true;
 
-        DialogueRoleWidgetTags set = GetDialogueRoleWidgetTags(role);
+        DialogueRoleWidgetTags tags = GetDialogueRoleWidgetTags(role);
 
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
-            // ---- Dialogue Line ----
-            DialogueBoxRoot       = screen.GetWidgetDirect<RectTransform>(set.DialogueBoxRootTag),
-            LineText              = screen.GetWidgetDirect<TMP_Text>(set.LineTextTag),
-            LineBodyImage         = screen.GetWidgetDirect<Image>(set.LineBodyTag),
-            SpeakerNameBox        = screen.GetWidgetDirect<Image>(set.SpeakerNameBoxTag),
-            SpeakerNameText       = screen.GetWidgetDirect<TMP_Text>(set.SpeakerNameTag),
-            ProtagonistCutinImage = screen.GetWidgetDirect<Image>(set.ProtagonistCutinImageTag),
+            // ======================================================
+            // Dialogue
+            // ======================================================
+            DialogueBox00Root  = screen.GetWidgetDirect<RectTransform>(tags.DialogueBox00RootTag),
+            DialogueBox00Image = screen.GetWidgetDirect<Image>(tags.DialogueBox00ImageTag),
+            DialogueBox00Text  = screen.GetWidgetDirect<TMP_Text>(tags.DialogueBox00TextTag),
 
-            // ---- Main Standing Portrait ----
-            MainStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitRootTag),
-            MainStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitTrackTag),
-            MainStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitRigTag),
-            MainStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitSwayPivotTag),
-            MainStandingPortraitShake       = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitShakeTag),
-            MainStandingPortraitScale       = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitScaleTag),
-            MainStandingPortraitVisual      = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitVisualTag),
-            MainStandingPortraitImage       = screen.GetWidgetDirect<Image>(set.MainStandingPortraitImageTag),
-            MainStandingPortraitEmojiAnchor = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitEmojiAnchorTag),
-            MainStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.MainStandingPortraitEmojiImageTag),
+            SpeakerNameBox00Root  = screen.GetWidgetDirect<RectTransform>(tags.SpeakerNameBox00RootTag),
+            SpeakerNameBox00Image = screen.GetWidgetDirect<Image>(tags.SpeakerNameBox00ImageTag),
+            SpeakerNameBox00Text  = screen.GetWidgetDirect<TMP_Text>(tags.SpeakerNameBox00TextTag),
 
-            // ---- SubLeft Standing Portrait ----
-            SubLeftStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitRootTag),
-            SubLeftStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitTrackTag),
-            SubLeftStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitRigTag),
-            SubLeftStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitSwayPivotTag),
-            SubLeftStandingPortraitShake       = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitShakeTag),
-            SubLeftStandingPortraitScale       = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitScaleTag),
-            SubLeftStandingPortraitVisual      = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitVisualTag),
-            SubLeftStandingPortraitImage       = screen.GetWidgetDirect<Image>(set.SubLeftStandingPortraitImageTag),
-            SubLeftStandingPortraitEmojiAnchor = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitEmojiAnchorTag),
-            SubLeftStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.SubLeftStandingPortraitEmojiImageTag),
+            ProtagonistCutin00Root  = screen.GetWidgetDirect<RectTransform>(tags.ProtagonistCutin00RootTag),
+            ProtagonistCutin00Image = screen.GetWidgetDirect<Image>(tags.ProtagonistCutin00ImageTag),
 
-            // ---- SubRight Standing Portrait ----
-            SubRightStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitRootTag),
-            SubRightStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitTrackTag),
-            SubRightStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitRigTag),
-            SubRightStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitSwayPivotTag),
-            SubRightStandingPortraitShake       = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitShakeTag),
-            SubRightStandingPortraitScale       = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitScaleTag),
-            SubRightStandingPortraitVisual      = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitVisualTag),
-            SubRightStandingPortraitImage       = screen.GetWidgetDirect<Image>(set.SubRightStandingPortraitImageTag),
-            SubRightStandingPortraitEmojiAnchor = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitEmojiAnchorTag),
-            SubRightStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.SubRightStandingPortraitEmojiImageTag),
+            // ======================================================
+            // Standing00
+            // ======================================================
+            Standing00Root  = screen.GetWidgetDirect<RectTransform>(tags.Standing00RootTag),
+            Standing00Track = screen.GetWidgetDirect<RectTransform>(tags.Standing00TrackTag),
 
-            // ---- Background (00/01) ----
-            BackgroundRoot00  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot00Tag),
-            BackgroundRoot01  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot01Tag),
-            BackgroundImage00 = screen.GetWidgetDirect<Image>(set.BackgroundImage00Tag),
-            BackgroundImage01 = screen.GetWidgetDirect<Image>(set.BackgroundImage01Tag),
+            Standing00PortraitRoot      = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitRootTag),
+            Standing00PortraitSwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitSwayPivotTag),
+            Standing00PortraitShake     = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitShakeTag),
+            Standing00PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitScaleTag),
+            Standing00PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing00PortraitVisualTag),
+            Standing00PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing00PortraitImageTag),
 
-            // ---- Choice Panel ----
-            ChoicePanel00Root   = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
-            ChoicePanelImage  = screen.GetWidgetDirect<Image>(set.ChoicePanelImageTag),
+            Standing00Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji00RootTag),
+            Standing00Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji00AnchorTag),
+            Standing00Emoji00SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji00SwayPivotTag),
+            Standing00Emoji00Image     = screen.GetWidgetDirect<Image>(tags.Standing00Emoji00ImageTag),
 
-            ChoiceButton00Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag),
-            ChoiceButton01Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag),
-            ChoiceButton02Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag),
+            Standing00Emoji01Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji01RootTag),
+            Standing00Emoji01Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji01AnchorTag),
+            Standing00Emoji01SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji01SwayPivotTag),
+            Standing00Emoji01Image     = screen.GetWidgetDirect<Image>(tags.Standing00Emoji01ImageTag),
 
-            ChoiceButton00Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag),
-            ChoiceButton01Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag),
-            ChoiceButton02Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
+            Standing00Emoji02Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji02RootTag),
+            Standing00Emoji02Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji02AnchorTag),
+            Standing00Emoji02SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji02SwayPivotTag),
+            Standing00Emoji02Image     = screen.GetWidgetDirect<Image>(tags.Standing00Emoji02ImageTag),
 
-            ChoiceButton00Image = screen.GetWidgetDirect<Image>(set.ChoiceButton0ImageTag),
-            ChoiceButton01Image = screen.GetWidgetDirect<Image>(set.ChoiceButton1ImageTag),
-            ChoiceButton02Image = screen.GetWidgetDirect<Image>(set.ChoiceButton2ImageTag),
+            Standing00Emoji03Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji03RootTag),
+            Standing00Emoji03Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji03AnchorTag),
+            Standing00Emoji03SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing00Emoji03SwayPivotTag),
+            Standing00Emoji03Image     = screen.GetWidgetDirect<Image>(tags.Standing00Emoji03ImageTag),
 
-            // ---- VFX Panel ----
-            VFXBlackScreen00Root = screen.GetWidgetDirect<RectTransform>(set.VFXBlackScreen00RootTag),
-            VFXBlackOut00Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut00ImageTag),
-            VFXBlackOut01Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut01ImageTag),
+            // ======================================================
+            // Standing01
+            // ======================================================
+            Standing01Root  = screen.GetWidgetDirect<RectTransform>(tags.Standing01RootTag),
+            Standing01Track = screen.GetWidgetDirect<RectTransform>(tags.Standing01TrackTag),
 
-            VFXBlackFade00Root      = screen.GetWidgetDirect<RectTransform>(set.BlackFade00RootTag),
-            VFXBlackFade00Image     = screen.GetWidgetDirect<Image>(set.BlackFade00ImageTag),
+            Standing01PortraitRoot      = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitRootTag),
+            Standing01PortraitSwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitSwayPivotTag),
+            Standing01PortraitShake     = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitShakeTag),
+            Standing01PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitScaleTag),
+            Standing01PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing01PortraitVisualTag),
+            Standing01PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing01PortraitImageTag),
 
-            
-            // ---- Toggle Panel ----
-            TogglePanel00Root    = screen.GetWidgetDirect<RectTransform>(set.TogglePanel00RootTag),
-            
-            SkipToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.SkipToggle00RootTag),
-            SkipToggle00Image    = screen.GetWidgetDirect<Image>(set.SkipToggle00ImageTag),
-            SkipToggle01Image    = screen.GetWidgetDirect<Image>(set.SkipToggle01ImageTag),
-            SkipToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.SkipToggle00TextTag),
+            Standing01Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji00RootTag),
+            Standing01Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji00AnchorTag),
+            Standing01Emoji00SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji00SwayPivotTag),
+            Standing01Emoji00Image     = screen.GetWidgetDirect<Image>(tags.Standing01Emoji00ImageTag),
 
-            NextToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.NextToggle00RootTag),
-            NextToggle00Image    = screen.GetWidgetDirect<Image>(set.NextToggle00ImageTag),
-            NextToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.NextToggle00TextTag),
+            Standing01Emoji01Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji01RootTag),
+            Standing01Emoji01Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji01AnchorTag),
+            Standing01Emoji01SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji01SwayPivotTag),
+            Standing01Emoji01Image     = screen.GetWidgetDirect<Image>(tags.Standing01Emoji01ImageTag),
 
-            AutoToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.AutoToggle00RootTag),
-            AutoToggle00Image    = screen.GetWidgetDirect<Image>(set.AutoToggle00ImageTag),
-            AutoToggle01Image    = screen.GetWidgetDirect<Image>(set.AutoToggle01ImageTag),
+            Standing01Emoji02Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji02RootTag),
+            Standing01Emoji02Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji02AnchorTag),
+            Standing01Emoji02SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji02SwayPivotTag),
+            Standing01Emoji02Image     = screen.GetWidgetDirect<Image>(tags.Standing01Emoji02ImageTag),
 
-            SpeedupToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SpeedupToggle00RootTag),
-            SpeedupToggle00Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle00ImageTag),
-            SpeedupToggle01Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle01ImageTag),
+            Standing01Emoji03Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji03RootTag),
+            Standing01Emoji03Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji03AnchorTag),
+            Standing01Emoji03SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing01Emoji03SwayPivotTag),
+            Standing01Emoji03Image     = screen.GetWidgetDirect<Image>(tags.Standing01Emoji03ImageTag),
 
-            SetSpeedToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SetSpeedToggle00RootTag),
-            SetSpeedToggle00Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle00ImageTag),
-            SetSpeedToggle01Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle01ImageTag),
-            SetSpeedToggle02Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle02ImageTag),
-            SetSpeedToggle03Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle03ImageTag),
+            // ======================================================
+            // Standing02
+            // ======================================================
+            Standing02Root  = screen.GetWidgetDirect<RectTransform>(tags.Standing02RootTag),
+            Standing02Track = screen.GetWidgetDirect<RectTransform>(tags.Standing02TrackTag),
+
+            Standing02PortraitRoot      = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitRootTag),
+            Standing02PortraitSwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitSwayPivotTag),
+            Standing02PortraitShake     = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitShakeTag),
+            Standing02PortraitScale     = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitScaleTag),
+            Standing02PortraitVisual    = screen.GetWidgetDirect<RectTransform>(tags.Standing02PortraitVisualTag),
+            Standing02PortraitImage     = screen.GetWidgetDirect<Image>(tags.Standing02PortraitImageTag),
+
+            Standing02Emoji00Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji00RootTag),
+            Standing02Emoji00Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji00AnchorTag),
+            Standing02Emoji00SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji00SwayPivotTag),
+            Standing02Emoji00Image     = screen.GetWidgetDirect<Image>(tags.Standing02Emoji00ImageTag),
+
+            Standing02Emoji01Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji01RootTag),
+            Standing02Emoji01Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji01AnchorTag),
+            Standing02Emoji01SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji01SwayPivotTag),
+            Standing02Emoji01Image     = screen.GetWidgetDirect<Image>(tags.Standing02Emoji01ImageTag),
+
+            Standing02Emoji02Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji02RootTag),
+            Standing02Emoji02Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji02AnchorTag),
+            Standing02Emoji02SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji02SwayPivotTag),
+            Standing02Emoji02Image     = screen.GetWidgetDirect<Image>(tags.Standing02Emoji02ImageTag),
+
+            Standing02Emoji03Root      = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji03RootTag),
+            Standing02Emoji03Anchor    = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji03AnchorTag),
+            Standing02Emoji03SwayPivot = screen.GetWidgetDirect<RectTransform>(tags.Standing02Emoji03SwayPivotTag),
+            Standing02Emoji03Image     = screen.GetWidgetDirect<Image>(tags.Standing02Emoji03ImageTag),
+
+            // ======================================================
+            // Background
+            // ======================================================
+            Background00Root  = screen.GetWidgetDirect<RectTransform>(tags.Background00RootTag),
+            Background00Image = screen.GetWidgetDirect<Image>(tags.Background00ImageTag),
+
+            Background01Root  = screen.GetWidgetDirect<RectTransform>(tags.Background01RootTag),
+            Background01Image = screen.GetWidgetDirect<Image>(tags.Background01ImageTag),
+
+            // ======================================================
+            // Choice
+            // ======================================================
+            ChoicePanel00Root  = screen.GetWidgetDirect<RectTransform>(tags.ChoicePanel00RootTag),
+            ChoicePanel00Image = screen.GetWidgetDirect<Image>(tags.ChoicePanel00ImageTag),
+
+            ChoiceButton00Root  = screen.GetWidgetDirect<RectTransform>(tags.ChoiceButton00RootTag),
+            ChoiceButton00Image = screen.GetWidgetDirect<Image>(tags.ChoiceButton00ImageTag),
+            ChoiceButton00Text  = screen.GetWidgetDirect<TMP_Text>(tags.ChoiceButton00TextTag),
+
+            ChoiceButton01Root  = screen.GetWidgetDirect<RectTransform>(tags.ChoiceButton01RootTag),
+            ChoiceButton01Image = screen.GetWidgetDirect<Image>(tags.ChoiceButton01ImageTag),
+            ChoiceButton01Text  = screen.GetWidgetDirect<TMP_Text>(tags.ChoiceButton01TextTag),
+
+            ChoiceButton02Root  = screen.GetWidgetDirect<RectTransform>(tags.ChoiceButton02RootTag),
+            ChoiceButton02Image = screen.GetWidgetDirect<Image>(tags.ChoiceButton02ImageTag),
+            ChoiceButton02Text  = screen.GetWidgetDirect<TMP_Text>(tags.ChoiceButton02TextTag),
+
+            // ======================================================
+            // VFX
+            // ======================================================
+            VFXBlackScreen00Root   = screen.GetWidgetDirect<RectTransform>(tags.VFXBlackScreen00RootTag),
+            VFXBlackScreen00Image0 = screen.GetWidgetDirect<Image>(tags.VFXBlackScreen00Image0Tag),
+            VFXBlackScreen00Image1 = screen.GetWidgetDirect<Image>(tags.VFXBlackScreen00Image1Tag),
+
+            VFXBlackFade00Root  = screen.GetWidgetDirect<RectTransform>(tags.VFXBlackFade00RootTag),
+            VFXBlackFade00Image = screen.GetWidgetDirect<Image>(tags.VFXBlackFade00ImageTag),
+
+            // ======================================================
+            // Toggle
+            // ======================================================
+            TogglePanel00Root = screen.GetWidgetDirect<RectTransform>(tags.TogglePanel00RootTag),
+
+            SkipToggle00Root   = screen.GetWidgetDirect<RectTransform>(tags.SkipToggle00RootTag),
+            SkipToggle00Image0 = screen.GetWidgetDirect<Image>(tags.SkipToggle00Image0Tag),
+            SkipToggle00Image1 = screen.GetWidgetDirect<Image>(tags.SkipToggle00Image1Tag),
+            SkipToggle00Text   = screen.GetWidgetDirect<TMP_Text>(tags.SkipToggle00TextTag),
+
+            NextToggle00Root  = screen.GetWidgetDirect<RectTransform>(tags.NextToggle00RootTag),
+            NextToggle00Image = screen.GetWidgetDirect<Image>(tags.NextToggle00ImageTag),
+            NextToggle00Text  = screen.GetWidgetDirect<TMP_Text>(tags.NextToggle00TextTag),
+
+            AutoToggle00Root   = screen.GetWidgetDirect<RectTransform>(tags.AutoToggle00RootTag),
+            AutoToggle00Image0 = screen.GetWidgetDirect<Image>(tags.AutoToggle00Image0Tag),
+            AutoToggle00Image1 = screen.GetWidgetDirect<Image>(tags.AutoToggle00Image1Tag),
+
+            SpeedupToggle00Root   = screen.GetWidgetDirect<RectTransform>(tags.SpeedupToggle00RootTag),
+            SpeedupToggle00Image0 = screen.GetWidgetDirect<Image>(tags.SpeedupToggle00Image0Tag),
+            SpeedupToggle00Image1 = screen.GetWidgetDirect<Image>(tags.SpeedupToggle00Image1Tag),
+
+            SetSpeedToggle00Root   = screen.GetWidgetDirect<RectTransform>(tags.SetSpeedToggle00RootTag),
+            SetSpeedToggle00Image0 = screen.GetWidgetDirect<Image>(tags.SetSpeedToggle00Image0Tag),
+            SetSpeedToggle00Image1 = screen.GetWidgetDirect<Image>(tags.SetSpeedToggle00Image1Tag),
+            SetSpeedToggle00Image2 = screen.GetWidgetDirect<Image>(tags.SetSpeedToggle00Image2Tag),
+            SetSpeedToggle00Image3 = screen.GetWidgetDirect<Image>(tags.SetSpeedToggle00Image3Tag),
         };
 
         _widgetRefsCache[cacheKey] = refs;
@@ -145,6 +222,8 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
 
     private DialogueRoleWidgetTags GetDialogueRoleWidgetTags(string roleKey)
     {
+        roleKey ??= string.Empty;
+
         if (_widgetTagsCache.TryGetValue(roleKey, out DialogueRoleWidgetTags tags))
             return tags;
 
@@ -164,7 +243,7 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
                 keysToRemove.Add(kv.Key);
         }
 
-        foreach (var k in keysToRemove)
-            _widgetRefsCache.Remove(k);
+        for (int i = 0; i < keysToRemove.Count; i++)
+            _widgetRefsCache.Remove(keysToRemove[i]);
     }
 }

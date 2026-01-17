@@ -17,7 +17,7 @@ public enum CpsSlideFrom
 public sealed class SlideInCommandSpec : CommandSpecBase
 {
     [Header("Target (Track)")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None;
 
     [Header("Slide")]
     public CpsSlideFrom from = CpsSlideFrom.Left;

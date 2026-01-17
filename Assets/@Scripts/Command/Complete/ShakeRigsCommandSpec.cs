@@ -27,7 +27,7 @@ public sealed class ShakeRigsCommandSpec : CommandSpecBase
 {
     [Header("Target")]
     [Tooltip("어느 초상화 세트를 흔들지 선택합니다.")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitShake;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None;
 
     [Header("Shake Axis")]
     public CpsShakeAxis axis = CpsShakeAxis.X;

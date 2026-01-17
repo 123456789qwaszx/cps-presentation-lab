@@ -11,7 +11,7 @@ using UnityEngine;
 public sealed class MoveByCommandSpec : CommandSpecBase
 {
     [Header("Target (Track or Rig)")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.Standing00Track;
 
     [Header("Delta (relative offset)")] [Tooltip("현재 anchoredPosition 기준으로 더해질 오프셋(픽셀 단위).")]
     public Vector2 delta = Vector2.zero;

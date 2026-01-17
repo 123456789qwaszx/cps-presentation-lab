@@ -11,7 +11,7 @@ using DG.Tweening;
 public sealed class MoveToCommandSpec : CommandSpecBase
 {
     [Header("Target (Track or Rig)")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.MainStandingPortraitTrack;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.Standing00Track;
 
     [Header("Destination (absolute anchoredPosition)")] [Tooltip("도착 지점(절대 anchoredPosition, 픽셀 단위).")]
     public Vector2 toPosition = Vector2.zero;

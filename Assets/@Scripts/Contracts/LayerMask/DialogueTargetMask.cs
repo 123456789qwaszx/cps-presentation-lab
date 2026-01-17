@@ -5,80 +5,132 @@ public enum DialogueTargetMask
 {
     None = 0,
 
-    /// <summary>대사 박스(말풍선) 프레임/바디</summary>
-    DialogueBox     = 1 << 1,
+    // ---------------------------
+    // DialogueBox
+    // ---------------------------
+    DialogueBox00Root       = 1 << 0,
+    SpeakerNameBox00Root    = 1 << 1,
+    ProtagonistCutin00Root  = 1 << 2,
 
-    /// <summary>이름 박스 + 이름 텍스트</summary>
-    NameBox         = 1 << 2,
+    // ---------------------------
+    // Standing 00 (Main)
+    // ---------------------------
+    Standing00PortraitRoot          = 1 << 3,
+    Standing00PortraitOverlaysRoot  = 1 << 4,
+    Standing00Emoji00Root           = 1 << 5,
+    Standing00Emoji01Root           = 1 << 6,
+    Standing00Emoji02Root           = 1 << 7,
+    Standing00Emoji03Root           = 1 << 8,
 
-    /// <summary>주인공 컷인 이미지</summary>
-    ProtagonistCutin = 1 << 3,
+    // ---------------------------
+    // Standing 01
+    // ---------------------------
+    Standing01PortraitRoot          = 1 << 9,
+    Standing01PortraitOverlaysRoot  = 1 << 10,
+    Standing01Emoji00Root           = 1 << 11,
+    Standing01Emoji01Root           = 1 << 12,
+    Standing01Emoji02Root           = 1 << 13,
+    Standing01Emoji03Root           = 1 << 14,
 
-    // ────────────── 초상화 이미지 단위 ──────────────
-    /// <summary>메인(중앙) 캐릭터 초상화 이미지</summary>
-    MainPortraitImage    = 1 << 4,
+    // ---------------------------
+    // Standing 02
+    // ---------------------------
+    Standing02PortraitRoot          = 1 << 15,
+    Standing02PortraitOverlaysRoot  = 1 << 16,
+    Standing02Emoji00Root           = 1 << 17,
+    Standing02Emoji01Root           = 1 << 18,
+    Standing02Emoji02Root           = 1 << 19,
+    Standing02Emoji03Root           = 1 << 20,
 
-    /// <summary>좌측 서브 캐릭터 초상화 이미지</summary>
-    SubLeftPortraitImage = 1 << 5,
+    // ---------------------------
+    // Choice UI
+    // ---------------------------
+    ChoicePanel00Root        = 1 << 21,
+    ChoiceButton00Root       = 1 << 22,
+    ChoiceButton01Root       = 1 << 23,
+    ChoiceButton02Root       = 1 << 24,
 
-    /// <summary>우측 서브 캐릭터 초상화 이미지</summary>
-    SubRightPortraitImage = 1 << 6,
+    // ======================================================
 
-    // ────────────── 이모티콘(감정 아이콘) ──────────────
-    /// <summary>메인 초상화 위 이모지</summary>
-    MainEmoji        = 1 << 7,
+    // ---- Standing per slot ----
+    Standing00Emojis =
+        Standing00Emoji00Root |
+        Standing00Emoji01Root |
+        Standing00Emoji02Root |
+        Standing00Emoji03Root,
 
-    /// <summary>좌측 서브 초상화 위 이모지</summary>
-    SubLeftEmoji     = 1 << 8,
+    Standing01Emojis =
+        Standing01Emoji00Root |
+        Standing01Emoji01Root |
+        Standing01Emoji02Root |
+        Standing01Emoji03Root,
 
-    /// <summary>우측 서브 초상화 위 이모지</summary>
-    SubRightEmoji    = 1 << 9,
+    Standing02Emojis =
+        Standing02Emoji00Root |
+        Standing02Emoji01Root |
+        Standing02Emoji02Root |
+        Standing02Emoji03Root,
 
-    // ────────────── 선택지 버튼 ──────────────
-    /// <summary>선택지 1 버튼 + 텍스트</summary>
-    Choice0          = 1 << 10,
+    Standing00All =
+        Standing00PortraitRoot |
+        Standing00PortraitOverlaysRoot |
+        Standing00Emojis,
 
-    /// <summary>선택지 2 버튼 + 텍스트</summary>
-    Choice1          = 1 << 11,
+    Standing01All =
+        Standing01PortraitRoot |
+        Standing01PortraitOverlaysRoot |
+        Standing01Emojis,
 
-    /// <summary>선택지 3 버튼 + 텍스트</summary>
-    Choice2          = 1 << 12,
+    Standing02All =
+        Standing02PortraitRoot |
+        Standing02PortraitOverlaysRoot |
+        Standing02Emojis,
 
-    /// <summary>선택지 패널 전체(루트)만 따로 제어하고 싶을 때</summary>
-    ChoicePanel      = 1 << 13,
+    // ---- Global standing groups ----
+    AllPortraitRoots =
+        Standing00PortraitRoot |
+        Standing01PortraitRoot |
+        Standing02PortraitRoot,
 
-    // ────────────── 그룹 마스크 ──────────────
-    AllPortraitImages =
-        MainPortraitImage |
-        SubLeftPortraitImage |
-        SubRightPortraitImage,
+    AllPortraitOverlays =
+        Standing00PortraitOverlaysRoot |
+        Standing01PortraitOverlaysRoot |
+        Standing02PortraitOverlaysRoot,
 
     AllEmojis =
-        MainEmoji |
-        SubLeftEmoji |
-        SubRightEmoji,
+        Standing00Emojis |
+        Standing01Emojis |
+        Standing02Emojis,
+
+    AllStandings =
+        Standing00All |
+        Standing01All |
+        Standing02All,
+
+    // ---- Choice groups ----
+    AllChoiceButtons =
+        ChoiceButton00Root |
+        ChoiceButton01Root |
+        ChoiceButton02Root,
 
     AllChoices =
-        Choice0 |
-        Choice1 |
-        Choice2,
+        ChoicePanel00Root |
+        AllChoiceButtons,
 
-    // 기본 스토리 대사 UI (대사 박스 + 텍스트 + 이름 박스)
+    // ---- Core UI groups ----
+    AllDialogueUI =
+        DialogueBox00Root |
+        SpeakerNameBox00Root,
+
     StoryLineDefault =
-        //LineText |
-        DialogueBox |
-        NameBox,
+        AllDialogueUI |
+        AllPortraitRoots,
 
-    // 선택지 기본 세트 (버튼들만)
-    ChoiceDefault =
-        AllChoices,
-
-    // 전체 (필요하면 사용)
+    // ---- Everything ----
     All =
-        StoryLineDefault |
-        ProtagonistCutin |
-        AllPortraitImages |
-        AllEmojis |
-        ChoicePanel |
+        DialogueBox00Root |
+        SpeakerNameBox00Root |
+        ProtagonistCutin00Root |
+        AllStandings |
         AllChoices
 }

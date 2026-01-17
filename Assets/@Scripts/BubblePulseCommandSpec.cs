@@ -12,7 +12,7 @@ using UnityEngine;
 public sealed class BubblePulseCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.LineBodyImage; // 예시. 너 프로젝트 타겟에 맞춰 변경
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None; // 예시. 너 프로젝트 타겟에 맞춰 변경
 
     [Header("Key")]
     [Tooltip("비우면 자동 생성: screenId/roleKey/target 기반")]

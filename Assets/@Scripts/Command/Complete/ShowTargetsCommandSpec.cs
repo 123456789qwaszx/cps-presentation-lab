@@ -37,16 +37,15 @@ public sealed class ShowTargetsCommand : CommandBase
     private readonly IDialogueWidgetAccess _widgets;
     private readonly string _screenId;
     private readonly string _widgetRoleKey;
-    private readonly bool  _wait;
+    private readonly bool _wait;
 
     private readonly DialogueTargetMask _targetsMask;
     private readonly float _duration;
-    private readonly Ease  _ease;
-    private readonly bool  _enableInteraction;
+    private readonly Ease _ease;
+    private readonly bool _enableInteraction;
 
     private IDialogueWidgetAccess.WidgetRefs _refs;
 
-    // RectTransform 기준으로 페이드하되, 중복 방지를 위해 HashSet/리스트
     private readonly List<RectTransform> _targets = new();
 
     private bool _resolveAttempted;
@@ -80,7 +79,6 @@ public sealed class ShowTargetsCommand : CommandBase
         if (!ResolveIfNeeded())
             yield break;
 
-        CollectTargetRects(_refs, _targetsMask, _targets);
         if (_targets.Count == 0)
             yield break;
 
@@ -138,7 +136,6 @@ public sealed class ShowTargetsCommand : CommandBase
         if (!ResolveIfNeeded())
             return;
 
-        CollectTargetRects(_refs, _targetsMask, _targets);
         SnapOnTargets(_targets);
     }
 
@@ -178,8 +175,14 @@ public sealed class ShowTargetsCommand : CommandBase
         if (_widgets == null)
             return false;
 
-        _widgets.TryResolve(_screenId, _widgetRoleKey, out _refs);
-        return _refs != null;
+        if (!_widgets.TryResolve(_screenId, _widgetRoleKey, out _refs) || _refs == null)
+            return false;
+
+        // 보통 primitive만 매핑하므로 dedupe=false가 기본.
+        // 혹시 실수로 같은 RectTransform이 두 번 들어갈 여지가 있으면 true로.
+        DialogueTargetMaskMap.CollectRects(_refs, _targetsMask, _targets, dedupe: false);
+
+        return true;
     }
 
     private static CanvasGroup GetOrAddCanvasGroup(RectTransform rect)
@@ -193,39 +196,5 @@ public sealed class ShowTargetsCommand : CommandBase
 
         Debug.LogWarning($"[ShowTargetsCommand] CanvasGroup missing. Added automatically: {rect.name}", rect);
         return rect.gameObject.AddComponent<CanvasGroup>();
-    }
-
-    /// <summary>
-    /// DialogueTargetMask → 실제 RectTransform 리스트로 변환.
-    /// 매핑 테이블(DialogueTargetMaskMap)은
-    /// "덩어리 루트"에 해당하는 DialogueWidgetTarget들만 가리킨다는 전제.
-    /// </summary>
-    private static void CollectTargetRects(
-        IDialogueWidgetAccess.WidgetRefs refs,
-        DialogueTargetMask mask,
-        List<RectTransform> outList)
-    {
-        outList.Clear();
-
-        if (refs == null || mask == DialogueTargetMask.None)
-            return;
-
-        // 1) 마스크 → DialogueWidgetTarget 리스트
-        var widgetTargets = DialogueTargetMaskMap.ResolveTargets(mask);
-        if (widgetTargets == null || widgetTargets.Count == 0)
-            return;
-
-        // 2) 각 target → RectTransform (WidgetRefsExtensions.GetRect 사용)
-        var set = new HashSet<RectTransform>();
-
-        foreach (var wt in widgetTargets)
-        {
-            RectTransform rect = refs.GetRect(wt);
-            if (rect == null)
-                continue;
-
-            if (set.Add(rect))
-                outList.Add(rect);
-        }
     }
 }

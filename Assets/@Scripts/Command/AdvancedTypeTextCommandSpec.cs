@@ -18,7 +18,7 @@ using System.Globalization;
 public sealed class AdvancedTypeTextCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.LineText;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.DialogueBox00Text;
 
     [Header("Content")]
     [TextArea]

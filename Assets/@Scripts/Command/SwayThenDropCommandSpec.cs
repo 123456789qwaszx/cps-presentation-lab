@@ -16,10 +16,10 @@
     public sealed class SwayThenDropCommandSpec : CommandSpecBase
     {
         [Header("Targets")] [Tooltip("좌우로 흔들릴 피벗(보통 SwayPivot).")]
-        public DialogueWidgetTarget swayTarget = DialogueWidgetTarget.MainStandingPortraitSwayPivot;
+        public DialogueWidgetTarget swayTarget = DialogueWidgetTarget.Standing00PortraitSwayPivot;
 
         [Tooltip("아래로 떨어질 트랙/루트(보통 MainStandingPortraitTrack).")]
-        public DialogueWidgetTarget dropTarget = DialogueWidgetTarget.MainStandingPortraitTrack;
+        public DialogueWidgetTarget dropTarget = DialogueWidgetTarget.Standing00Track;
 
         [Header("Sway (Fan-like)")]
         /// <summary>아랫변 중앙을 축으로 좌우로 흔들리는 각도 (절대값 기준). 10~25 추천.</summary>

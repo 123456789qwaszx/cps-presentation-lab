@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public sealed class GlowColorPersistentCommandSpec : CommandSpecBase
 {
     [Header("Target")]
-    public DialogueWidgetTarget target = DialogueWidgetTarget.LineBodyImage;
+    public DialogueWidgetTarget target = DialogueWidgetTarget.None;
 
     [Header("Key")]
     [Tooltip("비우면 자동 생성: screenId/roleKey/target 기반")]
