@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIScreenSpecAsset
   spec:
     screenKey:
-      value: home
+      value: lab/ui/title
     slots:
     - slotName: Root
       widgets:

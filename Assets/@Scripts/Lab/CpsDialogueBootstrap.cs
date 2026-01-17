@@ -55,7 +55,7 @@ public sealed class CpsDialogueBootstrap : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_02);
+                UIRuntimeRouter.Router.Navigate(LabUIActionKeys.OpenDialogue_10);
             }
             
             if (Input.GetKeyDown(KeyCode.Alpha2))

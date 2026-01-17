@@ -59,35 +59,30 @@ public enum DialogueWidgetTarget
     SubRightStandingPortraitEmojiImage  = 1590,
 
     // ======================================================
-    // Background (2000 ~ 2030)  ✅ 00/01
+    // Background (2000 ~ 2030)
     // ======================================================
     BackgroundRoot00  = 2000,
     BackgroundRoot01  = 2010,
     BackgroundImage00 = 2020,
     BackgroundImage01 = 2030,
 
-    // (선택) 기존 이름 참조가 남아있다면 컴파일 깨지지 않게 alias 제공
-    // BackgroundRoot0  = BackgroundRoot00,
-    // BackgroundRoot1  = BackgroundRoot01,
-    // BackgroundImage0 = BackgroundImage00,
-    // BackgroundImage1 = BackgroundImage01,
-
     // ======================================================
-    // Choice Panel (3000 ~ 3090)
+    // Choice Panel (3000 ~ 3100)
     // ======================================================
-    ChoicePanelRoot    = 3000,
-    ChoiceButton0Root  = 3010,
-    ChoiceButton1Root  = 3020,
-    ChoiceButton2Root  = 3030,
+    ChoicePanelRoot   = 3000,
+    ChoicePanelImage  = 3010,
 
-    ChoiceButton0Text  = 3040,
-    ChoiceButton1Text  = 3050,
-    ChoiceButton2Text  = 3060,
+    ChoiceButton0Root  = 3020,
+    ChoiceButton1Root  = 3030,
+    ChoiceButton2Root  = 3040,
 
-    // ✅ Image 추가
-    ChoiceButton0Image = 3070,
-    ChoiceButton1Image = 3080,
-    ChoiceButton2Image = 3090,
+    ChoiceButton0Text  = 3050,
+    ChoiceButton1Text  = 3060,
+    ChoiceButton2Text  = 3070,
+
+    ChoiceButton0Image = 3080,
+    ChoiceButton1Image = 3090,
+    ChoiceButton2Image = 3100,
 
     // ======================================================
     // VFX / Toggle Panel (4000 ~ 4220)
@@ -122,8 +117,6 @@ public enum DialogueWidgetTarget
     SetSpeedToggle02Image = 4210,
     SetSpeedToggle03Image = 4220,
 }
-
-
 
 public interface IDialogueWidgetAccess
 {
@@ -183,6 +176,8 @@ public interface IDialogueWidgetAccess
 
         // ---- Choice Panel ----
         public RectTransform ChoicePanelRoot;
+        public Image ChoicePanelImage;
+
         public RectTransform ChoiceButton0Root;
         public RectTransform ChoiceButton1Root;
         public RectTransform ChoiceButton2Root;
@@ -191,7 +186,6 @@ public interface IDialogueWidgetAccess
         public TMP_Text ChoiceButton1Text;
         public TMP_Text ChoiceButton2Text;
 
-        // ✅ ChoiceButton Image 3개 추가
         public Image ChoiceButton0Image;
         public Image ChoiceButton1Image;
         public Image ChoiceButton2Image;
@@ -293,7 +287,9 @@ public static class WidgetRefsExtensions
             case DialogueWidgetTarget.BackgroundImage01: return refs.BackgroundImage01;
 
             // ---- Choice Panel ----
-            case DialogueWidgetTarget.ChoicePanelRoot:    return refs.ChoicePanelRoot;
+            case DialogueWidgetTarget.ChoicePanelRoot:   return refs.ChoicePanelRoot;
+            case DialogueWidgetTarget.ChoicePanelImage:  return refs.ChoicePanelImage;
+
             case DialogueWidgetTarget.ChoiceButton0Root:  return refs.ChoiceButton0Root;
             case DialogueWidgetTarget.ChoiceButton1Root:  return refs.ChoiceButton1Root;
             case DialogueWidgetTarget.ChoiceButton2Root:  return refs.ChoiceButton2Root;
@@ -343,10 +339,7 @@ public static class WidgetRefsExtensions
     }
 
     public static Graphic GetGraphic(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
-    {
-        var c = refs.GetComponent(slot);
-        return c as Graphic;
-    }
+        => refs.GetComponent(slot) as Graphic;
 
     public static GameObject GetGameObject(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
     {
@@ -355,21 +348,15 @@ public static class WidgetRefsExtensions
     }
 
     public static TMP_Text GetText(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget slot)
-    {
-        return refs.GetComponent(slot) as TMP_Text;
-    }
+        => refs.GetComponent(slot) as TMP_Text;
 
     public static RectTransform GetRect(this IDialogueWidgetAccess.WidgetRefs refs, DialogueWidgetTarget target)
     {
         var c = refs.GetComponent(target);
         if (c == null) return null;
 
-        if (c is RectTransform rt)
-            return rt;
-
-        if (c is Graphic g)
-            return g.rectTransform;
-
+        if (c is RectTransform rt) return rt;
+        if (c is Graphic g) return g.rectTransform;
         return c.transform as RectTransform;
     }
 }

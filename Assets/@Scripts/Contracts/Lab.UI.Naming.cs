@@ -159,6 +159,8 @@ namespace Lab.UI.Naming
 
         // ---- Choice Panel + 3 Choices ----
         public string ChoicePanelRootTag    => $"{_roleKey}{ChoicePanelRootSuffix}";
+        public string ChoicePanelImageTag  => $"{_roleKey}{ChoicePanelImageSuffix}";
+        
         public string ChoiceButton0RootTag  => $"{_roleKey}{ChoiceButton0RootSuffix}";
         public string ChoiceButton1RootTag  => $"{_roleKey}{ChoiceButton1RootSuffix}";
         public string ChoiceButton2RootTag  => $"{_roleKey}{ChoiceButton2RootSuffix}";

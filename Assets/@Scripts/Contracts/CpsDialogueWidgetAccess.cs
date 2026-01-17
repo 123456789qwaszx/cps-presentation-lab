@@ -88,7 +88,9 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             BackgroundImage01 = screen.GetWidgetDirect<Image>(set.BackgroundImage01Tag),
 
             // ---- Choice Panel ----
-            ChoicePanelRoot    = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
+            ChoicePanelRoot   = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
+            ChoicePanelImage  = screen.GetWidgetDirect<Image>(set.ChoicePanelImageTag),
+
             ChoiceButton0Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag),
             ChoiceButton1Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag),
             ChoiceButton2Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag),

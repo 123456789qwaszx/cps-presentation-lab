@@ -187,6 +187,13 @@ MonoBehaviour:
         type: 2
         seconds: 1.5
         signalKey: 
+    - editorName: Persistency
+      commands:
+      - rid: 2406591632223240262
+      gate:
+        type: 1
+        seconds: 0
+        signalKey: 
     - editorName: -----------------------------------------------
       commands: []
       gate:
@@ -229,13 +236,6 @@ MonoBehaviour:
     - editorName: Persistency
       commands:
       - rid: 2406591632223240261
-      gate:
-        type: 1
-        seconds: 0
-        signalKey: 
-    - editorName: Persistency
-      commands:
-      - rid: 2406591632223240262
       gate:
         type: 1
         seconds: 0
