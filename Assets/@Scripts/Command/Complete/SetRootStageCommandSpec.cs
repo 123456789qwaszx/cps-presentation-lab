@@ -123,10 +123,10 @@ public sealed class SetRootStageCommand : CommandBase
         outList.Clear();
         if (refs == null) return;
 
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root) && refs.BackgroundRoot0 != null)
-            outList.Add(refs.BackgroundRoot0);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root) && refs.BackgroundRoot1 != null)
-            outList.Add(refs.BackgroundRoot1);
+        if (layerMask.HasFlag(DialogueLayerMask.Background0Root) && refs.BackgroundRoot00 != null)
+            outList.Add(refs.BackgroundRoot00);
+        if (layerMask.HasFlag(DialogueLayerMask.Background1Root) && refs.BackgroundRoot01 != null)
+            outList.Add(refs.BackgroundRoot01);
 
         if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot)     && refs.MainStandingPortraitRoot != null)
             outList.Add(refs.MainStandingPortraitRoot);

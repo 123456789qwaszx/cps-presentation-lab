@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using Lab.UI.Naming;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Lab.UI.Naming;
-using System.Collections.Generic;
 
 public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
 {
@@ -38,7 +38,7 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
         refs = new IDialogueWidgetAccess.WidgetRefs
         {
             // ---- Dialogue Line ----
-            DialogueBoxRoot       = screen.GetWidgetHandle(set.DialogueBoxRootTag)?.RectTransform,
+            DialogueBoxRoot       = screen.GetWidgetDirect<RectTransform>(set.DialogueBoxRootTag),
             LineText              = screen.GetWidgetDirect<TMP_Text>(set.LineTextTag),
             LineBodyImage         = screen.GetWidgetDirect<Image>(set.LineBodyTag),
             SpeakerNameBox        = screen.GetWidgetDirect<Image>(set.SpeakerNameBoxTag),
@@ -46,7 +46,7 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             ProtagonistCutinImage = screen.GetWidgetDirect<Image>(set.ProtagonistCutinImageTag),
 
             // ---- Main Standing Portrait ----
-            MainStandingPortraitRoot        = screen.GetWidgetHandle(set.MainStandingPortraitRootTag)?.RectTransform,
+            MainStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitRootTag),
             MainStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitTrackTag),
             MainStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitRigTag),
             MainStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.MainStandingPortraitSwayPivotTag),
@@ -58,7 +58,7 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             MainStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.MainStandingPortraitEmojiImageTag),
 
             // ---- SubLeft Standing Portrait ----
-            SubLeftStandingPortraitRoot        = screen.GetWidgetHandle(set.SubLeftStandingPortraitRootTag)?.RectTransform,
+            SubLeftStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitRootTag),
             SubLeftStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitTrackTag),
             SubLeftStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitRigTag),
             SubLeftStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.SubLeftStandingPortraitSwayPivotTag),
@@ -70,7 +70,7 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             SubLeftStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.SubLeftStandingPortraitEmojiImageTag),
 
             // ---- SubRight Standing Portrait ----
-            SubRightStandingPortraitRoot        = screen.GetWidgetHandle(set.SubRightStandingPortraitRootTag)?.RectTransform,
+            SubRightStandingPortraitRoot        = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitRootTag),
             SubRightStandingPortraitTrack       = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitTrackTag),
             SubRightStandingPortraitRig         = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitRigTag),
             SubRightStandingPortraitSwayPivot   = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitSwayPivotTag),
@@ -81,26 +81,67 @@ public sealed class CpsDialogueWidgetAccess : IDialogueWidgetAccess
             SubRightStandingPortraitEmojiAnchor = screen.GetWidgetDirect<RectTransform>(set.SubRightStandingPortraitEmojiAnchorTag),
             SubRightStandingPortraitEmojiImage  = screen.GetWidgetDirect<Image>(set.SubRightStandingPortraitEmojiImageTag),
 
-            // ---- Background ----
-            BackgroundRoot0  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot0Tag),
-            BackgroundRoot1  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot1Tag),
-            BackgroundImage0 = screen.GetWidgetDirect<Image>(set.BackgroundImage0Tag),
-            BackgroundImage1 = screen.GetWidgetDirect<Image>(set.BackgroundImage1Tag),
+            // ---- Background (00/01) ----
+            BackgroundRoot00  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot00Tag),
+            BackgroundRoot01  = screen.GetWidgetDirect<RectTransform>(set.BackgroundRoot01Tag),
+            BackgroundImage00 = screen.GetWidgetDirect<Image>(set.BackgroundImage00Tag),
+            BackgroundImage01 = screen.GetWidgetDirect<Image>(set.BackgroundImage01Tag),
 
             // ---- Choice Panel ----
-            ChoicePanelRoot   = screen.GetWidgetHandle(set.ChoicePanelRootTag)?.RectTransform,
-            ChoiceButton0Root = screen.GetWidgetDirect<Image>(set.ChoiceButton0RootTag),
-            ChoiceButton1Root = screen.GetWidgetDirect<Image>(set.ChoiceButton1RootTag),
-            ChoiceButton2Root = screen.GetWidgetDirect<Image>(set.ChoiceButton2RootTag),
-            ChoiceButton0Text = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag),
-            ChoiceButton1Text = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag),
-            ChoiceButton2Text = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
+            ChoicePanelRoot    = screen.GetWidgetDirect<RectTransform>(set.ChoicePanelRootTag),
+            ChoiceButton0Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton0RootTag),
+            ChoiceButton1Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton1RootTag),
+            ChoiceButton2Root  = screen.GetWidgetDirect<RectTransform>(set.ChoiceButton2RootTag),
+
+            ChoiceButton0Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton0TextTag),
+            ChoiceButton1Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton1TextTag),
+            ChoiceButton2Text  = screen.GetWidgetDirect<TMP_Text>(set.ChoiceButton2TextTag),
+
+            ChoiceButton0Image = screen.GetWidgetDirect<Image>(set.ChoiceButton0ImageTag),
+            ChoiceButton1Image = screen.GetWidgetDirect<Image>(set.ChoiceButton1ImageTag),
+            ChoiceButton2Image = screen.GetWidgetDirect<Image>(set.ChoiceButton2ImageTag),
+
+            // ---- VFX Panel ----
+            VFXBlackScreen00Root = screen.GetWidgetDirect<RectTransform>(set.VFXBlackScreen00RootTag),
+            VFXBlackOut00Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut00ImageTag),
+            VFXBlackOut01Image   = screen.GetWidgetDirect<Image>(set.VFXBlackOut01ImageTag),
+
+            BlackFade00Root      = screen.GetWidgetDirect<RectTransform>(set.BlackFade00RootTag),
+            BlackFade00Image     = screen.GetWidgetDirect<Image>(set.BlackFade00ImageTag),
+
+            // ---- Skip Toggle ----
+            SkipToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.SkipToggle00RootTag),
+            SkipToggle00Image    = screen.GetWidgetDirect<Image>(set.SkipToggle00ImageTag),
+            SkipToggle01Image    = screen.GetWidgetDirect<Image>(set.SkipToggle01ImageTag),
+            SkipToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.SkipToggle00TextTag),
+
+            // ---- Next Toggle ----
+            NextToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.NextToggle00RootTag),
+            NextToggle00Image    = screen.GetWidgetDirect<Image>(set.NextToggle00ImageTag),
+            NextToggle00Text     = screen.GetWidgetDirect<TMP_Text>(set.NextToggle00TextTag),
+
+            // ---- Auto Toggle ----
+            AutoToggle00Root     = screen.GetWidgetDirect<RectTransform>(set.AutoToggle00RootTag),
+            AutoToggle00Image    = screen.GetWidgetDirect<Image>(set.AutoToggle00ImageTag),
+            AutoToggle01Image    = screen.GetWidgetDirect<Image>(set.AutoToggle01ImageTag),
+
+            // ---- Speedup Toggle ----
+            SpeedupToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SpeedupToggle00RootTag),
+            SpeedupToggle00Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle00ImageTag),
+            SpeedupToggle01Image = screen.GetWidgetDirect<Image>(set.SpeedupToggle01ImageTag),
+
+            // ---- SetSpeed Toggle ----
+            SetSpeedToggle00Root  = screen.GetWidgetDirect<RectTransform>(set.SetSpeedToggle00RootTag),
+            SetSpeedToggle00Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle00ImageTag),
+            SetSpeedToggle01Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle01ImageTag),
+            SetSpeedToggle02Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle02ImageTag),
+            SetSpeedToggle03Image = screen.GetWidgetDirect<Image>(set.SetSpeedToggle03ImageTag),
         };
 
         _widgetRefsCache[cacheKey] = refs;
         return true;
     }
-    
+
     private DialogueRoleWidgetTags GetDialogueRoleWidgetTags(string roleKey)
     {
         if (_widgetTagsCache.TryGetValue(roleKey, out DialogueRoleWidgetTags tags))

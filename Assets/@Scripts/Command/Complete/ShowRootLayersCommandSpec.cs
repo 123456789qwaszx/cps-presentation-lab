@@ -171,8 +171,8 @@ public sealed class ShowRootLayersCommand : CommandBase
         outList.Clear();
         if (refs == null) return;
 
-        if (layerMask.HasFlag(DialogueLayerMask.Background0Root)) outList.Add(refs.BackgroundRoot0);
-        if (layerMask.HasFlag(DialogueLayerMask.Background1Root)) outList.Add(refs.BackgroundRoot1);
+        if (layerMask.HasFlag(DialogueLayerMask.Background0Root)) outList.Add(refs.BackgroundRoot00);
+        if (layerMask.HasFlag(DialogueLayerMask.Background1Root)) outList.Add(refs.BackgroundRoot01);
 
         if (layerMask.HasFlag(DialogueLayerMask.MainPortraitRoot))     outList.Add(refs.MainStandingPortraitRoot);
         if (layerMask.HasFlag(DialogueLayerMask.SubLeftPortraitRoot))  outList.Add(refs.SubLeftStandingPortraitRoot);

@@ -44,8 +44,8 @@ public static class DialogueSpriteTargetMap
             DialogueSpriteTarget.SubLeftEmoji     => DialogueWidgetTarget.SubLeftStandingPortraitEmojiImage,
             DialogueSpriteTarget.SubRightEmoji    => DialogueWidgetTarget.SubRightStandingPortraitEmojiImage,
 
-            DialogueSpriteTarget.Background0      => DialogueWidgetTarget.BackgroundImage0,
-            DialogueSpriteTarget.Background1      => DialogueWidgetTarget.BackgroundImage1,
+            DialogueSpriteTarget.Background0      => DialogueWidgetTarget.BackgroundImage00,
+            DialogueSpriteTarget.Background1      => DialogueWidgetTarget.BackgroundImage01,
 
             DialogueSpriteTarget.Choice0          => DialogueWidgetTarget.ChoiceButton0Root,
             DialogueSpriteTarget.Choice1          => DialogueWidgetTarget.ChoiceButton1Root,
