@@ -1272,7 +1272,6 @@ GameObject:
   - component: {fileID: 2318689092508653548}
   - component: {fileID: 7774916356726739270}
   - component: {fileID: 8964795756731170856}
-  - component: {fileID: 3923574015526889402}
   m_Layer: 5
   m_Name: dialogue_ChoiceButton01_Root
   m_TagString: Untagged
@@ -1383,18 +1382,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!225 &3923574015526889402
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443479313195999103}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1591930800675282053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1821,6 @@ GameObject:
   m_Component:
   - component: {fileID: 206364811700800708}
   - component: {fileID: 4096859454389677320}
-  - component: {fileID: 6962465703725023021}
   m_Layer: 5
   m_Name: dialogue_NextToggle00_Root
   m_TagString: Untagged
@@ -1871,18 +1857,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912238441134951994}
   m_CullTransparentMesh: 1
---- !u!225 &6962465703725023021
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912238441134951994}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2119213077299359089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1866,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3695756201001363582}
-  - component: {fileID: 4377515425777890089}
   m_Layer: 5
   m_Name: dialogue_Standing01PortraitOverlays_Root
   m_TagString: Untagged
@@ -1920,18 +1893,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &4377515425777890089
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119213077299359089}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2312807447442868225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,7 +2505,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5410343725141582615}
-  - component: {fileID: 3807558656130792438}
   m_Layer: 5
   m_Name: dialogue_Standing01Portrait_Root
   m_TagString: Untagged
@@ -2573,18 +2533,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &3807558656130792438
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3507427725193268726}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &3509645729910363583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,7 +2914,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7978174899229480456}
-  - component: {fileID: 3087398979195006984}
   m_Layer: 5
   m_Name: dialogue_ProtagonistCutin00_Root
   m_TagString: Untagged
@@ -2994,18 +2941,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0, y: 0.5}
---- !u!225 &3087398979195006984
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3656155948386411359}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &3722425934055423312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,7 +3236,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1787016023194049241}
-  - component: {fileID: 6719029291538657647}
   m_Layer: 5
   m_Name: dialogue_VFXBlackScreen00_Root
   m_TagString: Untagged
@@ -3330,18 +3264,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &6719029291538657647
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3775267592496388525}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &3872999478410317362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,7 +4030,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7181612086066702568}
   - component: {fileID: 6560797689672214283}
-  - component: {fileID: 5937949176424904444}
   m_Layer: 5
   m_Name: dialogue_SkipToggle00_Root
   m_TagString: Untagged
@@ -4146,18 +4067,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4455144714937957626}
   m_CullTransparentMesh: 1
---- !u!225 &5937949176424904444
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4455144714937957626}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &4625606352629992250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,7 +4077,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1002060075391319633}
   - component: {fileID: 2167869919267786263}
-  - component: {fileID: 328127632360810862}
   m_Layer: 5
   m_Name: dialogue_SpeedupToggle00_Root
   m_TagString: Untagged
@@ -4204,18 +4112,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4625606352629992250}
   m_CullTransparentMesh: 1
---- !u!225 &328127632360810862
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625606352629992250}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &4844962636661183751
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,7 +4366,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4153935973113919507}
   - component: {fileID: 7213323309748486254}
-  - component: {fileID: 3183886072236178563}
   m_Layer: 5
   m_Name: dialogue_AutoToggle00_Root
   m_TagString: Untagged
@@ -4506,18 +4401,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5102148790500155416}
   m_CullTransparentMesh: 1
---- !u!225 &3183886072236178563
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5102148790500155416}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &5114241084133608904
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,6 +5250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2956116885724024977}
   - component: {fileID: 3400384092658497520}
+  - component: {fileID: 7978019643753026055}
   - component: {fileID: 1719628349711310371}
   m_Layer: 5
   m_Name: dialogue_ChoicePanel00_Root
@@ -5406,6 +5290,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5686702970278899846}
   m_CullTransparentMesh: 1
+--- !u!114 &7978019643753026055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686702970278899846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08294e97707dd8343b59455cf5db203e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISlot
+  id: ChoicePanelRoot
+  target: {fileID: 2956116885724024977}
 --- !u!225 &1719628349711310371
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5466,7 +5364,6 @@ GameObject:
   - component: {fileID: 3304822304295610894}
   - component: {fileID: 7287640617381374536}
   - component: {fileID: 7823534345075507983}
-  - component: {fileID: 8609152975897974808}
   m_Layer: 5
   m_Name: dialogue_ChoiceButton00_Root
   m_TagString: Untagged
@@ -5577,18 +5474,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!225 &8609152975897974808
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5812690961991229274}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &5854879973890912549
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,7 +5571,6 @@ GameObject:
   - component: {fileID: 1049727082111260085}
   - component: {fileID: 1305810430445073085}
   - component: {fileID: 554096073723777743}
-  - component: {fileID: 6857697008044167924}
   m_Layer: 5
   m_Name: dialogue_ChoiceButton02_Root
   m_TagString: Untagged
@@ -5797,18 +5681,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!225 &6857697008044167924
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5895404904166073244}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &5909405470089832283
 GameObject:
   m_ObjectHideFlags: 0
@@ -6014,7 +5886,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8899119354811515474}
-  - component: {fileID: 5379357611902424377}
   m_Layer: 5
   m_Name: dialogue_Standing02PortraitOverlays_Root
   m_TagString: Untagged
@@ -6042,18 +5913,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &5379357611902424377
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6170219942046091101}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &6261090896756134179
 GameObject:
   m_ObjectHideFlags: 0
@@ -6063,7 +5922,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8701762899048961068}
-  - component: {fileID: 4630046702253879850}
   m_Layer: 5
   m_Name: dialogue_Standing00PortraitOverlays_Root
   m_TagString: Untagged
@@ -6091,18 +5949,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &4630046702253879850
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6261090896756134179}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &6630749722512701759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6529,6 +6375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2952312702534738053}
   - component: {fileID: 2869319136494634395}
+  - component: {fileID: 625401451047708182}
   - component: {fileID: 5348861678261874458}
   m_Layer: 5
   m_Name: dialogue_DialogueBox00_Root
@@ -6566,6 +6413,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7188046201315197470}
   m_CullTransparentMesh: 1
+--- !u!114 &625401451047708182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188046201315197470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08294e97707dd8343b59455cf5db203e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISlot
+  id: DialogueBox
+  target: {fileID: 2952312702534738053}
 --- !u!225 &5348861678261874458
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6664,6 +6525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2556588523558445013}
   - component: {fileID: 5868834416656445920}
+  - component: {fileID: 5761909806372302956}
   - component: {fileID: 2834498158705260533}
   m_Layer: 5
   m_Name: dialogue_Background01_Root
@@ -6700,6 +6562,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7487559723509036879}
   m_CullTransparentMesh: 1
+--- !u!114 &5761909806372302956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487559723509036879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08294e97707dd8343b59455cf5db203e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISlot
+  id: dialogue_Background1_Root
+  target: {fileID: 2556588523558445013}
 --- !u!225 &2834498158705260533
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6722,7 +6598,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7316973619908689135}
   - component: {fileID: 3508015904336399959}
-  - component: {fileID: 4039608908074888872}
   m_Layer: 5
   m_Name: dialogue_SetSpeedToggle00_Root
   m_TagString: Untagged
@@ -6758,18 +6633,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7555837308313945997}
   m_CullTransparentMesh: 1
---- !u!225 &4039608908074888872
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7555837308313945997}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &7616523724284558826
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,7 +7204,7 @@ GameObject:
   - component: {fileID: 2490177561495687891}
   - component: {fileID: 4454631226493945779}
   m_Layer: 5
-  m_Name: lab_ui_dialogue_10
+  m_Name: lab_ui_dialogue_10_Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7417,7 +7280,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 278261910295136571}
-  - component: {fileID: 7617474749583246746}
   m_Layer: 5
   m_Name: dialogue_Standing02Portrait_Root
   m_TagString: Untagged
@@ -7446,18 +7308,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &7617474749583246746
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675359664411142106}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &8687855912680071743
 GameObject:
   m_ObjectHideFlags: 0
@@ -7762,7 +7612,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 44560029299072837}
-  - component: {fileID: 5070568442307634417}
   m_Layer: 5
   m_Name: dialogue_Standing00Portrait_Root
   m_TagString: Untagged
@@ -7791,18 +7640,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &5070568442307634417
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8874284797923357092}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &8875199898843441412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8037,7 +7874,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7201235734316156993}
-  - component: {fileID: 8079638192094556454}
   m_Layer: 5
   m_Name: dialogue_SpeakerNameBox00_Root
   m_TagString: Untagged
@@ -8065,18 +7901,6 @@ RectTransform:
   m_AnchoredPosition: {x: 120, y: 30}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0, y: 1}
---- !u!225 &8079638192094556454
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9041933219957503167}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &9056917352376727812
 GameObject:
   m_ObjectHideFlags: 0

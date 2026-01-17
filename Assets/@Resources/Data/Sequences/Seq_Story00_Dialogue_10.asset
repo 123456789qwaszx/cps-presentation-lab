@@ -18,7 +18,6 @@ MonoBehaviour:
     steps:
     - editorName: ResetUI
       commands:
-      - rid: 2406591647328501825
       - rid: 2406591647328501826
       gate:
         type: 0
@@ -27,10 +26,10 @@ MonoBehaviour:
     - editorName: 
       commands:
       - rid: 2406591647328501827
-      - rid: 2406591647328501835
-      - rid: 2406591647328501828
       - rid: 2406591647328501829
+      - rid: 2406591647328501835
       - rid: 2406591647328501830
+      - rid: 2406591647328501828
       gate:
         type: 0
         seconds: 0
@@ -51,21 +50,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2406591647328501825
-      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 0
-        anchorPreset: 0
-        offset: {x: 0, y: 0}
-        killTween: 1
     - rid: 2406591647328501826
       type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        target: 510
+        target: 1010
         offset: {x: 0, y: 0}
         resetToZero: 1
         killTween: 1
@@ -84,7 +74,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        layers: 74
+        layers: 0
         duration: 0
         ease: 1
         wait: 1
@@ -94,7 +84,7 @@ MonoBehaviour:
       data:
         screenId: lab/ui/dialogue_10
         widgetRoleKey: dialogue
-        targets: 136
+        targets: -1
         duration: 0
         ease: 1
         wait: 1
