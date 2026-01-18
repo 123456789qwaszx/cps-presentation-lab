@@ -67,7 +67,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
     }
 
     private BlinkAlphaPersistentCommand Create(BlinkAlphaPersistentCommandSpec s)
-        => new(_widgets, _effects, s.screenId, s.widgetRoleKey,
+        => new(_widgets, _effects, s.screenId, s.roleKey,
             target: s.target,
             effectKey: s.effectKey,
             minAlpha: s.minAlpha,
@@ -79,7 +79,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
             ignoreWhenSkipping: s.ignoreWhenSkipping);
 
     private GlowColorPersistentCommand Create(GlowColorPersistentCommandSpec s)
-        => new(_widgets, _effects, s.screenId, s.widgetRoleKey,
+        => new(_widgets, _effects, s.screenId, s.roleKey,
             target: s.target,
             effectKey: s.effectKey,
             glowColor: s.glowColor,
@@ -91,7 +91,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
             ignoreWhenSkipping: s.ignoreWhenSkipping);
 
     private BobYPersistentCommand Create(BobYPersistentCommandSpec s)
-        => new(_widgets, _effects, s.screenId, s.widgetRoleKey,
+        => new(_widgets, _effects, s.screenId, s.roleKey,
             target: s.target,
             effectKey: s.effectKey,
             amplitudeY: s.amplitudeY,
@@ -106,7 +106,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
             widgets: _widgets,
             effects: _effects,
             screenId: s.screenId,
-            widgetRoleKey: s.widgetRoleKey,
+            widgetRoleKey: s.roleKey,
             target: s.target,
             effectKey: s.effectKey,
             maxScale: s.maxScale,
@@ -125,7 +125,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private AdvancedTypeTextCommand Create(AdvancedTypeTextCommandSpec s)
-        => new(_widgets, _time, s.screenId, s.widgetRoleKey,
+        => new(_widgets, _time, s.screenId, s.roleKey,
             target: s.target,
             text: s.text,
             baseInterval: s.baseInterval,
@@ -134,21 +134,21 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private TypeTextCommand Create(TypeTextCommandSpec s)
-        => new(_widgets, _time, s.screenId, s.widgetRoleKey, waitForCompletion: s.wait,
+        => new(_widgets, _time, s.screenId, s.roleKey, waitForCompletion: s.wait,
             target: s.target,
             text: s.text,
             interval: s.interval
         );
 
     private SetTextCommand Create(SetTextCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             target: s.target,
             text: s.text,
             clearWhenEmpty: s.clearWhenEmpty
         );
 
     private SwayThenDropCommand Create(SwayThenDropCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             swayTarget: s.swayTarget,
             dropTarget: s.dropTarget,
             swayAngle: s.swayAngle,
@@ -163,7 +163,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private FadeLayersCommand Create(FadeLayersCommandSpec s)
-        => new(widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.widgetRoleKey, waitForCompletion: s.wait,
+        => new(widgets: _widgets, screenId: s.screenId, widgetRoleKey: s.roleKey, waitForCompletion: s.wait,
             layers: s.layers,
             toAlpha: s.toAlpha,
             duration: s.duration,
@@ -173,7 +173,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private BouncySlideInCommand Create(BouncySlideInCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             from: s.from,
             slideDistance: s.slideDistance,
@@ -186,7 +186,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
 
 
     private PunchScaleCommand Create(PunchScaleCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             strength: s.strength,
             duration: s.duration,
@@ -196,7 +196,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
 
 
     private ShakeRigsCommand Create(ShakeRigsCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             axis: s.axis,
             intensity: s.intensity,
@@ -207,7 +207,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
 
 
     private SlideInCommand Create(SlideInCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, wait: s.wait,
+        => new(_widgets, s.screenId, s.roleKey, wait: s.wait,
             target: s.target,
             from: s.from,
             distance: s.distance,
@@ -216,7 +216,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private MoveByCommand Create(MoveByCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             delta: s.delta,
             duration: s.duration,
@@ -225,7 +225,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private MoveToCommand Create(MoveToCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             toPosition: s.toPosition,
             duration: s.duration,
@@ -234,7 +234,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private SetRootStageCommand Create(SetRootStageCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             layers: s.layers,
             anchorPreset: s.anchorPreset,
             offset: s.offset,
@@ -242,7 +242,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private SetPositionOffsetCommand Create(SetPositionOffsetCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             target: s.target,
             offset: s.offset,
             resetToZero: s.resetToZero,
@@ -250,14 +250,14 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private SetColorCommand Create(SetColorCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             spriteTarget: s.spriteTarget,
             color: s.color,
             keepAlpha: s.keepAlpha
         );
 
     private ScaleFromToCommand Create(ScaleFromToCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             toScale: s.toScale,
             overrideFromScale: s.overrideFromScale,
@@ -268,14 +268,14 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private SetScaleCommand Create(SetScaleCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             target: s.target,
             toScale: s.toScale,
             killTween: s.killTween
         );
 
     private RotateFromToCommand Create(RotateFromToCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             target: s.target,
             toEuler: s.toEuler,
             overrideFromEuler: s.overrideFromEuler,
@@ -286,20 +286,20 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private SetRotationCommand Create(SetRotationCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.target,
+        => new(_widgets, s.screenId, s.roleKey, s.target,
             toAngle: s.toAngle,
             killTween: s.killTween
         );
 
     private SetSpriteCommand Create(SetSpriteCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey,
+        => new(_widgets, s.screenId, s.roleKey,
             spriteTarget: s.spriteTarget,
             sprite: s.sprite,
             setNativeSize: s.setNativeSize
         );
 
     private ShowTargetsCommand Create(ShowTargetsCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             targetsMask: s.targets,
             duration: s.duration,
             ease: s.ease,
@@ -307,7 +307,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private HideTargetsCommand Create(HideTargetsCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             targetsMask: s.targets,
             duration: s.duration,
             ease: s.ease,
@@ -315,7 +315,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private HideRootLayersCommand Create(HideRootLayersCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             layers: s.layers,
             duration: s.duration,
             ease: s.ease,
@@ -323,7 +323,7 @@ public sealed class NodeCommandFactory : INodeCommandFactory
         );
 
     private ShowRootLayersCommand Create(ShowRootLayersCommandSpec s)
-        => new(_widgets, s.screenId, s.widgetRoleKey, s.wait,
+        => new(_widgets, s.screenId, s.roleKey, s.wait,
             layers: s.layers,
             duration: s.duration,
             ease: s.ease,

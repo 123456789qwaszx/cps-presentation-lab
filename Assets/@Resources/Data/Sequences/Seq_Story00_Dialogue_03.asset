@@ -17,239 +17,421 @@ MonoBehaviour:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
     - editorName: "\uCD08\uAE30\uD654"
-      commands:
-      - rid: 2406591626690953330
-      - rid: 2406591626690953331
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: SetLayer
-      commands:
-      - rid: 2406591603016728662
-      - rid: 2406591603016728663
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: HideTarget
-      commands:
-      - rid: 2406591626690953337
+      tracks:
+        interaction:
+        - rid: 2406591674669334595
+        - rid: 2406591674669334596
+        - rid: 2406591674669334597
+        setup: []
+        motion: []
+        dialogue:
+        - rid: 2406591674669334592
+        - rid: 2406591674669334593
+        - rid: 2406591674669334594
+        fx: []
+      compiled:
+      - rid: 2406591674669334595
+      - rid: 2406591674669334596
+      - rid: 2406591674669334597
+      - rid: 2406591674669334592
+      - rid: 2406591674669334593
+      - rid: 2406591674669334594
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: SetSprite
-      commands:
-      - rid: 2406591603016728665
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: SetText
-      commands:
-      - rid: 2406591611139784780
-      - rid: 2406591611139784779
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: Slide
-      commands:
-      - rid: 2406591611139784774
-      - rid: 2406591611139784777
-      - rid: 2406591611139784778
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: FadeDialogueBox
-      commands:
-      - rid: 2406591611139784782
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: type...
-      commands:
-      - rid: 2406591626690953289
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0.7
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: sway
-      commands:
-      - rid: 2406591626690953291
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uBA54\uC778\uC774\uBBF8\uC9C0\uAD50\uCCB4"
-      commands:
-      - rid: 2406591626690953310
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uAC10\uC815\uC774\uBAA8\uD2F0\uCF58\uC900\uBE44"
-      commands:
-      - rid: 2406591626690953324
-      - rid: 2406591626690953339
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: TypeText(advanced)
-      commands:
-      - rid: 2406591626690953288
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0.2
         signalKey: 
     - editorName: "\uAC10\uC815\uC774\uBAA8\uD2F0\uCF58\uCD94\uAC00"
-      commands:
-      - rid: 2406591626690953341
-      - rid: 2406591626690953340
-      - rid: 2406591626690953312
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: TypeText(advanced)
-      commands:
-      - rid: 2406591626690953294
-      - rid: 2406591626690953292
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
-      commands:
-      - rid: 2406591626690953313
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uBA54\uC778\uC774\uBBF8\uC9C0\uAD50\uCCB4"
-      commands:
-      - rid: 2406591626690953346
-      - rid: 2406591626690953348
-      - rid: 2406591626690953347
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 2
         seconds: 1.5
         signalKey: 
     - editorName: Persistency
-      commands:
-      - rid: 2406591632223240262
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
-      commands:
-      - rid: 2406591626690953358
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 2
         seconds: 1.5
         signalKey: 
     - editorName: -----------------------------------------------
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC774\uBAA8\uD2F0\uCF58 \uD68C\uC804"
-      commands:
-      - rid: 2406591626690953359
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 2
         seconds: 1.5
         signalKey: 
     - editorName: 
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 3
         seconds: 0
         signalKey: qwe
     - editorName: Persistency
-      commands:
-      - rid: 2406591632223240258
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: Persistency
-      commands:
-      - rid: 2406591632223240261
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: stopPersistency
-      commands:
-      - rid: 2406591632223240256
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: Persistency
-      commands:
-      - rid: 2406591632223240255
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 1
         seconds: 0
@@ -257,352 +439,99 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2406591603016728662
+    - rid: 2406591674669334592
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 251
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        layers: 2043
         duration: 0
         ease: 1
-        wait: 0
+        wait: 1
         disableInteraction: 1
-    - rid: 2406591603016728663
-      type: {class: ShowRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 11
-        duration: 0
-        ease: 1
-        wait: 0
-        enableInteraction: 1
-    - rid: 2406591603016728665
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
-        setNativeSize: 0
-    - rid: 2406591611139784774
-      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 510
-        offset: {x: 0, y: 0}
-        resetToZero: 1
-        killTween: 1
-    - rid: 2406591611139784777
-      type: {class: BouncySlideInCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 510
-        from: 0
-        slideDistance: 480
-        slideDuration: 1.2
-        slideEase: 9
-        waveAmplitude: 12
-        waveLoops: 4
-        waveAxis: 1
-        wait: 0
-    - rid: 2406591611139784778
-      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 8
-        toAlpha: 1
-        fromAlpha: 0
-        duration: 0.7
-        ease: 9
-        wait: 0
-        addIfMissing: 1
-    - rid: 2406591611139784779
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 10
-        text: 
-        clearWhenEmpty: 1
-    - rid: 2406591611139784780
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 40
-        text: ???
-        clearWhenEmpty: 1
-    - rid: 2406591611139784782
-      type: {class: FadeLayersCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 64
-        toAlpha: 1
-        fromAlpha: 0.1
-        duration: 0.8
-        ease: 9
-        wait: 0
-        addIfMissing: 1
-    - rid: 2406591626690953288
-      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 10
-        text: "<speed0.5>\uC5B4\uC11C\uC640~~"
-        baseInterval: 0.2
-        defaultPauseSeconds: 0.25
-        wait: 0
-    - rid: 2406591626690953289
-      type: {class: SetTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 10
-        text: ...
-        clearWhenEmpty: 1
-    - rid: 2406591626690953291
-      type: {class: SwayThenDropCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        swayTarget: 530
-        dropTarget: 510
-        swayAngle: 12
-        swayLoops: 3
-        swayDuration: 1.5
-        dropDistance: 0
-        dropDuration: 0
-        dropAngle: 0
-        dropEase: 8
-        wait: 1
-        swayForwardEase: 6
-        swayDecay: 1
-        dropStartRatio: 0.3
-    - rid: 2406591626690953292
-      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 10
-        text: "<speed0.4> \uD639\uC2DC \uB108\uC758 \uC6B4\uC744...<wait0.1> <speed0.25>\uC2DC\uD5D8\uD574\uBCF4\uC9C0
-          \uC54A\uC744\uB798??"
-        baseInterval: 0.2
-        defaultPauseSeconds: 0.25
-        wait: 0
-    - rid: 2406591626690953294
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        seconds: 0.1
-        respectTimeScale: 1
-    - rid: 2406591626690953310
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 99dda86e5896b464593debe1f48efbbe, type: 3}
-        setNativeSize: 0
-    - rid: 2406591626690953312
-      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        targets: 128
-        duration: 0.4
-        ease: 1
-        wait: 1
-        enableInteraction: 1
-    - rid: 2406591626690953313
-      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 590
-        toEuler: {x: 0, y: 180, z: 0}
-        overrideFromEuler: 1
-        fromEuler: {x: 0, y: 0, z: 0}
-        duration: 1.2
-        ease: 9
-        wait: 0
-        killTween: 0
-    - rid: 2406591626690953324
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        spriteTarget: 3
-        sprite: {fileID: 21300000, guid: 805bcba044e4afb48b4380fe9a215140, type: 3}
-        setNativeSize: 0
-    - rid: 2406591626690953330
-      type: {class: SetRootStageCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        layers: 8
-        anchorPreset: 0
-        offset: {x: 0, y: 0}
-        killTween: 1
-    - rid: 2406591626690953331
-      type: {class: SetPositionOffsetCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 510
-        offset: {x: 0, y: 0}
-        resetToZero: 1
-        killTween: 1
-    - rid: 2406591626690953337
+    - rid: 2406591674669334593
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        targets: 136
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: 0
         duration: 0
         ease: 1
-        wait: 0
-        disableInteraction: 0
-    - rid: 2406591626690953339
-      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591674669334594
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 590
-        toScale: {x: 0.1, y: 0.1}
-        killTween: 1
-    - rid: 2406591626690953340
-      type: {class: PunchScaleCommandSpec, ns: , asm: Assembly-CSharp}
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: 0
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591674669334595
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 590
-        strength: 0.2
-        duration: 0.4
-        vibrato: 2
-        elasticity: 0.75
-        wait: 0
-    - rid: 2406591626690953341
-      type: {class: SetScaleCommandSpec, ns: , asm: Assembly-CSharp}
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        layers: 2043
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591674669334596
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        target: 590
-        toScale: {x: 1, y: 1}
-        killTween: 1
-    - rid: 2406591626690953346
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: 0
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591674669334597
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 00143ef6b4ee9d54ea475f7478f220f3, type: 3}
-        setNativeSize: 0
-    - rid: 2406591626690953347
-      type: {class: SetSpriteCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        spriteTarget: 0
-        sprite: {fileID: 21300000, guid: 165385ee6f6b5ea4f9945e8adfbce243, type: 3}
-        setNativeSize: 0
-    - rid: 2406591626690953348
-      type: {class: WaitCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_10
-        widgetRoleKey: dialogue
-        seconds: 0.08
-        respectTimeScale: 1
-    - rid: 2406591626690953358
-      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 590
-        toEuler: {x: 0, y: 360, z: 0}
-        overrideFromEuler: 1
-        fromEuler: {x: 0, y: 180, z: 0}
-        duration: 1.2
-        ease: 9
-        wait: 0
-        killTween: 0
-    - rid: 2406591626690953359
-      type: {class: RotateFromToCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 590
-        toEuler: {x: 0, y: 360, z: 0}
-        overrideFromEuler: 1
-        fromEuler: {x: 0, y: 540, z: 0}
-        duration: 1.2
-        ease: 9
-        wait: 0
-        killTween: 0
-    - rid: 2406591632223240255
-      type: {class: BubblePulseCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 570
-        effectKey: qwe
-        maxScale: 1.04
-        periodSeconds: 0.8
-        startDelay: 0
-        replacePolicy: 0
-        ignoreWhenSkipping: 1
-    - rid: 2406591632223240256
-      type: {class: StopPersistentEffectCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        effectKey: qwe
-        policy: 0
-        executeEvenIfSkipping: 1
-    - rid: 2406591632223240258
-      type: {class: BlinkAlphaPersistentCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 570
-        effectKey: 
-        minAlpha: 0.25
-        maxAlpha: 1
-        halfPeriodSeconds: 0.35
-        startDelay: 0
-        ease: 4
-        replacePolicy: 0
-        ignoreWhenSkipping: 1
-    - rid: 2406591632223240261
-      type: {class: GlowColorPersistentCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 20
-        effectKey: 
-        glowColor: {r: 0.84370637, g: 1, b: 0, a: 1}
-        glowStrength: 0.35
-        halfPeriodSeconds: 0.45
-        ease: 4
-        startDelay: 0
-        replacePolicy: 0
-        ignoreWhenSkipping: 1
-    - rid: 2406591632223240262
-      type: {class: BobYPersistentCommandSpec, ns: , asm: Assembly-CSharp}
-      data:
-        screenId: lab/ui/dialogue_02
-        widgetRoleKey: dialogue
-        target: 510
-        effectKey: 
-        amplitudeY: 10
-        halfPeriodSeconds: 0.6
-        ease: 4
-        startDelay: 0
-        replacePolicy: 0
-        ignoreWhenSkipping: 1
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: 0
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1

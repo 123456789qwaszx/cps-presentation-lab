@@ -17,78 +17,168 @@ MonoBehaviour:
   - editorName: juno...
     steps:
     - editorName: "\uD0C0\uC774\uD551 \uC5C6\uC774 \uD0C1 \uB728\uB294 \uB300\uC0AC"
-      commands: []
+      tracks:
+        interaction:
+        - rid: 2406591674669334591
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled:
+      - rid: 2406591674669334591
       gate:
         type: 1
         seconds: 0
         signalKey: 
     - editorName: "\uC77C\uBC18\uC801\uC778 \uD0C0\uC790\uCE58\uB294 \uB77C\uC778"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uCE90\uB9AD\uD130 \uB4F1\uC7A5 \uC138\uD2B8"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uCE90\uB9AD\uD130 \uD1F4\uC7A5 \uC138\uD2B8"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uCE90\uB9AD\uD130 \uD45C\uC815 \uBCC0\uACBD"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uB300\uC0AC \uAC15\uC870"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC774\uBAA8\uC9C0\uD788\uD2B8\uC5F0\uCD9C"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uBC30\uACBD \uD398\uC774\uB4DC"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC120\uD0DD\uC9C0\uD328\uB110/\uC2DC\uC2A4\uD15C\uD328\uB110
         \uB4F1\uC7A5"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC120\uD0DD\uC9C0 \uB2EB\uAE30"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "0.2~0.4\uCD08 \uC815\uC801"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
     - editorName: "\uC2DC\uADF8\uB110 \uB300\uAE30"
-      commands: []
+      tracks:
+        interaction: []
+        setup: []
+        motion: []
+        dialogue: []
+        fx: []
+      compiled: []
       gate:
         type: 0
         seconds: 0
         signalKey: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2406591674669334591
+      type: {class: AdvancedTypeTextCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: 
+        widgetRoleKey: 
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        target: 20
+        text: 
+        baseInterval: 0.06
+        defaultPauseSeconds: 0.25
+        wait: 1
