@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77efca1a7ac39ca499c3be8e21666640, type: 3}
   m_Name: Seq_Story00_Dialogue_03
   m_EditorClassIdentifier: Assembly-CSharp::SequenceSpecSO
-  sequenceKey: story00.dialogue.02
+  sequenceKey: story00.dialogue.3
   nodes:
   - editorName: "\uCCAB\uB4F1\uC7A5"
     steps:
     - editorName: "\uCD08\uAE30\uD654"
       tracks:
         interaction: []
-        setup: []
+        setup:
+        - rid: 2406591677790683206
+        - rid: 2406591677790683207
+        - rid: 2406591677790683208
         motion: []
         dialogue: []
         fx: []
-      compiled: []
+      compiled:
+      - rid: 2406591677790683206
+      - rid: 2406591677790683207
+      - rid: 2406591677790683208
       gate:
         type: 0
         seconds: 0
@@ -442,8 +448,8 @@ MonoBehaviour:
     - rid: 2406591674669334592
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
@@ -458,8 +464,8 @@ MonoBehaviour:
     - rid: 2406591674669334593
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
@@ -474,8 +480,8 @@ MonoBehaviour:
     - rid: 2406591674669334594
       type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
@@ -490,8 +496,8 @@ MonoBehaviour:
     - rid: 2406591674669334595
       type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
@@ -506,8 +512,8 @@ MonoBehaviour:
     - rid: 2406591674669334596
       type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
@@ -522,8 +528,56 @@ MonoBehaviour:
     - rid: 2406591674669334597
       type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
       data:
-        screenId: 
-        widgetRoleKey: 
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: 0
+        duration: 0
+        ease: 1
+        wait: 1
+        enableInteraction: 1
+    - rid: 2406591677790683206
+      type: {class: HideRootLayersCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        layers: 2043
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591677790683207
+      type: {class: HideTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
+        _meta:
+          track: 10
+          phase: 0
+          blockingHint: 0
+          infiniteHint: 0
+          durationHint: 0
+        targets: -1
+        duration: 0
+        ease: 1
+        wait: 1
+        disableInteraction: 1
+    - rid: 2406591677790683208
+      type: {class: ShowTargetsCommandSpec, ns: , asm: Assembly-CSharp}
+      data:
+        screenId: lab/ui/dialogue_10
+        roleKey: dialogue
         _meta:
           track: 10
           phase: 0
